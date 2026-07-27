@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BASCODE — منصة الخدمات الرقمية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Tajawal',sans-serif;
+      background:#0a0a0f;color:#f1f5f9;
+      overflow-x:hidden;line-height:1.6
+    }
+    body.ltr{font-family:'Inter',sans-serif;direction:ltr}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    button{cursor:pointer;border:none;background:none;font-family:inherit}
+    input,textarea,select{font-family:inherit;outline:none}
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-track{background:#0a0a0f}
+    ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#00ff41,#00bfff);border-radius:8px}
+
+    :root{
+      --p:#00ff41;--pd:#00cc33;--pl:#66ff99;
+      --a:#00bfff;--ad:#0099cc;
+      --s:#10b981;--d:#ef4444;--w:#f59e0b;
+      --bg:#0a0a0f;--bg2:#0d0d1a;--card:#0f0f20;--ch:#1a1a35;
+      --t:#f1f5f9;--t2:#94a3b8;--t3:#64748b;
+      --b:#1a1a35;--b2:#2a2a50;
+      --r:12px;--rl:16px;--rx:24px
+    }
+
+    /* Three.js Canvas — الخلفية الثلاثية الأبعاد */
+    #bgCanvas{
+      position:fixed;top:0;left:0;width:100vw;height:100vh;
+      z-index:0;pointer-events:none;
+      opacity:0.85
+    }
+    .content{position:relative;z-index:1;min-height:100vh}
+
+    /* ====== NAVBAR ====== */
+    .navbar{
+      position:fixed;top:0;left:0;right:0;z-index:999;
+      height:72px;padding:0 32px;
+      display:flex;align-items:center;justify-content:space-between;
+      background:rgba(10,10,15,.92);backdrop-filter:blur(24px);
+      border-bottom:1px solid rgba(0,255,65,.08)
+    }
+    .nav-logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.5rem}
+    .nav-logo-icon{
+      width:42px;height:42px;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      border-radius:12px;display:flex;align-items:center;justify-content:center;
+      color:#0a0a0f;font-weight:900;font-size:1.2rem
+    }
+    .nav-logo-text{
+      background:linear-gradient(135deg,var(--p),var(--a));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      font-family:'JetBrains Mono',monospace
+    }
+    .nav-links{display:flex;align-items:center;gap:8px}
+    .nav-links a{
+      padding:8px 16px;border-radius:999px;
+      font-size:.875rem;font-weight:500;color:var(--t2);
+      transition:all .3s
+    }
+    .nav-links a:hover,.nav-links a.active{
+      background:rgba(0,255,65,.08);color:var(--p)
+    }
+    .nav-actions{display:flex;align-items:center;gap:12px}
+    .nav-btn{
+      width:40px;height:40px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--t2);font-size:1.1rem;transition:all .3s;position:relative
+    }
+    .nav-btn:hover{background:rgba(0,255,65,.08);color:var(--p)}
+    .nav-btn .badge{
+      position:absolute;top:-4px;right:-4px;
+      width:18px;height:18px;border-radius:50%;
+      background:var(--d);color:#fff;font-size:.65rem;
+      display:flex;align-items:center;justify-content:center;font-weight:700
+    }
+    .mobile-toggle{display:none;width:40px;height:40px;align-items:center;justify-content:center;font-size:1.3rem;color:var(--t2)}
+    .mobile-menu{
+      position:fixed;top:72px;left:0;right:0;bottom:0;
+      background:rgba(10,10,15,.98);backdrop-filter:blur(30px);
+      z-index:998;padding:24px;
+      transform:translateX(100%);transition:transform .4s;overflow-y:auto
+    }
+    body.ltr .mobile-menu{transform:translateX(-100%)}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu a{
+      display:flex;align-items:center;gap:14px;
+      padding:16px 20px;border-radius:var(--r);
+      font-weight:500;font-size:1rem;color:var(--t2);
+      border-bottom:1px solid var(--b);transition:all .3s
+    }
+    .mobile-menu a:hover{background:rgba(0,255,65,.08);color:var(--p)}
+    .mobile-menu a i{width:20px;color:var(--p)}
+
+    /* ====== HERO ====== */
+    .hero{
+      min-height:85vh;display:flex;align-items:center;justify-content:center;
+      padding:120px 32px 60px;text-align:center
+    }
+    .hero-content{max-width:920px}
+    .hero h1{
+      font-size:clamp(2.2rem,6vw,4rem);font-weight:800;
+      line-height:1.1;margin-bottom:16px
+    }
+    .hero h1 .gt{
+      background:linear-gradient(135deg,var(--p),var(--a));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      font-family:'JetBrains Mono',monospace
+    }
+    .hero p{
+      font-size:clamp(1rem,1.8vw,1.15rem);color:var(--t2);
+      max-width:640px;margin:0 auto 32px;line-height:1.8
+    }
+    .hero-search{
+      display:flex;align-items:center;
+      background:rgba(15,15,32,.85);backdrop-filter:blur(12px);
+      border-radius:var(--rl);padding:8px;
+      box-shadow:0 20px 60px rgba(0,0,0,.6);
+      border:1px solid rgba(0,255,65,.15);max-width:640px;margin:0 auto
+    }
+    .hero-search input{
+      flex:1;border:none;background:none;
+      padding:14px 16px;font-size:1rem;color:var(--t)
+    }
+    .hero-search input::placeholder{color:var(--t3)}
+    .hero-search button{
+      padding:12px 28px;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      color:#0a0a0f;border-radius:var(--r);font-weight:700;
+      font-size:.9rem;transition:all .3s;display:flex;align-items:center;gap:8px
+    }
+    .hero-search button:hover{box-shadow:0 8px 25px rgba(0,255,65,.3)}
+    .hero-stats{
+      display:flex;gap:40px;justify-content:center;margin-top:40px;
+      flex-wrap:wrap
+    }
+    .hero-stat{text-align:center}
+    .hero-stat .num{
+      font-size:1.8rem;font-weight:800;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .hero-stat .lbl{font-size:.8rem;color:var(--t3);margin-top:2px}
+
+    /* ====== CATEGORIES ====== */
+    .section{padding:60px 32px}
+    .section-title{text-align:center;margin-bottom:48px}
+    .section-title h2{
+      font-size:clamp(1.5rem,3.5vw,2.2rem);font-weight:700;
+      margin-bottom:8px
+    }
+    .section-title p{color:var(--t2);font-size:.95rem;max-width:500px;margin:0 auto}
+    .cats-grid,.svcs-grid{
+      display:grid;gap:16px;
+      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+      max-width:1100px;margin:0 auto
+    }
+    .svcs-grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+    .cat-card{
+      text-align:center;padding:24px 16px;
+      background:rgba(15,15,32,.7);backdrop-filter:blur(8px);
+      border:1px solid rgba(0,255,65,.08);border-radius:var(--rl);
+      transition:all .3s;cursor:pointer
+    }
+    .cat-card:hover{
+      border-color:rgba(0,255,65,.3);
+      transform:translateY(-4px);
+      box-shadow:0 12px 40px rgba(0,255,65,.08)
+    }
+    .cat-card .ci{font-size:2rem;margin-bottom:8px}
+    .cat-card h4{font-size:.9rem;font-weight:600}
+    .cat-card span{font-size:.75rem;color:var(--t3)}
+
+    /* ====== SERVICE CARDS ====== */
+    .svc-card{
+      background:rgba(15,15,32,.7);backdrop-filter:blur(8px);
+      border:1px solid rgba(0,255,65,.08);border-radius:var(--rl);
+      padding:28px 24px;transition:all .3s;cursor:pointer
+    }
+    .svc-card:hover{
+      border-color:rgba(0,255,65,.25);
+      transform:translateY(-4px);
+      box-shadow:0 16px 48px rgba(0,255,65,.06)
+    }
+    .svc-card .icon{
+      width:48px;height:48px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.3rem;margin-bottom:16px
+    }
+    .svc-card h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+    .svc-card p{font-size:.85rem;color:var(--t2);line-height:1.6;margin-bottom:12px}
+    .svc-card .foot{display:flex;align-items:center;justify-content:space-between}
+    .svc-card .price{
+      font-size:1.2rem;font-weight:700;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .svc-card .tag{
+      padding:4px 12px;border-radius:999px;
+      background:rgba(0,255,65,.1);color:var(--p);
+      font-size:.7rem;font-weight:500
+    }
+
+    /* ====== MODALS ====== */
+    .modal-overlay{
+      position:fixed;top:0;left:0;right:0;bottom:0;
+      z-index:1000;background:rgba(0,0,0,.75);
+      backdrop-filter:blur(6px);
+      display:none;align-items:center;justify-content:center;
+      padding:24px;
+      animation:fadeIn .3s
+    }
+    .modal-overlay.active{display:flex}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    .modal{
+      background:rgba(15,15,32,.95);backdrop-filter:blur(20px);
+      border:1px solid rgba(0,255,65,.12);
+      border-radius:var(--rx);padding:32px;
+      max-width:800px;width:100%;max-height:90vh;overflow-y:auto;
+      animation:slideUp .35s
+    }
+    @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:none;opacity:1}}
+    .modal-header{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:24px
+    }
+    .modal-header h2{font-size:1.3rem}
+    .modal-close{
+      width:36px;height:36px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.05);color:var(--t2);
+      transition:all .3s;font-size:1rem
+    }
+    .modal-close:hover{background:rgba(239,68,68,.2);color:var(--d)}
+
+    .tpl-grid{
+      display:grid;gap:12px;
+      grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+      margin:16px 0 24px
+    }
+    .tpl-card{
+      padding:20px;border-radius:var(--r);
+      border:1px solid var(--b);background:rgba(10,10,15,.6);
+      text-align:center;cursor:pointer;transition:all .3s;position:relative
+    }
+    .tpl-card:hover,.tpl-card.selected{
+      border-color:var(--p);background:rgba(0,255,65,.05)
+    }
+    .tpl-card .tpl-icon{font-size:1.8rem;margin-bottom:8px;color:var(--a)}
+    .tpl-card h4{font-size:.9rem;margin-bottom:4px}
+    .tpl-card p{font-size:.75rem;color:var(--t3)}
+    .tpl-card .tpl-price{
+      font-size:.85rem;font-weight:700;color:var(--p);margin-top:8px
+    }
+    .tpl-card .check{
+      position:absolute;top:8px;right:8px;width:22px;height:22px;
+      border-radius:50%;background:var(--p);color:#0a0a0f;
+      display:none;align-items:center;justify-content:center;font-size:.6rem
+    }
+    .tpl-card.selected .check{display:flex}
+
+    .opt-grid{display:flex;flex-direction:column;gap:8px;margin:16px 0 24px}
+    .opt-item{
+      display:flex;align-items:center;gap:12px;
+      padding:12px 16px;border-radius:var(--r);
+      border:1px solid var(--b);background:rgba(10,10,15,.4)
+    }
+    .opt-item input[type=checkbox]{width:16px;height:16px;accent-color:var(--p)}
+    .opt-item label{flex:1;font-size:.9rem}
+    .opt-item .opt-price{font-size:.85rem;color:var(--a);font-weight:600}
+
+    .order-summary{
+      background:rgba(0,255,65,.05);border:1px solid rgba(0,255,65,.15);
+      border-radius:var(--r);padding:16px;margin:16px 0
+    }
+    .order-summary .row{display:flex;justify-content:space-between;padding:4px 0;font-size:.85rem}
+    .order-summary .row.total{font-weight:700;font-size:1rem;margin-top:8px;padding-top:8px;border-top:1px solid rgba(0,255,65,.1)}
+    .order-summary .row.total .val{color:var(--p)}
+
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-size:.85rem;color:var(--t2);margin-bottom:4px}
+    .form-group input,.form-group textarea{
+      width:100%;padding:12px;border-radius:var(--r);
+      border:1px solid var(--b);background:rgba(10,10,15,.5);
+      color:var(--t);font-size:.9rem;transition:all .3s
+    }
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--p)}
+
+    .btn-primary{
+      padding:14px 32px;border-radius:var(--r);
+      background:linear-gradient(135deg,var(--p),var(--a));
+      color:#0a0a0f;font-weight:700;font-size:.95rem;
+      transition:all .3s;width:100%;text-align:center
+    }
+    .btn-primary:hover{box-shadow:0 8px 25px rgba(0,255,65,.3)}
+    .btn-secondary{
+      padding:14px 32px;border-radius:var(--r);
+      background:rgba(255,255,255,.05);color:var(--t2);
+      font-weight:600;font-size:.9rem;transition:all .3s;
+      border:1px solid var(--b);width:100%;text-align:center
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,.08)}
+
+    .step-nav{display:flex;gap:12px;margin-top:16px}
+    .step-nav .btn-primary{flex:1}
+    .step-nav .btn-secondary{flex:1}
+
+    .ok-modal .modal{max-width:400px;text-align:center}
+    .ok-modal .big-icon{font-size:3.5rem;margin-bottom:16px}
+    .ok-modal h3{font-size:1.3rem;margin-bottom:8px}
+    .ok-modal p{color:var(--t2);font-size:.9rem;margin-bottom:24px}
+    .ok-modal .btn-primary{max-width:200px;margin:0 auto}
+
+    /* ====== AI FLOAT BUTTON ====== */
+    .ai-float-btn{
+      position:fixed;bottom:30px;left:30px;z-index:100;
+      width:65px;height:65px;border-radius:50%;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      color:#0a0a0f;font-size:1.6rem;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 30px rgba(0,255,65,.35);
+      transition:all .3s;border:2px solid rgba(255,255,255,.1)
+    }
+    .ai-float-btn:hover{
+      transform:scale(1.1) rotate(-5deg);
+      box-shadow:0 12px 40px rgba(0,255,65,.5)
+    }
+    .ai-pulse{
+      position:absolute;width:100%;height:100%;border-radius:50%;
+      background:rgba(0,255,65,.3);animation:pulse 2s infinite
+    }
+    @keyframes pulse{
+      0%{transform:scale(1);opacity:0.5}
+      100%{transform:scale(1.5);opacity:0}
+    }
+
+    /* ====== AI CHAT MODAL ====== */
+    .ai-modal .modal{
+      max-width:420px;max-height:85vh;padding:0;
+      display:flex;flex-direction:column
+    }
+    .ai-header{
+      padding:20px 24px;
+      background:linear-gradient(135deg,rgba(0,255,65,.08),rgba(0,191,255,.08));
+      border-bottom:1px solid rgba(0,255,65,.1);
+      display:flex;align-items:center;gap:12px
+    }
+    .ai-header .ai-avatar{
+      width:40px;height:40px;border-radius:50%;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;color:#0a0a0f;font-weight:700
+    }
+    .ai-header h3{font-size:1rem;font-weight:600}
+    .ai-header p{font-size:.75rem;color:var(--t3)}
+    .ai-header .ai-close{
+      margin-right:auto;width:32px;height:32px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.05);color:var(--t2);transition:all .3s
+    }
+    .ai-header .ai-close:hover{background:rgba(239,68,68,.2);color:var(--d)}
+    .ai-messages{
+      flex:1;padding:20px 24px;overflow-y:auto;
+      max-height:55vh;min-height:300px;
+      display:flex;flex-direction:column;gap:10px
+    }
+    .ai-msg{
+      max-width:88%;padding:12px 16px;border-radius:12px;
+      font-size:.85rem;line-height:1.5;animation:msgIn .3s
+    }
+    @keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .ai-msg.bot{
+      align-self:flex-start;
+      background:rgba(15,15,32,.8);border:1px solid rgba(0,255,65,.1);
+      border-radius:12px 12px 12px 4px
+    }
+    .ai-msg.user{
+      align-self:flex-end;
+      background:rgba(0,255,65,.1);border:1px solid rgba(0,255,65,.15);
+      border-radius:12px 12px 4px 12px;color:var(--p)
+    }
+    .ai-msg .typing{
+      display:flex;gap:4px;padding:4px 0
+    }
+    .ai-msg .typing span{
+      width:8px;height:8px;border-radius:50%;
+      background:var(--t3);animation:typingB 1s infinite
+    }
+    .ai-msg .typing span:nth-child(2){animation-delay:.2s}
+    .ai-msg .typing span:nth-child(3){animation-delay:.4s}
+    @keyframes typingB{
+      0%,60%,100%{opacity:0.3;transform:scale(0.8)}
+      30%{opacity:1;transform:scale(1)}
+    }
+    .ai-quick-btn{
+      padding:8px 14px;border-radius:999px;font-size:.8rem;
+      border:1px solid rgba(0,255,65,.2);color:var(--t2);
+      background:rgba(10,10,15,.5);transition:all .3s
+    }
+    .ai-quick-btn:hover{
+      border-color:var(--p);color:var(--p);background:rgba(0,255,65,.08)
+    }
+    .ai-input-wrap{
+      padding:12px 16px 16px;border-top:1px solid var(--b);
+      display:flex;gap:8px
+    }
+    .ai-input-wrap input{
+      flex:1;padding:12px 16px;border-radius:999px;
+      border:1px solid var(--b);background:rgba(10,10,15,.6);
+      color:var(--t);font-size:.85rem
+    }
+    .ai-input-wrap input:focus{border-color:var(--p)}
+    .ai-input-wrap button{
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,var(--p),var(--a));
+      color:#0a0a0f;display:flex;align-items:center;justify-content:center;
+      transition:all .3s;flex-shrink:0
+    }
+    .ai-input-wrap button:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,255,65,.3)}
+
+    /* ====== FOOTER ====== */
+    .footer{
+      padding:40px 32px;text-align:center;
+      border-top:1px solid var(--b);margin-top:60px
+    }
+    .footer .fl{
+      font-size:1.8rem;font-weight:800;margin-bottom:8px
+    }
+    .footer .fl s{color:var(--p)}
+    .footer p{color:var(--t3);font-size:.8rem}
+
+    /* ====== RESPONSIVE ====== */
+    @media(max-width:768px){
+      .nav-links,.nav-actions{display:none}
+      .mobile-toggle{display:flex}
+      .hero{padding:100px 20px 40px}
+      .section{padding:40px 20px}
+      .cats-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+      .svcs-grid{grid-template-columns:1fr}
+      .modal{padding:24px;max-width:100%;max-height:95vh}
+      .tpl-grid{grid-template-columns:1fr 1fr}
+      .ai-modal .modal{max-width:100%;margin:0;border-radius:0;height:100vh;max-height:100vh}
+      .ai-float-btn{bottom:20px;left:20px;width:56px;height:56px;font-size:1.3rem}
+    }
+    @media(max-width:480px){
+      .tpl-grid{grid-template-columns:1fr}
+      .hero-stats{gap:20px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- خلفية Three.js ثلاثية الأبعاد -->
+<div id="bgCanvas"></div>
+
+<div class="content">
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">B</div>
+    <div class="nav-logo-text">BASCODE</div>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="active" onclick="filterCat('all')"><i class="fas fa-th"></i> <span>الكل</span></a>
+    <a href="#" onclick="filterCat('design')"><i class="fas fa-palette"></i> <span>تصميم</span></a>
+    <a href="#" onclick="filterCat('dev')"><i class="fas fa-code"></i> <span>تطوير</span></a>
+    <a href="#" onclick="filterCat('marketing')"><i class="fas fa-bullhorn"></i> <span>تسويق</span></a>
+    <a href="#" onclick="filterCat('security')"><i class="fas fa-shield"></i> <span>أمن</span></a>
+    <a href="#" onclick="filterCat('writing')"><i class="fas fa-pen-fancy"></i> <span>كتابة</span></a>
+  </div>
+  <div class="nav-actions">
+    <button class="nav-btn" title="EN/عربي" onclick="toggleLang()"><i class="fas fa-globe"></i></button>
+  </div>
+  <button class="mobile-toggle" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <i class="fas fa-bars"></i>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="filterCat('all');document.getElementById('mobileMenu').classList.remove('open')"><i class="fas fa-th"></i> الكل</a>
+  <a href="#" onclick="filterCat('design')"><i class="fas fa-palette"></i> تصميم</a>
+  <a href="#" onclick="filterCat('dev')"><i class="fas fa-code"></i> تطوير</a>
+  <a href="#" onclick="filterCat('marketing')"><i class="fas fa-bullhorn"></i> تسويق</a>
+  <a href="#" onclick="filterCat('security')"><i class="fas fa-shield"></i> أمن</a>
+  <a href="#" onclick="filterCat('writing')"><i class="fas fa-pen-fancy"></i> كتابة</a>
+  <hr style="border-color:var(--b);margin:16px 0">
+  <a href="#" onclick="toggleLang();document.getElementById('mobileMenu').classList.remove('open')"><i class="fas fa-globe"></i> EN/عربي</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>منصة <span class="gt">BASCODE</span> <br>للخدمات الرقمية</h1>
+    <p>نقدم لك خدمات احترافية في التصميم، التطوير، التسويق، الأمن السيبراني، والكتابة — بجودة عالمية وأسعار منافسة</p>
+    <div class="hero-search">
+      <input type="text" id="searchInput" placeholder="ابحث عن خدمة... تصميم، تطوير، تسويق..." oninput="searchSvcs(this.value)">
+      <button onclick="searchSvcs(document.getElementById('searchInput').value)"><i class="fas fa-search"></i> بحث</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">15+</div><div class="lbl">خدمة احترافية</div></div>
+      <div class="hero-stat"><div class="num">50+</div><div class="lbl">قالب جاهز</div></div>
+      <div class="hero-stat"><div class="num">24h</div><div class="lbl">مدة التسليم</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CATEGORIES ====== -->
+<section class="section" id="catsSection">
+  <div class="section-title">
+    <h2>التصنيفات</h2>
+    <p>تصفح الخدمات حسب التصنيف</p>
+  </div>
+  <div class="cats-grid" id="catsGrid"></div>
+</section>
+
+<!-- ====== SERVICES ====== -->
+<section class="section" style="padding-top:0">
+  <div class="section-title">
+    <h2>جميع الخدمات</h2>
+    <p>اختر الخدمة المناسبة لمشروعك</p>
+  </div>
+  <div class="svcs-grid" id="svcsGrid"></div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="fl"><s>BASCODE</s></div>
+  <p>© 2025 — منصة الخدمات الرقمية</p>
+</footer>
+
+<!-- ====== SERVICE MODAL ====== -->
+<div class="modal-overlay" id="svcModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">اسم الخدمة</h2>
+      <button class="modal-close" onclick="closeSvc()"><i class="fas fa-times"></i></button>
+    </div>
+    <p id="modalDesc" style="color:var(--t2);font-size:.9rem;margin-bottom:16px"></p>
+
+    <div id="step1">
+      <h4 style="font-size:.95rem;margin-bottom:8px">اختر القالب:</h4>
+      <div class="tpl-grid" id="tplGrid"></div>
+
+      <h4 style="font-size:.95rem;margin-bottom:8px">الإضافات:</h4>
+      <div class="opt-grid" id="optGrid"></div>
+
+      <hr style="border-color:var(--b);margin:16px 0">
+
+      <h4 style="font-size:.9rem;margin-bottom:8px">ملخص الطلب:</h4>
+      <div class="order-summary">
+        <div class="row"><span>القالب</span><span id="sumTpl">لم يتم الاختيار</span></div>
+        <div class="row"><span>الإضافات</span><span id="sumAdd">لا شيء</span></div>
+        <div class="row total"><span>الإجمالي</span><span class="val" id="sumTotal">$0</span></div>
+      </div>
+
+      <button class="btn-primary" id="step1Btn" onclick="goStep2()" style="opacity:0.5">متابعة ←</button>
+    </div>
+
+    <div id="step2" style="display:none">
+      <h4 style="font-size:.95rem;margin-bottom:12px">بيانات العميل</h4>
+      <div class="order-summary" style="margin-bottom:16px">
+        <div class="row"><span>الخدمة</span><span id="finSvc"></span></div>
+        <div class="row"><span>القالب</span><span id="finTpl"></span></div>
+        <div class="row"><span>الإضافات</span><span id="finAdd"></span></div>
+        <div class="row total"><span>الإجمالي</span><span class="val" id="finTotal"></span></div>
+      </div>
+
+      <div class="form-group">
+        <label>الاسم الكامل *</label>
+        <input type="text" id="cliName" placeholder="أدخل اسمك">
+      </div>
+      <div class="form-group">
+        <label>رقم الجوال *</label>
+        <input type="tel" id="cliPhone" placeholder="+966 50 000 0000">
+      </div>
+      <div class="form-group">
+        <label>البريد الإلكتروني *</label>
+        <input type="email" id="cliEmail" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label>ملاحظات إضافية</label>
+        <textarea id="cliNotes" rows="2" placeholder="أي ملاحظات..."></textarea>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-secondary" onclick="backStep1()">→ رجوع</button>
+        <button class="btn-primary" onclick="submitOrder()">إرسال الطلب ✓</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== SUCCESS MODAL ====== -->
+<div class="modal-overlay ok-modal" id="okModal">
+  <div class="modal">
+    <div class="big-icon">🎉</div>
+    <h3>تم إرسال طلبك!</h3>
+    <p>سيتم التواصل معك عبر البريد الإلكتروني خلال 24 ساعة</p>
+    <button class="btn-primary" onclick="closeOk()">تم</button>
+  </div>
+</div>
+
+<!-- ====== AI CHAT FLOAT BUTTON ====== -->
+<button class="ai-float-btn" onclick="openAIChat()" title="BASCODE AI">
+  <div class="ai-pulse"></div>
+  <i class="fas fa-robot"></i>
+</button>
+
+<!-- ====== AI CHAT MODAL ====== -->
+<div class="modal-overlay ai-modal" id="aiModal">
+  <div class="modal">
+    <div class="ai-header">
+      <div class="ai-avatar">AI</div>
+      <div>
+        <h3>BASCODE AI</h3>
+        <p>متصل — 24/7</p>
+      </div>
+      <button class="ai-close" onclick="closeAI()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ai-messages" id="aiMessages">
+      <div class="ai-msg bot">
+        👋 مرحباً! أنا <strong>BASCODE AI</strong> 🤖<br>
+        أستطيع مساعدتك في اختيار الخدمة المناسبة.<br><br>
+        أخبرني ماذا تحتاج؟ مثلاً:<br>
+        <span style="font-size:.8rem;color:var(--t3)">"أبي تصميم لوجو"</span><br>
+        <span style="font-size:.8rem;color:var(--t3)">"I need a website"</span><br>
+        <span style="font-size:.8rem;color:var(--t3)">"بغيت شات بوت للواتساب"</span>
+      </div>
+    </div>
+    <div class="ai-input-wrap">
+      <input type="text" id="aiInput" placeholder="اكتب طلبك هنا..." onkeydown="if(event.key==='Enter')sendAIMsg()">
+      <button onclick="sendAIMsg()"><i class="fas fa-arrow-up"></i></button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ============================================================ -->
+<!--  JAVASCRIPT                                                   -->
+<!-- ============================================================ -->
+<script>
+// ============================================================
+//  THREE.JS — خلفية ثلاثية الأبعاد
+// ============================================================
+(function(){
+  const container=document.getElementById('bgCanvas');
+  const scene=new THREE.Scene();
+  scene.fog=new THREE.FogExp2(0x0a0a0f,0.0008);
+
+  const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+  camera.position.z=30;
+  camera.position.y=5;
+
+  const renderer=new THREE.WebGLRenderer({
+    alpha:true,
+    antialias:true
+  });
+  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+  renderer.setClearColor(0x0a0a0f,0);
+  container.appendChild(renderer.domElement);
+
+  // ===== 1. نجوم 3D (جزئيات بيضاء منتشرة) =====
+  const starsGeo=new THREE.BufferGeometry();
+  const starsCount=4000;
+  const starPos=new Float32Array(starsCount*3);
+  const starSizes=new Float32Array(starsCount);
+  for(let i=0;i<starsCount;i++){
+    starPos[i*3]=(Math.random()-0.5)*200;
+    starPos[i*3+1]=(Math.random()-0.5)*200;
+    starPos[i*3+2]=(Math.random()-0.5)*200-50;
+    starSizes[i]=Math.random()*1.5+0.2;
+  }
+  starsGeo.setAttribute('position',new THREE.BufferAttribute(starPos,3));
+  starsGeo.setAttribute('size',new THREE.BufferAttribute(starSizes,1));
+
+  const starMat=new THREE.PointsMaterial({
+    color:0xffffff,
+    size:0.15,
+    transparent:true,
+    opacity:0.8,
+    blending:THREE.AdditiveBlending,
+    sizeAttenuation:true
+  });
+  const stars=new THREE.Points(starsGeo,starMat);
+  scene.add(stars);
+
+  // ===== 2. جسيمات خضراء/زرقاء متحركة =====
+  const particleCount=2000;
+  const particlesGeo=new THREE.BufferGeometry();
+  const pos=new Float32Array(particleCount*3);
+  const colors=new Float32Array(particleCount*3);
+  const sizes=new Float32Array(particleCount);
+  const velocities=[];
+
+  for(let i=0;i<particleCount;i++){
+    pos[i*3]=(Math.random()-0.5)*150;
+    pos[i*3+1]=(Math.random()-0.5)*100;
+    pos[i*3+2]=(Math.random()-0.5)*150-30;
+
+    const c=new THREE.Color().setHSL(0.33+Math.random()*0.12,0.8,0.4+Math.random()*0.3);
+    colors[i*3]=c.r;
+    colors[i*3+1]=c.g;
+    colors[i*3+2]=c.b;
+
+    sizes[i]=Math.random()*0.8+0.2;
+    velocities.push({
+      x:(Math.random()-0.5)*0.02,
+      y:(Math.random()-0.5)*0.02,
+      z:(Math.random()-0.5)*0.02
+    });
+  }
+  particlesGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  particlesGeo.setAttribute('color',new THREE.BufferAttribute(colors,3));
+  particlesGeo.setAttribute('size',new THREE.BufferAttribute(sizes,1));
+
+  const particleMat=new THREE.PointsMaterial({
+    size:0.25,
+    vertexColors:true,
+    transparent:true,
+    opacity:0.7,
+    blending:THREE.AdditiveBlending,
+    sizeAttenuation:true
+  });
+  const particles=new THREE.Points(particlesGeo,particleMat);
+  scene.add(particles);
+
+  // ===== 3. أكواد برمجية عائمة 3D (TextGeometry باستخدام Sprites) =====
+  const codeSnippets=[
+    'function()', 'class App', 'export default',
+    'npm start', 'git push', 'const x =',
+    '<div>', 'useState', 'useEffect',
+    'import React', 'return (', 'console.log',
+    'async await', 'try {', 'catch(err)',
+    'SELECT *', 'INSERT INTO', 'api.get',
+    'payload', 'exploit', 'shell_exec',
+    'nmap -sV', 'SQL inject', 'XSS',
+    'Python', 'JavaScript', 'TypeScript',
+    'Kubernetes', 'Docker', 'AWS',
+    'Linux', 'bash', '#!/bin',
+    '0x00ff41', '127.0.0.1', 'localhost',
+    'BASE64', 'MD5 hash', 'SHA256'
+  ];
+
+  const codeObjs=[];
+  const codeMat=new THREE.SpriteMaterial({
+    map:null,
+    transparent:true,
+    opacity:0.15,
+    blending:THREE.AdditiveBlending,
+    depthWrite:false
+  });
+
+  // نصنع Canvas لكل قطعة كود
+  codeSnippets.forEach((code,i)=>{
+    const canvas=document.createElement('canvas');
+    const ctx=canvas.getContext('2d');
+    canvas.width=256;
+    canvas.height=48;
+    ctx.clearRect(0,0,256,48);
+
+    const isGreen=Math.random()>0.5;
+    const color=isGreen?'rgba(0,255,65,':'rgba(0,191,255,';
+    const alpha=(Math.random()*0.3+0.1).toFixed(2);
+    ctx.fillStyle=color+alpha+')';
+    ctx.font='20px "JetBrains Mono", monospace';
+    ctx.textAlign='center';
+    ctx.textBaseline='middle';
+    ctx.fillText(code,128,24);
+
+    const texture=new THREE.CanvasTexture(canvas);
+    const mat=new THREE.SpriteMaterial({
+      map:texture,
+      transparent:true,
+      opacity:0.3+Math.random()*0.5,
+      blending:THREE.AdditiveBlending,
+      depthWrite:false
+    });
+    const sprite=new THREE.Sprite(mat);
+    sprite.position.x=(Math.random()-0.5)*120;
+    sprite.position.y=(Math.random()-0.5)*80;
+    sprite.position.z=(Math.random()-0.5)*120-40;
+    sprite.scale.set(4+Math.random()*6,1+Math.random()*1.5,1);
+    sprite.userData={
+      rotSpeed:(Math.random()-0.5)*0.002,
+      driftX:(Math.random()-0.5)*0.01,
+      driftY:(Math.random()-0.5)*0.01,
+      baseX:sprite.position.x,
+      baseY:sprite.position.y,
+      phase:Math.random()*Math.PI*2
+    };
+    scene.add(sprite);
+    codeObjs.push(sprite);
+  });
+
+  // ===== 4. خطوط شبكية 3D (Grid) =====
+  const gridHelper=new THREE.GridHelper(200,40,0x00ff41,0x00bfff);
+  gridHelper.position.y=-30;
+  gridHelper.material.opacity=0.15;
+  gridHelper.material.transparent=true;
+  scene.add(gridHelper);
+
+  // ===== 5. إضاءة =====
+  const ambient=new THREE.AmbientLight(0x222244,0.5);
+  scene.add(ambient);
+  const dirLight=new THREE.DirectionalLight(0x00ff41,0.3);
+  dirLight.position.set(1,1,1);
+  scene.add(dirLight);
+  const dirLight2=new THREE.DirectionalLight(0x00bfff,0.2);
+  dirLight2.position.set(-1,-1,1);
+  scene.add(dirLight2);
+
+  // ===== Mouse tracking =====
+  let mouseX=0,mouseY=0;
+  document.addEventListener('mousemove',(e)=>{
+    mouseX=(e.clientX/window.innerWidth-0.5)*2;
+    mouseY=(e.clientY/window.innerHeight-0.5)*2;
+  });
+
+  // ===== Animation loop =====
+  let clock=new THREE.Clock();
+  function animate(){
+    const t=clock.getElapsedTime();
+    const dt=clock.getDelta();
+
+    // أدر النجوم ببطء
+    stars.rotation.y+=0.0002;
+    stars.rotation.x=Math.sin(t*0.0001)*0.02;
+
+    // حركة الجسيمات
+    const ppos=particles.geometry.attributes.position.array;
+    for(let i=0;i<particleCount;i++){
+      ppos[i*3]+=velocities[i].x;
+      ppos[i*3+1]+=velocities[i].y;
+      ppos[i*3+2]+=velocities[i].z;
+      if(Math.abs(ppos[i*3])>75){velocities[i].x*=-1;}
+      if(Math.abs(ppos[i*3+1])>50){velocities[i].y*=-1;}
+      if(Math.abs(ppos[i*3+2])>80){velocities[i].z*=-1;}
+    }
+    particles.geometry.attributes.position.needsUpdate=true;
+
+    // حركة الأكواد
+    codeObjs.forEach((sprite,i)=>{
+      sprite.position.x=sprite.userData.baseX+Math.sin(t*0.3+sprite.userData.phase)*5;
+      sprite.position.y=sprite.userData.baseY+Math.cos(t*0.2+sprite.userData.phase)*3;
+      sprite.position.z+=Math.sin(t*0.1+sprite.userData.phase)*0.02;
+      sprite.material.opacity=0.2+Math.sin(t*0.5+i)*0.15;
+    });
+
+    // متابعة الماوس
+    camera.position.x+=(mouseX*5-camera.position.x)*0.02;
+    camera.position.y+=(mouseY*3-camera.position.y+2)*0.02;
+    camera.lookAt(0,0,0);
+
+    renderer.render(scene,camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  // ===== Resize =====
+  window.addEventListener('resize',()=>{
+    camera.aspect=window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth,window.innerHeight);
+  });
+})();
+
+// ============================================================
+//  SERVICES DATA
+// ============================================================
+const services=[
+  {id:'logo-design',cat:'design',color:'#ff6b6b',icon:'fa-palette',price:99,
+    titleAr:'تصميم شعار',titleEn:'Logo Design',
+    descAr:'تصميم شعار احترافي يعكس هوية علامتك التجارية',descEn:'Professional logo design that reflects your brand identity',
+    keywords:['شعار','logo','لوجو','هوية','brand','علامة'],
+    templates:[
+      {id:'basic-logo',nameAr:'أساسي',nameEn:'Basic',descAr:'شعار بسيط بخيارين',descEn:'Simple logo with 2 options',price:0},
+      {id:'premium-logo',nameAr:'احترافي',nameEn:'Premium',descAr:'شعار متكامل مع دليل هوية',descEn:'Full logo with brand guidelines',price:50},
+      {id:'enterprise-logo',nameAr:'مؤسسي',nameEn:'Enterprise',descAr:'مجموعة شعارات متكاملة',descEn:'Complete logo suite',price:120}
+    ],options:[
+      {id:'brand-guide',nameAr:'دليل هوية كامل',nameEn:'Full Brand Guide',price:80},
+      {id:'social-kit',nameAr:'حزمة سوشيال ميديا',nameEn:'Social Media Kit',price:40},
+      {id:'stationery',nameAr:'تصاميم قرطاسية',nameEn:'Stationery Designs',price:30}
+    ]},
+  {id:'web-dev',cat:'dev',color:'#339af0',icon:'fa-globe',price:299,
+    titleAr:'تطوير مواقع',titleEn:'Web Development',
+    descAr:'تطوير مواقع ويب عصرية وسريعة ومناسبة لجميع الأجهزة',descEn:'Modern, fast, responsive web development',
+    keywords:['موقع','web','website','ويب','تطوير','development','site'],
+    templates:[
+      {id:'landing',nameAr:'صفحة تعريفية',nameEn:'Landing Page',descAr:'صفحة واحدة احترافية',descEn:'Single professional page',price:0},
+      {id:'multi-page',nameAr:'متعدد الصفحات',nameEn:'Multi-Page',descAr:'موقع كامل بعدة صفحات',descEn:'Full multi-page website',price:200},
+      {id:'ecommerce',nameAr:'متجر إلكتروني',nameEn:'E-Commerce',descAr:'متجر كامل مع سلة شراء',descEn:'Full e-commerce with cart',price:500}
+    ],options:[
+      {id:'seo-opt',nameAr:'تحسين محركات بحث',nameEn:'SEO Optimization',price:100},
+      {id:'cms',nameAr:'نظام إدارة محتوى',nameEn:'CMS Integration',price:150},
+      {id:'hosting',nameAr:'استضافة سنة',nameEn:'1 Year Hosting',price:120}
+    ]},
+  {id:'seo',cat:'marketing',color:'#f59e0b',icon:'fa-chart-line',price:149,
+    titleAr:'تحسين محركات البحث',titleEn:'SEO Optimization',
+    descAr:'رفع ترتيب موقعك في محركات البحث وزيادة الزوار',descEn:'Improve your site ranking and increase traffic',
+    keywords:['seo','تحسين','search','محركات','ترتيب','ranking','google'],
+    templates:[
+      {id:'seo-basic',nameAr:'أساسي',nameEn:'Basic SEO',descAr:'تحسين أساسي للكلمات المفتاحية',descEn:'Basic keyword optimization',price:0},
+      {id:'seo-premium',nameAr:'احترافي',nameEn:'Premium SEO',descAr:'تحليل كامل وتحسين متقدم',descEn:'Full analysis & advanced SEO',price:100},
+      {id:'seo-enterprise',nameAr:'مؤسسي',nameEn:'Enterprise SEO',descAr:'حملة SEO شاملة',descEn:'Comprehensive SEO campaign',price:300}
+    ],options:[
+      {id:'audit',nameAr:'تدقيق الموقع',nameEn:'Site Audit',price:60},
+      {id:'content',nameAr:'كتابة محتوى',nameEn:'Content Writing',price:80},
+      {id:'backlinks',nameAr:'بناء روابط',nameEn:'Backlink Building',price:120}
+    ]},
+  {id:'mobile-app',cat:'dev',color:'#10b981',icon:'fa-mobile-alt',price:499,
+    titleAr:'تطبيقات جوال',titleEn:'Mobile Apps',
+    descAr:'تطوير تطبيقات جوال iOS و Android',descEn:'iOS & Android mobile app development',
+    keywords:['تطبيق','app','mobile','جوال','ios','android','تطوير'],
+    templates:[
+      {id:'app-basic',nameAr:'تطبيق بسيط',nameEn:'Basic App',descAr:'تطبيق بشاشات أساسية',descEn:'App with basic screens',price:0},
+      {id:'app-premium',nameAr:'تطبيق متكامل',nameEn:'Premium App',descAr:'تطبيق كامل مع API',descEn:'Full app with API',price:400},
+      {id:'app-enterprise',nameAr:'تطبيق مؤسسي',nameEn:'Enterprise App',descAr:'تطبيق مع لوحة تحكم',descEn:'App with admin panel',price:800}
+    ],options:[
+      {id:'push',nameAr:'إشعارات ذكية',nameEn:'Push Notifications',price:80},
+      {id:'auth',nameAr:'تسجيل دخول',nameEn:'User Auth',price:60},
+      {id:'payment',nameAr:'بوابة دفع',nameEn:'Payment Gateway',price:120}
+    ]},
+  {id:'chatbot',cat:'dev',color:'#8b5cf6',icon:'fa-robot',price:199,
+    titleAr:'شات بوت',titleEn:'Chatbot Development',
+    descAr:'بوتات ذكية للواتساب، تيليجرام، ومواقع الويب',descEn:'Smart bots for WhatsApp, Telegram & websites',
+    keywords:['بوت','chatbot','شات','bot','chat','whatsapp','telegram'],
+    templates:[
+      {id:'bot-basic',nameAr:'بوت ردود تلقائية',nameEn:'Auto Reply Bot',descAr:'ردود تلقائية للأسئلة الشائعة',descEn:'Auto replies for FAQs',price:0},
+      {id:'bot-premium',nameAr:'بوت ذكي',nameEn:'Smart Bot',descAr:'بوت بالذكاء الاصطناعي',descEn:'AI-powered chatbot',price:200},
+      {id:'bot-enterprise',nameAr:'بوت متكامل',nameEn:'Enterprise Bot',descAr:'بوت مع CRM وتحليلات',descEn:'Bot with CRM & analytics',price:500}
+    ],options:[
+      {id:'whatsapp-api',nameAr:'ربط واتساب API',nameEn:'WhatsApp API',price:100},
+      {id:'nlp',nameAr:'معالجة لغة طبيعية',nameEn:'NLP Integration',price:150},
+      {id:'dashboard',nameAr:'لوحة تحكم',nameEn:'Bot Dashboard',price:80}
+    ]},
+  {id:'ads',cat:'marketing',color:'#f97316',icon:'fa-ad',price:199,
+    titleAr:'إعلانات ممولة',titleEn:'Paid Ads',
+    descAr:'إدارة حملات إعلانية على فيسبوك، جوجل، وتيك توك',descEn:'Facebook, Google & TikTok ad campaigns',
+    keywords:['إعلان','ads','ممول','فيسبوك','google','tiktok','حملة'],
+    templates:[
+      {id:'ads-basic',nameAr:'حملة بسيطة',nameEn:'Basic Campaign',descAr:'حملة إعلانية واحدة',descEn:'Single ad campaign',price:0},
+      {id:'ads-premium',nameAr:'حملة متكاملة',nameEn:'Premium Campaign',descAr:'حملة متعددة المنصات',descEn:'Multi-platform campaign',price:300},
+      {id:'ads-enterprise',nameAr:'حملة مؤسسية',nameEn:'Enterprise Campaign',descAr:'حملة شاملة مع تحليلات',descEn:'Full campaign with analytics',price:600}
+    ],options:[
+      {id:'creative',nameAr:'تصميم إعلانات',nameEn:'Ad Creative Design',price:80},
+      {id:'retargeting',nameAr:'إعادة استهداف',nameEn:'Retargeting',price:100},
+      {id:'analytics',nameAr:'تقارير تحليلات',nameEn:'Analytics Reports',price:50}
+    ]},
+  {id:'branding',cat:'design',color:'#ec4899',icon:'fa-paint-brush',price:249,
+    titleAr:'هوية بصرية',titleEn:'Branding',
+    descAr:'بناء هوية بصرية متكاملة لعلامتك التجارية',descEn:'Complete visual identity for your brand',
+    keywords:['هوية','branding','براند','بصرية','visual','identity','علامة'],
+    templates:[
+      {id:'brand-basic',nameAr:'أساسي',nameEn:'Basic',descAr:'شعار وبطاقات عمل',descEn:'Logo & business cards',price:0},
+      {id:'brand-premium',nameAr:'احترافي',nameEn:'Premium',descAr:'هوية كاملة + دليل',descEn:'Full identity + guidelines',price:150},
+      {id:'brand-enterprise',nameAr:'مؤسسي',nameEn:'Enterprise',descAr:'هوية متكاملة + جميع المنصات',descEn:'Full identity + all platforms',price:400}
+    ],options:[
+      {id:'motion',nameAr:'مشروع هوية متحركة',nameEn:'Motion Identity',price:100},
+      {id:'mockups',nameAr:'نماذج توضيحية',nameEn:'Brand Mockups',price:50}
+    ]},
+  {id:'content-writing',cat:'writing',color:'#fbbf24',icon:'fa-pen-fancy',price:79,
+    titleAr:'كتابة محتوى',titleEn:'Content Writing',
+    descAr:'كتابة محتوى تسويقي وإبداعي لموقعك ومنصاتك',descEn:'Marketing & creative content for your platforms',
+    keywords:['كتابة','content','محتوى','مقال','article','تدوين','blog'],
+    templates:[
+      {id:'content-basic',nameAr:'مقال واحد',nameEn:'Single Article',descAr:'مقال واحد محسن لـ SEO',descEn:'Single SEO-optimized article',price:0},
+      {id:'content-premium',nameAr:'حزمة 5 مقالات',nameEn:'5 Articles',descAr:'5 مقالات احترافية',descEn:'5 professional articles',price:60},
+      {id:'content-enterprise',nameAr:'حزمة 20 مقال',nameEn:'20 Articles',descAr:'20 مقال مع جدولة',descEn:'20 articles with schedule',price:200}
+    ],options:[
+      {id:'translation',nameAr:'ترجمة محتوى',nameEn:'Content Translation',price:50},
+      {id:'seo-kw',nameAr:'بحث كلمات مفتاحية',nameEn:'Keyword Research',price:30}
+    ]},
+  {id:'translation',cat:'writing',color:'#6366f1',icon:'fa-language',price:69,
+    titleAr:'خدمات الترجمة',titleEn:'Translation Services',
+    descAr:'ترجمة احترافية بين العربية والإنجليزية',descEn:'Professional Arabic/English translation',
+    keywords:['ترجمة','translation','translate','لغة','english','arabic'],
+    templates:[
+      {id:'trans-basic',nameAr:'ترجمة مقال',nameEn:'Article Translation',descAr:'ترجمة مقال واحد',descEn:'Single article translation',price:0},
+      {id:'trans-premium',nameAr:'ترجمة موقع',nameEn:'Website Translation',descAr:'ترجمة موقع كامل',descEn:'Full website translation',price:200},
+      {id:'trans-enterprise',nameAr:'ترجمة وثائق',nameEn:'Documents Translation',descAr:'ترجمة عقود ووثائق',descEn:'Contracts & documents',price:100}
+    ],options:[
+      {id:'proofread',nameAr:'مراجعة لغوية',nameEn:'Proofreading',price:30},
+      {id:'localize',nameAr:'تعريب',nameEn:'Localization',price:80}
+    ]},
+  {id:'pentest',cat:'security',color:'#ef4444',icon:'fa-shield-alt',price:499,
+    titleAr:'اختبار اختراق',titleEn:'Penetration Testing',
+    descAr:'اختبارات اختراق شاملة لاكتشاف الثغرات وتأمين أنظمتك',descEn:'Comprehensive penetration testing to find & fix vulnerabilities',
+    keywords:['اختراق','pentest','أمن','security','ثغرات','vulnerability','hack'],
+    templates:[
+      {id:'pentest-basic',nameAr:'اختبار سريع',nameEn:'Quick Test',descAr:'فحص سريع للثغرات الشائعة',descEn:'Quick common vuln scan',price:0},
+      {id:'pentest-premium',nameAr:'اختبار شامل',nameEn:'Full Pentest',descAr:'اختبار شامل مع تقرير مفصل',descEn:'Full pentest with detailed report',price:400},
+      {id:'pentest-enterprise',nameAr:'اختبار مؤسسي',nameEn:'Enterprise Pentest',descAr:'اختبار متعمق + توصيات أمنية',descEn:'Deep test + security recommendations',price:1200}
+    ],options:[
+      {id:'web-audit',nameAr:'تدقيق تطبيقات الويب',nameEn:'Web App Audit',price:200},
+      {id:'network-audit',nameAr:'تدقيق الشبكات',nameEn:'Network Audit',price:300},
+      {id:'report',nameAr:'تقرير أمني شامل',nameEn:'Comprehensive Report',price:100}
+    ]},
+  {id:'data-analysis',cat:'dev',color:'#14b8a6',icon:'fa-database',price:299,
+    titleAr:'تحليل البيانات',titleEn:'Data Analysis',
+    descAr:'تحليل البيانات واستخراج الرؤى التجارية',descEn:'Data analysis & business insights extraction',
+    keywords:['بيانات','data','تحليل','analysis','database','احصاء','statistics'],
+    templates:[
+      {id:'data-basic',nameAr:'تحليل بسيط',nameEn:'Basic Analysis',descAr:'تقرير تحليلي مع رسوم بيانية',descEn:'Analytical report with charts',price:0},
+      {id:'data-premium',nameAr:'تحليل متقدم',nameEn:'Advanced Analysis',descAr:'تحليل متعمق مع توصيات',descEn:'Deep analysis with recommendations',price:300},
+      {id:'data-enterprise',nameAr:'منصة بيانات',nameEn:'Data Platform',descAr:'بناء منصة تحليل بيانات كاملة',descEn:'Full data analysis platform',price:800}
+    ],options:[
+      {id:'dashboard',nameAr:'لوحة تحكم تفاعلية',nameEn:'Interactive Dashboard',price:200},
+      {id:'ml',nameAr:'نماذج تعلم آلة',nameEn:'ML Models',price:500}
+    ]},
+  {id:'automation',cat:'dev',color:'#7c3aed',icon:'fa-bolt',price:199,
+    titleAr:'أتمتة المهام',titleEn:'Task Automation',
+    descAr:'أتمتة المهام المتكررة باستخدام السكريبتات والروبوتات',descEn:'Automate repetitive tasks using scripts & bots',
+    keywords:['أتمتة','automation','bot','بوت','task','مهام','script'],
+    templates:[
+      {id:'auto-basic',nameAr:'سكريبت بسيط',nameEn:'Basic Script',descAr:'أتمتة مهمة واحدة',descEn:'Single task automation',price:0},
+      {id:'auto-premium',nameAr:'سير عمل متكامل',nameEn:'Workflow Automation',descAr:'أتمتة سير عمل كامل',descEn:'Full workflow automation',price:300},
+      {id:'auto-enterprise',nameAr:'أتمتة مؤسسية',nameEn:'Enterprise Automation',descAr:'أتمتة شاملة مع API',descEn:'Full automation with API',price:700}
+    ],options:[
+      {id:'cron',nameAr:'جدولة مهام',nameEn:'Task Scheduling',price:50},
+      {id:'api-int',nameAr:'ربط APIs',nameEn:'API Integration',price:100}
+    ]},
+  {id:'email-marketing',cat:'marketing',color:'#dc2626',icon:'fa-envelope-open-text',price:149,
+    titleAr:'تسويق بريدي',titleEn:'Email Marketing',
+    descAr:'حملات بريد إلكتروني احترافية لزيادة المبيعات',descEn:'Professional email campaigns to boost sales',
+    keywords:['بريد','email','تسويق','marketing','حملة','subscriber','newsletter'],
+    templates:[
+      {id:'email-basic',nameAr:'حملة واحدة',nameEn:'Single Campaign',descAr:'تصميم وإرسال حملة بريدية',descEn:'Design & send email campaign',price:0},
+      {id:'email-premium',nameAr:'سلسلة بريدية',nameEn:'Email Sequence',descAr:'سلسلة 5 رسائل تسويقية',descEn:'5-email marketing sequence',price:200},
+      {id:'email-enterprise',nameAr:'أتمتة بريدية',nameEn:'Email Automation',descAr:'أتمتة بريدية كاملة مع تحليلات',descEn:'Full email automation with analytics',price:500}
+    ],options:[
+      {id:'copy',nameAr:'كتابة نصوص إعلانية',nameEn:'Copywriting',price:80},
+      {id:'segment',nameAr:'تقسيم الجمهور',nameEn:'Audience Segmentation',price:60},
+      {id:'template',nameAr:'قالب بريد مخصص',nameEn:'Custom Email Template',price:40}
+    ]},
+  {id:'cv-resume',cat:'writing',color:'#06b6d4',icon:'fa-file-alt',price:49,
+    titleAr:'السيرة الذاتية',titleEn:'CV & Resume',
+    descAr:'كتابة وتصميم سيرة ذاتية احترافية',descEn:'Professional CV & resume writing & design',
+    keywords:['سيرة','cv','resume','ذاتية','وظيفة','job','توظيف'],
+    templates:[
+      {id:'cv-basic',nameAr:'تنسيق سيرة',nameEn:'CV Formatting',descAr:'تنسيق سيرتك الذاتية',descEn:'Format your existing CV',price:0},
+      {id:'cv-premium',nameAr:'كتابة + تصميم',nameEn:'Writing & Design',descAr:'كتابة وتصميم سيرة ذاتية',descEn:'CV writing & design',price:40},
+      {id:'cv-enterprise',nameAr:'حزمة توظيف',nameEn:'Job Package',descAr:'سيرة ذاتية + خطاب تقديم + لينكدإن',descEn:'CV + cover letter + LinkedIn',price:100}
+    ],options:[
+      {id:'cover',nameAr:'خطاب تقديم',nameEn:'Cover Letter',price:20},
+      {id:'linkedin',nameAr:'تحسين لينكدإن',nameEn:'LinkedIn Optimization',price:30},
+      {id:'portfolio',nameAr:'تصميم بورتفوليو',nameEn:'Portfolio Design',price:50}
+    ]}
+  // ... أي خدمات إضافية تضيفها هنا
+];
+
+// ============================================================
+//  LANGUAGE
+// ============================================================
+let lang='ar';
+function t(ar,en){return lang==='ar'?ar:en}
+function toggleLang(){
+  lang=lang==='ar'?'en':'ar';
+  document.body.dir=lang==='ar'?'rtl':'ltr';
+  document.body.className=lang==='en'?'ltr':'';
+  const all=document.querySelectorAll('[data-ar]');
+  all.forEach(el=>{el.textContent=t(el.dataset.ar,el.dataset.en)});
+  renderCats();renderSvcs(services);
+}
+
+// ============================================================
+//  RENDER
+// ============================================================
+const categories=[
+  {id:'all',icon:'fa-th',titleAr:'الكل',titleEn:'All'},
+  {id:'design',icon:'fa-palette',titleAr:'تصميم',titleEn:'Design'},
+  {id:'dev',icon:'fa-code',titleAr:'تطوير',titleEn:'Development'},
+  {id:'marketing',icon:'fa-bullhorn',titleAr:'تسويق',titleEn:'Marketing'},
+  {id:'security',icon:'fa-shield',titleAr:'أمن',titleEn:'Security'},
+  {id:'writing',icon:'fa-pen-fancy',titleAr:'كتابة',titleEn:'Writing'}
+];
+
+function renderCats(){
+  const grid=document.getElementById('catsGrid');
+  grid.innerHTML=categories.map(c=>`
+    <div class="cat-card" onclick="filterCat('${c.id}')">
+      <div class="ci"><i class="fas ${c.icon}" style="color:var(--a)"></i></div>
+      <h4>${t(c.titleAr,c.titleEn)}</h4>
+      <span>${c.id==='all'?'':'...'}</span>
+    </div>
+  `).join('');
+}
+
+function renderSvcs(list){
+  const grid=document.getElementById('svcsGrid');
+  if(!list||list.length===0){
+    grid.innerHTML=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--t3)">${t('لا توجد خدمات', 'No services found')}</div>`;
+    return;
+  }
+  grid.innerHTML=list.map(s=>`
+    <div class="svc-card" onclick="openSvc('${s.id}')">
+      <div class="icon" style="background:${s.color}22;color:${s.color}"><i class="fas ${s.icon}"></i></div>
+      <h3>${t(s.titleAr,s.titleEn)}</h3>
+      <p>${t(s.descAr,s.descEn)}</p>
+      <div class="foot">
+        <span class="price">$${s.price}</span>
+        <span class="tag">${s.templates?.length||0} ${t('قالب','template')+(s.templates?.length!==1?'s':'')}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCat(cat){
+  if(cat==='all'){renderSvcs(services);return}
+  renderSvcs(services.filter(s=>s.cat===cat));
+}
+
+// ============================================================
+//  SEARCH
+// ============================================================
+function searchSvcs(q){
+  q=q.trim();
+  if(!q){renderSvcs(services);return;}
+  const query=q.toLowerCase();
+  const filtered=services.filter(s=>{
+    const ar=t(s.titleAr,s.titleEn).toLowerCase();
+    const en=t(s.titleAr,s.titleEn).toLowerCase();
+    const desc=t(s.descAr,s.descEn).toLowerCase();
+    const kw=s.keywords?.some(k=>k.toLowerCase().includes(query)||query.includes(k.toLowerCase()));
+    return ar.includes(query)||en.includes(query)||desc.includes(query)||kw;
+  });
+  renderSvcs(filtered.length?filtered:null);
+}
+
+// ============================================================
+//  MODAL & ORDER
+// ============================================================
+let curSvc=null,selTpl=null,selOpts=[];
+function openSvc(id){
+  curSvc=services.find(s=>s.id===id);
+  if(!curSvc||!curSvc.templates)return;
+  selTpl=null;selOpts=[];
+  document.getElementById('modalTitle').textContent=t(curSvc.titleAr,curSvc.titleEn);
+  document.getElementById('modalDesc').textContent=t(curSvc.descAr,curSvc.descEn);
+  document.getElementById('tplGrid').innerHTML=curSvc.templates.map(tmpl=>`
+    <div class="tpl-card" onclick="selTplFn('${tmpl.id}')" id="tpl-${tmpl.id}">
+      <div class="tpl-icon"><i class="fas fa-cube"></i></div>
+      <h4>${t(tmpl.nameAr,tmpl.nameEn)}</h4>
+      <p>${t(tmpl.descAr,tmpl.descEn)}</p>
+      <div class="tpl-price">+$${tmpl.price}</div>
+      <div class="check"><i class="fas fa-check"></i></div>
+    </div>
+  `).join('');
+  document.getElementById('optGrid').innerHTML=(curSvc.options||[]).map(opt=>`
+    <div class="opt-item">
+      <input type="checkbox" id="opt-${opt.id}" onchange="toggleOpt('${opt.id}')">
+      <label for="opt-${opt.id}">${t(opt.nameAr,opt.nameEn)}</label>
+      <span class="opt-price">${opt.price>0?'+$'+opt.price:t('مجاني','FREE')}</span>
+    </div>
+  `).join('');
+  document.getElementById('step1').style.display='block';
+  document.getElementById('step2').style.display='none';
+  updSum();document.getElementById('svcModal').classList.add('active');
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+function closeSvc(){document.getElementById('svcModal').classList.remove('active');}
+function selTplFn(id){selTpl=curSvc.templates.find(t=>t.id===id);document.querySelectorAll('.tpl-card').forEach(c=>c.classList.remove('selected'));document.getElementById('tpl-'+id).classList.add('selected');updSum();}
+function toggleOpt(id){
+  const opt=curSvc.options?.find(o=>o.id===id);
+  if(!opt)return;
+  const ch=document.getElementById('opt-'+id).checked;
+  if(ch){if(!selOpts.find(o=>o.id===id))selOpts.push(opt);}
+  else selOpts=selOpts.filter(o=>o.id!==id);
+  updSum();
+}
+function updSum(){
+  let total=curSvc?curSvc.price:0;
+  let tplT=t('لم يتم الاختيار','Not selected'),addT=t('لا شيء','None');
+  if(selTpl){tplT=t(selTpl.nameAr,selTpl.nameEn)+' ($'+selTpl.price+')';total+=selTpl.price;}
+  if(selOpts.length){addT=selOpts.map(o=>t(o.nameAr,o.nameEn)+' ($'+o.price+')').join(', ');total+=selOpts.reduce((s,o)=>s+o.price,0);}
+  document.getElementById('sumTpl').textContent=tplT;document.getElementById('sumAdd').textContent=addT;document.getElementById('sumTotal').textContent='$'+total;
+  document.getElementById('step1Btn').style.opacity=selTpl?'1':'0.5';
+}
+function goStep2(){
+  if(!selTpl){alert(t('الرجاء اختيار قالب','Please select a template'));return;}
+  const total=curSvc.price+(selTpl?.price||0)+selOpts.reduce((s,o)=>s+o.price,0);
+  document.getElementById('finSvc').textContent=t(curSvc.titleAr,curSvc.titleEn);
+  document.getElementById('finTpl').textContent=t(selTpl.nameAr,selTpl.nameEn);
+  document.getElementById('finAdd').textContent=selOpts.length?selOpts.map(o=>t(o.nameAr,o.nameEn)).join(', '):t('لا شيء','None');
+  document.getElementById('finTotal').textContent='$'+total;
+  document.getElementById('step1').style.display='none';document.getElementById('step2').style.display='block';
+}
+function backStep1(){document.getElementById('step2').style.display='none';document.getElementById('step1').style.display='block';}
+function submitOrder(){
+  const name=document.getElementById('cliName').value.trim();
+  const phone=document.getElementById('cliPhone').value.trim();
+  const email=document.getElementById('cliEmail').value.trim();
+  const notes=document.getElementById('cliNotes').value.trim();
+  if(!name||!phone||!email){alert(t('الرجاء تعبئة جميع الحقول','Please fill all required fields'));return;}
+  const total=curSvc.price+(selTpl?.price||0)+selOpts.reduce((s,o)=>s+o.price,0);
+  const data={service:t(curSvc.titleAr,curSvc.titleEn),template:t(selTpl.nameAr,selTpl.nameEn),addons:selOpts.map(o=>t(o.nameAr,o.nameEn)).join(', '),total:'$'+total,name,phone,email,notes:notes||t('لا يوجد','None'),date:new Date().toISOString()};
+  const subj=`[BASCODE NEW ORDER] ${data.service} - ${name}`;
+  const body=`${'='.repeat(40)}\n>>> NEW ORDER <<<\n${'='.repeat(40)}\nDate: ${new Date().toLocaleString()}\n\n--- SERVICE ---\nService: ${data.service}\nTemplate: ${data.template}\nAddons: ${data.addons}\nTotal: ${data.total}\n\n--- CLIENT ---\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}\nNotes: ${data.notes}\n\n${'='.repeat(40)}`;
+  window.location.href=`mailto:abdulbasthmaidi@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+  const orders=JSON.parse(localStorage.getItem('bascode_orders')||'[]');orders.push(data);localStorage.setItem('bascode_orders',JSON.stringify(orders));
+  closeSvc();document.getElementById('okModal').classList.add('active');document.getElementById('clientForm').reset();
+}
+function closeOk(){document.getElementById('okModal').classList.remove('active');}
+document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('active');});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.active').forEach(m=>m.classList.remove('active'));document.getElementById('mobileMenu').classList.remove('open');}});
+
+// ============================================================
+//  AI CHAT — ذكاء اصطناعي ذكي
+// ============================================================
+
+const aiState = { step: 'greeting', svc: null, tpl: null, opts: [], name: '', phone: '', email: '' };
+
+function openAIChat(){
+  document.getElementById('aiModal').classList.add('active');
+  document.getElementById('aiInput').focus();
+}
+
+function closeAI(){
+  document.getElementById('aiModal').classList.remove('active');
+  setTimeout(()=>{
+    if(aiState.step !== 'greeting'){
+      aiState.step = 'greeting';
+      document.getElementById('aiMessages').innerHTML = `
+        <div class="ai-msg bot">
+          👋 مرحباً! أنا <strong>BASCODE AI</strong> 🤖<br>
+          أستطيع مساعدتك في اختيار الخدمة المناسبة.<br><br>
+          أخبرني ماذا تحتاج؟ مثلاً:<br>
+          <span style="font-size:.8rem;color:var(--t3)">"أبي تصميم لوجو"</span><br>
+          <span style="font-size:.8rem;color:var(--t3)">"I need a website"</span><br>
+          <span style="font-size:.8rem;color:var(--t3)">"بغيت شات بوت للواتساب"</span>
+        </div>`;
+    }
+  }, 300);
+}
+
+function addAIMsg(text, isUser=false){
+  const container = document.getElementById('aiMessages');
+  const msg = document.createElement('div');
+  msg.className = `ai-msg ${isUser?'user':'bot'}`;
+  msg.innerHTML = text;
+  container.appendChild(msg);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTyping(){
+  const container = document.getElementById('aiMessages');
+  const typing = document.createElement('div');
+  typing.className = 'ai-msg bot';
+  typing.id = 'aiTyping';
+  typing.innerHTML = `<div class="typing"><span></span><span></span><span></span></div>`;
+  container.appendChild(typing);
+  container.scrollTop = container.scrollHeight;
+}
+
+function hideTyping(){
+  const t = document.getElementById('aiTyping');
+  if(t) t.remove();
+}
+
+function findBestService(query){
+  const q = query.toLowerCase().trim();
+  let best = null, bestScore = 0;
+  
+  services.forEach(s => {
+    let score = 0;
+    const titleAr = s.titleAr.toLowerCase();
+    const titleEn = s.titleEn.toLowerCase();
+    const descAr = s.descAr.toLowerCase();
+    const descEn = s.descEn.toLowerCase();
+    
+    if(titleAr.includes(q)) score += 5;
+    if(titleEn.includes(q)) score += 5;
+    if(descAr.includes(q)) score += 3;
+    if(descEn.includes(q)) score += 3;
+    
+    if(s.keywords){
+      s.keywords.forEach(k => {
+        const kw = k.toLowerCase();
+        if(kw.includes(q) || q.includes(kw)) score += 4;
+      });
+    }
+    
+    // كلمات مفتاحية ذكية
+    const keywordsMap = {
+      'logo':['logo','لوجو','شعار','brand','هوية'],
+      'web':['web','website','موقع','ويب','site','صفحة'],
+      'seo':['seo','تحسين','search','ترتيب','ranking'],
+      'app':['app','تطبيق','mobile','جوال','ios','android'],
+      'chatbot':['chatbot','بوت','chat','شات','bot','whatsapp'],
+      'ads':['ads','إعلان','ad','ممول','حملة','facebook'],
+      'branding':['branding','هوية','براند','visual','بصرية'],
+      'content':['content','كتابة','محتوى','article','مقال'],
+      'translation':['translation','ترجمة','translate','language'],
+      'pentest':['pentest','اختراق','security','أمن','ثغرة','vuln'],
+      'data':['data','بيانات','تحليل','analysis','database'],
+      'automation':['automation','أتمتة','script','task','مهمة'],
+      'email':['email','بريد','marketing','newsletter'],
+      'cv':['cv','resume','سيرة','وظيفة','job','توظيف']
+    };
+    
+    for(const [key, words] of Object.entries(keywordsMap)){
+      if(words.some(w => q.includes(w))){
+        if(s.id.includes(key) || s.titleAr.includes(words[0]) || s.titleEn.includes(words[0])){
+          score += 10;
+        }
+      }
+    }
+    
+    if(score > bestScore){ bestScore = score; best = s; }
+  });
+  
+  return best;
+}
+
+function findServiceByExactName(name){
+  const q = name.toLowerCase().trim();
+  return services.find(s => 
+    s.titleAr.toLowerCase() === q || 
+    s.titleEn.toLowerCase() === q ||
+    s.titleAr.toLowerCase().includes(q) || 
+    s.titleEn.toLowerCase().includes(q)
+  );
+}
+
+function sendAIMsg(){
+  const input = document.getElementById('aiInput');
+  const text = input.value.trim();
+  if(!text) return;
+  input.value = '';
+  addAIMsg(text, true);
+  
+  const step = aiState.step;
+  
+  // ===== COLLECT DATA STEP =====
+  if(step === 'collect_data'){
+    const parts = text.split('|').map(p => p.trim());
+    if(parts.length >= 3){
+      aiState.name = parts[0];
+      aiState.phone = parts[1];
+      aiState.email = parts[2];
+      
+      const total = (aiState.svc?.price||0) + (aiState.tpl?.price||0) + aiState.opts.reduce((s,o) => s+(o.price||0), 0);
+      
+      showTyping();
+      setTimeout(() => {
+        hideTyping();
+        addAIMsg(`✅ تم استلام بياناتك!<br><br>
+━━━ ملخص الطلب ━━━<br>
+🔹 الخدمة: ${t(aiState.svc.titleAr, aiState.svc.titleEn)}<br>
+🔹 القالب: ${t(aiState.tpl.nameAr, aiState.tpl.nameEn)}<br>
+🔹 الإضافات: ${aiState.opts.length ? aiState.opts.map(o => t(o.nameAr, o.nameEn)).join(', ') : 'لا شيء'}<br>
+🔹 الإجمالي: <strong>$${total}</strong><br><br>
+━━━ بياناتك ━━━<br>
+👤 ${aiState.name}<br>
+📱 ${aiState.phone}<br>
+📧 ${aiState.email}<br><br>
+جارٍ إرسال الطلب...`);
+        
+        setTimeout(() => {
+          const subj = `[BASCODE AI ORDER] ${t(aiState.svc.titleAr, aiState.svc.titleEn)} - ${aiState.name}`;
+          const body = `${'='.repeat(40)}\n>>> AI ORDER <<<\n${'='.repeat(40)}\nDate: ${new Date().toLocaleString()}\nSource: BASCODE AI Assistant\n\n--- SERVICE ---\nService: ${t(aiState.svc.titleAr, aiState.svc.titleEn)}\nTemplate: ${t(aiState.tpl.nameAr, aiState.tpl.nameEn)}\nAddons: ${aiState.opts.map(o=>t(o.nameAr,o.nameEn)).join(', ')}\nTotal: $${total}\n\n--- CLIENT ---\nName: ${aiState.name}\nPhone: ${aiState.phone}\nEmail: ${aiState.email}\n\n${'='.repeat(40)}`;
+          window.location.href = `mailto:abdulbasthmaidi@gmail.com?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+          
+          addAIMsg(`✅ <strong>تم إرسال طلبك!</strong> 🎉<br>سيتم التواصل معك خلال 24 ساعة.<br><br>شكراً لاختيارك <strong>BASCODE</strong> 🙏`);
+          
+          // Reset AI
+          aiState.step = 'greeting';
+        }, 1000);
+      }, 800);
+    } else {
+      addAIMsg(`⚠️ الصيغة غير صحيحة. اكتب بالشكل:<br><span style="color:var(--p)">الاسم | الجوال | الإيميل</span><br>مثال: <span style="color:var(--t3)">أحمد علي | 966500000000+ | ahmad@email.com</span>`);
+    }
+    return;
+  }
+  
+  // ===== GREETING — البحث عن الخدمة =====
+  if(step === 'greeting'){
+    showTyping();
+    setTimeout(() => {
+      hideTyping();
+      const svc = findBestService(text);
+      if(svc){
+        aiState.svc = svc;
+        aiState.tpl = null;
+        aiState.opts = [];
+        aiState.step = 'template';
+        
+        addAIMsg(`🎯 وجدت الخدمة المناسبة!<br><br>
+<strong>${t(svc.titleAr, svc.titleEn)}</strong><br>
+${t(svc.descAr, svc.descEn)}<br><br>
+💰 السعر الأساسي: <strong>$${svc.price}</strong><br><br>
+الرجاء اختر القالب المناسب من القائمة 👇`);
+        
+        showTemplateSuggestions(svc);
+      } else {
+        addAIMsg(`🤔 لم أجد خدمة تطابق "${text}".<br><br>الخدمات المتوفرة:<br>${services.map(s=>`• ${t(s.titleAr,s.titleEn)}`).join('<br>')}<br><br>اكتب أي خدمة تريدها 👆`);
+      }
+    }, 800);
+    return;
+  }
+  
+  // ===== TEMPLATE — المستخدم اختار قالب أو كتب نص =====
+  if(step === 'template'){
+    // نحاول نشوف إذا المستخدم اختار قالب بالرقم أو الاسم
+    const svc = aiState.svc;
+    if(!svc) return;
+    
+    // البحث في القوالب
+    const tpl = svc.templates.find(t => 
+      t.nameAr.toLowerCase().includes(text.toLowerCase()) || 
+      t.nameEn.toLowerCase().includes(text.toLowerCase()) ||
+      t.id.toLowerCase().includes(text.toLowerCase())
+    );
+    
+    if(tpl){
+      aiSelectTemplate(tpl.id);
+    } else {
+      addAIMsg(`👀 اختر من القوالب المتاحة أعلاه 👆`);
+      showTemplateSuggestions(svc);
+    }
+    return;
+  }
+  
+  // ===== ADDONS — إضافات =====
+  if(step === 'addons'){
+    if(text.toLowerCase().includes('لا') || text.toLowerCase().includes('no') || 
+       text.toLowerCase().includes('خلص') || text.toLowerCase().includes('done') ||
+       text.toLowerCase().includes('تمام') || text.toLowerCase().includes('ok')){
+      const box = document.getElementById('aiOptionsBox');
+      if(box) box.remove();
+      aiState.step = 'ask_data';
+      askForData();
+      return;
+    }
+    addAIMsg(`🛠️ اختر من الإضافات أعلاه أو اكتب "لا" للمتابعة`);
+    return;
+  }
+  
+  // ===== ASK DATA — الرد على طلب البيانات =====
+  if(step === 'ask_data'){
+    // تجاهل وحاول نكمل
+    addAIMsg(`📝 أرسل بياناتك بالشكل: الاسم | الجوال | الإيميل`);
+    return;
+  }
+}
+
+function showTemplateSuggestions(svc){
+  const container = document.getElementById('aiMessages');
+  const div = document.createElement('div');
+  div.className = 'ai-msg bot';
+  div.style.padding = '12px';
+  div.innerHTML = `<div style="display:flex;flex-wrap:wrap;gap:8px">` +
+    svc.templates.map((tmpl, i) => `
+      <button class="ai-quick-btn" onclick="aiSelectTemplate('${tmpl.id}')" 
+              style="padding:10px 16px;font-size:.85rem;background:rgba(0,255,65,.1);border-color:rgba(0,255,65,.3);color:var(--p);flex:1;min-width:120px">
+        ${t(tmpl.nameAr, tmpl.nameEn)}<br>
+        <span style="font-size:.7rem;color:var(--a)">+$${tmpl.price}</span>
+      </button>
+    `).join('') +
+    `</div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function aiSelectTemplate(tplId){
+  if(!aiState.svc) return;
+  const tpl = aiState.svc.templates.find(t => t.id === tplId);
+  if(!tpl) return;
+  aiState.tpl = tpl;
+  aiState.opts = [];
+  
+  addAIMsg(`✅ تم اختيار: <strong>${t(tpl.nameAr, tpl.nameEn)}</strong> ($${tpl.price})`);
+  
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    const hasOptions = aiState.svc.options && aiState.svc.options.length > 0;
+    if(hasOptions){
+      aiState.step = 'addons';
+      addAIMsg(`🛠️ هل تريد إضافة أي من هذه الإضافات؟<br>اختر من القائمة أو اكتب "لا" للمتابعة`);
+      showOptionsSuggestions(aiState.svc);
+    } else {
+      aiState.step = 'ask_data';
+      askForData();
+    }
+  }, 600);
+}
+
+function showOptionsSuggestions(svc){
+  const container = document.getElementById('aiMessages');
+  const div = document.createElement('div');
+  div.className = 'ai-msg bot';
+  div.style.padding = '12px';
+  div.id = 'aiOptionsBox';
+  div.innerHTML = svc.options.map(opt => `
+    <div style="display:flex;align-items:center;gap:10px;margin:6px 0;padding:8px 12px;border:1px solid rgba(0,255,65,.1);border-radius:8px;cursor:pointer" onclick="this.querySelector('input').click()">
+      <input type="checkbox" id="aiOpt-${opt.id}" style="width:16px;height:16px;accent-color:var(--p)" onchange="aiToggleOption('${opt.id}')">
+      <label style="flex:1;cursor:pointer;font-size:.85rem">${t(opt.nameAr, opt.nameEn)}</label>
+      <span style="color:var(--a);font-weight:600;font-size:.85rem">${opt.price>0?'+$'+opt.price:'FREE'}</span>
+    </div>
+  `).join('');
+  div.innerHTML += `<button class="ai-quick-btn" onclick="aiFinishAddons()" style="margin-top:12px;padding:10px 24px;background:linear-gradient(135deg,var(--p),var(--a));color:#0a0a0f;font-weight:700;border:none;width:100%">✓ تم — أكمل الطلب</button>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function aiToggleOption(optId){
+  const opt = aiState.svc?.options?.find(o => o.id === optId);
+  if(!opt) return;
+  const ch = document.getElementById('aiOpt-'+optId);
+  if(ch?.checked){
+    if(!aiState.opts.find(o => o.id === optId)) aiState.opts.push(opt);
+  } else {
+    aiState.opts = aiState.opts.filter(o => o.id !== optId);
+  }
+}
+
+function aiFinishAddons(){
+  const box = document.getElementById('aiOptionsBox');
+  if(box) box.remove();
+  
+  if(aiState.opts.length > 0){
+    addAIMsg(`✅ تم اختيار ${aiState.opts.length} إضافة`);
+  } else {
+    addAIMsg(`👌 بدون إضافات`);
+  }
+  
+  aiState.step = 'ask_data';
+  askForData();
+}
+
+function askForData(){
+  showTyping();
+  setTimeout(() => {
+    hideTyping();
+    addAIMsg(`📋 ممتاز! الآن أدخل بياناتك للتواصل:<br><br>
+📌 <strong>الاسم الكامل</strong><br>
+📌 <strong>رقم الجوال</strong><br>
+📌 <strong>البريد الإلكتروني</strong><br><br>
+اكتبهم بالشكل التالي:<br>
+<span style="color:var(--p);font-family:JetBrains Mono">أحمد علي | 966500000000+ | ahmad@email.com</span>`);
+    aiState.step = 'collect_data';
+  }, 600);
+}
+
+// Quick buttons in chat
+function aiQuickAsk(type){
+  const map = {
+    'logo':'أبي تصميم لوجو احترافي',
+    'website':'احتاج موقع ويب لشركتي',
+    'seo':'أريد تحسين موقعي في محركات البحث',
+    'mobile':'ابي تطبيق جوال',
+    'chatbot':'أحتاج شات بوت ذكي للواتساب',
+    'ads':'ابي إعلانات ممولة لفيسبوك'
+  };
+  document.getElementById('aiInput').value = map[type] || type;
+  sendAIMsg();
+}
+
+// Init
+renderCats();
+renderSvcs(services);
+</script>
+</body>
+</html>
