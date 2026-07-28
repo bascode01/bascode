@@ -102,21 +102,21 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden">
 
   <!-- Top Urgent Announcement Banner -->
-  <div id="topAnnouncementBar" class="bg-gradient-to-r from-amber-500/20 via-cyan-500/20 to-blue-600/20 border-b border-amber-500/30 py-2 px-4 text-xs font-bold text-gray-200 text-center relative flex items-center justify-between gap-2 z-50">
-    <div class="flex-1 flex items-center justify-center gap-2 flex-wrap">
-      <span class="inline-flex items-center gap-1 bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">
-        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping inline-block"></span>
+  <div id="topAnnouncementBar" class="bg-gradient-to-r from-amber-500/20 via-cyan-500/20 to-blue-600/20 border-b border-amber-500/30 py-1.5 sm:py-2 px-2 sm:px-4 text-[11px] sm:text-xs font-bold text-gray-200 text-center relative flex items-center justify-between gap-1.5 sm:gap-2 z-50">
+    <div class="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
+      <span class="inline-flex items-center gap-1 bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wide shrink-0">
+        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400 animate-ping inline-block"></span>
         <span id="announcementBadge">تنبيه عاجل</span>
       </span>
-      <span id="announcementMsgText" class="text-white font-medium">
+      <span id="announcementMsgText" class="text-white font-medium text-[11px] sm:text-xs leading-tight">
         ⚡ عرض خاص من باسكود: خصم 20% على خدمات الترجمة الأكاديمية والبرمجية، وفحص الملفات من الثغرات هذا الأسبوع!
       </span>
-      <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20أريد%20الاستفادة%20من%20خصم%20التنفيذ%2020%" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline font-black flex items-center gap-1 text-[11px] sm:text-xs">
+      <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20أريد%20الاستفادة%20من%20خصم%20التنفيذ%2020%" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline font-black flex items-center gap-1 text-[10px] sm:text-xs shrink-0">
         <span id="announcementActionText">احصل على الخصم فوراً عبر الواتساب</span>
-        <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl-flip"></i>
+        <i data-lucide="arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5 rtl-flip"></i>
       </a>
     </div>
     <button onclick="dismissAnnouncementBar()" class="text-gray-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer shrink-0" title="إغلاق التنبيه">
@@ -126,20 +126,20 @@
 
   <!-- Header / Navbar -->
   <header class="sticky top-0 z-40 glass-nav border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="relative w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-amber-500/30 via-cyan-500/30 to-blue-600/30 p-0.5 border border-white/20 group-hover:scale-105 transition-transform">
-          <div class="w-full h-full bg-[#0c0e12] rounded-[10px] flex items-center justify-center font-black text-lg text-amber-400">
+      <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
+        <div class="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-amber-500/30 via-cyan-500/30 to-blue-600/30 p-0.5 border border-white/20 group-hover:scale-105 transition-transform">
+          <div class="w-full h-full bg-[#0c0e12] rounded-[10px] flex items-center justify-center font-black text-sm sm:text-lg text-amber-400">
             BA
           </div>
         </div>
         <div class="flex flex-col">
-          <span class="text-xl font-black tracking-wider text-white flex items-center gap-1.5 font-title">
+          <span class="text-base sm:text-xl font-black tracking-wider text-white flex items-center gap-1 font-title">
             BAS<span class="text-amber-400">CODE</span>
           </span>
-          <span class="text-[9px] font-bold text-gray-400 tracking-widest uppercase">
+          <span class="text-[8px] sm:text-[9px] font-bold text-gray-400 tracking-widest uppercase hidden xs:block">
             CODE. DESIGN. SECURE. SUCCEED.
           </span>
         </div>
@@ -159,38 +159,38 @@
       </nav>
 
       <!-- Language Toggle & Currency Switcher & Notifications & Cart & WhatsApp & Mobile Menu Trigger -->
-      <div class="flex items-center gap-1.5 sm:gap-2.5">
+      <div class="flex items-center gap-1 sm:gap-2.5 shrink-0">
         
-        <!-- Language Switcher Button (Arabic / English) -->
-        <button onclick="toggleLanguage()" id="langToggleBtn" class="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-xs font-extrabold px-2.5 sm:px-3 py-2 rounded-xl flex items-center gap-1.5 transition-all cursor-pointer">
-          <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+        <!-- Language Switcher Button (Arabic / English - Hidden on tiny screens, accessible in 3-lines menu & sm+) -->
+        <button onclick="toggleLanguage()" id="langToggleBtn" class="hidden sm:flex bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[10px] sm:text-xs font-extrabold px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl items-center gap-1 transition-all cursor-pointer">
+          <i data-lucide="globe" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400"></i>
           <span id="langBtnText">English</span>
         </button>
 
-        <!-- Live Currency Picker (Strictly 3 Currencies: IQD, USD, AED) -->
-        <div class="relative">
-          <select id="currencySelector" onchange="switchCurrency(this.value)" class="bg-white/5 border border-white/10 text-[11px] sm:text-xs font-extrabold text-cyan-300 rounded-xl py-2 px-2 sm:px-3 focus:outline-none focus:border-cyan-500 cursor-pointer transition-all">
-            <option value="IQD" selected>🇸🇮 IQD - الدينار العراقي</option>
-            <option value="USD">🇺🇸 USD - الدولار الأمريكي</option>
-            <option value="AED">🇦🇪 AED - الدرهم الإماراتي</option>
+        <!-- Live Currency Picker (Strictly 3 Currencies: IQD, USD, AED - Hidden on tiny screens, accessible in 3-lines menu & sm+) -->
+        <div class="relative hidden sm:block">
+          <select id="currencySelector" onchange="switchCurrency(this.value)" class="bg-white/5 border border-white/10 text-[10px] sm:text-xs font-extrabold text-cyan-300 rounded-xl py-1.5 sm:py-2 px-1.5 sm:px-3 focus:outline-none focus:border-cyan-500 cursor-pointer transition-all max-w-[105px] sm:max-w-none">
+            <option value="IQD" id="currIqdLabel" selected>IQD - الدينار العراقي</option>
+            <option value="USD" id="currUsdLabel">USD - الدولار الأمريكي</option>
+            <option value="AED" id="currAedLabel">AED - الدرهم الإماراتي</option>
           </select>
         </div>
 
         <!-- Notification Bell Center Button & Dropdown Menu -->
         <div class="relative">
-          <button onclick="toggleNotificationDropdown(event)" id="notifBellBtn" class="relative bg-white/5 hover:bg-white/10 text-white p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="مركز الإشعارات">
-            <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i>
-            <span id="notifBadge" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-lg border border-black/50">3</span>
+          <button onclick="toggleNotificationDropdown(event)" id="notifBellBtn" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="مركز الإشعارات">
+            <i data-lucide="bell" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400"></i>
+            <span id="notifBadge" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white font-black text-[9px] sm:text-[10px] w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg border border-black/50">3</span>
           </button>
 
-          <!-- Notification Dropdown Menu -->
-          <div id="notificationDropdown" class="hidden absolute right-0 sm:right-0 mt-2 w-80 sm:w-96 bg-[#0e1117] border border-white/15 rounded-2xl shadow-2xl p-4 z-50 transition-all">
-            <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <!-- Notification Dropdown Menu (Fixed Centered on Mobile, Absolute on Desktop) -->
+          <div id="notificationDropdown" class="hidden fixed inset-x-3 top-16 sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2 w-auto sm:w-96 max-w-md bg-[#0e1117]/98 border border-white/15 rounded-2xl shadow-2xl p-3.5 sm:p-4 z-50 backdrop-blur-xl transition-all">
+            <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
               <div class="flex items-center gap-2">
                 <i data-lucide="bell-ring" class="w-4 h-4 text-amber-400"></i>
-                <span id="notifTitle" class="text-sm font-extrabold text-white">مركز الإشعارات والتحديثات</span>
+                <span id="notifTitle" class="text-xs sm:text-sm font-extrabold text-white">مركز الإشعارات والتحديثات</span>
               </div>
-              <button onclick="markAllNotificationsAsRead()" class="text-[11px] text-cyan-400 hover:underline font-bold cursor-pointer" id="notifMarkReadBtn">
+              <button onclick="markAllNotificationsAsRead()" class="text-[10px] sm:text-[11px] text-cyan-400 hover:underline font-bold cursor-pointer" id="notifMarkReadBtn">
                 تعيين الكل كمقروء
               </button>
             </div>
@@ -249,8 +249,12 @@
             </div>
 
             <!-- Bottom Action in Notification Dropdown -->
-            <div class="pt-2 border-t border-white/10 text-center">
-              <a href="https://wa.me/9647875929178" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline font-extrabold flex items-center justify-center gap-1">
+            <div class="pt-2 border-t border-white/10 text-center space-y-2">
+              <button onclick="triggerTestNotification()" class="w-full py-1.5 px-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-[11px] rounded-lg border border-amber-500/30 flex items-center justify-center gap-1.5 cursor-pointer">
+                <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span id="testNotifBtnText">تجربة إشعار فوري صوتي ومباشر</span>
+              </button>
+              <a href="https://wa.me/9647875929178" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline font-extrabold flex items-center justify-center gap-1 pt-1">
                 <span id="notifContactSupportText">تواصل مع قسم الإشعارات والدعم الفني</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
@@ -270,9 +274,9 @@
         </a>
 
         <!-- Cart Counter Drawer Trigger -->
-        <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer">
-          <i data-lucide="shopping-bag" class="w-4 h-4 text-cyan-400"></i>
-          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-black font-black text-[10px] w-5 h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+        <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400"></i>
+          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-black font-black text-[9px] sm:text-[10px] w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
         </button>
 
         <!-- Direct Admin Mail Link -->
@@ -281,8 +285,8 @@
           <span>البريد الرسمى</span>
         </a>
 
-        <!-- Mobile Menu Toggle Button (Visible on Mobile & Tablet < lg) -->
-        <button onclick="toggleMobileMenu()" class="lg:hidden bg-white/5 hover:bg-white/10 text-white p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="Toggle Navigation Menu">
+        <!-- 3-Lines Hamburger Mobile Menu Button (Visible on Mobile & Tablet < lg) -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 p-2 sm:p-2.5 rounded-xl border border-amber-500/30 transition-all flex items-center justify-center cursor-pointer shadow-lg shadow-amber-500/10" aria-label="فتح قائمة الملاحة" title="قائمة الملاحة ☰">
           <i data-lucide="menu" class="w-5 h-5 text-amber-400"></i>
         </button>
 
@@ -291,64 +295,113 @@
     </div>
   </header>
 
-  <!-- MOBILE SLIDE-OVER NAVIGATION DRAWER (For Smartphones and Tablets) -->
+  <!-- MOBILE SLIDE-OVER NAVIGATION DRAWER (Compatible with Android & Small Screens) -->
   <div id="mobileMenuDrawer" class="fixed inset-0 z-50 hidden transition-all lg:hidden">
-    <div onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-    <div class="absolute top-0 bottom-0 right-0 w-full max-w-xs bg-[#0c0e12] border-l border-white/10 p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
-      <div class="space-y-6">
-        <div class="flex items-center justify-between pb-4 border-b border-white/10">
+    <div onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div class="absolute top-0 bottom-0 rtl:right-0 ltr:left-0 w-full max-w-xs bg-[#0c0e12] border-x border-white/10 p-5 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto z-10">
+      <div class="space-y-5">
+        
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
           <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-lg bg-amber-400 text-black font-black flex items-center justify-center">BA</div>
-            <span class="text-lg font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-cyan-500 text-black font-black flex items-center justify-center text-xs shadow-md">BA</div>
+            <span class="text-base font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
           </div>
-          <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-1 text-lg cursor-pointer">✕</button>
+          <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-1.5 text-base rounded-xl bg-white/5 border border-white/10 cursor-pointer">✕</button>
         </div>
 
-        <nav class="flex flex-col gap-2.5 text-xs font-bold text-gray-200">
-          <a href="#services" onclick="toggleMobileMenu()" id="mNavServices" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors flex items-center justify-between">
-            <span>دليل الخدمات البرمجية الرقمية</span>
+        <!-- Quick Settings inside Drawer (Language & Currency Controls) -->
+        <div class="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-[11px] font-extrabold text-gray-300">اللغة / Language:</span>
+            <button onclick="toggleLanguage()" class="bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1 transition-all cursor-pointer">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span id="mDrawerLangBtnText">English</span>
+            </button>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/5">
+            <span class="text-[11px] font-extrabold text-gray-300">العملة / Currency:</span>
+            <select id="mDrawerCurrSelector" onchange="switchCurrency(this.value)" class="bg-black/70 border border-cyan-500/30 text-xs font-black text-cyan-300 rounded-xl py-1 px-2 focus:outline-none cursor-pointer">
+              <option value="IQD">IQD - الدينار العراقي</option>
+              <option value="USD">USD - الدولار الأمريكي</option>
+              <option value="AED">AED - الدرهم الإماراتي</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Links -->
+        <nav class="flex flex-col gap-2 text-xs font-bold text-gray-200">
+          <a href="#services" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavServices">دليل الخدمات البرمجية الرقمية</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <a href="#calculator" onclick="toggleMobileMenu()" id="mNavCalc" class="p-3 rounded-xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-400 transition-colors flex items-center justify-between">
-            <span>حاسبة التكلفة الفورية</span>
+
+          <a href="#calculator" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavCalc">حاسبة التكلفة الفورية</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <a href="#techstack" onclick="toggleMobileMenu()" id="mNavTech" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors flex items-center justify-between">
-            <span>تقنياتنا وأدوات الفحص</span>
+
+          <a href="#techstack" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="code-2" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavTech">تقنياتنا وأدوات الفحص</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <a href="#reviews" onclick="toggleMobileMenu()" id="mNavReviews" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors flex items-center justify-between">
-            <span>تقييمات وآراء العملاء الموثقة</span>
+
+          <a href="#reviews" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavReviews">تقييمات وآراء العملاء الموثقة</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <a href="#portfolio" onclick="toggleMobileMenu()" id="mNavPortfolio" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors flex items-center justify-between">
-            <span>معرض المشاريع والأعمال</span>
+
+          <a href="#portfolio" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavPortfolio">معرض المشاريع والأعمال</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <a href="#faq" onclick="toggleMobileMenu()" id="mNavFaq" class="p-3 rounded-xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-400 transition-colors flex items-center justify-between">
-            <span>الأسئلة الشائعة</span>
+
+          <a href="#faq" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="help-circle" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavFaq">الأسئلة الشائعة</span>
+            </div>
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
-          <button onclick="toggleMobileMenu(); openAiAdvisorModal();" class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 font-bold flex items-center justify-between cursor-pointer w-full text-right">
-            <span id="mNavAiBtn">✨ مستشار الذكاء الاصطناعي</span>
-            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+
+          <button onclick="toggleMobileMenu(); openAiAdvisorModal();" class="p-3 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-300 font-extrabold flex items-center justify-between cursor-pointer w-full text-right hover:bg-amber-500/25 transition-all">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavAiBtn">✨ مستشار الذكاء الاصطناعي</span>
+            </div>
+            <i data-lucide="arrow-left" class="w-4 h-4 text-amber-400 rtl-flip"></i>
           </button>
         </nav>
       </div>
 
-      <div class="pt-6 border-t border-white/10 space-y-3 text-xs mt-6">
+      <div class="pt-5 border-t border-white/10 space-y-2.5 text-xs mt-5">
         <!-- Direct WhatsApp Link on Mobile Drawer -->
         <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
            target="_blank" 
            rel="noopener noreferrer" 
-           class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold p-3 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+           class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black p-3 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition-all">
           <svg class="w-4.5 h-4.5 fill-current text-white shrink-0" viewBox="0 0 24 24">
             <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
           </svg>
           <span id="mNavWhatsapp">الدعم السريع +9647875929178</span>
         </a>
 
-        <a href="mailto:bascode84@gmail.com" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-extrabold p-3 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+        <a href="mailto:bascode84@gmail.com" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-black p-3 rounded-2xl flex items-center justify-center gap-2 shadow-lg">
           <i data-lucide="mail" class="w-4 h-4"></i>
           <span>البريد الإلكتروني الإداري</span>
         </a>
@@ -832,8 +885,8 @@
   </div>
 
   <!-- DIRECT ORDER CHECKOUT MODAL -->
-  <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl my-8">
+  <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
       
       <button onclick="closeModal()" class="absolute left-4 top-4 p-2 text-gray-400 hover:text-white rounded-full bg-white/5 border border-white/10">
         ✕
@@ -929,8 +982,8 @@
   </div>
 
   <!-- AI ADVISOR MODAL -->
-  <div id="aiAdvisorModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl my-8">
+  <div id="aiAdvisorModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-amber-500/30 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
       
       <button onclick="closeAiAdvisorModal()" class="absolute left-4 top-4 p-2 text-gray-400 hover:text-white rounded-full bg-white/5 border border-white/10">
         ✕
@@ -977,8 +1030,8 @@
   </div>
 
   <!-- ADD REVIEW MODAL -->
-  <div id="addReviewModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="relative w-full max-w-md bg-[#0c0e12] border border-white/10 rounded-3xl p-6 shadow-2xl">
+  <div id="addReviewModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-md bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
       <button onclick="closeAddReviewModal()" class="absolute left-4 top-4 text-gray-400">✕</button>
       <h3 id="revModalTitle" class="text-lg font-bold text-white mb-4">✍️ إضافة تقييم لمشروعك مع باسكود</h3>
       <form onsubmit="handleReviewSubmit(event)" class="space-y-3">
@@ -1002,7 +1055,7 @@
   </div>
 
   <!-- Floating Live Notification Toast Popup -->
-  <div id="liveNotificationToast" class="fixed bottom-24 right-5 sm:right-6 z-50 hidden max-w-sm bg-[#0e1117]/95 border border-amber-500/40 text-white rounded-2xl shadow-2xl p-4 backdrop-blur-md transition-all">
+  <div id="liveNotificationToast" class="fixed bottom-20 left-3 right-3 sm:left-auto sm:right-6 z-50 hidden sm:max-w-sm bg-[#0e1117]/98 border border-amber-500/40 text-white rounded-2xl shadow-2xl p-3.5 sm:p-4 backdrop-blur-md transition-all">
     <div class="flex items-start gap-3">
       <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
         <i data-lucide="bell-ring" class="w-5 h-5"></i>
@@ -1319,6 +1372,13 @@
         navPortfolio: 'معرض الأعمال',
         navFaq: 'الأسئلة الشائعة',
         navAiBtn: '✨ مستشار الذكاء الاصطناعي',
+        mNavServices: 'دليل الخدمات البرمجية الرقمية',
+        mNavCalc: 'حاسبة التكلفة الفورية',
+        mNavTech: 'تقنياتنا وأدوات الفحص',
+        mNavReviews: 'تقييمات وآراء العملاء الموثقة',
+        mNavPortfolio: 'معرض المشاريع والأعمال',
+        mNavFaq: 'الأسئلة الشائعة',
+        mNavAiBtn: '✨ مستشار الذكاء الاصطناعي',
         statProjects: 'مشروع ونظام برمجي منجز',
         statSatisfaction: 'نسبة رضا العملاء الرسمية',
         statCountries: 'انتشار وحضور عالمي للخدمات',
@@ -1370,9 +1430,9 @@
         cartEmptyText: 'السلة فارغة حالياً. يمكنك تصفح وإضافة الخدمات.',
         removeFromCartText: 'إزالة',
         addedToCartNotice: 'تمت إضافة الخدمة إلى السلة بنجاح!',
-        currIqdLabel: '🇸🇮 الدينار العراقي (IQD)',
-        currAedLabel: '🇦🇪 الدرهم الإماراتي (AED)',
-        currUsdLabel: '🇺🇸 الدولار الأمريكي (USD)',
+        currIqdLabel: 'الدينار العراقي (IQD)',
+        currAedLabel: 'الدرهم الإماراتي (AED)',
+        currUsdLabel: 'الدولار الأمريكي (USD)',
         floatingContactText: 'تواصل البريد الإداري',
         navWhatsappText: 'الواتساب +9647875929178',
         whatsappFloatingText: 'الدعم السريع (واتساب)',
@@ -1390,6 +1450,7 @@
         notifItem3Title: 'دعم العملات الثلاث المباشرة',
         notifItem3Sub: 'استعرض أسعار الخدمات فوراً بالدينار العراقي (IQD)، الدولار (USD)، والدرهم (AED).',
         notifContactSupportText: 'تواصل مع قسم الإشعارات والدعم الفني',
+        testNotifBtnText: 'تجربة إشعار فوري صوتي ومباشر',
         toastHeaderTitle: 'إشعار جديد من BASCODE',
         toastBodyText: '🎉 تم استقبال طلب جديد لخدمة فحص الأكواد وترجمة الملفات بنجاح.'
       },
@@ -1409,6 +1470,13 @@
         navPortfolio: 'Portfolio',
         navFaq: 'FAQ',
         navAiBtn: '✨ AI Advisor',
+        mNavServices: 'Digital Services Catalog',
+        mNavCalc: 'Instant Cost Estimator',
+        mNavTech: 'Our Tech & Security Tools',
+        mNavReviews: 'Verified Client Reviews',
+        mNavPortfolio: 'Project Portfolio',
+        mNavFaq: 'Frequently Asked Questions',
+        mNavAiBtn: '✨ AI Advisor Engine',
         statProjects: 'Completed Projects & Systems',
         statSatisfaction: 'Verified Customer Satisfaction',
         statCountries: 'Global Client Presence',
@@ -1460,9 +1528,9 @@
         cartEmptyText: 'Your cart is currently empty. Feel free to add digital services.',
         removeFromCartText: 'Remove',
         addedToCartNotice: 'Service added to cart successfully!',
-        currIqdLabel: '🇸🇮 Iraqi Dinar (IQD)',
-        currAedLabel: '🇦🇪 UAE Dirham (AED)',
-        currUsdLabel: '🇺🇸 US Dollar (USD)',
+        currIqdLabel: 'Iraqi Dinar (IQD)',
+        currAedLabel: 'UAE Dirham (AED)',
+        currUsdLabel: 'US Dollar (USD)',
         floatingContactText: 'Direct Admin Email',
         navWhatsappText: 'WhatsApp +9647875929178',
         whatsappFloatingText: 'WhatsApp Support',
@@ -1480,6 +1548,7 @@
         notifItem3Title: 'Multi-Currency Support Enabled',
         notifItem3Sub: 'Browse digital service prices instantly in IQD, USD, and AED.',
         notifContactSupportText: 'Contact Notifications & Tech Support',
+        testNotifBtnText: 'Test Live Audio Notification',
         toastHeaderTitle: 'New Notification from BASCODE',
         toastBodyText: '🎉 A new order for code audit & file translation was received successfully.'
       }
@@ -1530,6 +1599,19 @@
       document.getElementById('navFaq').innerText = t.navFaq;
       document.getElementById('navAiBtn').innerText = t.navAiBtn;
 
+      if (document.getElementById('mDrawerLangBtnText')) {
+        document.getElementById('mDrawerLangBtnText').innerText = t.langBtn;
+      }
+      if (document.getElementById('mNavServices')) {
+        document.getElementById('mNavServices').innerText = t.mNavServices;
+        document.getElementById('mNavCalc').innerText = t.mNavCalc;
+        document.getElementById('mNavTech').innerText = t.mNavTech;
+        document.getElementById('mNavReviews').innerText = t.mNavReviews;
+        document.getElementById('mNavPortfolio').innerText = t.mNavPortfolio;
+        document.getElementById('mNavFaq').innerText = t.mNavFaq;
+        document.getElementById('mNavAiBtn').innerText = t.mNavAiBtn;
+      }
+
       if (document.getElementById('navWhatsappText')) {
         document.getElementById('navWhatsappText').innerText = t.navWhatsappText;
       }
@@ -1559,6 +1641,9 @@
         document.getElementById('notifItem3Title').innerText = t.notifItem3Title;
         document.getElementById('notifItem3Sub').innerText = t.notifItem3Sub;
         document.getElementById('notifContactSupportText').innerText = t.notifContactSupportText;
+        if (document.getElementById('testNotifBtnText')) {
+          document.getElementById('testNotifBtnText').innerText = t.testNotifBtnText;
+        }
       }
 
       if (document.getElementById('toastHeaderTitle')) {
@@ -1768,6 +1853,10 @@
     // Switch Currency Event (Strictly 3 currencies)
     function switchCurrency(val) {
       currentCurrency = val;
+      const headerSelect = document.getElementById('currencySelector');
+      const drawerSelect = document.getElementById('mDrawerCurrSelector');
+      if (headerSelect) headerSelect.value = val;
+      if (drawerSelect) drawerSelect.value = val;
       renderServices();
       recalculateCost();
       renderCartDrawer();
@@ -1869,6 +1958,10 @@
       }
 
       document.getElementById('successNotice').classList.remove('hidden');
+
+      const notifTitle = currentLang === 'ar' ? `تسجيل طلب جديد (${randomRef})` : `New Order Created (${randomRef})`;
+      const notifMsg = currentLang === 'ar' ? `تم تسجيل طلبك لخدمة ${activeServiceTitle} بنجاح وإرساله للإدارة.` : `Your request for ${activeServiceTitle} has been submitted successfully.`;
+      addLiveNotification(notifTitle, notifMsg, 'check-circle');
     }
 
     // Cart System Logic
@@ -1877,8 +1970,10 @@
       if (item) {
         cart.push(item);
         updateCartBadge();
-        const t = TRANSLATIONS[currentLang];
-        alert(t.addedToCartNotice);
+        const title = currentLang === 'ar' ? item.titleAr : item.titleEn;
+        const notifTitle = currentLang === 'ar' ? 'تمت الإضافة لسلة الطلبات 🛒' : 'Added to Cart 🛒';
+        const notifMsg = currentLang === 'ar' ? `تمت إضافة (${title}) إلى السلة بنجاح.` : `(${title}) added to your cart successfully.`;
+        addLiveNotification(notifTitle, notifMsg, 'shopping-bag');
       }
     }
 
@@ -2020,10 +2115,76 @@
 
       grid.prepend(card);
       closeAddReviewModal();
-      alert('تم نشر تقييمك بنجاح في المنصة! شكراً لثقتك بـ باسكود (BASCODE).');
+      
+      const notifTitle = currentLang === 'ar' ? 'نشر تقييم جديد 🌟' : 'Review Published 🌟';
+      const notifMsg = currentLang === 'ar' ? 'شكراً لثقتك! تم نشر تقييمك بنجاح في منصة باسكود.' : 'Thank you! Your review has been published on BASCODE.';
+      addLiveNotification(notifTitle, notifMsg, 'star');
     }
 
     // Notification & Announcement System Handlers
+    function playNotificationSound() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.15, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.3);
+      } catch (e) {}
+    }
+
+    let notifCount = 3;
+
+    function addLiveNotification(title, body, icon = 'sparkles') {
+      notifCount++;
+      const badge = document.getElementById('notifBadge');
+      if (badge) {
+        badge.innerText = notifCount;
+        badge.classList.remove('hidden');
+      }
+
+      const list = document.getElementById('notificationList');
+      if (list) {
+        const newItem = document.createElement('div');
+        newItem.className = 'py-2.5 px-2 bg-amber-500/10 border border-amber-500/20 rounded-xl transition-all cursor-pointer animate-fade-in my-1';
+        newItem.onclick = function() {
+          toggleNotificationDropdown();
+        };
+        newItem.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="${icon}" class="w-3.5 h-3.5"></i>
+            </div>
+            <div class="flex-1 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-black text-amber-300">${title}</span>
+                <span class="text-[10px] text-emerald-400 font-bold">${currentLang === 'ar' ? 'الآن' : 'Now'}</span>
+              </div>
+              <p class="text-gray-200 text-[11px] mt-0.5">${body}</p>
+            </div>
+          </div>
+        `;
+        list.prepend(newItem);
+        if (window.lucide) lucide.createIcons();
+      }
+
+      playNotificationSound();
+      showNotificationToast(title, body);
+    }
+
+    function triggerTestNotification() {
+      const isAr = currentLang === 'ar';
+      const title = isAr ? '🔔 إشعار تجريبي مباشر' : '🔔 Live Test Notification';
+      const msg = isAr ? 'نظام الإشعارات المباشرة شغال بنجاح في منصة باسكود BASCODE!' : 'Live notification engine is running successfully on BASCODE!';
+      addLiveNotification(title, msg, 'bell-ring');
+    }
+
     function dismissAnnouncementBar() {
       const bar = document.getElementById('topAnnouncementBar');
       if (bar) bar.style.display = 'none';
@@ -2040,6 +2201,7 @@
     }
 
     function markAllNotificationsAsRead() {
+      notifCount = 0;
       const badge = document.getElementById('notifBadge');
       if (badge) {
         badge.innerText = '0';
@@ -2047,9 +2209,9 @@
       }
       const list = document.getElementById('notificationList');
       if (list) {
-        const items = list.querySelectorAll('.py-2\\.5');
+        const items = list.querySelectorAll('div');
         items.forEach(item => {
-          item.classList.add('opacity-60');
+          item.classList.add('opacity-50');
         });
       }
       const readBtn = document.getElementById('notifMarkReadBtn');
