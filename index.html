@@ -6,6 +6,9 @@
   <title>BASCODE | باسكود - المنصة العالمية المتقدمة للبرمجة والخدمات الرقمية</title>
   <meta name="description" content="منصة باسكود (BASCODE) العالمية للخدمات البرمجية والهندسية: تطوير البرمجيات، تطبيقات الجوال، الذكاء الاصطناعي، ترجمة الملفات، وفحص البرمجيات والأمن السيبراني بالتسعير الفوري بالدينار العراقي والعملات المعتمدة.">
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/bascode-logo.jpg">
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -21,6 +24,9 @@
     tailwind.config = {
       theme: {
         extend: {
+          screens: {
+            'xs': '480px',
+          },
           fontFamily: {
             sans: ['Cairo', 'Inter', 'sans-serif'],
             title: ['Tajawal', 'Inter', 'sans-serif'],
@@ -32,6 +38,9 @@
   </script>
 
   <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
     body {
       background-color: #06070a;
       color: #f1f5f9;
@@ -86,23 +95,162 @@
       mask-composite: exclude;
       opacity: 0.5;
     }
-    /* Custom Scrollbar */
+    /* Touch & Scrollbar Optimizations */
+    .touch-scroll-x {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    [dir="rtl"] .rtl-flip {
+      transform: scaleX(-1);
+    }
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
+      height: 6px;
     }
     ::-webkit-scrollbar-track {
       background: #06070a;
     }
     ::-webkit-scrollbar-thumb {
       background: #1e293b;
-      border-radius: 4px;
+      border-radius: 9999px;
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #06b6d4;
     }
+
+    /* Complete Mobile Auto-Scaling & Responsiveness Rules */
+    html {
+      overflow-x: hidden;
+      scroll-padding-top: 75px;
+    }
+    body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Mobile Layout & Responsiveness Rules */
+    html {
+      overflow-x: hidden;
+      scroll-padding-top: 75px;
+    }
+    body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Mobile Grid & Services Fitting Constraints */
+    #services {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #servicesContainer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      box-sizing: border-box;
+    }
+    @media (min-width: 540px) {
+      #servicesContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      #servicesContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    #servicesContainer > * {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 639px) {
+      .glass-card {
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
+      }
+      .glass-card:hover {
+        transform: none !important;
+      }
+      h1 {
+        font-size: clamp(1.35rem, 6vw, 2.2rem) !important;
+        line-height: 1.25 !important;
+      }
+      h2 {
+        font-size: clamp(1.15rem, 5vw, 1.75rem) !important;
+        line-height: 1.3 !important;
+      }
+      p, span, li, h3, h4, label {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      input, select, textarea {
+        font-size: 13px !important;
+      }
+      #heroQuickNav {
+        padding: 0.5rem !important;
+      }
+
+      /* Services Section Mobile Scaling & Fitting */
+      #services {
+        margin-top: 0.25rem !important;
+      }
+      #servicesTitle {
+        font-size: clamp(1.05rem, 4.2vw, 1.6rem) !important;
+        line-height: 1.3 !important;
+      }
+      #servicesSub {
+        font-size: clamp(0.68rem, 2.7vw, 0.78rem) !important;
+        line-height: 1.4 !important;
+      }
+      #servicesContainer {
+        gap: 0.75rem !important;
+      }
+      #servicesContainer .glass-card {
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
+        max-width: 100% !important;
+        box-shadow: 0 4px 20px -2px rgba(0,0,0,0.4);
+      }
+      #servicesContainer h3 {
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+      }
+      #servicesContainer p {
+        font-size: 0.72rem !important;
+        line-height: 1.38 !important;
+      }
+      #servicesContainer ul {
+        padding-top: 0.25rem !important;
+      }
+      #servicesContainer ul li {
+        font-size: 0.68rem !important;
+        line-height: 1.25 !important;
+      }
+    }
+    @media (max-width: 380px) {
+      .glass-card {
+        padding: 0.75rem !important;
+      }
+      button, a {
+        font-size: 11px !important;
+      }
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden relative">
+
+  <!-- Global High-Tech 3D Particle Matrix Canvas (Ultra Professional 3D Background) -->
+  <canvas id="tech3dCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
 
   <!-- Top Urgent Announcement Banner -->
   <div id="topAnnouncementBar" class="bg-gradient-to-r from-amber-500/20 via-cyan-500/20 to-blue-600/20 border-b border-amber-500/30 py-1.5 sm:py-2 px-2 sm:px-4 text-[11px] sm:text-xs font-bold text-gray-200 text-center relative flex items-center justify-between gap-1.5 sm:gap-2 z-50">
@@ -129,11 +277,9 @@
     <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-        <div class="relative w-8 h-8 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-amber-500/30 via-cyan-500/30 to-blue-600/30 p-0.5 border border-white/20 group-hover:scale-105 transition-transform">
-          <div class="w-full h-full bg-[#0c0e12] rounded-[10px] flex items-center justify-center font-black text-sm sm:text-lg text-amber-400">
-            BA
-          </div>
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden p-0.5 border border-amber-500/40 bg-[#0c0e12] shadow-lg shadow-amber-500/20 group-hover:scale-105 group-hover:border-amber-400 transition-all">
+          <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[9px]" />
         </div>
         <div class="flex flex-col">
           <span class="text-base sm:text-xl font-black tracking-wider text-white flex items-center gap-1 font-title">
@@ -144,19 +290,6 @@
           </span>
         </div>
       </a>
-
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden lg:flex items-center gap-6 text-xs font-bold text-gray-300">
-        <a href="#services" id="navServices" class="hover:text-cyan-400 transition-colors">دليل الخدمات</a>
-        <a href="#calculator" id="navCalc" class="hover:text-amber-400 transition-colors">حاسبة التكلفة</a>
-        <a href="#techstack" id="navTech" class="hover:text-cyan-400 transition-colors">تقنياتنا</a>
-        <a href="#reviews" id="navReviews" class="hover:text-cyan-400 transition-colors">تقييمات العملاء</a>
-        <a href="#portfolio" id="navPortfolio" class="hover:text-cyan-400 transition-colors">معرض الأعمال</a>
-        <a href="#faq" id="navFaq" class="hover:text-cyan-400 transition-colors">الأسئلة الشائعة</a>
-        <button onclick="openAiAdvisorModal()" class="text-amber-300 hover:text-amber-200 bg-amber-500/10 px-3.5 py-1.5 rounded-full border border-amber-500/20 flex items-center gap-1.5 transition-all hover:scale-105">
-          <span id="navAiBtn">✨ مستشار الذكاء الاصطناعي</span>
-        </button>
-      </nav>
 
       <!-- Language Toggle & Currency Switcher & Notifications & Cart & WhatsApp & Mobile Menu Trigger -->
       <div class="flex items-center gap-1 sm:gap-2.5 shrink-0">
@@ -262,28 +395,11 @@
           </div>
         </div>
 
-        <!-- Direct WhatsApp Direct Header Link -->
-        <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="hidden xl:flex items-center gap-1.5 bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/40 text-emerald-300 font-extrabold text-xs py-2 px-3.5 rounded-xl transition-all">
-          <svg class="w-4 h-4 fill-current text-emerald-400" viewBox="0 0 24 24">
-            <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
-          </svg>
-          <span id="navWhatsappText">الواتساب +9647875929178</span>
-        </a>
-
         <!-- Cart Counter Drawer Trigger -->
         <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer">
           <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400"></i>
           <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-black font-black text-[9px] sm:text-[10px] w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
         </button>
-
-        <!-- Direct Admin Mail Link -->
-        <a href="mailto:bascode84@gmail.com" class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-xs py-2 px-3.5 rounded-full shadow-lg shadow-amber-500/10 transition-all">
-          <i data-lucide="mail" class="w-3.5 h-3.5"></i>
-          <span>البريد الرسمى</span>
-        </a>
 
         <!-- 3-Lines Hamburger Mobile Menu Button (Visible on Mobile & Tablet < lg) -->
         <button onclick="toggleMobileMenu()" class="lg:hidden bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 p-2 sm:p-2.5 rounded-xl border border-amber-500/30 transition-all flex items-center justify-center cursor-pointer shadow-lg shadow-amber-500/10" aria-label="فتح قائمة الملاحة" title="قائمة الملاحة ☰">
@@ -303,8 +419,10 @@
         
         <!-- Drawer Header -->
         <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-cyan-500 text-black font-black flex items-center justify-center text-xs shadow-md">BA</div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-500/40 bg-[#0c0e12] p-0.5 shadow-md">
+              <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[8px]" />
+            </div>
             <span class="text-base font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
           </div>
           <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-1.5 text-base rounded-xl bg-white/5 border border-white/10 cursor-pointer">✕</button>
@@ -428,62 +546,312 @@
         <span id="heroTitleMain">حلول برمجية ورقمية عالمية لـ</span> <span id="heroTitleSub" class="gold-gradient-text">نمو ونجاح مؤسستك</span>
       </h1>
 
-      <!-- Updated Hero Subtitle (Email Removed as explicitly requested) -->
+      <!-- Hero Subtitle -->
       <p id="heroSubtitle" class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto">
         تطوير الأنظمة المعقدة، المواقع الإلكترونية، تطبيقات iOS & Android، الذكاء الاصطناعي، ترجمة الملفات والمستندات، وفحص البرمجيات والأمن السيبراني، وكافة الخدمات الرقمية مع تحديد التسعير الفوري بالدينار العراقي والعملات المعتمدة.
       </p>
 
+      <!-- Platform Explanatory Video Showcase -->
+      <div class="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-500/30 bg-[#07090d] shadow-2xl p-2.5 sm:p-3.5 my-4 w-full box-border">
+        
+        <!-- Video Header Title -->
+        <div class="flex flex-wrap items-center justify-between gap-2 px-1 pb-2 text-xs border-b border-white/10 mb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            <span class="font-bold text-white text-xs sm:text-sm font-title flex items-center gap-1.5">
+              <i data-lucide="play-circle" class="w-4 h-4 text-cyan-400"></i>
+              فيديو ناطق توضيحي شامـل لمنصة باسكود
+            </span>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <button onclick="togglePlatformVideoMute()" id="btnPlatformVideoMute" class="text-[10px] sm:text-xs font-bold text-cyan-300 hover:text-white bg-cyan-500/10 hover:bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30 transition-all flex items-center gap-1 cursor-pointer">
+              <i data-lucide="volume-2" class="w-3.5 h-3.5 text-cyan-400" id="iconVideoMute"></i>
+              <span id="textVideoMute">التعليق الصوتي: مُمكّن</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Single Interactive Video Stage Container -->
+        <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-black via-[#080d1a] to-[#03060d] border border-white/10 select-none shadow-2xl flex flex-col justify-between p-3 sm:p-5 group" id="platformVideoStage">
+          
+          <!-- Animated Background Tech Rays & Particles -->
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(6,182,212,0.22),transparent_70%)] pointer-events-none"></div>
+
+          <!-- Clickable Play / Pause Overlay Button -->
+          <button id="platformVideoPlayOverlayBtn" onclick="togglePlatformShowcaseVideo()" class="absolute inset-0 m-auto w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-cyan-400 hover:bg-cyan-300 text-black flex items-center justify-center shadow-[0_0_35px_rgba(6,182,212,0.6)] hover:scale-110 transition-all cursor-pointer z-30 border-2 border-white/50 backdrop-blur-md">
+            <i data-lucide="play" class="w-8 h-8 sm:w-11 sm:h-11 fill-black translate-x-0.5" id="platformVideoPlayIcon"></i>
+          </button>
+
+          <!-- Top Status Bar Overlay -->
+          <div class="relative z-10 flex items-center justify-between gap-2 border-b border-white/10 pb-2 bg-black/40 px-3 py-1.5 rounded-xl backdrop-blur-md">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-[11px] sm:text-xs font-bold text-cyan-400 font-title" id="videoCurrentSceneBadge">المشهد 1: التعريف بالمنصة</span>
+            </div>
+            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs text-amber-300 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
+              <span>شرح بالصوت والصورة 🎙️</span>
+            </div>
+          </div>
+
+          <!-- Video Content Scenes Container (Transitions Synced with Arabic Voice & Subtitles) -->
+          <div class="relative z-10 my-auto w-full text-right px-1 sm:px-3">
+            
+            <!-- Default Welcome Overlay before Play -->
+            <div id="pVidSceneDefault" class="text-center space-y-2 sm:space-y-3 py-2">
+              <div class="w-14 h-14 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-2xl animate-pulse">
+                <i data-lucide="play-circle" class="w-8 h-8 sm:w-12 sm:h-12"></i>
+              </div>
+              <h3 class="text-sm sm:text-2xl font-black text-white font-title">شاهد فيديو شرح المنصة مع التعليق الصوتي واللقطات</h3>
+              <p class="text-[11px] sm:text-sm text-cyan-300 max-w-lg mx-auto leading-relaxed font-bold">
+                اضغط على زر التشغيل للبدء بالاستماع والاطلاع على خدماتنا الرقمية
+              </p>
+            </div>
+
+            <!-- SCENE 1: Overview & Value Proposition -->
+            <div id="pVidScene1" class="hidden space-y-3 animate-fade-in">
+              <div class="bg-black/80 border border-cyan-500/40 p-3 sm:p-5 rounded-xl sm:rounded-2xl shadow-2xl space-y-3 backdrop-blur-md">
+                <div class="flex items-center gap-2 border-b border-cyan-500/20 pb-2">
+                  <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                    <i data-lucide="globe" class="w-4 h-4"></i>
+                  </div>
+                  <h4 class="text-xs sm:text-base font-black text-cyan-400 font-title">الرؤية الشاملة لمنصة باسكود</h4>
+                </div>
+                
+                <!-- Clips Visual Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+                  <div class="bg-gradient-to-br from-cyan-950/60 to-black p-2.5 rounded-xl border border-cyan-500/30 text-right">
+                    <span class="block text-cyan-400 font-extrabold text-xs sm:text-sm mb-0.5">💻 50+ خدمة تقنية</span>
+                    <span class="text-[10.5px] text-gray-300">برمجة، تصميم، وترجمة</span>
+                  </div>
+                  <div class="bg-gradient-to-br from-amber-950/60 to-black p-2.5 rounded-xl border border-amber-500/30 text-right">
+                    <span class="block text-amber-400 font-extrabold text-xs sm:text-sm mb-0.5">💰 تسعير شفاف IQD</span>
+                    <span class="text-[10.5px] text-gray-300">بالدينار والعملات المعتمدة</span>
+                  </div>
+                  <div class="bg-gradient-to-br from-emerald-950/60 to-black p-2.5 rounded-xl border border-emerald-500/30 text-right">
+                    <span class="block text-emerald-400 font-extrabold text-xs sm:text-sm mb-0.5">⚡ سرعة وتنفيذ 24/7</span>
+                    <span class="text-[10.5px] text-gray-300">تسليم بالمواعيد المحددة</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SCENE 2: Services Grid Clips Showcase -->
+            <div id="pVidScene2" class="hidden space-y-2 animate-fade-in">
+              <div class="bg-black/80 border border-amber-500/40 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl space-y-2.5 backdrop-blur-md">
+                <div class="flex items-center justify-between border-b border-amber-500/20 pb-1.5">
+                  <span class="text-xs sm:text-sm font-black text-amber-300 flex items-center gap-1.5 font-title">
+                    <i data-lucide="layers" class="w-4 h-4 text-amber-400"></i> لقطات حية من الخدمات المتاحة بالمنصة:
+                  </span>
+                  <span class="text-[10px] text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded">اختصاصات هندسية رقمية</span>
+                </div>
+                
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-right">
+                  <div class="bg-cyan-500/10 p-2 rounded-xl border border-cyan-500/30 text-cyan-200 flex items-center gap-2">
+                    <i data-lucide="code-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">برمجة وتطوير الأنظمة</div>
+                      <div class="text-[9.5px] text-cyan-300">مواقع، سيرفرات، APIs</div>
+                    </div>
+                  </div>
+                  <div class="bg-amber-500/10 p-2 rounded-xl border border-amber-500/30 text-amber-200 flex items-center gap-2">
+                    <i data-lucide="palette" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">تصميم UI/UX واجهات</div>
+                      <div class="text-[9.5px] text-amber-300">تصاميم عصرية جذابة</div>
+                    </div>
+                  </div>
+                  <div class="bg-blue-500/10 p-2 rounded-xl border border-blue-500/30 text-blue-200 flex items-center gap-2">
+                    <i data-lucide="smartphone" class="w-4 h-4 text-blue-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">تطبيقات iOS & Android</div>
+                      <div class="text-[9.5px] text-blue-300">أداء فائق واستجابة</div>
+                    </div>
+                  </div>
+                  <div class="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/30 text-emerald-200 flex items-center gap-2">
+                    <i data-lucide="file-text" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">ترجمة الملفات مع الحفاظ</div>
+                      <div class="text-[9.5px] text-emerald-300">دقة عالية لكافة التنسيقات</div>
+                    </div>
+                  </div>
+                  <div class="bg-purple-500/10 p-2 rounded-xl border border-purple-500/30 text-purple-200 flex items-center gap-2">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-purple-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">تحليل وتأمين البيانات</div>
+                      <div class="text-[9.5px] text-purple-300">تقارير وأمن سيبراني</div>
+                    </div>
+                  </div>
+                  <div class="bg-rose-500/10 p-2 rounded-xl border border-rose-500/30 text-rose-200 flex items-center gap-2">
+                    <i data-lucide="package" class="w-4 h-4 text-rose-400 shrink-0"></i>
+                    <div>
+                      <div class="text-xs font-bold text-white">قوالب وأكواد جاهزة</div>
+                      <div class="text-[9.5px] text-rose-300">تحميل مباشر وسريع</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SCENE 3: Ordering & Ratings Showcase -->
+            <div id="pVidScene3" class="hidden space-y-2 animate-fade-in">
+              <div class="bg-black/80 border border-emerald-500/40 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl space-y-2.5 backdrop-blur-md">
+                <div class="flex items-center justify-between border-b border-emerald-500/20 pb-1.5">
+                  <span class="text-xs sm:text-sm font-bold text-emerald-300 flex items-center gap-1.5 font-title">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> سهولة الطلب والضمان والجودة:
+                  </span>
+                  <span class="text-amber-400 font-bold text-xs">★★★★★ (4.9 / 5)</span>
+                </div>
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 bg-white/5 p-2.5 sm:p-3 rounded-xl border border-white/10">
+                  <div class="text-right space-y-1">
+                    <div class="text-xs sm:text-sm font-bold text-white">1. اختيار الخدمة ➔ 2. مراجعة السعر الفوري ➔ 3. إرسال الطلب للاستلام</div>
+                    <div class="text-[10px] sm:text-xs text-gray-300">إمكانية التعديل والمتابعة المباشرة مع فريق الدعم الفني لمشروعك</div>
+                  </div>
+                  <span class="bg-emerald-500 text-black font-extrabold text-[10px] sm:text-xs px-3 py-1.5 rounded-lg shrink-0">ضمان جودة وتنفيذ</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SCENE 4: CTA Finale -->
+            <div id="pVidScene4" class="hidden space-y-2 animate-fade-in text-center">
+              <div class="bg-gradient-to-r from-cyan-950/90 via-black to-amber-950/90 border border-cyan-400/50 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-2xl space-y-3 backdrop-blur-md">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-cyan-400/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 shadow-lg">
+                  <i data-lucide="rocket" class="w-6 h-6 sm:w-7 sm:h-7 animate-bounce"></i>
+                </div>
+                <h3 class="text-base sm:text-2xl font-black text-white font-title gold-gradient-text">
+                  ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!
+                </h3>
+                <a href="#services" class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:to-indigo-500 text-black font-extrabold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-xl hover:scale-105 transition-all">
+                  <span>تصفح جميع الخدمات واطلب الآن</span>
+                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Subtitle Box & Interactive Progress Bar Overlay -->
+          <div class="relative z-10 pt-2 border-t border-white/10 flex flex-col gap-2">
+            
+            <!-- Live Spoken Sentence Subtitle Box -->
+            <div class="bg-black/75 backdrop-blur-md p-2 rounded-xl border border-cyan-500/30 text-center min-h-[44px] flex items-center justify-center">
+              <p id="platformVideoSubtitles" class="text-xs sm:text-sm font-extrabold text-cyan-300 font-title transition-all leading-relaxed">
+                "منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد."
+              </p>
+            </div>
+
+            <!-- Timeline Progress Bar -->
+            <div class="flex items-center gap-2">
+              <button onclick="togglePlatformShowcaseVideo()" class="text-gray-300 hover:text-white transition-all cursor-pointer">
+                <i data-lucide="play" class="w-4 h-4" id="btnBottomPlayIcon"></i>
+              </button>
+              <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden cursor-pointer relative" onclick="seekPlatformVideo(event)" id="platformVideoProgressBg">
+                <div id="platformVideoProgressBar" class="bg-gradient-to-r from-cyan-400 via-amber-400 to-emerald-400 h-full w-0 transition-all duration-300"></div>
+              </div>
+              <span id="platformVideoTimeText" class="text-[10px] text-gray-400 font-mono shrink-0">00:00 / 00:22</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Video Description Footer -->
+        <div class="p-2.5 sm:p-3 flex flex-col gap-1 bg-black/60 rounded-xl mt-2.5 border border-cyan-500/20 text-right">
+          <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1">
+            <span class="text-cyan-400 font-bold text-xs flex items-center gap-1.5">
+              <i data-lucide="mic" class="w-4 h-4 text-cyan-400"></i> فيديو الشرح التفاعلي بالصوت واللقطات
+            </span>
+            <span class="text-amber-400 text-[10px] sm:text-xs font-bold">BASCODE INTERACTIVE SHOWCASE</span>
+          </div>
+          <p class="text-xs sm:text-sm font-bold text-gray-200 leading-relaxed mt-0.5">
+            استعرض لقطات حية للخدمات البرمجية والهندسية والترجمة، واستمع للشرح الناطق باللغة العربية لمميزات المنصة والتسعير المباشر بالدينار والعملات المعتمدة.
+          </p>
+        </div>
+
+      </div>
+
+
+
       <!-- CTA Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-        <a href="#services" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 hover:scale-105">
+      <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-2">
+        <a href="#services" class="w-full sm:w-auto min-h-[44px] justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
           <span id="btnBrowseServices">تصفح دليل الخدمات الشامل</span>
           <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
         </a>
 
-        <a href="#calculator" class="bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-white/10 transition-all flex items-center gap-2 hover:border-amber-400/50">
+        <a href="#calculator" class="w-full sm:w-auto min-h-[44px] justify-center bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm px-7 py-3 rounded-full border border-white/10 transition-all flex items-center gap-2 hover:border-amber-400/50 cursor-pointer">
           <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
           <span id="btnCalcInteractive">حاسبة المشاريع التفاعلية</span>
         </a>
 
-        <button onclick="openAiAdvisorModal()" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full border border-amber-500/30 transition-all flex items-center gap-2 hover:scale-105">
+        <button onclick="openAiAdvisorModal()" class="w-full sm:w-auto min-h-[44px] justify-center bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-bold text-xs sm:text-sm px-7 py-3 rounded-full border border-amber-500/30 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
           <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
           <span id="btnAiAdvisor">مستشار الذكاء الاصطناعي</span>
         </button>
       </div>
 
       <!-- Live Currency Exchange Rates Bar (Restricted strictly to IQD, USD, AED) -->
-      <div class="bg-cyan-950/40 border border-cyan-500/20 rounded-2xl p-4 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs backdrop-blur-md">
+      <div class="bg-cyan-950/40 border border-cyan-500/20 rounded-2xl p-3.5 sm:p-4 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs backdrop-blur-md">
         <div class="space-y-0.5">
-          <span class="text-gray-400 text-[10px] block" id="currIqdLabel">🇸🇮 الدينار العراقي (IQD)</span>
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currIqdLabel">🇸🇮 الدينار العراقي (IQD)</span>
           <strong class="text-amber-300 font-extrabold text-xs sm:text-sm">1 USD = 1,310 IQD</strong>
         </div>
         <div class="border-y sm:border-y-0 sm:border-x border-white/10 py-2 sm:py-0 space-y-0.5">
-          <span class="text-gray-400 text-[10px] block" id="currAedLabel">🇦🇪 الدرهم الإماراتي (AED)</span>
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currAedLabel">🇦🇪 الدرهم الإماراتي (AED)</span>
           <strong class="text-cyan-300 font-extrabold text-xs sm:text-sm">1 USD = 3.67 AED</strong>
         </div>
         <div class="space-y-0.5">
-          <span class="text-gray-400 text-[10px] block" id="currUsdLabel">🇺🇸 الدولار الأمريكي (USD)</span>
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currUsdLabel">🇺🇸 الدولار الأمريكي (USD)</span>
           <strong class="text-emerald-300 font-extrabold text-xs sm:text-sm">$1.00 USD Base</strong>
         </div>
       </div>
 
+      <!-- Main Navigation Links Bar (Placed directly under the Currencies Box as requested) -->
+      <nav id="heroQuickNav" class="bg-[#0c0e12]/90 border border-amber-500/30 rounded-2xl p-1.5 sm:p-3 max-w-4xl mx-auto backdrop-blur-md shadow-2xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-2.5 text-[10px] sm:text-xs md:text-sm font-extrabold text-gray-200">
+        <a href="#services" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavServices">دليل الخدمات</span>
+        </a>
+        <a href="#calculator" class="bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/10 hover:border-amber-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="calculator" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
+          <span id="heroNavCalc">حاسبة التكلفة</span>
+        </a>
+        <a href="#techstack" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="code-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavTech">تقنياتنا</span>
+        </a>
+        <a href="#reviews" class="bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/10 hover:border-amber-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
+          <span id="heroNavReviews">تقييمات العملاء</span>
+        </a>
+        <a href="#portfolio" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavPortfolio">معرض الأعمال</span>
+        </a>
+        <a href="#faq" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavFaq">الأسئلة الشائعة</span>
+        </a>
+      </nav>
+
       <!-- Agency Key Metrics Stats -->
-      <div class="pt-6 grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
-        <div class="glass-card p-4 rounded-2xl space-y-1">
-          <span class="text-2xl font-black text-white font-title">1,850+</span>
-          <span id="statProjects" class="text-[11px] text-gray-400 block">مشروع ونظام برمجي منجز</span>
+      <div class="pt-6 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto">
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-white font-title">1,850+</span>
+          <span id="statProjects" class="text-[10px] sm:text-[11px] text-gray-400 block">مشروع ونظام برمجي منجز</span>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-1">
-          <span class="text-2xl font-black text-amber-400 font-title">99.9%</span>
-          <span id="statSatisfaction" class="text-[11px] text-gray-400 block">نسبة رضا العملاء الرسمية</span>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-amber-400 font-title">99.9%</span>
+          <span id="statSatisfaction" class="text-[10px] sm:text-[11px] text-gray-400 block">نسبة رضا العملاء الرسمية</span>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-1">
-          <span class="text-2xl font-black text-cyan-400 font-title">12 دولة</span>
-          <span id="statCountries" class="text-[11px] text-gray-400 block">انتشار وحضور عالمي للخدمات</span>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-cyan-400 font-title">12 دولة</span>
+          <span id="statCountries" class="text-[10px] sm:text-[11px] text-gray-400 block">انتشار وحضور عالمي للخدمات</span>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-1">
-          <span class="text-2xl font-black text-emerald-400 font-title">24/7</span>
-          <span id="statSupport" class="text-[11px] text-gray-400 block">دعم واستجابة إدارية سريعة</span>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-emerald-400 font-title">24/7</span>
+          <span id="statSupport" class="text-[10px] sm:text-[11px] text-gray-400 block">دعم واستجابة إدارية سريعة</span>
         </div>
       </div>
 
@@ -491,58 +859,58 @@
   </section>
 
   <!-- Main Content Area -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12 sm:space-y-20">
 
     <!-- SERVICES SECTION -->
-    <section id="services" class="space-y-8">
+    <section id="services" class="space-y-5 sm:space-y-8 w-full">
       
       <!-- Section Header with Search & Filters -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10">
-        <div>
-          <span id="servicesBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-white/10">
+        <div class="space-y-1">
+          <span id="servicesBadge" class="text-[10px] sm:text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-cyan-500/20 inline-block max-w-full">
             دليل الخدمات البرمجية والهندسية والرقمية
           </span>
-          <h2 id="servicesTitle" class="text-2xl sm:text-3xl font-black text-white mt-2 font-title">كافة خدمات منصة باسكود الرقمية العالمية</h2>
-          <p id="servicesSub" class="text-xs text-gray-400 mt-1">اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة</p>
+          <h2 id="servicesTitle" class="text-xl sm:text-3xl font-black text-white mt-1 sm:mt-2 font-title leading-tight">كافة خدمات منصة باسكود الرقمية العالمية</h2>
+          <p id="servicesSub" class="text-[11px] sm:text-xs text-gray-400 mt-1 leading-relaxed">اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة</p>
         </div>
 
         <!-- Category Tabs & Search Bar -->
-        <div class="space-y-3">
+        <div class="space-y-2.5 sm:space-y-3 w-full lg:w-auto">
           
           <!-- Search Field -->
-          <div class="relative">
-            <input type="text" id="serviceSearchInput" oninput="handleServiceSearch(this.value)" placeholder="ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)..." class="w-full lg:w-80 bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 rounded-xl py-2.5 pr-9 pl-4 focus:outline-none focus:border-cyan-500 transition-all">
-            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute right-3 top-3"></i>
+          <div class="relative w-full">
+            <input type="text" id="serviceSearchInput" oninput="handleServiceSearch(this.value)" placeholder="ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)..." class="w-full lg:w-80 bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 rounded-xl py-2 sm:py-2.5 pr-8 sm:pr-9 pl-3 focus:outline-none focus:border-cyan-500 transition-all">
+            <i data-lucide="search" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 absolute right-3 top-2.5 sm:top-3"></i>
           </div>
 
           <!-- Category Buttons -->
-          <div class="flex items-center gap-2 overflow-x-auto pb-1 text-xs font-bold scrollbar-none" id="categoryButtonsContainer">
-            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-4 py-1.5 rounded-xl whitespace-nowrap transition-all">الكل (10)</button>
-            <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-4 py-1.5 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1">
+          <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 text-[10.5px] sm:text-xs font-bold scrollbar-none touch-scroll-x flex-nowrap w-full" id="categoryButtonsContainer">
+            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الكل (50)</button>
+            <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>✨ ترجمة الملفات</span>
             </button>
-            <button onclick="filterCategory('scan')" id="catBtnScan" class="cat-btn bg-cyan-500/20 text-cyan-300 hover:text-white px-4 py-1.5 rounded-xl border border-cyan-500/40 whitespace-nowrap transition-all flex items-center gap-1">
+            <button onclick="filterCategory('scan')" id="catBtnScan" class="cat-btn bg-cyan-500/20 text-cyan-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-cyan-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>🛡️ فحص الملفات والأمن</span>
             </button>
-            <button onclick="filterCategory('web')" id="catBtnWeb" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-4 py-1.5 rounded-xl border border-white/10 whitespace-nowrap transition-all">البرمجة والويب</button>
-            <button onclick="filterCategory('mobile')" id="catBtnMobile" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-4 py-1.5 rounded-xl border border-white/10 whitespace-nowrap transition-all">التطبيقات</button>
-            <button onclick="filterCategory('design')" id="catBtnDesign" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-4 py-1.5 rounded-xl border border-white/10 whitespace-nowrap transition-all">التصميم UI/UX</button>
-            <button onclick="filterCategory('ai')" id="catBtnAi" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-4 py-1.5 rounded-xl border border-white/10 whitespace-nowrap transition-all">الذكاء الاصطناعي</button>
-            <button onclick="filterCategory('growth')" id="catBtnGrowth" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-4 py-1.5 rounded-xl border border-white/10 whitespace-nowrap transition-all">التسويق وSEO</button>
+            <button onclick="filterCategory('web')" id="catBtnWeb" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">البرمجة والويب</button>
+            <button onclick="filterCategory('mobile')" id="catBtnMobile" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التطبيقات</button>
+            <button onclick="filterCategory('design')" id="catBtnDesign" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التصميم UI/UX</button>
+            <button onclick="filterCategory('ai')" id="catBtnAi" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الذكاء الاصطناعي</button>
+            <button onclick="filterCategory('growth')" id="catBtnGrowth" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التسويق وSEO</button>
           </div>
 
         </div>
       </div>
 
       <!-- Services Grid Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="servicesContainer">
+      <div class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 w-full" id="servicesContainer">
         <!-- Rendered dynamically by JavaScript -->
       </div>
 
     </section>
 
     <!-- CALCULATOR SECTION -->
-    <section id="calculator" class="glass-card p-6 sm:p-10 rounded-3xl relative overflow-hidden animated-border">
+    <section id="calculator" class="glass-card p-5 sm:p-10 rounded-2xl sm:rounded-3xl relative overflow-hidden animated-border">
       <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10 space-y-6">
@@ -560,7 +928,7 @@
           <!-- 1. Type -->
           <div class="space-y-2">
             <label id="calcLabelType" class="block text-xs font-bold text-gray-300">1. نوع الخدمة الرقمية المطلوب:</label>
-            <select id="calcType" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs font-bold rounded-xl p-3 focus:outline-none focus:border-cyan-500 cursor-pointer">
+            <select id="calcType" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs sm:text-sm font-bold rounded-xl p-3 sm:p-3.5 min-h-[44px] focus:outline-none focus:border-cyan-500 cursor-pointer">
               <!-- Populated dynamically via JS translations -->
             </select>
           </div>
@@ -568,7 +936,7 @@
           <!-- 2. Scope -->
           <div class="space-y-2">
             <label id="calcLabelScope" class="block text-xs font-bold text-gray-300">2. حجم ونطاق النظام / الملفات:</label>
-            <select id="calcScope" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs font-bold rounded-xl p-3 focus:outline-none focus:border-cyan-500 cursor-pointer">
+            <select id="calcScope" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs sm:text-sm font-bold rounded-xl p-3 sm:p-3.5 min-h-[44px] focus:outline-none focus:border-cyan-500 cursor-pointer">
               <!-- Populated dynamically via JS translations -->
             </select>
           </div>
@@ -576,17 +944,17 @@
           <!-- 3. Addons -->
           <div class="space-y-2">
             <label id="calcLabelAddons" class="block text-xs font-bold text-gray-300">3. الميزات والإضافات الخاصة:</label>
-            <div class="space-y-2.5 text-xs text-gray-300 bg-black/40 p-3 rounded-xl border border-white/5">
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" id="addMultilang" onchange="recalculateCost()" value="200" class="rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+            <div class="space-y-2 text-xs text-gray-300 bg-black/40 p-3 rounded-xl border border-white/5">
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addMultilang" onchange="recalculateCost()" value="200" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
                 <span id="addonMultilangText">تعدد اللغات (عربي / إنجليزي / كوردستاني) (+$200)</span>
               </label>
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" id="addPayments" onchange="recalculateCost()" value="250" class="rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addPayments" onchange="recalculateCost()" value="250" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
                 <span id="addonPaymentsText">ربط بوابات الدفع الإلكتروني (+$250)</span>
               </label>
-              <label class="flex items-center gap-2.5 cursor-pointer">
-                <input type="checkbox" id="addSecurity" onchange="recalculateCost()" value="300" class="rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addSecurity" onchange="recalculateCost()" value="300" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
                 <span id="addonSecurityText">درع الحماية والتشفير السيبراني وفحص الملفات (+$300)</span>
               </label>
             </div>
@@ -622,29 +990,29 @@
         <p id="techSub" class="text-xs text-gray-400">نعتمد أفضل الأطر البرمجية ومحركات الترجمة وأدوات الفحص الأمنية السيبرانية</p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-cyan-400 font-black text-lg font-code">React / Next.js</div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center">
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-cyan-400 font-black text-xs sm:text-base md:text-lg font-code break-words">React / Next.js</div>
           <p id="tech1Desc" class="text-[10px] text-gray-400">تطوير واجهات ويب فائقة السرعة</p>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-amber-400 font-black text-lg font-code">Flutter / Dart</div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-amber-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Flutter / Dart</div>
           <p id="tech2Desc" class="text-[10px] text-gray-400">تطبيقات جوال هجينة عالية الأداء</p>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-emerald-400 font-black text-lg font-code">Node.js Express</div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-emerald-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Node.js Express</div>
           <p id="tech3Desc" class="text-[10px] text-gray-400">سيرفرات خلفية معقدة ومرنة</p>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-blue-400 font-black text-lg font-code">Translation Engines</div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-blue-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Translation Engines</div>
           <p id="tech4Desc" class="text-[10px] text-gray-400">ترجمة الملفات والأكواد بدقة</p>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-purple-400 font-black text-lg font-code">Gemini AI / Python</div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-purple-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Gemini AI / Python</div>
           <p id="tech5Desc" class="text-[10px] text-gray-400">ذكاء اصطناعي وأتمتة ذكية</p>
         </div>
-        <div class="glass-card p-4 rounded-2xl space-y-2">
-          <div class="text-rose-400 font-black text-lg font-code">Security Audit Tools</div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-rose-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Security Audit Tools</div>
           <p id="tech6Desc" class="text-[10px] text-gray-400">فحص وتطهير البرمجيات والملفات</p>
         </div>
       </div>
@@ -662,17 +1030,17 @@
           <p id="reviewsSub" class="text-xs text-gray-400 mt-1">تجارب حقيقية لعملاء ومؤسسات من مختلف دول العالم</p>
         </div>
 
-        <button onclick="openAddReviewModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-white/10 transition-all flex items-center gap-2 self-start sm:self-auto cursor-pointer">
+        <button onclick="openAddReviewModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-white/10 transition-all flex items-center gap-2 self-start sm:self-auto cursor-pointer min-h-[40px]">
           <i data-lucide="edit-3" class="w-4 h-4 text-cyan-400"></i>
           <span id="addReviewBtnText">✍️ إضافة تقييم لمشروعك</span>
         </button>
       </div>
 
       <!-- Reviews Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="reviewsGrid">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6" id="reviewsGrid">
         
         <!-- Review Card 1 -->
-        <div class="glass-card p-6 rounded-3xl space-y-4">
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
           <div class="flex items-center justify-between">
             <div>
               <h4 class="font-bold text-white text-sm">م. أحمد الفتلاوي</h4>
@@ -690,7 +1058,7 @@
         </div>
 
         <!-- Review Card 2 (Translation & Security) -->
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-amber-500/30">
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-amber-500/30">
           <div class="flex items-center justify-between">
             <div>
               <h4 class="font-bold text-white text-sm">د. وسام الزبيدي</h4>
@@ -708,7 +1076,7 @@
         </div>
 
         <!-- Review Card 3 -->
-        <div class="glass-card p-6 rounded-3xl space-y-4">
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
           <div class="flex items-center justify-between">
             <div>
               <h4 class="font-bold text-white text-sm">David Miller</h4>
@@ -740,20 +1108,22 @@
         <p id="portSub" class="text-xs text-gray-400 mt-1">أنظمة برمجية وحلول ترجمة وفحص ملفات تمت زيادة كفاءتها وتأمينها بنجاح</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         
         <!-- Showcase Item 1 -->
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-white/10">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
-              منصة عقارية كاملة
-            </span>
-            <span class="text-xs text-gray-400">1,800$ USD</span>
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-white/10 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+                منصة عقارية كاملة
+              </span>
+              <span class="text-xs text-gray-400">1,800$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">منصة إدارة العقارات والمزادات الذكية</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              تطوير موقع ويب وسيرفر كامل يتيح للبائعين والمشترين التزايد الحقيقي على العقارات مع نظام إشعارات فورية وتكامل خرائط جوجل.
+            </p>
           </div>
-          <h3 class="text-lg font-black text-white">منصة إدارة العقارات والمزادات الذكية</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            تطوير موقع ويب وسيرفر كامل يتيح للبائعين والمشترين التزايد الحقيقي على العقارات مع نظام إشعارات فورية وتكامل خرائط جوجل.
-          </p>
           <div class="flex flex-wrap gap-2 pt-2">
             <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">React</span>
             <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Node.js Express</span>
@@ -762,17 +1132,19 @@
         </div>
 
         <!-- Showcase Item 2: Translation Showcase -->
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-amber-500/30 bg-amber-500/5">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/30">
-              ✨ ترجمة وتوطين برجمي
-            </span>
-            <span class="text-xs text-gray-400">150$ USD</span>
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-amber-500/30 bg-amber-500/5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/30">
+                ✨ ترجمة وتوطين برجمي
+              </span>
+              <span class="text-xs text-gray-400">150$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">توطين وترجمة مستندات نظام مالية ومصرفية</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              ترجمة كاملة ومزدوجة (عربي / إنجليزي) لكافة مستندات النظام وقواعد البيانات والملفات النصية مع الحفاظ على التنسيق والتركيب.
+            </p>
           </div>
-          <h3 class="text-lg font-black text-white">توطين وترجمة مستندات نظام مالية ومصرفية</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            ترجمة كاملة ومزدوجة (عربي / إنجليزي) لكافة مستندات النظام وقواعد البيانات والملفات النصية مع الحفاظ على التنسيق والتركيب.
-          </p>
           <div class="flex flex-wrap gap-2 pt-2">
             <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">Technical Localization</span>
             <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">i18n Standards</span>
@@ -780,17 +1152,19 @@
         </div>
 
         <!-- Showcase Item 3: File Security Scan -->
-        <div class="glass-card p-6 rounded-3xl space-y-4 border border-cyan-500/30 bg-cyan-500/5">
-          <div class="flex items-center justify-between">
-            <span class="text-[10px] font-bold text-cyan-300 bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30">
-              🛡️ فحص ملفات وسيرفرات
-            </span>
-            <span class="text-xs text-gray-400">200$ USD</span>
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-cyan-500/30 bg-cyan-500/5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-cyan-300 bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30">
+                🛡️ فحص ملفات وسيرفرات
+              </span>
+              <span class="text-xs text-gray-400">200$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">تدقيق أمني وفحص فايروسات لملفات تطبيق مؤسسي</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              فحص سيبراني شامل لأكثر من 500 ملف برمجي واكتشاف ثغرات تسريب البيانات وتطهير السكربتات بتقرير أمني رسمي.
+            </p>
           </div>
-          <h3 class="text-lg font-black text-white">تدقيق أمني وفحص فايروسات لملفات تطبيق مؤسسي</h3>
-          <p class="text-xs text-gray-300 leading-relaxed">
-            فحص سيبراني شامل لأكثر من 500 ملف بررمجي واكتشاف ثغرات تسريب البيانات وتطهير السكربتات بتقرير أمني رسمي.
-          </p>
           <div class="flex flex-wrap gap-2 pt-2">
             <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Malware Audit</span>
             <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Security Report</span>
@@ -847,35 +1221,34 @@
     </section>
 
   </main>
-
-  <!-- CART DRAWER MODAL -->
+          <!-- CART DRAWER MODAL -->
   <div id="cartDrawer" class="fixed inset-0 z-50 hidden transition-all">
     <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-    <div class="absolute top-0 bottom-0 left-0 w-full max-w-md bg-[#0c0e12] border-r border-white/10 p-6 flex flex-col justify-between shadow-2xl">
+    <div class="absolute top-0 bottom-0 rtl:left-0 ltr:right-0 w-[88vw] max-w-sm sm:max-w-md bg-[#0c0e12] border-x border-white/10 p-4 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto z-10">
       
       <div>
-        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-5 sm:mb-6">
           <div class="flex items-center gap-2">
             <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
-            <h3 id="cartDrawerTitle" class="font-extrabold text-white text-base">سلة الخدمات الرقمية</h3>
+            <h3 id="cartDrawerTitle" class="font-extrabold text-white text-sm sm:text-base">سلة الخدمات الرقمية</h3>
           </div>
-          <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white p-1">✕</button>
+          <button onclick="toggleCartDrawer()" type="button" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer">✕</button>
         </div>
 
         <!-- Cart Items List -->
-        <div id="cartItemsList" class="space-y-3 max-h-[60vh] overflow-y-auto pr-1">
+        <div id="cartItemsList" class="space-y-3 max-h-[55vh] sm:max-h-[60vh] overflow-y-auto pr-1">
           <!-- Dynamically populated -->
         </div>
       </div>
 
       <!-- Cart Total & Direct Checkout -->
       <div class="pt-4 border-t border-white/10 space-y-4">
-        <div class="flex items-center justify-between text-sm font-bold">
+        <div class="flex items-center justify-between text-xs sm:text-sm font-bold">
           <span id="cartDrawerTotalLabel" class="text-gray-400">الإجمالي الشامل:</span>
-          <span id="cartDrawerTotal" class="text-amber-400 text-xl font-title">$0</span>
+          <span id="cartDrawerTotal" class="text-amber-400 text-lg sm:text-xl font-title">$0</span>
         </div>
 
-        <button onclick="proceedToCheckoutFromCart()" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs py-3.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <button onclick="proceedToCheckoutFromCart()" type="button" class="w-full min-h-[44px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs py-3.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
           <span id="cartCheckoutBtnText">المتابعة لإكمال الطلب وإرساله للإدارة</span>
           <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
         </button>
@@ -885,70 +1258,71 @@
   </div>
 
   <!-- DIRECT ORDER CHECKOUT MODAL -->
-  <div id="orderModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
+  <div id="orderModal" onclick="if(event.target === this) closeModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto">
       
-      <button onclick="closeModal()" class="absolute left-4 top-4 p-2 text-gray-400 hover:text-white rounded-full bg-white/5 border border-white/10">
+      <button onclick="closeModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
         ✕
       </button>
 
-      <h3 class="text-xl font-extrabold text-white mb-2 flex items-center gap-2 font-title">
-        <span id="modalOrderHeader">🚀 تأكيد طلب الخدمة المباشر - BASCODE</span>
-      </h3>
-      <p id="modalOrderSub" class="text-xs text-gray-400 mb-6">سيتم إرسال كافة التفاصيل والمواصفات رسمياً إلى البريد الإداري المعتمد.</p>
+      <div class="rtl:pl-8 ltr:pr-8 mb-4">
+        <h3 class="text-base sm:text-xl font-extrabold text-white mb-1.5 flex items-center gap-2 font-title leading-snug">
+          <span id="modalOrderHeader">🚀 تأكيد طلب الخدمة المباشر - BASCODE</span>
+        </h3>
+        <p id="modalOrderSub" class="text-[11px] sm:text-xs text-gray-400">سيتم إرسال كافة التفاصيل والمواصفات رسمياً إلى البريد الإداري المعتمد.</p>
+      </div>
 
-      <form onsubmit="handleOrderSubmit(event)" class="space-y-4">
+      <form onsubmit="handleOrderSubmit(event)" class="space-y-3.5 sm:space-y-4">
         
         <div>
           <label id="lblSelectedService" class="block text-xs font-bold text-gray-300 mb-1">الخدمة الرقمية المختارة:</label>
-          <div id="selectedServiceBadge" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-extrabold text-xs p-3 rounded-xl">
+          <div id="selectedServiceBadge" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-extrabold text-xs p-2.5 sm:p-3 rounded-xl break-words">
             -
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label id="lblName" class="block text-xs font-bold text-gray-300 mb-1">الاسم الكامل *</label>
-            <input type="text" id="clientName" required placeholder="مثال: محمد علي السالم" class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+            <input type="text" id="clientName" required placeholder="مثال: محمد علي السالم" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
           <div>
             <label id="lblEmail" class="block text-xs font-bold text-gray-300 mb-1">البريد الإلكتروني للعميل *</label>
-            <input type="email" id="clientEmail" required placeholder="client@domain.com" class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+            <input type="email" id="clientEmail" required placeholder="client@domain.com" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label id="lblPhone" class="block text-xs font-bold text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
-            <input type="tel" id="clientPhone" required placeholder="+964 770 123 4567" class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+            <input type="tel" id="clientPhone" required placeholder="+964 770 123 4567" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
           <div>
             <label id="lblCompany" class="block text-xs font-bold text-gray-300 mb-1">اسم الشركة / المؤسسة</label>
-            <input type="text" id="clientCompany" placeholder="اختياري" class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+            <input type="text" id="clientCompany" placeholder="اختياري" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
         </div>
 
         <div>
           <label id="lblPayment" class="block text-xs font-bold text-gray-300 mb-1">طريقة الدفع المفضلة:</label>
-          <select id="paymentMethod" class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500">
+          <select id="paymentMethod" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
             <option value="زين كاش / تحويل محلي">زين كاش / تحويل محلي بالدينار (IQD)</option>
             <option value="بطاقة إلكترونية Visa/Mastercard">بطاقة إلكترونية Visa / Mastercard</option>
-
             <option value="تحويل بانكي دولي (SWIFT)">تحويل بانكي دولي (AED / USD)</option>
           </select>
         </div>
 
         <div>
           <label id="lblNotes" class="block text-xs font-bold text-gray-300 mb-1">ملاحظات وتعليمات المشروع / الملفات الخاصة</label>
-          <textarea id="clientNotes" rows="3" placeholder="أضف أي تفاصيل خاصة باللغات، الترجمة، فحص الملفات، أو المواعيد..." class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
+          <textarea id="clientNotes" rows="3" placeholder="أضف أي تفاصيل خاصة باللغات، الترجمة، فحص الملفات، أو المواعيد..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
         </div>
 
-        <div class="bg-black/60 p-4 rounded-2xl border border-white/10 flex items-center justify-between">
+        <div class="bg-black/60 p-3.5 sm:p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <div>
             <span id="lblTotalEstimated" class="text-xs text-gray-400 block">المبلغ الشامل التقديري:</span>
-            <span id="modalDisplayPrice" class="text-xl font-extrabold text-amber-400 font-title">$0</span>
+            <span id="modalDisplayPrice" class="text-lg sm:text-xl font-extrabold text-amber-400 font-title">$0</span>
           </div>
-          <button type="submit" id="submitOrderBtn" class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 px-6 rounded-full shadow-lg transition-all cursor-pointer">
+          <button type="submit" id="submitOrderBtn" class="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 px-6 rounded-full shadow-lg transition-all cursor-pointer flex items-center justify-center">
             تأكيد وإرسال للإدارة 🚀
           </button>
         </div>
@@ -957,21 +1331,21 @@
 
       <!-- SUCCESS CONFIRMATION BOX -->
       <div id="successNotice" class="hidden text-center space-y-4 pt-6 border-t border-white/10 mt-6">
-        <div class="text-emerald-400 font-black text-xl flex items-center justify-center gap-2">
+        <div class="text-emerald-400 font-black text-lg sm:text-xl flex items-center justify-center gap-2">
           <span>🎉 تم تسجيل الطلب بنجاح!</span>
         </div>
         <p class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">
           تم تسليم بيانات الطلب رسمياً. يمكنك أيضاً إرسال تفاصيل مشروعك مباشرة للإدارة عبر الواتساب أو البريد الإلكتروني للبدء الفوري:
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a id="whatsappOrderLink" href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20متابعة%20طلبي%20الجديد" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all">
+          <a id="whatsappOrderLink" href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20متابعة%20طلبي%20الجديد" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all">
             <svg class="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
               <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
             </svg>
             <span id="whatsappOrderBtnText">إرسال تفاصيل الطلب عبر الواتساب</span>
           </a>
 
-          <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
+          <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
             <i data-lucide="send" class="w-4 h-4"></i>
             <span>إرسال عبر تطبيق البريد</span>
           </a>
@@ -982,45 +1356,45 @@
   </div>
 
   <!-- AI ADVISOR MODAL -->
-  <div id="aiAdvisorModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-amber-500/30 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
+  <div id="aiAdvisorModal" onclick="if(event.target === this) closeAiAdvisorModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-amber-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto">
       
-      <button onclick="closeAiAdvisorModal()" class="absolute left-4 top-4 p-2 text-gray-400 hover:text-white rounded-full bg-white/5 border border-white/10">
+      <button onclick="closeAiAdvisorModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
         ✕
       </button>
 
-      <div class="flex items-center gap-3 mb-4">
-        <div class="p-2.5 bg-amber-500/10 rounded-2xl border border-amber-500/30">
-          <i data-lucide="sparkles" class="w-6 h-6 text-amber-400"></i>
+      <div class="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 rtl:pl-8 ltr:pr-8">
+        <div class="p-2 sm:p-2.5 bg-amber-500/10 rounded-xl sm:rounded-2xl border border-amber-500/30 shrink-0">
+          <i data-lucide="sparkles" class="w-5 h-5 sm:w-6 sm:h-6 text-amber-400"></i>
         </div>
         <div>
-          <h3 id="aiModalTitle" class="text-xl font-extrabold text-white font-title">مستشار باسكود الذكي (Gemini AI)</h3>
-          <p id="aiModalSub" class="text-xs text-gray-400">صف فكرة مشروعك، طلب ترجمتك، أو فحص ملفاتك وسيقوم النظام بتحليلها وتحديد التكلفة</p>
+          <h3 id="aiModalTitle" class="text-base sm:text-xl font-extrabold text-white font-title leading-snug">مستشار باسكود الذكي (Gemini AI)</h3>
+          <p id="aiModalSub" class="text-[10px] sm:text-xs text-gray-400 mt-0.5">صف فكرة مشروعك، طلب ترجمتك، أو فحص ملفاتك وسيقوم النظام بتحليلها وتحديد التكلفة</p>
         </div>
       </div>
 
-      <div class="space-y-4">
+      <div class="space-y-3.5 sm:space-y-4">
         <div>
           <label id="aiPromptLabel" class="block text-xs font-bold text-gray-300 mb-1">صف فكرة مشروعك أو ملفاتك المطلوبة:</label>
-          <textarea id="aiPromptInput" rows="4" placeholder="مثال: أريد ترجمة مستندات وأكواد تطبيق، وفحص الملفات أمنياً مع تطبيق جوال بوابات دفع..." class="w-full bg-black/60 border border-white/10 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-amber-500"></textarea>
+          <textarea id="aiPromptInput" rows="4" placeholder="مثال: أريد ترجمة مستندات وأكواد تطبيق، وفحص الملفات أمنياً مع تطبيق جوال بوابات دفع..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-amber-500"></textarea>
         </div>
 
-        <button onclick="consultAiEngine()" id="aiSubmitBtn" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <button onclick="consultAiEngine()" id="aiSubmitBtn" type="button" class="w-full min-h-[44px] bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
           <span id="aiSubmitBtnText">تحليل الفكرة والملفات واستخراج الخطة 🪄</span>
         </button>
 
         <!-- AI Result Output -->
-        <div id="aiResultBox" class="hidden bg-white/5 border border-amber-500/20 p-4 rounded-2xl space-y-3 text-xs">
-          <div class="font-bold text-amber-300 text-sm flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <div id="aiResultBox" class="hidden bg-white/5 border border-amber-500/20 p-3.5 sm:p-4 rounded-2xl space-y-3 text-xs">
+          <div class="font-bold text-amber-300 text-xs sm:text-sm flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
             <span id="aiRecHeader">توصية باسكود البرمجية:</span>
           </div>
-          <p id="aiAdviceText" class="text-gray-300 leading-relaxed"></p>
-          <div class="pt-2 border-t border-white/10 flex items-center justify-between font-bold">
-            <span id="aiCostHeader" class="text-gray-400">التكلفة والزمن الموصى بهما:</span>
-            <span id="aiCostText" class="text-amber-400 font-title"></span>
+          <p id="aiAdviceText" class="text-gray-300 leading-relaxed text-[11px] sm:text-xs"></p>
+          <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2 font-bold">
+            <span id="aiCostHeader" class="text-gray-400 text-[11px] sm:text-xs">التكلفة والزمن الموصى بهما:</span>
+            <span id="aiCostText" class="text-amber-400 font-title text-xs sm:text-sm"></span>
           </div>
-          <button onclick="applyAiToOrder()" id="aiApplyBtn" class="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition-all cursor-pointer">
+          <button onclick="applyAiToOrder()" id="aiApplyBtn" type="button" class="w-full min-h-[40px] bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition-all cursor-pointer">
             تطبيق هذه التوصية في طلب جديد
           </button>
         </div>
@@ -1030,24 +1404,24 @@
   </div>
 
   <!-- ADD REVIEW MODAL -->
-  <div id="addReviewModal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-md bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-2xl my-auto max-h-[90vh] overflow-y-auto">
-      <button onclick="closeAddReviewModal()" class="absolute left-4 top-4 text-gray-400">✕</button>
-      <h3 id="revModalTitle" class="text-lg font-bold text-white mb-4">✍️ إضافة تقييم لمشروعك مع باسكود</h3>
+  <div id="addReviewModal" onclick="if(event.target === this) closeAddReviewModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-md bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto">
+      <button onclick="closeAddReviewModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">✕</button>
+      <h3 id="revModalTitle" class="text-base sm:text-lg font-bold text-white mb-4 rtl:pl-8 ltr:pr-8">✍️ إضافة تقييم لمشروعك مع باسكود</h3>
       <form onsubmit="handleReviewSubmit(event)" class="space-y-3">
         <div>
           <label id="revNameLbl" class="block text-xs text-gray-300 mb-1">الاسم الكامل *</label>
-          <input type="text" id="revName" required placeholder="مثال: المهندس علي حسين" class="w-full bg-black/60 border border-white/10 text-xs text-white p-2.5 rounded-xl">
+          <input type="text" id="revName" required placeholder="مثال: المهندس علي حسين" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl min-h-[44px]">
         </div>
         <div>
           <label id="revRoleLbl" class="block text-xs text-gray-300 mb-1">الموقع / الشركة والبلد *</label>
-          <input type="text" id="revRole" required placeholder="بغداد - العراق | ترجمة وفحص ملفات" class="w-full bg-black/60 border border-white/10 text-xs text-white p-2.5 rounded-xl">
+          <input type="text" id="revRole" required placeholder="بغداد - العراق | ترجمة وفحص ملفات" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl min-h-[44px]">
         </div>
         <div>
           <label id="revCommentLbl" class="block text-xs text-gray-300 mb-1">الرأي والتقييم *</label>
-          <textarea id="revComment" required rows="3" placeholder="اكتب تجربتك وانطباعك عن جودة وسرعة تنفيذ الخدمة..." class="w-full bg-black/60 border border-white/10 text-xs text-white p-2.5 rounded-xl"></textarea>
+          <textarea id="revComment" required rows="3" placeholder="اكتب تجربتك وانطباعك عن جودة وسرعة تنفيذ الخدمة..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl"></textarea>
         </div>
-        <button type="submit" id="revSubmitBtn" class="w-full bg-white hover:bg-cyan-400 text-black font-bold text-xs py-3 rounded-xl transition-all cursor-pointer">
+        <button type="submit" id="revSubmitBtn" class="w-full min-h-[44px] bg-white hover:bg-cyan-400 text-black font-bold text-xs py-3 rounded-xl transition-all cursor-pointer flex items-center justify-center">
           نشر التقييم فوراً
         </button>
       </form>
@@ -1112,12 +1486,14 @@
   </div>
 
   <!-- Footer -->
-  <footer class="bg-[#040507] border-t border-white/10 py-12 px-4 mt-20">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-xs text-gray-400 mb-8">
+  <footer class="bg-[#040507] border-t border-white/10 py-10 sm:py-12 px-4 mt-16 sm:mt-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-xs text-gray-400 mb-8">
       
       <div class="space-y-3">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-lg bg-amber-400 text-black font-black flex items-center justify-center">BA</div>
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-500/40 bg-[#0c0e12] p-0.5 shadow-md">
+            <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[8px]" />
+          </div>
           <span class="text-lg font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
         </div>
         <p id="footerAboutText" class="leading-relaxed">
@@ -1186,7 +1562,7 @@
     let currentLang = 'ar'; // 'ar' or 'en'
     let cart = [];
 
-    // Complete Services Database including Distinguished File Translation & Security Scan
+    // Complete Services Database (50 Digital Services - strictly excluding music & video)
     const services = [
       {
         id: 'file-translation',
@@ -1201,18 +1577,8 @@
         timeEn: '1 - 3 Days',
         descAr: 'ترجمة احترافية وسريعة لكافة أنواع الملفات، المستندات، الأكواد المصدري، ملفات PDF، وكتيبات النظام مع توثيق المصطلحات والحفاظ التام على التنسيق الأصلي.',
         descEn: 'Fast and professional translation of files, technical documents, source code, PDFs, and system documentation with strict term verification and original layout preservation.',
-        featuresAr: [
-          'ترجمة ملفات PDF / DOCX / JSON / Source Code',
-          'دعم الأكواد المصدري وتوطين اللغات (i18n)',
-          'تدقيق لغوي وتقني بواسطة خبراء مهندسين',
-          'الحفاظ على الهيكل والتنسيق الأصلي 100%'
-        ],
-        featuresEn: [
-          'PDF / DOCX / JSON & Source Code translation',
-          'Full software localization (i18n)',
-          'Technical QA by senior engineers',
-          '100% original layout preservation'
-        ]
+        featuresAr: ['ترجمة ملفات PDF / DOCX / JSON / Source Code', 'دعم الأكواد المصدري وتوطين اللغات (i18n)', 'تدقيق لغوي وتقني بواسطة خبراء مهندسين', 'الحفاظ على الهيكل والتنسيق الأصلي 100%'],
+        featuresEn: ['PDF / DOCX / JSON & Source Code translation', 'Full software localization (i18n)', 'Technical QA by senior engineers', '100% original layout preservation']
       },
       {
         id: 'file-security-scan',
@@ -1227,18 +1593,8 @@
         timeEn: '1 - 2 Days',
         descAr: 'فحص سيبراني دقيق لكافة الملفات، والسكربتات والبرامج، واكتشاف الثغرات والفايروسات والأكواد الخبيثة قبل التشغيل والرفع مع تقرير أمني موثق.',
         descEn: 'Comprehensive cyber inspection for files, scripts, and software to detect vulnerabilities, malware, and malicious backdoors prior to deployment with verified audit reporting.',
-        featuresAr: [
-          'تحليل وفحص الفايروسات والأكواد الخبيثة (Malware Scan)',
-          'فحص السكربتات البرمجية والملفات المضغوطة',
-          'إصدار تقرير أمني معتمد بشهادة سلامة',
-          'تطهير الملفات المصابة وإصلاح ثغراتها'
-        ],
-        featuresEn: [
-          'In-depth malware & backdoor code scan',
-          'Script & archive file security audit',
-          'Official verified security audit report',
-          'Infection cleansing & vulnerability patching'
-        ]
+        featuresAr: ['تحليل وفحص الفايروسات والأكواد الخبيثة (Malware Scan)', 'فحص السكربتات البرمجية والملفات المضغوطة', 'إصدار تقرير أمني معتمد بشهادة سلامة', 'تطهير الملفات المصابة وإصلاح ثغراتها'],
+        featuresEn: ['In-depth malware & backdoor code scan', 'Script & archive file security audit', 'Official verified security audit report', 'Infection cleansing & vulnerability patching']
       },
       {
         id: 'web-fullstack',
@@ -1351,6 +1707,566 @@
         descEn: 'Bespoke Enterprise ERPs, CRMs, educational, and medical management systems customized for corporate workflows.',
         featuresAr: ['نظام صلاحيات مستخدمين معقد', 'تقارير مالية وإدارية', 'ربط وتكامل API خارجي', 'دعم ودليل استخدام كامل'],
         featuresEn: ['Complex role-based permissions', 'Financial & administrative reporting', 'External API integrations', 'Documentation & 24/7 support']
+      },
+      {
+        id: 'pdf-legal-trans',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'ترجمة العقود والمستندات القانونية (Legal File Translation)',
+        titleEn: 'Legal & Contract Document Translation',
+        priceUSD: 180,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'ترجمة موثقة ومحترفة للعقود الاتفاقية، الشروط واللوائح التنظيمية، ومستندات تأسيس الشركات.',
+        descEn: 'Certified technical and legal contract translation including terms of service, policies, and incorporation docs.',
+        featuresAr: ['دقة مصطلحات قانونية 100%', 'ترجمة شروط الخدمة والسياسات', 'توثيق رسمي وتأكيد الدقة', 'تسليم صيغ PDF & Word'],
+        featuresEn: ['100% legal term precision', 'Terms of Service & Privacy Policy translation', 'Certified accuracy proof', 'Delivered in PDF & Word']
+      },
+      {
+        id: 'code-i18n-localization',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'توطين لغات الكود المصدري (Source Code i18n Localization)',
+        titleEn: 'Source Code i18n Localization',
+        priceUSD: 300,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'ترجمة ملفات الترجمة البرمجية (i18n, JSON, Gettext, PO/MO) للتطبيقات والمواقع للغات متعددة.',
+        descEn: 'Localization of software source translation keys (i18n, JSON, PO/MO, YAML) for web and mobile apps.',
+        featuresAr: ['دعم ملفات JSON / YAML / PO', 'الحفاظ على المتغيرات {variables}', 'ترجمة واجهات المستخدم بدون كسر الكود', 'اختبار التوافق التلقائي'],
+        featuresEn: ['JSON / YAML / PO file support', 'Variable syntax preservation', 'UI translation without code breaks', 'Automated QA test']
+      },
+      {
+        id: 'academic-research-trans',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'ترجمة البحوث والمستندات الأكاديمية (Academic Document Translation)',
+        titleEn: 'Academic & Research File Translation',
+        priceUSD: 160,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'ترجمة الأوراق العلمية والبحوث والرسائل الأكاديمية في مجالات الهندسة والتكنولوجيا مع حفظ الهامش.',
+        descEn: 'Translation of research papers, theses, and academic technical literature with citation formatting.',
+        featuresAr: ['مراجعة مصطلحات التكنولوجيا الأكاديمية', 'ترجمة المراجع والجداول', 'تنسيق قياسي للمجلات العلمية', 'دعم اللغات الحية الرئيسية'],
+        featuresEn: ['Academic tech terminology QA', 'Citation & table translation', 'Journal format compliance', 'Major language support']
+      },
+      {
+        id: 'api-docs-trans',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'ترجمة كتيبات وتوثيقات API (API & Tech Docs Translation)',
+        titleEn: 'API & Technical Documentation Translation',
+        priceUSD: 140,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'ترجمة أدلة المطورين ووثائق Swagger/OpenAPI للمنصات والمشاريع البرمجية.',
+        descEn: 'Translation of developer docs, API references, Swagger files, and integration guides.',
+        featuresAr: ['ترجمة Swagger / OpenAPI specs', 'دعم مصطلحات المطورين', 'الحفاظ على نماذج الطلب الاستجابة', 'تنسيق Markdown/HTML'],
+        featuresEn: ['Swagger / OpenAPI spec translation', 'Developer term accuracy', 'Request/response model safety', 'Markdown & HTML output']
+      },
+      {
+        id: 'db-localization',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'توطين وترجمة قواعد البيانات (Database Content Localization)',
+        titleEn: 'Database Content & Record Localization',
+        priceUSD: 250,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'ترجمة سجلات المنتجات والجداول وقواعد بيانات SQL/NoSQL لدعم تعدد اللغات بالمنشورات.',
+        descEn: 'Translation of SQL/NoSQL data tables, product catalogs, and localized content fields.',
+        featuresAr: ['ترجمة سكربتات SQL مباشرة', 'دعم MongoDB & PostgreSQL', 'عدم التأثير على IDs والمفاتيح', 'معالجة دفعة البيانات الكبيرة'],
+        featuresEn: ['Direct SQL script translation', 'MongoDB & Postgres support', 'ID & Key integrity protection', 'Bulk data batch processing']
+      },
+      {
+        id: 'script-malware-clean',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'تطهير السكربتات والأكواد المصابة (Script Malware Cleansing)',
+        titleEn: 'Script Malware & Backdoor Cleansing',
+        priceUSD: 250,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'إزالة الأكواد الخبيثة والبرمجيات المزروعة وشغلات الأبواب الخلفية (Backdoors) من السكربتات والملفات.',
+        descEn: 'Detection and removal of webshells, obfuscated malware, and backdoors embedded in script files.',
+        featuresAr: ['إزالة أكواد webshells وتشفير base64', 'تطهير السكربتات دون إتلاف وظائفها', 'تقرير الملفات المعدلة', 'إغلاق ثغرات الاستغلال'],
+        featuresEn: ['Webshell & base64 malware clean', 'Functionality-safe code cleansing', 'Modified files audit log', 'Exploit vulnerability patch']
+      },
+      {
+        id: 'web-vuln-assessment',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'فحص ثغرات الويب الشامل (OWASP Web Vulnerability Scan)',
+        titleEn: 'OWASP Web Vulnerability Scan',
+        priceUSD: 350,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'فحص سيبراني دقيق لمخاطر OWASP Top 10 مثل ثغرات SQLi, XSS, CSRF وإعداد تقرير الحماية.',
+        descEn: 'Automated and manual security testing against OWASP Top 10 threats like SQLi, XSS, and CSRF.',
+        featuresAr: ['فحص ثغرات SQL Injection & XSS', 'فحص حماية الجلسات والتوكنات', 'تقرير بخطورة كل ثغرة (CVSS Score)', 'دليل خطوات الإصلاح البرمجي'],
+        featuresEn: ['SQLi & XSS vulnerability test', 'Session & token safety check', 'CVSS vulnerability scoring', 'Step-by-step remediation guide']
+      },
+      {
+        id: 'server-audit',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'تدقيق وتأمين السيرفرات (Server Hardening & Audit)',
+        titleEn: 'Server Security Hardening & Audit',
+        priceUSD: 400,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'فحص إعدادات Linux Server وتأمين منافذ SSH والجدار الناري وسد ثغرات الوصول غير المصرح.',
+        descEn: 'Comprehensive Linux server security hardening, SSH configuration audit, firewall, and intrusion prevention.',
+        featuresAr: ['إغلاق المنافذ المفتوحة غير الضرورية', 'تأمين SSH بـ Key Auth والتشفير', 'تثبيت Fail2ban للجدار الناري', 'تقرير التكوين الأمني المحصن'],
+        featuresEn: ['Close unnecessary open ports', 'SSH Key Authentication hardening', 'Fail2ban firewall setup', 'Hardened security config report']
+      },
+      {
+        id: 'api-pen-test',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'اختبار اختراق واجهات APIs (API Penetration Testing)',
+        titleEn: 'API Security Penetration Testing',
+        priceUSD: 450,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'اختبار اختراق واجهات REST & GraphQL وتأمين التوثيق (OAuth/JWT) ومنع تسريب البيانات.',
+        descEn: 'Penetration testing of REST & GraphQL APIs to prevent broken auth, rate limit bypass, and data leaks.',
+        featuresAr: ['فحص ثغرات JWT & Auth Bypass', 'اختبار حدود الطلبات Rate Limiting', 'منع تسريب بيانات المستخدمين', 'تقرير أمني معتمد'],
+        featuresEn: ['JWT & Auth bypass inspection', 'Rate limiting & abuse test', 'User data leak prevention', 'Verified compliance report']
+      },
+      {
+        id: 'db-encryption-audit',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'تدقيق وتشفير قواعد البيانات (Database Encryption Audit)',
+        titleEn: 'Database Encryption & Security Audit',
+        priceUSD: 300,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'فحص تشفير السجلات الحساسة (كلمات المرور، البطاقات) وتطبيق تشفير AES-256 لقواعد البيانات.',
+        descEn: 'Audit of sensitive data hashing, field-level encryption, and AES-256 database protection.',
+        featuresAr: ['فحص تشفير Passwords بـ Argon2/Bcrypt', 'تطبيق AES-256 للبيانات الحساسة', 'تأمين الاتصالات SSL/TLS لقواعد البيانات', 'تطبيق مبدأ الصلاحيات الأدنى'],
+        featuresEn: ['Password hash audit (Bcrypt/Argon2)', 'AES-256 sensitive field encryption', 'DB SSL/TLS connection safety', 'Least privilege access policy']
+      },
+      {
+        id: 'ssl-tls-hardening',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'فحص وتثبيت بروتوكولات SSL/TLS (SSL/TLS Security Hardening)',
+        titleEn: 'SSL/TLS Cipher Security Hardening',
+        priceUSD: 120,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'فحص وتحديث شهادات التشفير ومنع البروتوكولات القديمة (TLS 1.0/1.1) وتطبيق HSTS A+ Score.',
+        descEn: 'Inspection and configuration of SSL/TLS certificates, HSTS implementation, and A+ SSL Lab grade setup.',
+        featuresAr: ['تحقيق تقييم A+ على SSL Labs', 'تفعيل HSTS و Perfect Forward Secrecy', 'تحديث الشهادات وتجديدها التلقائي', 'منع الثغرات التشفيرية القديمة'],
+        featuresEn: ['SSL Labs A+ grade setup', 'HSTS & Forward Secrecy activation', 'Auto-renewing cert automation', 'Legacy cipher deprecation']
+      },
+      {
+        id: 'cloud-config-scan',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'فحص إعدادات السحابة السيبرانية (Cloud Security Config Audit)',
+        titleEn: 'Cloud Security Configuration Audit',
+        priceUSD: 380,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'فحص وتأمين بيئات AWS/GCP/Azure وإصلاح التسريبات في S3 Buckets وصلاحيات IAM.',
+        descEn: 'Audit of AWS/GCP/Azure cloud environments to fix public S3 bucket leaks and IAM permission flaws.',
+        featuresAr: ['فحص صلاحيات AWS IAM / GCP Roles', 'تأمين وحدات التخزين S3 Buckets', 'إعداد سجلات التتبع CloudTrail', 'تقرير المخاطر السحابية'],
+        featuresEn: ['AWS IAM & GCP Role permission check', 'S3 Bucket public access block', 'CloudTrail logging setup', 'Cloud risk mitigation report']
+      },
+      {
+        id: 'pwa-app-dev',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'برمجة تطبيق ويب تقدمي (Progressive Web App - PWA)',
+        titleEn: 'Progressive Web App (PWA) Development',
+        priceUSD: 850,
+        timeAr: '10 أيام',
+        timeEn: '10 Days',
+        descAr: 'تحويل أو إنشاء موقع يعمل كتطبيق بدون حاجة للتحميل من المتاجر مع العمل بدون إنترنت.',
+        descEn: 'Development of installable Progressive Web Apps with offline support, caching, and push notifications.',
+        featuresAr: ['تثبيت آلي على الشاشة الرئيسية', 'دعم العمل بدون إنترنت (Service Workers)', 'سرعة فائقة وتحميل لحظي', 'تكامل الإشعارات الفورية'],
+        featuresEn: ['Add to Home Screen capability', 'Offline Service Worker cache', 'Instant loading & high performance', 'Push notification integration']
+      },
+      {
+        id: 'saas-multi-tenant',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'تطوير منصة ساس متعددة المشتركين (SaaS Multi-Tenant Architecture)',
+        titleEn: 'Multi-Tenant SaaS Platform Engine',
+        priceUSD: 2800,
+        timeAr: '30 يوم',
+        timeEn: '30 Days',
+        descAr: 'بناء منصة خدمات سحابية (SaaS) مع عزل بيانات العملاء واشتراكات شحن تلقائية عبر بوابات الدفع.',
+        descEn: 'Architecture and build of multi-tenant SaaS platforms with isolated client DB schemas and recurring billing.',
+        featuresAr: ['عزل بيانات كل شركة/مستأجر', 'نظام اشتراكات وباقات دورية', 'لوحة تحكم أدمن المنصة الرئيسية', 'بوابات دفع وشحن تلقائي'],
+        featuresEn: ['Isolated tenant data schema', 'Subscription & billing engine', 'Super Admin master dashboard', 'Automated gateway recurring payments']
+      },
+      {
+        id: 'graphql-api-dev',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'بناء محرك APIs عالي الأداء (GraphQL & REST Engine)',
+        titleEn: 'High-Performance GraphQL & REST API',
+        priceUSD: 950,
+        timeAr: '10 أيام',
+        timeEn: '10 Days',
+        descAr: 'تصميم وبناء خوادم APIs فائقة السرعة مع توثيق Swagger وشبكة خوادم مرنة للبيانات الضخمة.',
+        descEn: 'Design and implementation of scalable GraphQL & RESTful API backends with auto-generated documentation.',
+        featuresAr: ['محرك GraphQL فائق الأداء', 'توثيق آلي عبر Swagger/OpenAPI', 'تخزين مؤقت عالي السرعة بـ Redis', 'تأمين التوكنات Rate-Limiting'],
+        featuresEn: ['High-performance GraphQL schema', 'Auto Swagger/OpenAPI docs', 'Redis high-speed caching', 'Token security & rate-limiting']
+      },
+      {
+        id: 'realtime-chat-system',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'برمجة محرك المحادثات والدردشة الفورية (Realtime WebSockets Engine)',
+        titleEn: 'Realtime WebSockets & Live Messaging',
+        priceUSD: 750,
+        timeAr: '7 أيام',
+        timeEn: '7 Days',
+        descAr: 'تطوير محرك محادثات مباشرة وإشعارات حية ومشاركة بيانات فورية عبر WebSockets / Socket.io.',
+        descEn: 'Engine for instant messaging, live notification feeds, and real-time data sync using WebSockets.',
+        featuresAr: ['اتصال مباشر وتزامن بدون إنعاش', 'مؤشرات الكتابة وقراءة الرسائل', 'تشفير الرسائل من الطرفين', 'دعم المرفقات والملفات'],
+        featuresEn: ['Instant sync without page refresh', 'Typing indicators & read receipts', 'End-to-end payload encryption', 'File & attachment media handling']
+      },
+      {
+        id: 'headless-cms-build',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'تطوير نظام إدارة محتوى بدون رأس (Headless CMS Platform)',
+        titleEn: 'Headless CMS Platform Integration',
+        priceUSD: 1000,
+        timeAr: '12 يوم',
+        timeEn: '12 Days',
+        descAr: 'ربط وبناء Strapi / Payload CMS لمنحك مرونة كاملة في إدارة المحتوى والتطبيقات.',
+        descEn: 'Setup and customization of Headless CMS solutions (Strapi/Payload) connected to custom frontend apps.',
+        featuresAr: ['لوحة إدارة محتوى فائقة المرونة', 'ربط واجهات متعددة (ويب وجوال)', 'إدارة صلاحيات المحررين', 'دعم اللغات والمقالات بكفاءة'],
+        featuresEn: ['Flexible content management dashboard', 'Multi-frontends (web & mobile)', 'Editor role-based permissions', 'Multi-language content support']
+      },
+      {
+        id: 'flutter-cross-dev',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'تطوير تطبيق فلتر متعدد الشاشات (Advanced Flutter App)',
+        titleEn: 'Advanced Cross-Platform Flutter App',
+        priceUSD: 1600,
+        timeAr: '20 يوم',
+        timeEn: '20 Days',
+        descAr: 'بناء تطبيق جوال احترافي بكود موحد للأيفون والأندرويد بتصاميم عصرية وأداء يماثل النيتف.',
+        descEn: 'High-performance Flutter application with smooth 60fps animations for iOS and Android store deployment.',
+        featuresAr: ['كود برمجي موحد فائق السرعة', 'أنيميشن سلاسة 60fps', 'ربط السيرفر والـ APIs', 'رفع ونشر على المتاجر'],
+        featuresEn: ['Unified ultra-fast codebase', 'Smooth 60fps UI animations', 'Backend REST/GraphQL API integration', 'App Store & Play Store publishing']
+      },
+      {
+        id: 'ios-native-swift',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'برمجة تطبيق أبل سويفت (iOS Native Swift Development)',
+        titleEn: 'iOS Native Swift App Development',
+        priceUSD: 2200,
+        timeAr: '25 يوم',
+        timeEn: '25 Days',
+        descAr: 'تطوير تطبيق نيتف مخصص لأنظمة أبل عبر لغة Swift وتكامل ميزات Apple Pay و FaceID.',
+        descEn: 'Native iOS application built with Swift & SwiftUI featuring Apple Pay, FaceID, and iOS native SDKs.',
+        featuresAr: ['لغة Swift & SwiftUI الحديثة', 'دعم Apple Pay و Face ID', 'أداء متفوق للأجهزة', 'رفع وموافقة أبل الرسمية'],
+        featuresEn: ['Swift & SwiftUI architecture', 'Apple Pay & Face ID integration', 'Native hardware performance', 'Official App Store publishing']
+      },
+      {
+        id: 'android-native-kotlin',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'برمجة تطبيق أندرويد نيتف (Android Native Kotlin Development)',
+        titleEn: 'Android Native Kotlin App Development',
+        priceUSD: 2100,
+        timeAr: '25 يوم',
+        timeEn: '25 Days',
+        descAr: 'تطوير تطبيق أندرويد أصلي باستخدام Kotlin و Jetpack Compose مع التوافق الكامل.',
+        descEn: 'Native Android app written in Kotlin using Jetpack Compose architecture and Google services.',
+        featuresAr: ['لغة Kotlin & Jetpack Compose', 'تكامل خدمات Google Play Services', 'دعم كافة أحجام شاشات أندرويد', 'رفع وموافقة Google Play'],
+        featuresEn: ['Kotlin & Jetpack Compose framework', 'Google Play Services integration', 'All Android screen density support', 'Google Play Store publishing']
+      },
+      {
+        id: 'mobile-push-server',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'سيرفر ومحرك الإشعارات الفورية (Mobile Push Notification Server)',
+        titleEn: 'Mobile Push Notification Engine',
+        priceUSD: 450,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'إعداد سيرفر إشعارات Firebase / OneSignal لإرسال إشعارات جماعية ومخصصة للتطبيقات.',
+        descEn: 'Firebase Cloud Messaging (FCM) & OneSignal server integration for automated and targeted push notifications.',
+        featuresAr: ['إرسال إشعارات حسب شريحة المستخدمين', 'تجديد الجلسات في الخلفية', 'إحصائيات ونسب الفتح', 'ربط مع لوحة التحكم'],
+        featuresEn: ['Targeted user segment notifications', 'Background FCM session handling', 'Open rate & delivery analytics', 'Admin dashboard trigger integration']
+      },
+      {
+        id: 'aso-mobile-growth',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'تحسين ظهور التطبيق في المتاجر (App Store Optimization - ASO)',
+        titleEn: 'App Store Optimization (ASO)',
+        priceUSD: 350,
+        timeAr: '5 أيام',
+        timeEn: '5 Days',
+        descAr: 'تهيئة الكلمات المفتاحية والأيقونات والوصف لتصدر نتائج البحث في App Store و Google Play.',
+        descEn: 'Keyword indexing, visual screenshot design, and metadata optimization to rank higher in app stores.',
+        featuresAr: ['تحليل واستخراج الكلمات المفتاحية', 'تحسين لقطات الشاشة والأيقونة', 'ترجمة الوصف للغات متعددة', 'زيادة معدل التحميلات'],
+        featuresEn: ['Keyword indexing & competitor research', 'Optimized screenshots & icon graphics', 'Multi-language metadata translation', 'Download conversion rate boost']
+      },
+      {
+        id: 'figma-design-sys',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'بناء نظام تصميم Figma متكامل (Figma Component Design System)',
+        titleEn: 'Figma Enterprise Design System',
+        priceUSD: 550,
+        timeAr: '6 أيام',
+        timeEn: '6 Days',
+        descAr: 'إنشاء مكتبة مكونات Figma شاملة (UI Kit) مع الأزرار والمدخلات والقوائم لتسريع التطوير.',
+        descEn: 'Creation of a modular Figma UI Kit component system with auto-layout and design tokens for engineering handoff.',
+        featuresAr: ['مكونات Auto-layout متجاوبة', 'مكتبة الألوان والأنماط (Tokens)', 'دعم النمط الفاتح والداكن', 'جاهزة للتسليم للمبرمجين'],
+        featuresEn: ['Responsive Auto-layout components', 'Color & typography design tokens', 'Light & Dark mode themes', 'Developer-ready handoff specs']
+      },
+      {
+        id: 'brand-identity-pro',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تصميم الهوية البصرية وشعار الشركة (Visual Brand Identity & Logo)',
+        titleEn: 'Visual Brand Identity & Logo Design',
+        priceUSD: 480,
+        timeAr: '5 أيام',
+        timeEn: '5 Days',
+        descAr: 'تصميم شعار احترافي وهوية بصرية كاملة تشمل البطاقات، الورق الرسمي، والألوان المعتمدة.',
+        descEn: 'Custom logo design and identity package including business cards, stationery, and brand guidelines.',
+        featuresAr: ['شعار احترافي بصيغ فيكتور SVG/AI', 'دليل استخدام الشعار والألوان', 'نماذج المطبوعات والبطاقات', 'ملكية بصرية كاملة 100%'],
+        featuresEn: ['Vector logo files (SVG, AI, PNG)', 'Brand guidelines booklet', 'Stationery & business card mockups', '100% full IP ownership transfer']
+      },
+      {
+        id: 'wcag-access-audit',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تدقيق وتحسين سهولة الوصول (WCAG Accessibility Audit)',
+        titleEn: 'WCAG Accessibility & UX Audit',
+        priceUSD: 320,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'تحسين تباين الألوان وقراءة الشاشات والملاحة بذوي الهمم وفق معايير WCAG 2.1 AA.',
+        descEn: 'UX audit and contrast optimization conforming to WCAG 2.1 AA accessibility compliance standards.',
+        featuresAr: ['اختبار تباين الألوان والخطوط', 'دعم قارئات الشاشة Screen Readers', 'الملاحة عبر لوحة المفاتيح', 'تقرير مطابقة معايير WCAG'],
+        featuresEn: ['Color contrast ratio compliance', 'Screen reader ARIA label optimization', 'Keyboard navigation accessibility', 'WCAG audit report & remedies']
+      },
+      {
+        id: 'custom-rag-pipeline',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'بناء نظام RAG للذكاء الاصطناعي (Custom RAG & Knowledge Base LLM)',
+        titleEn: 'Enterprise RAG & AI Knowledge Base',
+        priceUSD: 1400,
+        timeAr: '12 يوم',
+        timeEn: '12 Days',
+        descAr: 'ربط مستندات وملفات مؤسستك مع نماذج الذكاء الاصطناعي للإجابة الدقيقة على الاستفسارات.',
+        descEn: 'Connecting internal documents to Gemini LLM using RAG vector architecture for private enterprise AI Q&A.',
+        featuresAr: ['تحليل وملف قاعدة المعرفة الخاصة', 'ربط قاعدة بيانات الموجهات Vector DB', 'استجابة دقيقة بدون هلوسة', 'حماية وخصوصية البيانات 100%'],
+        featuresEn: ['Private enterprise knowledge ingestion', 'Vector DB semantic search pipeline', 'Accurate, hallucination-free answers', '100% private & isolated data model']
+      },
+      {
+        id: 'ocr-data-extract',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'استخراج البيانات الذكي من المستندات (AI Document OCR Extraction)',
+        titleEn: 'AI Automated Document OCR Extraction',
+        priceUSD: 700,
+        timeAr: '7 أيام',
+        timeEn: '7 Days',
+        descAr: 'محرك ذكي لقراءة الفواتير والوثائق الممسوحة ضوئياً واستخراج البيانات تلقائياً لجداول البيانات.',
+        descEn: 'Automated OCR system using AI to read scanned invoices, IDs, and PDFs into structured database records.',
+        featuresAr: ['قراءة الصور والـ PDFs الضوئية', 'دعم اللغة العربية والإنجليزي', 'توليد ملفات JSON / Excel منظمة', 'دقة استخراج تتجاوز 98%'],
+        featuresEn: ['Scanned image & PDF text recognition', 'Arabic & English OCR support', 'Structured JSON/Excel file output', '98%+ high accuracy extraction rate']
+      },
+      {
+        id: 'sentiment-analysis-ai',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'محرك تحليل الآراء والمشاعر بالذكاء الاصطناعي (AI Sentiment Analysis)',
+        titleEn: 'AI Customer Sentiment Analysis Engine',
+        priceUSD: 650,
+        timeAr: '6 أيام',
+        timeEn: '6 Days',
+        descAr: 'تحليل مراجعات العملاء وتدوينات شبكات التواصل وتحديد الانطباعات (إيجابي/سلبي) تلقائياً.',
+        descEn: 'Automated text analysis engine to categorize customer feedback, tweets, and reviews into sentiment metrics.',
+        featuresAr: ['معالجة اللغة الطبيعية (NLP)', 'تصنيف الملاحظات إيجابي/سلبي/محايد', 'لوحة تحليلات ورسوم بيانية', 'تنبيهات تلقائية للشكاوى'],
+        featuresEn: ['Natural Language Processing (NLP)', 'Positive/Negative/Neutral classification', 'Visual analytics & dashboard charts', 'Automated negative review alerts']
+      },
+      {
+        id: 'vector-db-setup',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'إعداد قواعد البيانات الموجهة للذكاء الاصطناعي (Vector DB Setup)',
+        titleEn: 'Vector Database Architecture Setup',
+        priceUSD: 800,
+        timeAr: '7 أيام',
+        timeEn: '7 Days',
+        descAr: 'إعداد وتصميم قواعد البيانات المتجهة (Pinecone / ChromaDB / Pgvector) للبحث الدلالي الفائق.',
+        descEn: 'Setup and optimization of Vector Databases (Pinecone/ChromaDB/Pgvector) for high-speed semantic search.',
+        featuresAr: ['تهيئة Pinecone / Pgvector / ChromaDB', 'تحويل النصوص لمشعاعات Embeddings', 'سرعة استعلام بالملي ثانية', 'دليل التكامل مع التطبيقات'],
+        featuresEn: ['Pinecone / Pgvector / ChromaDB setup', 'Text to high-dimensional embeddings', 'Sub-millisecond semantic search', 'Complete developer integration SDK']
+      },
+      {
+        id: 'speed-boost-95',
+        cat: 'growth',
+        isFeatured: false,
+        titleAr: 'تسريع الموقع 95+ في سرعة جوجل (Google Speed Optimization 95+)',
+        titleEn: 'Google PageSpeed 95+ Optimization',
+        priceUSD: 280,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'ضغط الصور والأكواد وتأمين التخزين المؤقت لتمرير كافة معايير Core Web Vitals في اختبارات جوجل.',
+        descEn: 'Minification, WebP image compression, script deferral, and caching to achieve 95+ Google PageSpeed score.',
+        featuresAr: ['تحقيق نتيجة 95+ على Google Speed', 'ضغط الصور وصيغ WebP الفائقة', 'تأمين التخزين CDN و Caching', 'إصلاح مؤشرات Core Web Vitals'],
+        featuresEn: ['Achieve 95+ score on Google Insights', 'WebP image compression & lazy load', 'CDN & browser cache optimization', 'Core Web Vitals metrics pass']
+      },
+      {
+        id: 'cro-conversion-opt',
+        cat: 'growth',
+        isFeatured: false,
+        titleAr: 'تحسين معدل التحويل والمبيعات (Conversion Rate Optimization - CRO)',
+        titleEn: 'Conversion Rate Optimization (CRO)',
+        priceUSD: 420,
+        timeAr: '5 أيام',
+        timeEn: '5 Days',
+        descAr: 'تحليل مسار العميل داخل الموقع وإصلاح العقبات لزيادة نسبة المشتريات والطلبات المباشرة.',
+        descEn: 'UX funnel analysis, drop-off reduction, and call-to-action optimization to boost checkout conversions.',
+        featuresAr: ['تحليل مسار المبيعات Sales Funnel', 'تحسين أزرار الشراء والدفع', 'اختبارات A/B لمكونات الصفحة', 'تقرير توصيات زيادة المبيعات'],
+        featuresEn: ['Sales Funnel friction analysis', 'CTA & checkout button optimization', 'A/B testing page component layout', 'Actionable conversion report']
+      },
+      {
+        id: 'structured-data-schema',
+        cat: 'growth',
+        isFeatured: false,
+        titleAr: 'إضافة البيانات المنظمة ومقتطفات جوجل (Structured Data & Schema)',
+        titleEn: 'Structured Data & Rich Snippets Schema',
+        priceUSD: 220,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'إضافة أكواد JSON-LD Schema لإظهار أسعار الخدمة، التقييمات، والأسئلة الشائعة مباشرة في نتائج جوجل.',
+        descEn: 'Implementation of JSON-LD Schema markup to display rich snippets, reviews, and FAQ accordions in Google SERP.',
+        featuresAr: ['إضافة كود Schema JSON-LD القياسي', 'إظهار التقييمات والأسعار في نتائج جوجل', 'دعم أسئلة وأجوبة FAQ Rich Snippets', 'فحص واختبار أداة جوجل'],
+        featuresEn: ['JSON-LD standard schema injection', 'Google Rich Snippet star rating display', 'FAQ Accordion search snippet support', 'Google Rich Results Test pass']
+      },
+      {
+        id: 'docker-container-devops',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'أتمتة وحاوية السيرفرات (Docker & Kubernetes DevOps)',
+        titleEn: 'Docker & Kubernetes Container DevOps',
+        priceUSD: 750,
+        timeAr: '6 أيام',
+        timeEn: '6 Days',
+        descAr: 'حزم تطبيقاتك وسيرفرك داخل حاويات Docker وإعداد التوسع التلقائي عبر Kubernetes.',
+        descEn: 'Containerization of applications using Docker and deployment orchestration on Kubernetes clusters.',
+        featuresAr: ['بناء ملفات Dockerfile المحسنة', 'إعداد شبكة Docker Compose', 'التوسع التلقائي على Kubernetes', 'تقليل استهلاك موارد السيرفر'],
+        featuresEn: ['Optimized Dockerfile container build', 'Docker Compose environment setup', 'Kubernetes autoscaling cluster setup', 'Server memory footprint reduction']
+      },
+      {
+        id: 'ci-cd-pipeline-auto',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'أتمتة النشر والتحديث المستمر (CI/CD Pipeline Automation)',
+        titleEn: 'CI/CD Automated Deployment Pipeline',
+        priceUSD: 550,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'إعداد مسارات GitHub Actions للنشر والتست التلقائي بمجرد كتابة الكود وبدون انقطاع الخدمة.',
+        descEn: 'Setup of GitHub Actions / GitLab CI pipelines for automated zero-downtime application deployments.',
+        featuresAr: ['أتمتة اختبارات الكود التلقائية', 'النشر السلس بدون انقطاع Zero-Downtime', 'إشعارات النجاح/الفشل على الواتساب', 'إمكانية التراجع الفوري Rollback'],
+        featuresEn: ['Automated test suite integration', 'Zero-downtime seamless deployment', 'WhatsApp/Slack status alerts', 'Instant automated rollback strategy']
+      },
+      {
+        id: 'cloud-sql-cluster',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'هندسة وتأمين قواعد البيانات السحابية (Cloud SQL High-Availability Cluster)',
+        titleEn: 'Cloud SQL High-Availability Database Cluster',
+        priceUSD: 900,
+        timeAr: '7 أيام',
+        timeEn: '7 Days',
+        descAr: 'إعداد قواعد بيانات PostgreSQL / MySQL سحابية مع النسخ الاحتياطي التلقائي والتأمين من التوقف.',
+        descEn: 'Setup and optimization of PostgreSQL / MySQL Cloud SQL databases with automated replication and failover.',
+        featuresAr: ['إعداد النسخ المتماثل Replicas', 'نسخ احتياطي يومي تلقائي', 'تحسين الاستعلامات والـ Indexes', 'أمان عالي واستعادة فورية'],
+        featuresEn: ['Read replica cluster architecture', 'Automated daily cloud backups', 'Query & index performance tuning', 'Instant disaster recovery failover']
+      },
+      {
+        id: 'tech-patent-translation',
+        cat: 'translation',
+        isFeatured: false,
+        titleAr: 'ترجمة براءات الاختراع والابتكارات التقنية (Patents File Translation)',
+        titleEn: 'Technical Patent File Translation',
+        priceUSD: 240,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'ترجمة دقيقة لمستندات براءات الاختراع الهندسية والتكنولوجية بأسلوب رسمي معتمد.',
+        descEn: 'Precision translation of engineering and software patent filings adhering to patent office standards.',
+        featuresAr: ['ترجمة المصطلحات الابتكارية الدقيقة', 'تنسيق قياسي لمكاتب براءات الاختراع', 'سرية تامة للملفات والابتكارات', 'تدقيق مزدوج من خبراء تقنيين'],
+        featuresEn: ['Innovation terminology accuracy', 'Patent office standard formatting', '100% IP confidentiality agreement', 'Double QA engineering review']
+      },
+      {
+        id: 'syslog-security-monitor',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'منظومة مراقبة السجلات الأمنية (Security Log Monitoring & SIEM)',
+        titleEn: 'Security Log Monitoring & SIEM Audit',
+        priceUSD: 620,
+        timeAr: '5 أيام',
+        timeEn: '5 Days',
+        descAr: 'إعداد محرك تجميع السجلات الأمنية للتنبيه الفوري عند محاولات الاختراق أو الدخول المشبوه.',
+        descEn: 'Implementation of centralized log monitoring and real-time security incident alert systems.',
+        featuresAr: ['تجميع سجلات النظام والـ APIs', 'كشف محاولات الدخول التخمينية', 'تنبيهات عاجلة على البريد والواتساب', 'تقرير الامتثال والتحليل الأمني'],
+        featuresEn: ['Centralized system & API log ingestion', 'Brute-force attack detection', 'Realtime email & WhatsApp alerts', 'SIEM security compliance report']
+      },
+      {
+        id: 'offline-first-database',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'برمجة أنظمة التزامن بدون إنترنت (Offline-First Data Sync Engine)',
+        titleEn: 'Offline-First Data Synchronization Engine',
+        priceUSD: 980,
+        timeAr: '9 أيام',
+        timeEn: '9 Days',
+        descAr: 'تطوير تطبيق يعمل بالكامل بدون إنترنت مع مزامنة تلقائية فور عودة الاتصال بدون فقدان البيانات.',
+        descEn: 'Architecture for local SQLite/WatermelonDB storage with seamless conflict-free cloud sync upon connection.',
+        featuresAr: ['تخزين محلي مؤمن على الجهاز', 'تزامن ذكي لحل التضاربات Conflict Resolution', 'عمل مستمر في ظروف شبكة ضعيفة', 'حماية السجلات المحلية'],
+        featuresEn: ['Encrypted local device storage', 'Smart conflict-resolution sync', 'Uninterrupted offline user flow', 'Local record integrity protection']
+      },
+      {
+        id: 'ui-ux-design-audit',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تدقيق وتطوير تجربة المستخدم لتطبيقات قائمة (UX Design Optimization Audit)',
+        titleEn: 'Existing App UX Optimization Audit',
+        priceUSD: 390,
+        timeAr: '4 أيام',
+        timeEn: '4 Days',
+        descAr: 'فحص واجهات تطبيقك الحالي وتحديد نقاط صعوبة الاستخدام وإعادة رسم التدفّقات لرفع السلاسة.',
+        descEn: 'Comprehensive UX audit of existing apps to eliminate usability bottlenecks and redesign confusing flows.',
+        featuresAr: ['خرائط الحرارة وتحليل سلوك المستخدم', 'إعادة تصميم الخطوات المعقدة', 'تحسين معدل الاحتفاظ بالعملاء', 'تقديم ملف Figma بالتعديلات الموصى بها'],
+        featuresEn: ['User flow & heatmap analysis', 'Complex step redesign', 'Customer retention UX optimization', 'Delivered Figma redesign file']
+      },
+      {
+        id: 'ai-code-review-bot',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'محرك مراجعة الأكواد التلقائي بالذكاء الاصطناعي (AI Automated Code Review)',
+        titleEn: 'AI Automated Code Review Engine',
+        priceUSD: 750,
+        timeAr: '6 أيام',
+        timeEn: '6 Days',
+        descAr: 'إعداد بوت يفحص سحبات الكود في GitHub بالذكاء الاصطناعي لاكتشاف الأخطاء وتوصيات الأداء.',
+        descEn: 'AI bot integrated into GitHub Pull Requests to automatically detect code smells, bugs, and performance flaws.',
+        featuresAr: ['فحص سحب الكود PR تلقائياً', 'اكتشاف الأخطاء البرمجية وثغرات الذاكرة', 'توصيات كتابة كود نظيف (Clean Code)', 'تسريع عملية المراجعة البرمجية'],
+        featuresEn: ['Automated PR pull-request scan', 'Memory leak & bug detection', 'Clean Code architecture feedback', 'Accelerated dev review velocity']
       }
     ];
 
@@ -1387,7 +2303,7 @@
         servicesTitle: 'كافة خدمات منصة باسكود الرقمية العالمية',
         servicesSub: 'اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة',
         searchPlaceholder: 'ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)...',
-        catAll: 'الكل (10)',
+        catAll: 'الكل (50)',
         catTrans: '✨ ترجمة الملفات',
         catScan: '🛡️ فحص الملفات والأمن',
         catWeb: 'البرمجة والويب',
@@ -1485,7 +2401,7 @@
         servicesTitle: 'BASCODE Global Digital Services',
         servicesSub: 'Select any service to review specifications, options, instant pricing, and send direct order to admin.',
         searchPlaceholder: 'Search service (translation, file scan, web, app)...',
-        catAll: 'All (10)',
+        catAll: 'All (50)',
         catTrans: '✨ File Translation',
         catScan: '🛡️ File Scan & Cyber',
         catWeb: 'Web & Software',
@@ -1559,8 +2475,10 @@
       const drawer = document.getElementById('mobileMenuDrawer');
       if (drawer.classList.contains('hidden')) {
         drawer.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
       } else {
         drawer.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     }
 
@@ -1591,13 +2509,24 @@
       document.getElementById('btnCalcInteractive').innerText = t.btnCalcInteractive;
       document.getElementById('btnAiAdvisor').innerText = t.btnAiAdvisor;
 
-      document.getElementById('navServices').innerText = t.navServices;
-      document.getElementById('navCalc').innerText = t.navCalc;
-      document.getElementById('navTech').innerText = t.navTech;
-      document.getElementById('navReviews').innerText = t.navReviews;
-      document.getElementById('navPortfolio').innerText = t.navPortfolio;
-      document.getElementById('navFaq').innerText = t.navFaq;
-      document.getElementById('navAiBtn').innerText = t.navAiBtn;
+      if (document.getElementById('navServices')) {
+        document.getElementById('navServices').innerText = t.navServices;
+        document.getElementById('navCalc').innerText = t.navCalc;
+        document.getElementById('navTech').innerText = t.navTech;
+        document.getElementById('navReviews').innerText = t.navReviews;
+        document.getElementById('navPortfolio').innerText = t.navPortfolio;
+        document.getElementById('navFaq').innerText = t.navFaq;
+        document.getElementById('navAiBtn').innerText = t.navAiBtn;
+      }
+
+      if (document.getElementById('heroNavServices')) {
+        document.getElementById('heroNavServices').innerText = t.navServices;
+        document.getElementById('heroNavCalc').innerText = t.navCalc;
+        document.getElementById('heroNavTech').innerText = t.navTech;
+        document.getElementById('heroNavReviews').innerText = t.navReviews;
+        document.getElementById('heroNavPortfolio').innerText = t.navPortfolio;
+        document.getElementById('heroNavFaq').innerText = t.navFaq;
+      }
 
       if (document.getElementById('mDrawerLangBtnText')) {
         document.getElementById('mDrawerLangBtnText').innerText = t.langBtn;
@@ -1783,42 +2712,44 @@
         const features = currentLang === 'ar' ? s.featuresAr : s.featuresEn;
         const badge = s.badgeAr ? (currentLang === 'ar' ? s.badgeAr : s.badgeEn) : null;
 
-        const cardClass = s.isFeatured ? 'glass-card featured-card p-6 rounded-3xl flex flex-col justify-between space-y-5' : 'glass-card p-6 rounded-3xl flex flex-col justify-between space-y-5';
+        const cardClass = s.isFeatured ? 'glass-card featured-card p-3.5 sm:p-5 md:p-6 rounded-2xl flex flex-col justify-between space-y-3 sm:space-y-4 max-w-full overflow-hidden w-full' : 'glass-card p-3.5 sm:p-5 md:p-6 rounded-2xl flex flex-col justify-between space-y-3 sm:space-y-4 max-w-full overflow-hidden w-full';
+
+        const safeTitle = title.replace(/'/g, "\\'");
 
         return `
           <div class="${cardClass}">
-            <div class="space-y-3">
+            <div class="space-y-2.5 sm:space-y-3">
               
               ${badge ? `
-                <div class="inline-block bg-amber-400/20 text-amber-300 border border-amber-400/40 font-extrabold text-[10px] px-3 py-1 rounded-full shadow-sm">
+                <div class="inline-block bg-amber-400/20 text-amber-300 border border-amber-400/40 font-extrabold text-[9px] sm:text-[10px] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-sm max-w-full truncate">
                   ${badge}
                 </div>
               ` : ''}
 
-              <div class="flex items-center justify-between">
-                <span class="text-[10px] font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-500/20">
+              <div class="flex items-center justify-between gap-1.5 flex-wrap w-full">
+                <span class="text-[9px] sm:text-[10px] font-bold text-cyan-400 bg-cyan-500/10 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-cyan-500/20">
                   ${t.deliveryTimeLabel} ${time}
                 </span>
-                <button onclick="addToCart('${s.id}')" class="text-xs text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 cursor-pointer">
+                <button onclick="addToCart('${s.id}')" class="text-[9.5px] sm:text-xs text-amber-400 hover:text-amber-300 font-bold flex items-center gap-1 cursor-pointer shrink-0 py-1 px-2 rounded-lg bg-amber-400/10 hover:bg-amber-400/20 transition-colors">
                   <span>${t.addToCartText}</span>
                 </button>
               </div>
 
-              <h3 class="text-base font-black text-white font-title leading-snug">${title}</h3>
-              <p class="text-xs text-gray-300 leading-relaxed">${desc}</p>
+              <h3 class="text-xs sm:text-base font-black text-white font-title leading-snug break-words">${title}</h3>
+              <p class="text-[10px] sm:text-xs text-gray-300 leading-relaxed break-words">${desc}</p>
 
-              <ul class="space-y-1.5 pt-2 text-[11px] text-gray-300">
-                ${features.map(f => `<li class="flex items-center gap-2"><span class="text-emerald-400">✓</span> ${f}</li>`).join('')}
+              <ul class="space-y-1 sm:space-y-1.5 pt-1 sm:pt-2 text-[9.5px] sm:text-[11px] text-gray-300">
+                ${features.map(f => `<li class="flex items-start gap-1.5 leading-tight"><span class="text-emerald-400 font-bold shrink-0">✓</span> <span class="break-words">${f}</span></li>`).join('')}
               </ul>
             </div>
 
-            <div class="pt-4 border-t border-white/10 flex items-center justify-between gap-2">
-              <div>
-                <span class="text-[10px] text-gray-400 block">${t.approvedCostLabel}</span>
-                <span class="text-base sm:text-lg font-black text-amber-400 font-title">${formatPrice(s.priceUSD)}</span>
+            <div class="pt-2.5 sm:pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 w-full">
+              <div class="shrink min-w-0">
+                <span class="text-[8.5px] sm:text-[10px] text-gray-400 block truncate">${t.approvedCostLabel}</span>
+                <span class="text-xs sm:text-base font-black text-amber-400 font-title leading-tight block truncate">${formatPrice(s.priceUSD)}</span>
               </div>
 
-              <button onclick="openModalForService('${title}', ${s.priceUSD})" class="bg-white hover:bg-cyan-400 text-black font-extrabold text-xs py-2.5 px-4 rounded-full shadow transition-all cursor-pointer">
+              <button onclick="openModalForService('${safeTitle}', ${s.priceUSD})" class="bg-white hover:bg-cyan-400 text-black font-extrabold text-[9.5px] sm:text-xs py-1.5 sm:py-2 px-2.5 sm:px-3.5 rounded-full shadow transition-all cursor-pointer min-h-[32px] sm:min-h-[36px] flex items-center justify-center shrink-0 whitespace-nowrap">
                 ${t.orderServiceBtn}
               </button>
             </div>
@@ -1906,11 +2837,13 @@
       document.getElementById('successNotice').classList.add('hidden');
       document.getElementById('orderModal').classList.remove('hidden');
       document.getElementById('orderModal').classList.add('flex');
+      document.body.classList.add('overflow-hidden');
     }
 
     function closeModal() {
       document.getElementById('orderModal').classList.add('hidden');
       document.getElementById('orderModal').classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
     }
 
     async function handleOrderSubmit(e) {
@@ -1986,8 +2919,10 @@
       if (drawer.classList.contains('hidden')) {
         renderCartDrawer();
         drawer.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
       } else {
         drawer.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
       }
     }
 
@@ -2037,11 +2972,13 @@
     function openAiAdvisorModal() {
       document.getElementById('aiAdvisorModal').classList.remove('hidden');
       document.getElementById('aiAdvisorModal').classList.add('flex');
+      document.body.classList.add('overflow-hidden');
     }
 
     function closeAiAdvisorModal() {
       document.getElementById('aiAdvisorModal').classList.add('hidden');
       document.getElementById('aiAdvisorModal').classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
     }
 
     async function consultAiEngine() {
@@ -2082,12 +3019,27 @@
     function openAddReviewModal() {
       document.getElementById('addReviewModal').classList.remove('hidden');
       document.getElementById('addReviewModal').classList.add('flex');
+      document.body.classList.add('overflow-hidden');
     }
 
     function closeAddReviewModal() {
       document.getElementById('addReviewModal').classList.add('hidden');
       document.getElementById('addReviewModal').classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
     }
+
+    // Global ESC key listener to close all active modals & drawers
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeAiAdvisorModal();
+        closeAddReviewModal();
+        const cartDrawer = document.getElementById('cartDrawer');
+        if (cartDrawer && !cartDrawer.classList.contains('hidden')) toggleCartDrawer();
+        const mMenu = document.getElementById('mobileMenuDrawer');
+        if (mMenu && !mMenu.classList.contains('hidden')) toggleMobileMenu();
+      }
+    });
 
     function handleReviewSubmit(e) {
       e.preventDefault();
@@ -2249,6 +3201,531 @@
     setTimeout(() => {
       showNotificationToast();
     }, 4000);
+
+    // Interactive Spoken Presentation Player Engine (Arabic Speech Synthesis & Synchronized Service Clips)
+    let isPlatformVideoPlaying = false;
+    let isPlatformVideoMuted = false;
+    let platformVideoTimer = null;
+    let platformVideoCurrentSecond = 0;
+    const platformVideoTotalDuration = 22; // 22 seconds total interactive presentation
+    let audioCtx = null;
+
+    const platformVideoScript = [
+      {
+        start: 0,
+        end: 5,
+        sceneId: 'pVidScene1',
+        sceneBadge: 'المشهد 1: التعريف الشامل بالمنصة',
+        subtitle: 'منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد.',
+        speech: 'منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد.'
+      },
+      {
+        start: 5,
+        end: 11,
+        sceneId: 'pVidScene2',
+        sceneBadge: 'المشهد 2: لقطات الخدمات البرمجية والهندسية',
+        subtitle: 'برمجة، تصميم، تطوير مواقع وتطبيقات، ترجمة، تحليل بيانات، وقوالب برمجية باحترافية عالية.',
+        speech: 'برمجة، تصميم، تطوير مواقع وتطبيقات، ترجمة، تحليل بيانات، وقوالب برمجية باحترافية عالية.'
+      },
+      {
+        start: 11,
+        end: 16,
+        sceneId: 'pVidScene3',
+        sceneBadge: 'المشهد 3: سهولة الطلب والضمان والتقييمات',
+        subtitle: 'اطلب خدمتك بسهولة، وتابع تقييمات العملاء، واحصل على نتائج بجودة عالمية.',
+        speech: 'اطلب خدمتك بسهولة، وتابع تقييمات العملاء، واحصل على نتائج بجودة عالمية.'
+      },
+      {
+        start: 16,
+        end: 22,
+        sceneId: 'pVidScene4',
+        sceneBadge: 'المشهد 4: ابدأ مشروعك الآن',
+        subtitle: 'ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!',
+        speech: 'ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!'
+      }
+    ];
+
+    function playAmbientBeep(freq = 440) {
+      if (isPlatformVideoMuted) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.35);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.35);
+      } catch (err) {
+        // AudioContext silent fallback
+      }
+    }
+
+    function togglePlatformShowcaseVideo() {
+      if (isPlatformVideoPlaying) {
+        pausePlatformShowcaseVideo();
+      } else {
+        playPlatformShowcaseVideo();
+      }
+    }
+
+    function playPlatformShowcaseVideo() {
+      isPlatformVideoPlaying = true;
+      const overlayBtn = document.getElementById('platformVideoPlayOverlayBtn');
+      const iconOverlay = document.getElementById('platformVideoPlayIcon');
+      const iconBottom = document.getElementById('btnBottomPlayIcon');
+      
+      if (overlayBtn) overlayBtn.classList.add('hidden');
+      if (iconOverlay) iconOverlay.setAttribute('data-lucide', 'pause');
+      if (iconBottom) iconBottom.setAttribute('data-lucide', 'pause');
+      if (window.lucide) lucide.createIcons();
+
+      playAmbientBeep(523.25); // C5 chime on start
+      speakArabicStep(platformVideoCurrentSecond);
+
+      if (platformVideoTimer) clearInterval(platformVideoTimer);
+      platformVideoTimer = setInterval(() => {
+        platformVideoCurrentSecond += 1;
+        updatePlatformVideoFrame();
+
+        // Speak when crossing scene boundaries
+        const currentStep = platformVideoScript.find(s => platformVideoCurrentSecond === s.start);
+        if (currentStep) {
+          speakArabicStep(platformVideoCurrentSecond);
+        }
+
+        if (platformVideoCurrentSecond >= platformVideoTotalDuration) {
+          pausePlatformShowcaseVideo();
+          platformVideoCurrentSecond = 0;
+          updatePlatformVideoFrame();
+        }
+      }, 1000);
+
+      updatePlatformVideoFrame();
+    }
+
+    function pausePlatformShowcaseVideo() {
+      isPlatformVideoPlaying = false;
+      if (platformVideoTimer) clearInterval(platformVideoTimer);
+      
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+
+      const overlayBtn = document.getElementById('platformVideoPlayOverlayBtn');
+      const iconOverlay = document.getElementById('platformVideoPlayIcon');
+      const iconBottom = document.getElementById('btnBottomPlayIcon');
+      
+      if (overlayBtn) overlayBtn.classList.remove('hidden');
+      if (iconOverlay) iconOverlay.setAttribute('data-lucide', 'play');
+      if (iconBottom) iconBottom.setAttribute('data-lucide', 'play');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function updatePlatformVideoFrame() {
+      const pBar = document.getElementById('platformVideoProgressBar');
+      if (pBar) {
+        const pct = (platformVideoCurrentSecond / platformVideoTotalDuration) * 100;
+        pBar.style.width = pct + '%';
+      }
+
+      const timeText = document.getElementById('platformVideoTimeText');
+      if (timeText) {
+        const curSecStr = String(platformVideoCurrentSecond).padStart(2, '0');
+        const totSecStr = String(platformVideoTotalDuration).padStart(2, '0');
+        timeText.innerText = `00:${curSecStr} / 00:${totSecStr}`;
+      }
+
+      // Hide default welcome scene if playing or progressed
+      const defaultScene = document.getElementById('pVidSceneDefault');
+      if (defaultScene) {
+        if (platformVideoCurrentSecond > 0 || isPlatformVideoPlaying) {
+          defaultScene.classList.add('hidden');
+        } else {
+          defaultScene.classList.remove('hidden');
+        }
+      }
+
+      // Hide all main scenes first
+      ['pVidScene1', 'pVidScene2', 'pVidScene3', 'pVidScene4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+
+      // Find current active step
+      const step = platformVideoScript.find(s => platformVideoCurrentSecond >= s.start && platformVideoCurrentSecond < s.end) || platformVideoScript[platformVideoScript.length - 1];
+      
+      if (step && (platformVideoCurrentSecond > 0 || isPlatformVideoPlaying)) {
+        const activeScene = document.getElementById(step.sceneId);
+        if (activeScene) activeScene.classList.remove('hidden');
+        
+        const sub = document.getElementById('platformVideoSubtitles');
+        if (sub) sub.innerText = `"${step.subtitle}"`;
+
+        const badge = document.getElementById('videoCurrentSceneBadge');
+        if (badge) badge.innerText = step.sceneBadge;
+      }
+    }
+
+    function speakArabicStep(sec) {
+      if (isPlatformVideoMuted) return;
+      
+      const step = platformVideoScript.find(s => sec >= s.start && sec < s.end);
+      if (!step) return;
+
+      playAmbientBeep(659.25); // E5 step chime
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(step.speech);
+        utterance.lang = 'ar-SA';
+        utterance.rate = 0.95; // Clear natural rate
+        utterance.pitch = 1.05;
+
+        // Try finding an Arabic voice if available
+        const voices = window.speechSynthesis.getVoices();
+        const arVoice = voices.find(v => v.lang && (v.lang.startsWith('ar') || v.lang.includes('ar')));
+        if (arVoice) utterance.voice = arVoice;
+
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function togglePlatformVideoMute() {
+      isPlatformVideoMuted = !isPlatformVideoMuted;
+      const btnText = document.getElementById('textVideoMute');
+      const icon = document.getElementById('iconVideoMute');
+      
+      if (isPlatformVideoMuted) {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (btnText) btnText.innerText = 'التعليق الصوتي: مكتوم';
+        if (icon) icon.setAttribute('data-lucide', 'volume-x');
+      } else {
+        if (btnText) btnText.innerText = 'التعليق الصوتي: مُمكّن';
+        if (icon) icon.setAttribute('data-lucide', 'volume-2');
+        if (isPlatformVideoPlaying) speakArabicStep(platformVideoCurrentSecond);
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function seekPlatformVideo(e) {
+      const bg = document.getElementById('platformVideoProgressBg');
+      if (!bg) return;
+      const rect = bg.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const ratio = Math.max(0, Math.min(1, clickX / rect.width));
+      platformVideoCurrentSecond = Math.floor(ratio * platformVideoTotalDuration);
+      updatePlatformVideoFrame();
+      if (isPlatformVideoPlaying) {
+        speakArabicStep(platformVideoCurrentSecond);
+      }
+    }
+
+    function switchToYoutubeFallback() {
+      const vidContainer = document.getElementById('html5VideoContainer');
+      const ytContainer = document.getElementById('youtubeVideoContainer');
+      const iframe = document.getElementById('youtubeFallbackIframe');
+      
+      const vid = document.getElementById('realHtml5Video');
+      if (vid) vid.pause();
+
+      if (vidContainer && ytContainer) {
+        vidContainer.classList.add('hidden');
+        ytContainer.classList.remove('hidden');
+        if (iframe && !iframe.src) {
+          iframe.src = "https://www.youtube-nocookie.com/embed/LXb3EKWsInQ?autoplay=1&rel=0";
+        }
+      }
+    }
+
+    function playDirectVideo() {
+      const vid = document.getElementById('realHtml5Video');
+      const btn = document.getElementById('mp4PlayOverlayBtn');
+      if (vid) {
+        if (vid.paused) {
+          const promise = vid.play();
+          if (promise !== undefined) {
+            promise.then(() => {
+              if (btn) btn.classList.add('hidden');
+            }).catch(err => {
+              console.warn('HTML5 Video error, switching to YouTube stream:', err);
+              switchToYoutubeFallback();
+            });
+          }
+        } else {
+          vid.pause();
+          if (btn) btn.classList.remove('hidden');
+        }
+      } else {
+        switchToYoutubeFallback();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const vid = document.getElementById('realHtml5Video');
+      const btn = document.getElementById('mp4PlayOverlayBtn');
+      if (vid) {
+        vid.addEventListener('play', () => {
+          if (btn) btn.classList.add('hidden');
+        });
+        vid.addEventListener('pause', () => {
+          if (btn) btn.classList.remove('hidden');
+        });
+        vid.addEventListener('ended', () => {
+          if (btn) btn.classList.remove('hidden');
+        });
+      }
+    });
+
+    function switchVideoMode(mode) {
+      const cDirect = document.getElementById('containerDirectVideo');
+      const cYt = document.getElementById('containerYoutubeVideo');
+      const cCast = document.getElementById('containerScreencastVideo');
+
+      const btnMp4 = document.getElementById('btnVidMp4');
+      const btnYt = document.getElementById('btnVidYoutube');
+      const btnCast = document.getElementById('btnVidScreencast');
+
+      [btnMp4, btnYt, btnCast].forEach(b => {
+        if (b) b.className = 'px-2.5 py-1 rounded-md text-gray-300 hover:text-white font-bold cursor-pointer transition-all flex items-center gap-1';
+      });
+
+      const html5Vid = document.getElementById('realHtml5Video');
+      if (html5Vid) html5Vid.pause();
+
+      if (mode === 'mp4') {
+        if (cDirect) cDirect.classList.remove('hidden');
+        if (cYt) cYt.classList.add('hidden');
+        if (cCast) cCast.classList.add('hidden');
+        if (btnMp4) btnMp4.className = 'px-2.5 py-1 rounded-md bg-cyan-500 text-black font-extrabold cursor-pointer transition-all flex items-center gap-1';
+      } else if (mode === 'youtube') {
+        if (cDirect) cDirect.classList.add('hidden');
+        if (cYt) cYt.classList.remove('hidden');
+        if (cCast) cCast.classList.add('hidden');
+        if (btnYt) btnYt.className = 'px-2.5 py-1 rounded-md bg-cyan-500 text-black font-extrabold cursor-pointer transition-all flex items-center gap-1';
+      } else if (mode === 'screencast') {
+        if (cDirect) cDirect.classList.add('hidden');
+        if (cYt) cYt.classList.add('hidden');
+        if (cCast) cCast.classList.remove('hidden');
+        if (btnCast) btnCast.className = 'px-2.5 py-1 rounded-md bg-cyan-500 text-black font-extrabold cursor-pointer transition-all flex items-center gap-1';
+      }
+    }
+
+    function jumpToPresentationScene(sec) {
+      presentationCurrentSecond = sec;
+      updatePresentationFrame();
+      if (isVideoPlaying) {
+        speakCurrentArabicStep(presentationCurrentSecond);
+      } else {
+        playPresentationVideo();
+      }
+    }
+
+    // ----------------------------------------------------
+    // ULTRA HIGH-TECH 3D CANVAS PARTICLE & MATRIX ENGINE
+    // ----------------------------------------------------
+    (function init3DTechCanvas() {
+      const canvas = document.getElementById('tech3dCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      // Node count scales dynamically with screen size for device performance
+      const isMobile = window.innerWidth < 768;
+      const particleCount = isMobile ? 35 : 75;
+      const particles = [];
+      const fov = 350;
+
+      let mouse = { x: width / 2, y: height / 2, targetX: width / 2, targetY: height / 2 };
+
+      // Generate 3D Particle Constellation
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: (Math.random() - 0.5) * width * 1.5,
+          y: (Math.random() - 0.5) * height * 1.5,
+          z: Math.random() * fov * 2 - fov,
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: (Math.random() - 0.5) * 0.6,
+          vz: (Math.random() - 0.5) * 0.8,
+          radius: Math.random() * 2 + 1.2,
+          color: i % 4 === 0 ? '#eab308' : i % 3 === 0 ? '#3b82f6' : i % 5 === 0 ? '#10b981' : '#06b6d4'
+        });
+      }
+
+      // 3D Wireframe Polyhedron Vertices
+      const cubeSize = isMobile ? 80 : 140;
+      const vertices = [
+        { x: -cubeSize, y: -cubeSize, z: -cubeSize },
+        { x:  cubeSize, y: -cubeSize, z: -cubeSize },
+        { x:  cubeSize, y:  cubeSize, z: -cubeSize },
+        { x: -cubeSize, y:  cubeSize, z: -cubeSize },
+        { x: -cubeSize, y: -cubeSize, z:  cubeSize },
+        { x:  cubeSize, y: -cubeSize, z:  cubeSize },
+        { x:  cubeSize, y:  cubeSize, z:  cubeSize },
+        { x: -cubeSize, y:  cubeSize, z:  cubeSize }
+      ];
+
+      const edges = [
+        [0,1],[1,2],[2,3],[3,0],
+        [4,5],[5,6],[6,7],[7,4],
+        [0,4],[1,5],[2,6],[3,7]
+      ];
+
+      let angleX = 0.003;
+      let angleY = 0.005;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        mouse.targetX = e.clientX;
+        mouse.targetY = e.clientY;
+      });
+
+      window.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          mouse.targetX = e.touches[0].clientX;
+          mouse.targetY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      function rotateX(pt, angle) {
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        return {
+          x: pt.x,
+          y: pt.y * cos - pt.z * sin,
+          z: pt.y * sin + pt.z * cos
+        };
+      }
+
+      function rotateY(pt, angle) {
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        return {
+          x: pt.x * cos + pt.z * sin,
+          y: pt.y,
+          z: -pt.x * sin + pt.z * cos
+        };
+      }
+
+      function renderFrame() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Smooth Mouse Parallax
+        mouse.x += (mouse.targetX - mouse.x) * 0.05;
+        mouse.y += (mouse.targetY - mouse.y) * 0.05;
+
+        const offsetX = (mouse.x - width / 2) * 0.1;
+        const offsetY = (mouse.y - height / 2) * 0.1;
+
+        // Render 3D Constellation Nodes
+        const projectedParticles = [];
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          p.x += p.vx;
+          p.y += p.vy;
+          p.z += p.vz;
+
+          if (p.x < -width) p.x = width;
+          if (p.x > width) p.x = -width;
+          if (p.y < -height) p.y = height;
+          if (p.y > height) p.y = -height;
+          if (p.z < -fov) p.z = fov;
+          if (p.z > fov) p.z = -fov;
+
+          const scale = fov / (fov + p.z);
+          const px = (p.x + offsetX) * scale + width / 2;
+          const py = (p.y + offsetY) * scale + height / 2;
+
+          projectedParticles.push({ x: px, y: py, scale: scale, color: p.color, radius: p.radius });
+
+          if (scale > 0) {
+            ctx.beginPath();
+            ctx.arc(px, py, p.radius * scale, 0, Math.PI * 2);
+            ctx.fillStyle = p.color;
+            ctx.shadowBlur = 10 * scale;
+            ctx.shadowColor = p.color;
+            ctx.globalAlpha = Math.min(1, Math.max(0.1, scale * 0.8));
+            ctx.fill();
+          }
+        }
+
+        // Connect nearby 3D nodes with glowing lines
+        const maxDist = isMobile ? 80 : 120;
+        for (let i = 0; i < projectedParticles.length; i++) {
+          for (let j = i + 1; j < projectedParticles.length; j++) {
+            const p1 = projectedParticles[i];
+            const p2 = projectedParticles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDist) {
+              const alpha = (1 - dist / maxDist) * 0.25 * Math.min(p1.scale, p2.scale);
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = '#06b6d4';
+              ctx.globalAlpha = alpha;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Render Rotating 3D Core Polyhedron
+        const transformedVertices = vertices.map(v => {
+          let r = rotateX(v, angleX);
+          r = rotateY(r, angleY);
+          const scale = fov / (fov + r.z + 400);
+          return {
+            x: (r.x + offsetX * 0.5) * scale + width / 2,
+            y: (r.y + offsetY * 0.5) * scale + height / 2,
+            scale: scale
+          };
+        });
+
+        angleX += 0.002;
+        angleY += 0.003;
+
+        ctx.lineWidth = 1.2;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = '#eab308';
+        edges.forEach(([i, j]) => {
+          const v1 = transformedVertices[i];
+          const v2 = transformedVertices[j];
+          ctx.beginPath();
+          ctx.moveTo(v1.x, v1.y);
+          ctx.lineTo(v2.x, v2.y);
+          ctx.strokeStyle = '#eab308';
+          ctx.globalAlpha = 0.35;
+          ctx.stroke();
+        });
+
+        ctx.globalAlpha = 1.0;
+        ctx.shadowBlur = 0;
+
+        requestAnimationFrame(renderFrame);
+      }
+
+      renderFrame();
+    })();
 
     // Initial Setup On Load
     populateCalcDropdowns();
