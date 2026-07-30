@@ -245,6 +245,56 @@
         font-size: 11px !important;
       }
     }
+/* ================= Responsive ================= */
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+section,
+.container,
+.wrapper {
+    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+    }
+
+    h3 {
+        font-size: 1.3rem !important;
+    }
+
+    button {
+        width: 100%;
+    }
+
+
+    
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden relative">
