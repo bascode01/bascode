@@ -7,7 +7,7 @@
   <meta name="description" content="منصة باسكود (BASCODE) العالمية للخدمات البرمجية والهندسية: تطوير البرمجيات، تطبيقات الجوال، الذكاء الاصطناعي، ترجمة الملفات، وفحص البرمجيات والأمن السيبراني بالتسعير الفوري بالدينار العراقي والعملات المعتمدة.">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="/bascode-logo.jpg">
+  <link rel="icon" type="image/jpeg" href="/logo.jpg">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -245,56 +245,6 @@
         font-size: 11px !important;
       }
     }
-/* ================= Responsive ================= */
-
-html,
-body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-img,
-video,
-canvas {
-    max-width: 100%;
-    height: auto;
-}
-
-section,
-.container,
-.wrapper {
-    width: 100%;
-    max-width: 100%;
-}
-
-@media (max-width: 768px) {
-
-    body {
-        font-size: 15px;
-    }
-
-    h1 {
-        font-size: 2rem !important;
-    }
-
-    h2 {
-        font-size: 1.6rem !important;
-    }
-
-    h3 {
-        font-size: 1.3rem !important;
-    }
-
-    button {
-        width: 100%;
-    }
-
-
-    
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden relative">
@@ -302,41 +252,39 @@ section,
   <!-- Global High-Tech 3D Particle Matrix Canvas (Ultra Professional 3D Background) -->
   <canvas id="tech3dCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
 
-  <!-- Top Urgent Announcement Banner -->
-  <div id="topAnnouncementBar" class="bg-gradient-to-r from-amber-500/20 via-cyan-500/20 to-blue-600/20 border-b border-amber-500/30 py-1.5 sm:py-2 px-2 sm:px-4 text-[11px] sm:text-xs font-bold text-gray-200 text-center relative flex items-center justify-between gap-1.5 sm:gap-2 z-50">
-    <div class="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap">
-      <span class="inline-flex items-center gap-1 bg-amber-400/20 text-amber-300 border border-amber-400/30 px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-black uppercase tracking-wide shrink-0">
-        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-400 animate-ping inline-block"></span>
-        <span id="announcementBadge">تنبيه عاجل</span>
-      </span>
-      <span id="announcementMsgText" class="text-white font-medium text-[11px] sm:text-xs leading-tight">
-        ⚡ عرض خاص من باسكود: خصم 20% على خدمات الترجمة الأكاديمية والبرمجية، وفحص الملفات من الثغرات هذا الأسبوع!
-      </span>
-      <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20أريد%20الاستفادة%20من%20خصم%20التنفيذ%2020%" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 underline font-black flex items-center gap-1 text-[10px] sm:text-xs shrink-0">
-        <span id="announcementActionText">احصل على الخصم فوراً عبر الواتساب</span>
-        <i data-lucide="arrow-left" class="w-3 h-3 sm:w-3.5 sm:h-3.5 rtl-flip"></i>
-      </a>
-    </div>
-    <button onclick="dismissAnnouncementBar()" class="text-gray-400 hover:text-white p-1 rounded-lg transition-colors cursor-pointer shrink-0" title="إغلاق التنبيه">
-      ✕
-    </button>
-  </div>
-
   <!-- Header / Navbar -->
   <header class="sticky top-0 z-40 glass-nav border-b border-white/10">
     <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
       
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-        <div class="relative w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden p-0.5 border border-amber-500/40 bg-[#0c0e12] shadow-lg shadow-amber-500/20 group-hover:scale-105 group-hover:border-amber-400 transition-all">
-          <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[9px]" />
-        </div>
-        <div class="flex flex-col">
-          <span class="text-base sm:text-xl font-black tracking-wider text-white flex items-center gap-1 font-title">
-            BAS<span class="text-amber-400">CODE</span>
+      <!-- Brand Logo (Official BASCODE Logo Presentation) -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0" title="الشعار الرسمي لمنصة باسكود للحلول البرمجية والخدمات الرقمية">
+        <div class="relative w-10 h-10 sm:w-11.5 sm:h-11.5 rounded-xl sm:rounded-2xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(6,182,212,0.5)] transition-all duration-300">
+          <div class="w-full h-full rounded-[10px] sm:rounded-[14px] overflow-hidden bg-[#070a10] relative flex items-center justify-center p-0.5 border border-white/10">
+            <img src="logo.jpg" alt="شعار BASCODE" class="loader-logo-img w-full h-full object-cover rounded-[8px] sm:rounded-[12px] transform group-hover:scale-108 transition-transform duration-500" />
+            <!-- Shiny Metallic Glass Sheen Sweep -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/30 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+          </div>
+          <!-- Verified Gold/Cyan Tech Badge Sparkle -->
+          <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow-lg shadow-amber-500/50 flex items-center justify-center animate-pulse">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300"></span>
           </span>
-          <span class="text-[8px] sm:text-[9px] font-bold text-gray-400 tracking-widest uppercase hidden xs:block">
-            CODE. DESIGN. SECURE. SUCCEED.
+        </div>
+        <div class="flex flex-col justify-center my-auto">
+          <div class="flex items-center gap-1.5">
+            <span class="text-base sm:text-xl font-black tracking-wider text-white font-title drop-shadow-lg flex items-center gap-1 leading-tight">
+              BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-black drop-shadow">CODE</span>
+            </span>
+            <span class="px-1.5 py-0.2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[8.5px] font-black rounded-md hidden sm:inline-block">v2.5</span>
+          </div>
+          <span class="text-[8px] sm:text-[9.5px] font-black text-cyan-300 tracking-widest uppercase hidden xs:flex items-center gap-1 opacity-90 leading-none mt-0.5">
+            <span>CODE</span>
+            <span class="text-amber-400">•</span>
+            <span>DESIGN</span>
+            <span class="text-amber-400">•</span>
+            <span>SECURE</span>
+            <span class="text-amber-400">•</span>
+            <span>SUCCEED</span>
           </span>
         </div>
       </a>
@@ -445,11 +393,22 @@ section,
           </div>
         </div>
 
-        <!-- Cart Counter Drawer Trigger -->
-        <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer">
+        <!-- Cart Counter Drawer Trigger (Digital Services Cart) -->
+        <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="سلة الخدمات الرقمية" title="سلة الخدمات الرقمية 🛒">
           <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400"></i>
           <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-black font-black text-[9px] sm:text-[10px] w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
         </button>
+
+        <!-- Admin Email Contact Box (Top Header Copy - Next to Digital Services Cart) -->
+        <a href="mailto:bascode84@gmail.com" 
+           id="topHeaderAdminEmailBtn" 
+           class="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-[10px] sm:text-xs px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl flex items-center gap-1 sm:gap-1.5 shadow-md shadow-amber-500/20 border border-amber-300 transition-all hover:scale-105 cursor-pointer shrink-0" 
+           title="تواصل البريد الإداري المباشر - منصة باسكود"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i data-lucide="mail" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0"></i>
+          <span id="topHeaderAdminEmailText" class="whitespace-nowrap font-extrabold text-[10px] sm:text-xs">البريد الإداري</span>
+        </a>
 
         <!-- 3-Lines Hamburger Mobile Menu Button (Visible on Mobile & Tablet < lg) -->
         <button onclick="toggleMobileMenu()" class="lg:hidden bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 p-2 sm:p-2.5 rounded-xl border border-amber-500/30 transition-all flex items-center justify-center cursor-pointer shadow-lg shadow-amber-500/10" aria-label="فتح قائمة الملاحة" title="قائمة الملاحة ☰">
@@ -470,10 +429,17 @@ section,
         <!-- Drawer Header -->
         <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
           <div class="flex items-center gap-2.5">
-            <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-500/40 bg-[#0c0e12] p-0.5 shadow-md">
-              <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[8px]" />
+            <div class="relative w-9.5 h-9.5 rounded-xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <div class="w-full h-full rounded-[9px] overflow-hidden bg-[#070a10] relative p-0.5 border border-white/10">
+                <img src="/logo.jpg" alt="BASCODE Logo" class="loader-logo-img w-full h-full object-cover rounded-[8px]" />
+                <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/30 pointer-events-none"></div>
+              </div>
+              <span class="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow animate-pulse"></span>
             </div>
-            <span class="text-base font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
+            <div class="flex flex-col">
+              <span class="text-base font-black text-white font-title flex items-center gap-1">BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">CODE</span></span>
+              <span class="text-[8px] font-bold text-cyan-300 tracking-wider uppercase">GLOBAL DIGITAL PLATFORM</span>
+            </div>
           </div>
           <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-1.5 text-base rounded-xl bg-white/5 border border-white/10 cursor-pointer">✕</button>
         </div>
@@ -601,7 +567,7 @@ section,
         تطوير الأنظمة المعقدة، المواقع الإلكترونية، تطبيقات iOS & Android، الذكاء الاصطناعي، ترجمة الملفات والمستندات، وفحص البرمجيات والأمن السيبراني، وكافة الخدمات الرقمية مع تحديد التسعير الفوري بالدينار العراقي والعملات المعتمدة.
       </p>
 
-      <!-- Platform Explanatory Video Showcase -->
+      <!-- Interactive Promo Video Showcase -->
       <div class="relative max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border border-cyan-500/30 bg-[#07090d] shadow-2xl p-2.5 sm:p-3.5 my-4 w-full box-border">
         
         <!-- Video Header Title -->
@@ -610,216 +576,43 @@ section,
             <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
             <span class="font-bold text-white text-xs sm:text-sm font-title flex items-center gap-1.5">
               <i data-lucide="play-circle" class="w-4 h-4 text-cyan-400"></i>
-              فيديو ناطق توضيحي شامـل لمنصة باسكود
+              فيديو الشرح التفاعلي الجديد لمنصة باسكود (BASCODE)
             </span>
           </div>
           
           <div class="flex items-center gap-2">
-            <button onclick="togglePlatformVideoMute()" id="btnPlatformVideoMute" class="text-[10px] sm:text-xs font-bold text-cyan-300 hover:text-white bg-cyan-500/10 hover:bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30 transition-all flex items-center gap-1 cursor-pointer">
-              <i data-lucide="volume-2" class="w-3.5 h-3.5 text-cyan-400" id="iconVideoMute"></i>
-              <span id="textVideoMute">التعليق الصوتي: مُمكّن</span>
-            </button>
+            <span class="text-[10px] sm:text-xs text-amber-300 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+              العرض المحدث HD ⚡
+            </span>
           </div>
         </div>
 
-        <!-- Single Interactive Video Stage Container -->
-        <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-black via-[#080d1a] to-[#03060d] border border-white/10 select-none shadow-2xl flex flex-col justify-between p-3 sm:p-5 group" id="platformVideoStage">
-          
-          <!-- Animated Background Tech Rays & Particles -->
-          <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(6,182,212,0.22),transparent_70%)] pointer-events-none"></div>
-
-          <!-- Clickable Play / Pause Overlay Button -->
-          <button id="platformVideoPlayOverlayBtn" onclick="togglePlatformShowcaseVideo()" class="absolute inset-0 m-auto w-16 h-16 sm:w-22 sm:h-22 rounded-full bg-cyan-400 hover:bg-cyan-300 text-black flex items-center justify-center shadow-[0_0_35px_rgba(6,182,212,0.6)] hover:scale-110 transition-all cursor-pointer z-30 border-2 border-white/50 backdrop-blur-md">
-            <i data-lucide="play" class="w-8 h-8 sm:w-11 sm:h-11 fill-black translate-x-0.5" id="platformVideoPlayIcon"></i>
-          </button>
-
-          <!-- Top Status Bar Overlay -->
-          <div class="relative z-10 flex items-center justify-between gap-2 border-b border-white/10 pb-2 bg-black/40 px-3 py-1.5 rounded-xl backdrop-blur-md">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span class="text-[11px] sm:text-xs font-bold text-cyan-400 font-title" id="videoCurrentSceneBadge">المشهد 1: التعريف بالمنصة</span>
-            </div>
-            <div class="flex items-center gap-1.5 text-[10px] sm:text-xs text-amber-300 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/30">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span>شرح بالصوت والصورة 🎙️</span>
-            </div>
-          </div>
-
-          <!-- Video Content Scenes Container (Transitions Synced with Arabic Voice & Subtitles) -->
-          <div class="relative z-10 my-auto w-full text-right px-1 sm:px-3">
-            
-            <!-- Default Welcome Overlay before Play -->
-            <div id="pVidSceneDefault" class="text-center space-y-2 sm:space-y-3 py-2">
-              <div class="w-14 h-14 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shadow-2xl animate-pulse">
-                <i data-lucide="play-circle" class="w-8 h-8 sm:w-12 sm:h-12"></i>
-              </div>
-              <h3 class="text-sm sm:text-2xl font-black text-white font-title">شاهد فيديو شرح المنصة مع التعليق الصوتي واللقطات</h3>
-              <p class="text-[11px] sm:text-sm text-cyan-300 max-w-lg mx-auto leading-relaxed font-bold">
-                اضغط على زر التشغيل للبدء بالاستماع والاطلاع على خدماتنا الرقمية
-              </p>
-            </div>
-
-            <!-- SCENE 1: Overview & Value Proposition -->
-            <div id="pVidScene1" class="hidden space-y-3 animate-fade-in">
-              <div class="bg-black/80 border border-cyan-500/40 p-3 sm:p-5 rounded-xl sm:rounded-2xl shadow-2xl space-y-3 backdrop-blur-md">
-                <div class="flex items-center gap-2 border-b border-cyan-500/20 pb-2">
-                  <div class="w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
-                    <i data-lucide="globe" class="w-4 h-4"></i>
-                  </div>
-                  <h4 class="text-xs sm:text-base font-black text-cyan-400 font-title">الرؤية الشاملة لمنصة باسكود</h4>
-                </div>
-                
-                <!-- Clips Visual Cards -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
-                  <div class="bg-gradient-to-br from-cyan-950/60 to-black p-2.5 rounded-xl border border-cyan-500/30 text-right">
-                    <span class="block text-cyan-400 font-extrabold text-xs sm:text-sm mb-0.5">💻 50+ خدمة تقنية</span>
-                    <span class="text-[10.5px] text-gray-300">برمجة، تصميم، وترجمة</span>
-                  </div>
-                  <div class="bg-gradient-to-br from-amber-950/60 to-black p-2.5 rounded-xl border border-amber-500/30 text-right">
-                    <span class="block text-amber-400 font-extrabold text-xs sm:text-sm mb-0.5">💰 تسعير شفاف IQD</span>
-                    <span class="text-[10.5px] text-gray-300">بالدينار والعملات المعتمدة</span>
-                  </div>
-                  <div class="bg-gradient-to-br from-emerald-950/60 to-black p-2.5 rounded-xl border border-emerald-500/30 text-right">
-                    <span class="block text-emerald-400 font-extrabold text-xs sm:text-sm mb-0.5">⚡ سرعة وتنفيذ 24/7</span>
-                    <span class="text-[10.5px] text-gray-300">تسليم بالمواعيد المحددة</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SCENE 2: Services Grid Clips Showcase -->
-            <div id="pVidScene2" class="hidden space-y-2 animate-fade-in">
-              <div class="bg-black/80 border border-amber-500/40 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl space-y-2.5 backdrop-blur-md">
-                <div class="flex items-center justify-between border-b border-amber-500/20 pb-1.5">
-                  <span class="text-xs sm:text-sm font-black text-amber-300 flex items-center gap-1.5 font-title">
-                    <i data-lucide="layers" class="w-4 h-4 text-amber-400"></i> لقطات حية من الخدمات المتاحة بالمنصة:
-                  </span>
-                  <span class="text-[10px] text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded">اختصاصات هندسية رقمية</span>
-                </div>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-right">
-                  <div class="bg-cyan-500/10 p-2 rounded-xl border border-cyan-500/30 text-cyan-200 flex items-center gap-2">
-                    <i data-lucide="code-2" class="w-4 h-4 text-cyan-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">برمجة وتطوير الأنظمة</div>
-                      <div class="text-[9.5px] text-cyan-300">مواقع، سيرفرات، APIs</div>
-                    </div>
-                  </div>
-                  <div class="bg-amber-500/10 p-2 rounded-xl border border-amber-500/30 text-amber-200 flex items-center gap-2">
-                    <i data-lucide="palette" class="w-4 h-4 text-amber-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">تصميم UI/UX واجهات</div>
-                      <div class="text-[9.5px] text-amber-300">تصاميم عصرية جذابة</div>
-                    </div>
-                  </div>
-                  <div class="bg-blue-500/10 p-2 rounded-xl border border-blue-500/30 text-blue-200 flex items-center gap-2">
-                    <i data-lucide="smartphone" class="w-4 h-4 text-blue-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">تطبيقات iOS & Android</div>
-                      <div class="text-[9.5px] text-blue-300">أداء فائق واستجابة</div>
-                    </div>
-                  </div>
-                  <div class="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/30 text-emerald-200 flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">ترجمة الملفات مع الحفاظ</div>
-                      <div class="text-[9.5px] text-emerald-300">دقة عالية لكافة التنسيقات</div>
-                    </div>
-                  </div>
-                  <div class="bg-purple-500/10 p-2 rounded-xl border border-purple-500/30 text-purple-200 flex items-center gap-2">
-                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-purple-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">تحليل وتأمين البيانات</div>
-                      <div class="text-[9.5px] text-purple-300">تقارير وأمن سيبراني</div>
-                    </div>
-                  </div>
-                  <div class="bg-rose-500/10 p-2 rounded-xl border border-rose-500/30 text-rose-200 flex items-center gap-2">
-                    <i data-lucide="package" class="w-4 h-4 text-rose-400 shrink-0"></i>
-                    <div>
-                      <div class="text-xs font-bold text-white">قوالب وأكواد جاهزة</div>
-                      <div class="text-[9.5px] text-rose-300">تحميل مباشر وسريع</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SCENE 3: Ordering & Ratings Showcase -->
-            <div id="pVidScene3" class="hidden space-y-2 animate-fade-in">
-              <div class="bg-black/80 border border-emerald-500/40 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl space-y-2.5 backdrop-blur-md">
-                <div class="flex items-center justify-between border-b border-emerald-500/20 pb-1.5">
-                  <span class="text-xs sm:text-sm font-bold text-emerald-300 flex items-center gap-1.5 font-title">
-                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> سهولة الطلب والضمان والجودة:
-                  </span>
-                  <span class="text-amber-400 font-bold text-xs">★★★★★ (4.9 / 5)</span>
-                </div>
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 bg-white/5 p-2.5 sm:p-3 rounded-xl border border-white/10">
-                  <div class="text-right space-y-1">
-                    <div class="text-xs sm:text-sm font-bold text-white">1. اختيار الخدمة ➔ 2. مراجعة السعر الفوري ➔ 3. إرسال الطلب للاستلام</div>
-                    <div class="text-[10px] sm:text-xs text-gray-300">إمكانية التعديل والمتابعة المباشرة مع فريق الدعم الفني لمشروعك</div>
-                  </div>
-                  <span class="bg-emerald-500 text-black font-extrabold text-[10px] sm:text-xs px-3 py-1.5 rounded-lg shrink-0">ضمان جودة وتنفيذ</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- SCENE 4: CTA Finale -->
-            <div id="pVidScene4" class="hidden space-y-2 animate-fade-in text-center">
-              <div class="bg-gradient-to-r from-cyan-950/90 via-black to-amber-950/90 border border-cyan-400/50 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-2xl space-y-3 backdrop-blur-md">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto rounded-full bg-cyan-400/20 border border-cyan-400/50 flex items-center justify-center text-cyan-300 shadow-lg">
-                  <i data-lucide="rocket" class="w-6 h-6 sm:w-7 sm:h-7 animate-bounce"></i>
-                </div>
-                <h3 class="text-base sm:text-2xl font-black text-white font-title gold-gradient-text">
-                  ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!
-                </h3>
-                <a href="#services" class="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 hover:from-cyan-300 hover:to-indigo-500 text-black font-extrabold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-xl hover:scale-105 transition-all">
-                  <span>تصفح جميع الخدمات واطلب الآن</span>
-                  <i data-lucide="arrow-left" class="w-4 h-4"></i>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- Subtitle Box & Interactive Progress Bar Overlay -->
-          <div class="relative z-10 pt-2 border-t border-white/10 flex flex-col gap-2">
-            
-            <!-- Live Spoken Sentence Subtitle Box -->
-            <div class="bg-black/75 backdrop-blur-md p-2 rounded-xl border border-cyan-500/30 text-center min-h-[44px] flex items-center justify-center">
-              <p id="platformVideoSubtitles" class="text-xs sm:text-sm font-extrabold text-cyan-300 font-title transition-all leading-relaxed">
-                "منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد."
-              </p>
-            </div>
-
-            <!-- Timeline Progress Bar -->
-            <div class="flex items-center gap-2">
-              <button onclick="togglePlatformShowcaseVideo()" class="text-gray-300 hover:text-white transition-all cursor-pointer">
-                <i data-lucide="play" class="w-4 h-4" id="btnBottomPlayIcon"></i>
-              </button>
-              <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden cursor-pointer relative" onclick="seekPlatformVideo(event)" id="platformVideoProgressBg">
-                <div id="platformVideoProgressBar" class="bg-gradient-to-r from-cyan-400 via-amber-400 to-emerald-400 h-full w-0 transition-all duration-300"></div>
-              </div>
-              <span id="platformVideoTimeText" class="text-[10px] text-gray-400 font-mono shrink-0">00:00 / 00:22</span>
-            </div>
-
-          </div>
-
+        <!-- Video Player Frame Container -->
+        <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
+          <iframe 
+            src="/promo-video.html" 
+            class="w-full h-full border-0" 
+            allow="autoplay; microphone; camera; fullscreen" 
+            title="فيديو شرح منصة باسكود التفاعلي الجديد">
+          </iframe>
         </div>
 
         <!-- Video Description Footer -->
         <div class="p-2.5 sm:p-3 flex flex-col gap-1 bg-black/60 rounded-xl mt-2.5 border border-cyan-500/20 text-right">
           <div class="flex items-center justify-between gap-2 border-b border-white/10 pb-1">
             <span class="text-cyan-400 font-bold text-xs flex items-center gap-1.5">
-              <i data-lucide="mic" class="w-4 h-4 text-cyan-400"></i> فيديو الشرح التفاعلي بالصوت واللقطات
+              <i data-lucide="mic" class="w-4 h-4 text-cyan-400"></i> فيديو الشرح الناطق والخدمات البرمجية المباشرة
             </span>
-            <span class="text-amber-400 text-[10px] sm:text-xs font-bold">BASCODE INTERACTIVE SHOWCASE</span>
+            <span class="text-amber-400 text-[10px] sm:text-xs font-bold">https://bascode01.github.io/bascode/</span>
           </div>
           <p class="text-xs sm:text-sm font-bold text-gray-200 leading-relaxed mt-0.5">
-            استعرض لقطات حية للخدمات البرمجية والهندسية والترجمة، واستمع للشرح الناطق باللغة العربية لمميزات المنصة والتسعير المباشر بالدينار والعملات المعتمدة.
+            العرض المحدث يشمل نفق البيانات المستقبلي، اللوحة البرمجية، تقييمات العملاء، ورابط المنصة العالمي المباشر.
           </p>
         </div>
 
       </div>
+
+
 
 
 
@@ -1540,11 +1333,18 @@ section,
     <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-xs text-gray-400 mb-8">
       
       <div class="space-y-3">
-        <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl overflow-hidden border border-amber-500/40 bg-[#0c0e12] p-0.5 shadow-md">
-            <img src="/bascode-logo.jpg" alt="BASCODE Logo" class="w-full h-full object-cover rounded-[8px]" />
+        <div class="flex items-center gap-3">
+          <div class="relative w-11 h-11 rounded-2xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+            <div class="w-full h-full rounded-[13px] overflow-hidden bg-[#070a10] relative p-0.5 border border-white/10">
+              <img src="/logo.jpg" alt="BASCODE Logo" class="loader-logo-img w-full h-full object-cover rounded-[11px]" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/30 pointer-events-none"></div>
+            </div>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow animate-pulse"></span>
           </div>
-          <span class="text-lg font-black text-white font-title">BAS<span class="text-amber-400">CODE</span></span>
+          <div class="flex flex-col">
+            <span class="text-xl font-black text-white font-title">BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">CODE</span></span>
+            <span class="text-[9px] font-extrabold text-cyan-300 tracking-wider">GLOBAL DIGITAL PLATFORM</span>
+          </div>
         </div>
         <p id="footerAboutText" class="leading-relaxed">
           المنصة العالمية الرائدة في البرمجة والترجمة وفحص الملفات والأمن السيبراني.
@@ -3257,41 +3057,41 @@ section,
     let isPlatformVideoMuted = false;
     let platformVideoTimer = null;
     let platformVideoCurrentSecond = 0;
-    const platformVideoTotalDuration = 22; // 22 seconds total interactive presentation
+    const platformVideoTotalDuration = 32; // 32 seconds total presentation
     let audioCtx = null;
 
     const platformVideoScript = [
       {
         start: 0,
-        end: 5,
+        end: 8,
         sceneId: 'pVidScene1',
-        sceneBadge: 'المشهد 1: التعريف الشامل بالمنصة',
-        subtitle: 'منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد.',
-        speech: 'منصة رقمية احترافية تجمع جميع الخدمات التقنية في مكان واحد.'
+        sceneBadge: 'المشهد 1: المقدمة والترحيب بالمنصة',
+        subtitle: 'هَلْ تَبْحَثُ عَنْ مَنَصَّةٍ رَقْمِيَّةٍ تَجْمَعُ كُلَّ الخَدَماتِ التَّقْنِيَّةِ في مَكانٍ واحِد؟ مَرْحَبًا بِكَ في مَنَصَّتِنا الاِحْتِرافِيَّة... وِجْهَتِكَ العالَمِيَّةِ لِلْخَدَماتِ الرَّقْمِيَّة.',
+        speech: 'هَلْ تَبْحَثُ عَنْ مَنَصَّةٍ رَقْمِيَّةٍ تَجْمَعُ كُلَّ الخَدَماتِ التَّقْنِيَّةِ في مَكانٍ واحِد؟ مَرْحَبًا بِكَ في مَنَصَّتِنا الاِحْتِرافِيَّة... وِجْهَتِكَ العالَمِيَّةِ لِلْخَدَماتِ الرَّقْمِيَّة.'
       },
       {
-        start: 5,
-        end: 11,
+        start: 8,
+        end: 17,
         sceneId: 'pVidScene2',
-        sceneBadge: 'المشهد 2: لقطات الخدمات البرمجية والهندسية',
-        subtitle: 'برمجة، تصميم، تطوير مواقع وتطبيقات، ترجمة، تحليل بيانات، وقوالب برمجية باحترافية عالية.',
-        speech: 'برمجة، تصميم، تطوير مواقع وتطبيقات، ترجمة، تحليل بيانات، وقوالب برمجية باحترافية عالية.'
+        sceneBadge: 'المشهد 2: خريطة الخدمات التقنية والبرمجية',
+        subtitle: 'نُقَدِّمُ تَطْويرَ المَواقِعِ والتَّطْبيقات، بَرْمَجَةَ الأَنْظِمَة، تَصْمِيمَ واجِهاتٍ احْتِرافِيَّة، قَوالِبَ ومَلَفّاتٍ بَرْمَجِيَّة، تَرْجَمَةَ المَلَفّاتِ والكُتُب، تَحْلِيلَ البَيانات، فَحْصَ أَكْوادِ البَرْمَجَة، وحُلُولاً تَقْنِيَّةً مُتَكامِلَةً بِجَوْدَةٍ عالِيَة.',
+        speech: 'نُقَدِّمُ تَطْويرَ المَواقِعِ والتَّطْبيقات، بَرْمَجَةَ الأَنْظِمَة، تَصْمِيمَ واجِهاتٍ احْتِرافِيَّة، قَوالِبَ ومَلَفّاتٍ بَرْمَجِيَّة، تَرْجَمَةَ المَلَفّاتِ والكُتُب، تَحْلِيلَ البَيانات، فَحْصَ أَكْوادِ البَرْمَجَة، وحُلُولاً تَقْنِيَّةً مُتَكامِلَةً بِجَوْدَةٍ عالِيَة.'
       },
       {
-        start: 11,
-        end: 16,
+        start: 17,
+        end: 25,
         sceneId: 'pVidScene3',
-        sceneBadge: 'المشهد 3: سهولة الطلب والضمان والتقييمات',
-        subtitle: 'اطلب خدمتك بسهولة، وتابع تقييمات العملاء، واحصل على نتائج بجودة عالمية.',
-        speech: 'اطلب خدمتك بسهولة، وتابع تقييمات العملاء، واحصل على نتائج بجودة عالمية.'
+        sceneBadge: 'المشهد 3: سهولة التصفح، التقييمات، والطلب',
+        subtitle: 'اسْتَعْرِضِ الخَدَماتِ بِسُهُولَة، اطَّلِعْ على تَقْيِيماتِ العُمَلاء، واطْلُبِ الخِدْمَةَ الَّتي تَحْتاجُها خِلالَ دَقائِق. سَواءً كُنْتَ فَرْدًا، شَرِكَة، أَوْ صاحِبَ مَشْرُوع... سَتَجِدُ الحَلَّ المُناسِبَ في مَكانٍ واحِد.',
+        speech: 'اسْتَعْرِضِ الخَدَماتِ بِسُهُولَة، اطَّلِعْ على تَقْيِيماتِ العُمَلاء، واطْلُبِ الخِدْمَةَ الَّتي تَحْتاجُها خِلالَ دَقائِق. سَواءً كُنْتَ فَرْدًا، شَرِكَة، أَوْ صاحِبَ مَشْرُوع... سَتَجِدُ الحَلَّ المُناسِبَ في مَكانٍ واحِد.'
       },
       {
-        start: 16,
-        end: 22,
+        start: 25,
+        end: 32,
         sceneId: 'pVidScene4',
-        sceneBadge: 'المشهد 4: ابدأ مشروعك الآن',
-        subtitle: 'ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!',
-        speech: 'ابدأ الآن... وحوّل فكرتك إلى مشروع ناجح!'
+        sceneBadge: 'المشهد 4: تحويل الأفكار إلى واقع وانضمام العملاء',
+        subtitle: 'مَنَصَّتُنا... حَيْثُ تَتَحَوَّلُ أَفْكارُكَ إِلى واقِعٍ رَقْمِيٍّ احْتِرافِيّ. ابْدَأِ الآن، وانْضَمَّ إِلى آلافِ العُمَلاءِ الَّذِينَ اخْتارُوا الجَوْدَةَ والاِحْتِرافِيَّة.',
+        speech: 'مَنَصَّتُنا... حَيْثُ تَتَحَوَّلُ أَفْكارُكَ إِلى واقِعٍ رَقْمِيٍّ احْتِرافِيّ. ابْدَأِ الآن، وانْضَمَّ إِلى آلافِ العُمَلاءِ الَّذِينَ اخْتارُوا الجَوْدَةَ والاِحْتِرافِيَّة.'
       }
     ];
 
@@ -3425,25 +3225,47 @@ section,
       }
     }
 
+    // Preload system voices for high quality speech synthesis
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.onvoiceschanged = function() {
+        window.speechSynthesis.getVoices();
+      };
+    }
+
+    function getBestArabicVoice() {
+      if (!('speechSynthesis' in window)) return null;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices || !voices.length) return null;
+
+      const arVoices = voices.filter(v => v.lang && (v.lang.toLowerCase().startsWith('ar') || v.lang.toLowerCase().includes('ar')));
+      if (!arVoices.length) return null;
+
+      const preferredKeywords = ['natural', 'neural', 'maged', 'salma', 'tarik', 'hoda', 'naayf', 'zeina', 'laila', 'shakir', 'hamed', 'google', 'online', 'microsoft', 'apple', 'arabic'];
+      for (const kw of preferredKeywords) {
+        const match = arVoices.find(v => v.name.toLowerCase().includes(kw));
+        if (match) return match;
+      }
+      return arVoices[0];
+    }
+
     function speakArabicStep(sec) {
       if (isPlatformVideoMuted) return;
       
       const step = platformVideoScript.find(s => sec >= s.start && sec < s.end);
       if (!step) return;
 
-      playAmbientBeep(659.25); // E5 step chime
+      playAmbientBeep(659.25); // E5 studio chime tone
 
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
 
         const utterance = new SpeechSynthesisUtterance(step.speech);
         utterance.lang = 'ar-SA';
-        utterance.rate = 0.95; // Clear natural rate
-        utterance.pitch = 1.05;
+        utterance.rate = 0.88; // Deliberate articulate Classical Arabic enunciation
+        utterance.pitch = 1.0;  // Warm natural human vocal pitch
+        utterance.volume = 1.0;
 
-        // Try finding an Arabic voice if available
-        const voices = window.speechSynthesis.getVoices();
-        const arVoice = voices.find(v => v.lang && (v.lang.startsWith('ar') || v.lang.includes('ar')));
+        const arVoice = getBestArabicVoice();
         if (arVoice) utterance.voice = arVoice;
 
         window.speechSynthesis.speak(utterance);
