@@ -1,3 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#06070a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>BASCODE | باسكود - المنصة العالمية المتقدمة للبرمجة والخدمات الرقمية</title>
+  <meta name="description" content="منصة باسكود (BASCODE) العالمية للخدمات البرمجية والهندسية: تطوير البرمجيات، تطبيقات الجوال، الذكاء الاصطناعي، ترجمة الملفات، وفحص البرمجيات والأمن السيبراني بالتسعير الفوري بالدينار العراقي والعملات المعتمدة.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="/logo.jpg">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900;1000&family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          screens: {
+            'xs': '480px',
+          },
+          fontFamily: {
+            sans: ['Cairo', 'Inter', 'sans-serif'],
+            title: ['Tajawal', 'Inter', 'sans-serif'],
+            code: ['Fira Code', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: #06070a;
+      color: #f1f5f9;
+      font-family: 'Cairo', 'Inter', sans-serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .cyan-gradient-text {
+      background: linear-gradient(135deg, #a5f3fc 0%, #06b6d4 50%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 12px 35px -10px rgba(6, 182, 212, 0.25);
+      transform: translateY(-3px);
+    }
+    .featured-card {
+      background: linear-gradient(145deg, rgba(6, 182, 212, 0.07), rgba(234, 179, 8, 0.05));
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+    .featured-card:hover {
+      border-color: rgba(234, 179, 8, 0.6);
+      box-shadow: 0 12px 40px -10px rgba(234, 179, 8, 0.3);
+    }
+    .glass-nav {
+      background: rgba(6, 7, 10, 0.88);
+      backdrop-filter: blur(20px);
+    }
+    .animated-border {
+      position: relative;
+    }
+    .animated-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 1.5rem;
+      padding: 1px;
+      background: linear-gradient(90deg, #06b6d4, #eab308, #3b82f6, #06b6d4);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.5;
+    }
+    /* Touch & Scrollbar Optimizations */
+    .touch-scroll-x {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    [dir="rtl"] .rtl-flip {
+      transform: scaleX(-1);
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #06070a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+
+    /* Complete Mobile Auto-Scaling & Responsiveness Rules */
+    html {
+      overflow-x: hidden;
+      scroll-padding-top: 75px;
+    }
+    body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Mobile Grid & Services Fitting Constraints */
+    #services {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    #servicesContainer {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      box-sizing: border-box;
+    }
+    @media (min-width: 540px) {
+      #servicesContainer {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1024px) {
+      #servicesContainer {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    #servicesContainer > * {
+      min-width: 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 639px) {
+      .glass-card {
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
+      }
+      .glass-card:hover {
+        transform: none !important;
+      }
+      h1 {
+        font-size: clamp(1.35rem, 6vw, 2.2rem) !important;
+        line-height: 1.25 !important;
+      }
+      h2 {
+        font-size: clamp(1.15rem, 5vw, 1.75rem) !important;
+        line-height: 1.3 !important;
+      }
+      p, span, li, h3, h4, label {
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+      input, select, textarea {
+        font-size: 13px !important;
+      }
+      #heroQuickNav {
+        padding: 0.5rem !important;
+      }
+
+      /* Services Section Mobile Scaling & Fitting */
+      #services {
+        margin-top: 0.25rem !important;
+      }
+      #servicesTitle {
+        font-size: clamp(1.05rem, 4.2vw, 1.6rem) !important;
+        line-height: 1.3 !important;
+      }
+      #servicesSub {
+        font-size: clamp(0.68rem, 2.7vw, 0.78rem) !important;
+        line-height: 1.4 !important;
+      }
+      #servicesContainer {
+        gap: 0.75rem !important;
+      }
+      #servicesContainer .glass-card {
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
+        max-width: 100% !important;
+        box-shadow: 0 4px 20px -2px rgba(0,0,0,0.4);
+      }
+      #servicesContainer h3 {
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+      }
+      #servicesContainer p {
+        font-size: 0.72rem !important;
+        line-height: 1.38 !important;
+      }
+      #servicesContainer ul {
+        padding-top: 0.25rem !important;
+      }
+      #servicesContainer ul li {
+        font-size: 0.68rem !important;
+        line-height: 1.25 !important;
+      }
+    }
+    @media (max-width: 380px) {
+      .glass-card {
+        padding: 0.75rem !important;
+      }
+      button, a {
+        font-size: 11px !important;
+      }
+    }
+
+    /* ============================================
+       طبقة التوافق الشامل مع جميع الأجهزة (إضافات)
+       ============================================ */
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    img, svg, video, iframe, canvas {
+      max-width: 100%;
+    }
+
+    /* النوافذ المنبثقة: دعم متصفحات قديمة + شاشات النوتش */
+    .modal-panel { max-height: calc(100vh - 3rem); }
+    @supports (height: 100dvh) {
+      .modal-panel { max-height: calc(100dvh - 3rem); }
+    }
+
+    /* مسافة أمان أجهزة الآيفون ذات النوتش (Dynamic Island) */
+    @supports (padding: env(safe-area-inset-bottom)) {
+      header {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+    }
+
+    /* شاشات صغيرة جداً (Samsung A series القديمة وأمثالها) */
+    @media (max-width: 380px) {
+      header .w-10 { width: 2.25rem; height: 2.25rem; }
+      .glass-nav .flex.items-center.gap-1 { gap: 0.25rem; }
+    }
+
+    /* منع التكبير التلقائي لحقول الفورم بالآيفون */
+    @media (max-width: 639px) {
+      input, select, textarea { font-size: 16px !important; }
+    }
+
+    /* احترام إعداد "تقليل الحركة" على أجهزة المستخدمين */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black overflow-x-hidden relative">
+
+  <!-- Global High-Tech 3D Particle Matrix Canvas (Ultra Professional 3D Background) -->
+  <canvas id="tech3dCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-40 glass-nav border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 py-2.5 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand Logo (Official BASCODE Logo Presentation) -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0" title="الشعار الرسمي لمنصة باسكود للحلول البرمجية والخدمات الرقمية">
+        <!-- High-Tech Beautiful Logo Emblem Box -->
+        <div class="relative w-10 h-10 sm:w-[2.875rem] sm:h-[2.875rem] rounded-xl sm:rounded-2xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_20px_rgba(245,158,11,0.35)] group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(6,182,212,0.5)] transition-all duration-300 shrink-0">
+          <div class="w-full h-full rounded-[10px] sm:rounded-[14px] overflow-hidden bg-[#070a10] relative flex items-center justify-center p-0.5 border border-white/10">
+            <span class="absolute inset-0 flex items-center justify-center text-sm sm:text-lg font-black tracking-wider bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-title drop-shadow uppercase select-none">AB</span>
+            <img src="logo.jpg" alt="BASCODE Logo" onerror="this.style.display='none'" class="relative w-full h-full object-cover rounded-[8px]" />
+            <!-- Metallic Glass Sheen Sweep Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-white/35 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div>
+          </div>
+          <!-- Verified Gold & Cyan Sparkle Badge -->
+          <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow-lg shadow-amber-500/50 flex items-center justify-center animate-pulse">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-300"></span>
+          </span>
+        </div>
+
+        <div class="flex flex-col justify-center my-auto">
+          <div class="flex items-center gap-1.5">
+            <span class="text-base sm:text-xl font-black tracking-wider text-white font-title drop-shadow-lg flex items-center gap-1 leading-tight">
+              BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent font-black drop-shadow">CODE</span>
+            </span>
+            <span class="px-1.5 py-0.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-[8.5px] font-black rounded-md hidden sm:inline-block">v2.5</span>
+          </div>
+          <span class="text-[8px] sm:text-[9.5px] font-black text-cyan-300 tracking-widest uppercase hidden xs:flex items-center gap-1 opacity-90 leading-none mt-0.5">
+            <span>CODE</span>
+            <span class="text-amber-400">•</span>
+            <span>DESIGN</span>
+            <span class="text-amber-400">•</span>
+            <span>SECURE</span>
+            <span class="text-amber-400">•</span>
+            <span>SUCCEED</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Language Toggle & Currency Switcher & Notifications & Cart & WhatsApp & Mobile Menu Trigger -->
+      <div class="flex items-center gap-1 sm:gap-2.5 shrink-0">
+        
+        <!-- Language Switcher Button (Arabic / English - Hidden on tiny screens, accessible in 3-lines menu & sm+) -->
+        <button onclick="toggleLanguage()" id="langToggleBtn" class="hidden sm:flex bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 text-[10px] sm:text-xs font-extrabold px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl items-center gap-1 transition-all cursor-pointer">
+          <i data-lucide="globe" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-cyan-400"></i>
+          <span id="langBtnText">English</span>
+        </button>
+
+        <!-- Live Currency Picker (Strictly 3 Currencies: IQD, USD, AED - Hidden on tiny screens, accessible in 3-lines menu & sm+) -->
+        <div class="relative hidden sm:block">
+          <select id="currencySelector" onchange="switchCurrency(this.value)" class="bg-white/5 border border-white/10 text-[10px] sm:text-xs font-extrabold text-cyan-300 rounded-xl py-1.5 sm:py-2 px-1.5 sm:px-3 focus:outline-none focus:border-cyan-500 cursor-pointer transition-all max-w-[105px] sm:max-w-none">
+            <option value="IQD" id="currIqdLabel" selected>IQD - الدينار العراقي</option>
+            <option value="USD" id="currUsdLabel">USD - الدولار الأمريكي</option>
+            <option value="AED" id="currAedLabel">AED - الدرهم الإماراتي</option>
+          </select>
+        </div>
+
+        <!-- Notification Bell Center Button & Dropdown Menu -->
+        <div class="relative">
+          <button onclick="toggleNotificationDropdown(event)" id="notifBellBtn" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="مركز الإشعارات">
+            <i data-lucide="bell" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400"></i>
+            <span id="notifBadge" class="absolute -top-1.5 -right-1.5 bg-red-500 text-white font-black text-[9px] sm:text-[10px] w-[1.125rem] h-[1.125rem] sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg border border-black/50">3</span>
+          </button>
+
+          <!-- Notification Dropdown Menu (Fixed Centered on Mobile, Absolute on Desktop) -->
+          <div id="notificationDropdown" class="hidden fixed inset-x-3 top-16 sm:absolute sm:inset-auto sm:right-0 sm:top-full sm:mt-2 w-auto sm:w-96 max-w-md bg-[#0e1117]/98 border border-white/15 rounded-2xl shadow-2xl p-3.5 sm:p-4 z-50 backdrop-blur-xl transition-all">
+            <div class="flex items-center justify-between pb-2.5 border-b border-white/10">
+              <div class="flex items-center gap-2">
+                <i data-lucide="bell-ring" class="w-4 h-4 text-amber-400"></i>
+                <span id="notifTitle" class="text-xs sm:text-sm font-extrabold text-white">مركز الإشعارات والتحديثات</span>
+              </div>
+              <button onclick="markAllNotificationsAsRead()" class="text-[10px] sm:text-[11px] text-cyan-400 hover:underline font-bold cursor-pointer" id="notifMarkReadBtn">
+                تعيين الكل كمقروء
+              </button>
+            </div>
+
+            <!-- List of Active Notifications -->
+            <div id="notificationList" class="divide-y divide-white/5 max-h-72 overflow-y-auto my-2 pr-1 space-y-1">
+              
+              <!-- Item 1 -->
+              <div class="py-2.5 px-2 hover:bg-white/5 rounded-xl transition-colors cursor-pointer" onclick="openServiceDetailModal('trans-01')">
+                <div class="flex items-start gap-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <div class="flex-1 text-xs">
+                    <div class="flex items-center justify-between">
+                      <span class="font-black text-white" id="notifItem1Title">تخفيض 20% على الترجمة الأكاديمية</span>
+                      <span class="text-[10px] text-gray-400">الآن</span>
+                    </div>
+                    <p class="text-gray-300 text-[11px] mt-0.5" id="notifItem1Sub">خصم حصري على ترجمة الملفات والبحوث والوثائق الرسمية بجميع اللغات.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="py-2.5 px-2 hover:bg-white/5 rounded-xl transition-colors cursor-pointer" onclick="openServiceDetailModal('scan-01')">
+                <div class="flex items-start gap-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <div class="flex-1 text-xs">
+                    <div class="flex items-center justify-between">
+                      <span class="font-black text-white" id="notifItem2Title">فحص أمني مباشر للملفات</span>
+                      <span class="text-[10px] text-gray-400">قبل 10 دقائق</span>
+                    </div>
+                    <p class="text-gray-300 text-[11px] mt-0.5" id="notifItem2Sub">فحص الملفات والمستندات والبرمجيات من الفيروسات والثغرات مع تقرير مفصل.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="py-2.5 px-2 hover:bg-white/5 rounded-xl transition-colors cursor-pointer" onclick="switchCurrency('IQD')">
+                <div class="flex items-start gap-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="coins" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <div class="flex-1 text-xs">
+                    <div class="flex items-center justify-between">
+                      <span class="font-black text-white" id="notifItem3Title">دعم العملات الثلاث المباشرة</span>
+                      <span class="text-[10px] text-gray-400">اليوم</span>
+                    </div>
+                    <p class="text-gray-300 text-[11px] mt-0.5" id="notifItem3Sub">استعرض أسعار الخدمات فوراً بالدينار العراقي (IQD)، الدولار (USD)، والدرهم (AED).</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Action in Notification Dropdown -->
+            <div class="pt-2 border-t border-white/10 text-center space-y-2">
+              <button onclick="triggerTestNotification()" class="w-full py-1.5 px-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-[11px] rounded-lg border border-amber-500/30 flex items-center justify-center gap-1.5 cursor-pointer">
+                <i data-lucide="bell-ring" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span id="testNotifBtnText">تجربة إشعار فوري صوتي ومباشر</span>
+              </button>
+              <a href="https://wa.me/9647875929178" target="_blank" rel="noopener noreferrer" class="text-xs text-amber-400 hover:underline font-extrabold flex items-center justify-center gap-1 pt-1">
+                <span id="notifContactSupportText">تواصل مع قسم الإشعارات والدعم الفني</span>
+                <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cart Counter Drawer Trigger (Digital Services Cart) -->
+        <button onclick="toggleCartDrawer()" class="relative bg-white/5 hover:bg-white/10 text-white p-2 sm:p-2.5 rounded-xl border border-white/10 transition-all flex items-center justify-center cursor-pointer" aria-label="سلة الخدمات الرقمية" title="سلة الخدمات الرقمية 🛒">
+          <i data-lucide="shopping-bag" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400"></i>
+          <span id="cartBadge" class="absolute -top-1.5 -right-1.5 bg-amber-400 text-black font-black text-[9px] sm:text-[10px] w-[1.125rem] h-[1.125rem] sm:w-5 sm:h-5 rounded-full flex items-center justify-center shadow-lg">0</span>
+        </button>
+
+        <!-- Admin Email Contact Box (Top Header Copy - Next to Digital Services Cart) -->
+        <a href="mailto:bascode84@gmail.com" 
+           id="topHeaderAdminEmailBtn" 
+           class="bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-[10px] sm:text-xs px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl flex items-center gap-1 sm:gap-1.5 shadow-md shadow-amber-500/20 border border-amber-300 transition-all hover:scale-105 cursor-pointer shrink-0" 
+           title="تواصل البريد الإداري المباشر - منصة باسكود"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i data-lucide="mail" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-black shrink-0"></i>
+          <span id="topHeaderAdminEmailText" class="whitespace-nowrap font-extrabold text-[10px] sm:text-xs hidden sm:inline">البريد الإداري</span>
+        </a>
+
+        <!-- 3-Lines Hamburger Mobile Menu Button (Visible on Mobile & Tablet < lg) -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 p-2 sm:p-2.5 rounded-xl border border-amber-500/30 transition-all flex items-center justify-center cursor-pointer shadow-lg shadow-amber-500/10" aria-label="فتح قائمة الملاحة" title="قائمة الملاحة ☰">
+          <i data-lucide="menu" class="w-5 h-5 text-amber-400"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE SLIDE-OVER NAVIGATION DRAWER (Compatible with Android & Small Screens) -->
+  <div id="mobileMenuDrawer" class="fixed inset-0 z-50 hidden transition-all lg:hidden">
+    <div onclick="toggleMobileMenu()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div class="absolute top-0 bottom-0 rtl:right-0 ltr:left-0 w-full max-w-xs bg-[#0c0e12] border-x border-white/10 p-5 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto z-10">
+      <div class="space-y-5">
+        
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-3.5 border-b border-white/10">
+          <div class="flex items-center gap-2.5">
+            <div class="relative w-[2.375rem] h-[2.375rem] rounded-xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+              <div class="w-full h-full rounded-[9px] overflow-hidden bg-[#070a10] relative p-0.5 border border-white/10">
+                <img src="logo.jpg" alt="BASCODE Logo" onerror="handleLogoFail(this)" class="loader-logo-img w-full h-full object-cover rounded-[8px]" />
+                <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/30 pointer-events-none"></div>
+              </div>
+              <span class="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow animate-pulse"></span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-black text-white font-title flex items-center gap-1">BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">CODE</span></span>
+              <span class="text-[8px] font-bold text-cyan-300 tracking-wider uppercase">GLOBAL DIGITAL PLATFORM</span>
+            </div>
+          </div>
+          <button onclick="toggleMobileMenu()" class="text-gray-400 hover:text-white p-1.5 text-base rounded-xl bg-white/5 border border-white/10 cursor-pointer">✕</button>
+        </div>
+
+        <!-- Quick Settings inside Drawer (Language & Currency Controls) -->
+        <div class="bg-white/5 p-3 rounded-2xl border border-white/10 space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-[11px] font-extrabold text-gray-300">اللغة / Language:</span>
+            <button onclick="toggleLanguage()" class="bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-500/40 text-cyan-300 text-xs font-black px-2.5 py-1 rounded-xl flex items-center gap-1 transition-all cursor-pointer">
+              <i data-lucide="globe" class="w-3.5 h-3.5 text-cyan-400"></i>
+              <span id="mDrawerLangBtnText">English</span>
+            </button>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/5">
+            <span class="text-[11px] font-extrabold text-gray-300">العملة / Currency:</span>
+            <select id="mDrawerCurrSelector" onchange="switchCurrency(this.value)" class="bg-black/70 border border-cyan-500/30 text-xs font-black text-cyan-300 rounded-xl py-1 px-2 focus:outline-none cursor-pointer">
+              <option value="IQD">IQD - الدينار العراقي</option>
+              <option value="USD">USD - الدولار الأمريكي</option>
+              <option value="AED">AED - الدرهم الإماراتي</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Links -->
+        <nav class="flex flex-col gap-2 text-xs font-bold text-gray-200">
+          <a href="#services" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="layout-grid" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavServices">دليل الخدمات البرمجية الرقمية</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <a href="#calculator" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavCalc">حاسبة التكلفة الفورية</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <a href="#techstack" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="code-2" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavTech">تقنياتنا وأدوات الفحص</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <a href="#reviews" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavReviews">تقييمات وآراء العملاء الموثقة</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <a href="#portfolio" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavPortfolio">معرض المشاريع والأعمال</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <a href="#faq" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="help-circle" class="w-4 h-4 text-cyan-400"></i>
+              <span id="mNavFaq">الأسئلة الشائعة</span>
+            </div>
+            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
+          </a>
+
+          <button onclick="toggleMobileMenu(); openAiAdvisorModal();" class="p-3 rounded-2xl bg-amber-500/15 border border-amber-500/30 text-amber-300 font-extrabold flex items-center justify-between cursor-pointer w-full text-right hover:bg-amber-500/25 transition-all">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+              <span id="mNavAiBtn">✨ مستشار الذكاء الاصطناعي</span>
+            </div>
+            <i data-lucide="arrow-left" class="w-4 h-4 text-amber-400 rtl-flip"></i>
+          </button>
+        </nav>
+      </div>
+
+      <div class="pt-5 border-t border-white/10 space-y-2.5 text-xs mt-5">
+        <!-- Direct WhatsApp Link on Mobile Drawer -->
+        <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-black p-3 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition-all">
+          <svg class="w-[1.125rem] h-[1.125rem] fill-current text-white shrink-0" viewBox="0 0 24 24">
+            <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
+          </svg>
+          <span id="mNavWhatsapp">الدعم السريع +9647875929178</span>
+        </a>
+
+        <a href="mailto:bascode84@gmail.com" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 text-black font-black p-3 rounded-2xl flex items-center justify-center gap-2 shadow-lg">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>البريد الإلكتروني الإداري</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Banner -->
+  <section class="relative pt-12 pb-20 px-4 text-center overflow-hidden">
+    <!-- Ambient Background Glow & Grids -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(6,182,212,0.22),rgba(255,255,255,0))] pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto relative z-10 space-y-7">
+      
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full text-xs font-bold text-amber-400 shadow-sm backdrop-blur-md">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="heroBadgeText">المنصة العالمية للبرمجة والخدمات الرقمية BASCODE — CODE. DESIGN. SECURE. SUCCEED.</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight font-title">
+        <span id="heroTitleMain">حلول برمجية ورقمية عالمية لـ</span> <span id="heroTitleSub" class="gold-gradient-text">نمو ونجاح مؤسستك</span>
+      </h1>
+
+      <!-- Hero Subtitle -->
+      <p id="heroSubtitle" class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        تطوير الأنظمة المعقدة، المواقع الإلكترونية، تطبيقات iOS & Android، الذكاء الاصطناعي، ترجمة الملفات والمستندات، وفحص البرمجيات والأمن السيبراني، وكافة الخدمات الرقمية مع تحديد التسعير الفوري بالدينار العراقي والعملات المعتمدة.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-2">
+        <a href="#services" class="w-full sm:w-auto min-h-[44px] justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs sm:text-sm px-7 py-3 rounded-full shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
+          <span id="btnBrowseServices">تصفح دليل الخدمات الشامل</span>
+          <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
+        </a>
+
+        <a href="#calculator" class="w-full sm:w-auto min-h-[44px] justify-center bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm px-7 py-3 rounded-full border border-white/10 transition-all flex items-center gap-2 hover:border-amber-400/50 cursor-pointer">
+          <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
+          <span id="btnCalcInteractive">حاسبة المشاريع التفاعلية</span>
+        </a>
+
+        <button onclick="openAiAdvisorModal()" class="w-full sm:w-auto min-h-[44px] justify-center bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-bold text-xs sm:text-sm px-7 py-3 rounded-full border border-amber-500/30 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
+          <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+          <span id="btnAiAdvisor">مستشار الذكاء الاصطناعي</span>
+        </button>
+      </div>
+
+      <!-- Live Currency Exchange Rates Bar (Restricted strictly to IQD, USD, AED) -->
+      <div class="bg-cyan-950/40 border border-cyan-500/20 rounded-2xl p-3.5 sm:p-4 max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3 text-center text-xs backdrop-blur-md">
+        <div class="space-y-0.5">
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currIqdLabel">🇸🇮 الدينار العراقي (IQD)</span>
+          <strong class="text-amber-300 font-extrabold text-xs sm:text-sm">1 USD = 1,310 IQD</strong>
+        </div>
+        <div class="border-y sm:border-y-0 sm:border-x border-white/10 py-2 sm:py-0 space-y-0.5">
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currAedLabel">🇦🇪 الدرهم الإماراتي (AED)</span>
+          <strong class="text-cyan-300 font-extrabold text-xs sm:text-sm">1 USD = 3.67 AED</strong>
+        </div>
+        <div class="space-y-0.5">
+          <span class="text-gray-400 text-[10px] sm:text-xs block" id="currUsdLabel">🇺🇸 الدولار الأمريكي (USD)</span>
+          <strong class="text-emerald-300 font-extrabold text-xs sm:text-sm">$1.00 USD Base</strong>
+        </div>
+      </div>
+
+      <!-- Main Navigation Links Bar (Placed directly under the Currencies Box as requested) -->
+      <nav id="heroQuickNav" class="bg-[#0c0e12]/90 border border-amber-500/30 rounded-2xl p-1.5 sm:p-3 max-w-4xl mx-auto backdrop-blur-md shadow-2xl grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1.5 sm:gap-2.5 text-[10px] sm:text-xs md:text-sm font-extrabold text-gray-200">
+        <a href="#services" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavServices">دليل الخدمات</span>
+        </a>
+        <a href="#calculator" class="bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/10 hover:border-amber-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="calculator" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
+          <span id="heroNavCalc">حاسبة التكلفة</span>
+        </a>
+        <a href="#techstack" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="code-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavTech">تقنياتنا</span>
+        </a>
+        <a href="#reviews" class="bg-white/5 hover:bg-amber-500/20 hover:text-amber-300 border border-white/10 hover:border-amber-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
+          <span id="heroNavReviews">تقييمات العملاء</span>
+        </a>
+        <a href="#portfolio" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavPortfolio">معرض الأعمال</span>
+        </a>
+        <a href="#faq" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
+          <span id="heroNavFaq">الأسئلة الشائعة</span>
+        </a>
+      </nav>
+
+      <!-- Agency Key Metrics Stats -->
+      <div class="pt-6 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto">
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-white font-title">1,850+</span>
+          <span id="statProjects" class="text-[10px] sm:text-[11px] text-gray-400 block">مشروع ونظام برمجي منجز</span>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-amber-400 font-title">99.9%</span>
+          <span id="statSatisfaction" class="text-[10px] sm:text-[11px] text-gray-400 block">نسبة رضا العملاء الرسمية</span>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-cyan-400 font-title">12 دولة</span>
+          <span id="statCountries" class="text-[10px] sm:text-[11px] text-gray-400 block">انتشار وحضور عالمي للخدمات</span>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
+          <span class="text-xl sm:text-2xl font-black text-emerald-400 font-title">24/7</span>
+          <span id="statSupport" class="text-[10px] sm:text-[11px] text-gray-400 block">دعم واستجابة إدارية سريعة</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12 sm:space-y-20">
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="space-y-5 sm:space-y-8 w-full">
+      
+      <!-- Section Header with Search & Filters -->
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-white/10">
+        <div class="space-y-1">
+          <span id="servicesBadge" class="text-[10px] sm:text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-cyan-500/20 inline-block max-w-full">
+            دليل الخدمات البرمجية والهندسية والرقمية
+          </span>
+          <h2 id="servicesTitle" class="text-xl sm:text-3xl font-black text-white mt-1 sm:mt-2 font-title leading-tight">كافة خدمات منصة باسكود الرقمية العالمية</h2>
+          <p id="servicesSub" class="text-[11px] sm:text-xs text-gray-400 mt-1 leading-relaxed">اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة</p>
+        </div>
+
+        <!-- Category Tabs & Search Bar -->
+        <div class="space-y-2.5 sm:space-y-3 w-full lg:w-auto">
+          
+          <!-- Search Field -->
+          <div class="relative w-full">
+            <input type="text" id="serviceSearchInput" oninput="handleServiceSearch(this.value)" placeholder="ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)..." class="w-full lg:w-80 bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 rounded-xl py-2 sm:py-2.5 pr-8 sm:pr-9 pl-3 focus:outline-none focus:border-cyan-500 transition-all">
+            <i data-lucide="search" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 absolute right-3 top-2.5 sm:top-3"></i>
+          </div>
+
+          <!-- Category Buttons -->
+          <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 text-[10.5px] sm:text-xs font-bold scrollbar-none touch-scroll-x flex-nowrap w-full" id="categoryButtonsContainer">
+            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الكل (50)</button>
+            <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
+              <span>✨ ترجمة الملفات</span>
+            </button>
+            <button onclick="filterCategory('scan')" id="catBtnScan" class="cat-btn bg-cyan-500/20 text-cyan-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-cyan-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
+              <span>🛡️ فحص الملفات والأمن</span>
+            </button>
+            <button onclick="filterCategory('web')" id="catBtnWeb" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">البرمجة والويب</button>
+            <button onclick="filterCategory('mobile')" id="catBtnMobile" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التطبيقات</button>
+            <button onclick="filterCategory('design')" id="catBtnDesign" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التصميم UI/UX</button>
+            <button onclick="filterCategory('ai')" id="catBtnAi" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الذكاء الاصطناعي</button>
+            <button onclick="filterCategory('growth')" id="catBtnGrowth" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التسويق وSEO</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Services Grid Cards -->
+      <div class="grid grid-cols-1 gap-3.5 sm:gap-6 w-full" id="servicesContainer">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+    </section>
+
+    <!-- CALCULATOR SECTION -->
+    <section id="calculator" class="glass-card p-5 sm:p-10 rounded-2xl sm:rounded-3xl relative overflow-hidden animated-border">
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-6">
+        
+        <div class="text-center space-y-2 max-w-2xl mx-auto">
+          <span id="calcBadge" class="text-xs font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
+            ⚡ حاسبة المشاريع والخدمات الرقمية الفورية
+          </span>
+          <h2 id="calcTitle" class="text-2xl sm:text-3xl font-black text-white font-title">احسب تكلفة مشروعك أو خدمتك الرقمية فوراً</h2>
+          <p id="calcSub" class="text-xs sm:text-sm text-gray-400">حدد نوع الخدمة ونطاقها والإضافات بالدينار العراقي والعملات المعتمدة</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          
+          <!-- 1. Type -->
+          <div class="space-y-2">
+            <label id="calcLabelType" class="block text-xs font-bold text-gray-300">1. نوع الخدمة الرقمية المطلوب:</label>
+            <select id="calcType" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs sm:text-sm font-bold rounded-xl p-3 sm:p-3.5 min-h-[44px] focus:outline-none focus:border-cyan-500 cursor-pointer">
+              <!-- Populated dynamically via JS translations -->
+            </select>
+          </div>
+
+          <!-- 2. Scope -->
+          <div class="space-y-2">
+            <label id="calcLabelScope" class="block text-xs font-bold text-gray-300">2. حجم ونطاق النظام / الملفات:</label>
+            <select id="calcScope" onchange="recalculateCost()" class="w-full bg-black/60 border border-white/10 text-white text-xs sm:text-sm font-bold rounded-xl p-3 sm:p-3.5 min-h-[44px] focus:outline-none focus:border-cyan-500 cursor-pointer">
+              <!-- Populated dynamically via JS translations -->
+            </select>
+          </div>
+
+          <!-- 3. Addons -->
+          <div class="space-y-2">
+            <label id="calcLabelAddons" class="block text-xs font-bold text-gray-300">3. الميزات والإضافات الخاصة:</label>
+            <div class="space-y-2 text-xs text-gray-300 bg-black/40 p-3 rounded-xl border border-white/5">
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addMultilang" onchange="recalculateCost()" value="200" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+                <span id="addonMultilangText">تعدد اللغات (عربي / إنجليزي / كوردستاني) (+$200)</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addPayments" onchange="recalculateCost()" value="250" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+                <span id="addonPaymentsText">ربط بوابات الدفع الإلكتروني (+$250)</span>
+              </label>
+              <label class="flex items-center gap-2.5 cursor-pointer min-h-[40px] p-1.5 rounded-lg hover:bg-white/5 transition-colors">
+                <input type="checkbox" id="addSecurity" onchange="recalculateCost()" value="300" class="w-4 h-4 rounded bg-black border-white/20 text-cyan-500 focus:ring-0">
+                <span id="addonSecurityText">درع الحماية والتشفير السيبراني وفحص الملفات (+$300)</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Result Box & Submit Action -->
+        <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span id="calcTotalLabel" class="text-xs text-gray-400 block">المبلغ التقديري بالعملة المختارة:</span>
+            <div class="flex items-baseline gap-2">
+              <span id="calcTotalDisplay" class="text-3xl font-black text-amber-400 font-title">$1,200 USD</span>
+              <span id="calcDaysDisplay" class="text-xs text-cyan-400 font-bold">(التسليم المتوقع: 14-18 يوم)</span>
+            </div>
+          </div>
+
+          <button onclick="openModalFromCalc()" class="w-full sm:w-auto bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs px-8 py-3.5 rounded-full shadow-lg cursor-pointer transition-all flex items-center justify-center gap-2 hover:scale-105">
+            <span id="calcSubmitBtnText">تحويل هذه الحسبة إلى طلب مباشر 🚀</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECH STACK & CAPABILITIES SECTION -->
+    <section id="techstack" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span id="techBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3.5 py-1 rounded-full border border-cyan-500/20">
+          منظومة التقنيات واللغات
+        </span>
+        <h2 id="techTitle" class="text-2xl sm:text-3xl font-black text-white font-title">أحدث التقنيات البرمجية وأدوات فحص وترجمة الملفات</h2>
+        <p id="techSub" class="text-xs text-gray-400">نعتمد أفضل الأطر البرمجية ومحركات الترجمة وأدوات الفحص الأمنية السيبرانية</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center">
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-cyan-400 font-black text-xs sm:text-base md:text-lg font-code break-words">React / Next.js</div>
+          <p id="tech1Desc" class="text-[10px] text-gray-400">تطوير واجهات ويب فائقة السرعة</p>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-amber-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Flutter / Dart</div>
+          <p id="tech2Desc" class="text-[10px] text-gray-400">تطبيقات جوال هجينة عالية الأداء</p>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-emerald-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Node.js Express</div>
+          <p id="tech3Desc" class="text-[10px] text-gray-400">سيرفرات خلفية معقدة ومرنة</p>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-blue-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Translation Engines</div>
+          <p id="tech4Desc" class="text-[10px] text-gray-400">ترجمة الملفات والأكواد بدقة</p>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-purple-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Gemini AI / Python</div>
+          <p id="tech5Desc" class="text-[10px] text-gray-400">ذكاء اصطناعي وأتمتة ذكية</p>
+        </div>
+        <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1.5 sm:space-y-2">
+          <div class="text-rose-400 font-black text-xs sm:text-base md:text-lg font-code break-words">Security Audit Tools</div>
+          <p id="tech6Desc" class="text-[10px] text-gray-400">فحص وتطهير البرمجيات والملفات</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT REVIEWS SECTION -->
+    <section id="reviews" class="space-y-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+        <div>
+          <span id="reviewsBadge" class="text-xs font-bold text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+            ثقة موثقة ★ 4.98 / 5.0
+          </span>
+          <h2 id="reviewsTitle" class="text-2xl sm:text-3xl font-black text-white mt-2 font-title">تقييمات وآراء عملاء باسكود</h2>
+          <p id="reviewsSub" class="text-xs text-gray-400 mt-1">تجارب حقيقية لعملاء ومؤسسات من مختلف دول العالم</p>
+        </div>
+
+        <button onclick="openAddReviewModal()" class="bg-white/10 hover:bg-white/20 text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-white/10 transition-all flex items-center gap-2 self-start sm:self-auto cursor-pointer min-h-[40px]">
+          <i data-lucide="edit-3" class="w-4 h-4 text-cyan-400"></i>
+          <span id="addReviewBtnText">✍️ إضافة تقييم لمشروعك</span>
+        </button>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6" id="reviewsGrid">
+        
+        <!-- Review Card 1 -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-white text-sm">م. أحمد الفتلاوي</h4>
+              <span class="text-[10px] text-cyan-400 font-bold block">بغداد - العراق | تطبيق متجر بالدينار</span>
+            </div>
+            <span class="text-xs text-amber-400">★★★★★</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            "قام فريق باسكود (BASCODE) ببرمجة تطبيق متجرنا الإلكتروني بالكامل وتوفير التسعير بالدينار العراقي. الأداء وسرعة التصفح تفوق التوقعات، والدعم الفني متواجد طوال الوقت."
+          </p>
+          <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500">
+            <span>تاريخ الطلب: منذ يومين</span>
+            <span class="text-emerald-400 font-bold">✓ عميل موثق</span>
+          </div>
+        </div>
+
+        <!-- Review Card 2 (Translation & Security) -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-amber-500/30">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-white text-sm">د. وسام الزبيدي</h4>
+              <span class="text-[10px] text-amber-400 font-bold block">أربيل - العراق | ترجمة وفحص ملفات</span>
+            </div>
+            <span class="text-xs text-amber-400">★★★★★</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            "استعنت بـ BASCODE لترجمة مستندات وأكواد نظامنا البرمجي وفحص الملفات أمنياً قبل الرفع. خدمة استثنائية وسرعة إنجاز دقيقة جداً."
+          </p>
+          <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500">
+            <span>تاريخ الطلب: منذ 3 أيام</span>
+            <span class="text-emerald-400 font-bold">✓ عميل موثق</span>
+          </div>
+        </div>
+
+        <!-- Review Card 3 -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-white text-sm">David Miller</h4>
+              <span class="text-[10px] text-cyan-400 font-bold block">London, UK | Enterprise Cyber Audit</span>
+            </div>
+            <span class="text-xs text-amber-400">★★★★★</span>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            "BASCODE delivered top-tier cybersecurity architecture, malware scanning and automated cloud deployment. Clean code, exact timelines, and responsive support."
+          </p>
+          <div class="pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500">
+            <span>تاريخ الطلب: منذ أسبوع</span>
+            <span class="text-emerald-400 font-bold">✓ Verified Partner</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PORTFOLIO / CASE STUDIES SHOWCASE -->
+    <section id="portfolio" class="space-y-8">
+      
+      <div class="pb-4 border-b border-white/10">
+        <span id="portBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+          معرض الأكواد والخدمات الرقمية
+        </span>
+        <h2 id="portTitle" class="text-2xl sm:text-3xl font-black text-white mt-2 font-title">نماذج من أعمال وخبرات منصة باسكود</h2>
+        <p id="portSub" class="text-xs text-gray-400 mt-1">أنظمة برمجية وحلول ترجمة وفحص ملفات تمت زيادة كفاءتها وتأمينها بنجاح</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        
+        <!-- Showcase Item 1 -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-white/10 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
+                منصة عقارية كاملة
+              </span>
+              <span class="text-xs text-gray-400">1,800$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">منصة إدارة العقارات والمزادات الذكية</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              تطوير موقع ويب وسيرفر كامل يتيح للبائعين والمشترين التزايد الحقيقي على العقارات مع نظام إشعارات فورية وتكامل خرائط جوجل.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">React</span>
+            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Node.js Express</span>
+            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Showcase Item 2: Translation Showcase -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-amber-500/30 bg-amber-500/5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/30">
+                ✨ ترجمة وتوطين برجمي
+              </span>
+              <span class="text-xs text-gray-400">150$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">توطين وترجمة مستندات نظام مالية ومصرفية</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              ترجمة كاملة ومزدوجة (عربي / إنجليزي) لكافة مستندات النظام وقواعد البيانات والملفات النصية مع الحفاظ على التنسيق والتركيب.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">Technical Localization</span>
+            <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">i18n Standards</span>
+          </div>
+        </div>
+
+        <!-- Showcase Item 3: File Security Scan -->
+        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-cyan-500/30 bg-cyan-500/5 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-bold text-cyan-300 bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30">
+                🛡️ فحص ملفات وسيرفرات
+              </span>
+              <span class="text-xs text-gray-400">200$ USD</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-black text-white">تدقيق أمني وفحص فايروسات لملفات تطبيق مؤسسي</h3>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              فحص سيبراني شامل لأكثر من 500 ملف برمجي واكتشاف ثغرات تسريب البيانات وتطهير السكربتات بتقرير أمني رسمي.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Malware Audit</span>
+            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Security Report</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="space-y-8">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span id="faqBadge" class="text-xs font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
+          الأسئلة الشائعة
+        </span>
+        <h2 id="faqTitle" class="text-2xl sm:text-3xl font-black text-white font-title">الأسئلة والإجابات الأكثر شيوعاً</h2>
+        <p id="faqSub" class="text-xs text-gray-400">إجابات شفافة حول آلية العمل، خدمة ترجمة وفحص الملفات، والدفع والتسليم</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-sm text-white flex items-center justify-between">
+            <span id="faq1Q">كيف يتم طلب وتسليم خدمة ترجمة وفحص الملفات؟</span>
+            <span class="text-cyan-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p id="faq1A" class="text-xs text-gray-300 leading-relaxed pt-3 border-t border-white/5 mt-3">
+            يمكنك إرسال الملفات أو المستندات المراد ترجمتها أو فحصها أمنياً عبر السلة أو نموذج الطلب المباشر، وسيقوم الفريق بإنهاء الترجمة والفحص وتزويدك بالملفات المترجمة أو التقرير الأمني خلال 24-48 ساعة.
+          </p>
+        </details>
+
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-sm text-white flex items-center justify-between">
+            <span id="faq2Q">كيف يتم تسليم المشروع والكود المصدري (Source Code)؟</span>
+            <span class="text-cyan-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p id="faq2A" class="text-xs text-gray-300 leading-relaxed pt-3 border-t border-white/5 mt-3">
+            يتم تسليم الكود المصدري كاملاً ملكية 100% للعميل عبر مستودع GitHub خاص أو ملف مضغوط، بالإضافة لرفع النظام على السيرفر والدومين الخاص بك وإرفاق وثائق التشغيل.
+          </p>
+        </details>
+
+        <details class="glass-card p-5 rounded-2xl group cursor-pointer">
+          <summary class="font-bold text-sm text-white flex items-center justify-between">
+            <span id="faq3Q">ما هي وسائل الدفع الإلكتروني المعتمدة بالمنصة؟</span>
+            <span class="text-cyan-400 group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <p id="faq3A" class="text-xs text-gray-300 leading-relaxed pt-3 border-t border-white/5 mt-3">
+            نوفر خيارات متنوعة تشمل زين كاش (ZainCash) بالدينار العراقي، التحويلات البنكية المحلية بالدينار والدرهم الإماراتي والدولار الأمريكي، وبطاقات الفيزا والماستركارد.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+  </main>
+          <!-- CART DRAWER MODAL -->
+  <div id="cartDrawer" class="fixed inset-0 z-50 hidden transition-all">
+    <div onclick="toggleCartDrawer()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+    <div class="absolute top-0 bottom-0 rtl:left-0 ltr:right-0 w-[88vw] max-w-sm sm:max-w-md bg-[#0c0e12] border-x border-white/10 p-4 sm:p-6 flex flex-col justify-between shadow-2xl overflow-y-auto z-10">
+      
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-5 sm:mb-6">
+          <div class="flex items-center gap-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+            <h3 id="cartDrawerTitle" class="font-extrabold text-white text-sm sm:text-base">سلة الخدمات الرقمية</h3>
+          </div>
+          <button onclick="toggleCartDrawer()" type="button" class="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer">✕</button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cartItemsList" class="space-y-3 max-h-[55vh] sm:max-h-[60vh] overflow-y-auto pr-1">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Cart Total & Direct Checkout -->
+      <div class="pt-4 border-t border-white/10 space-y-4">
+        <div class="flex items-center justify-between text-xs sm:text-sm font-bold">
+          <span id="cartDrawerTotalLabel" class="text-gray-400">الإجمالي الشامل:</span>
+          <span id="cartDrawerTotal" class="text-amber-400 text-lg sm:text-xl font-title">$0</span>
+        </div>
+
+        <button onclick="proceedToCheckoutFromCart()" type="button" class="w-full min-h-[44px] bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs py-3.5 rounded-full shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <span id="cartCheckoutBtnText">المتابعة لإكمال الطلب وإرساله للإدارة</span>
+          <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DIRECT ORDER CHECKOUT MODAL -->
+  <div id="orderModal" onclick="if(event.target === this) closeModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto modal-panel sm:max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
+        ✕
+      </button>
+
+      <div class="rtl:pl-8 ltr:pr-8 mb-4">
+        <h3 class="text-base sm:text-xl font-extrabold text-white mb-1.5 flex items-center gap-2 font-title leading-snug">
+          <span id="modalOrderHeader">🚀 تأكيد طلب الخدمة المباشر - BASCODE</span>
+        </h3>
+        <p id="modalOrderSub" class="text-[11px] sm:text-xs text-gray-400">سيتم إرسال كافة التفاصيل والمواصفات رسمياً إلى البريد الإداري المعتمد.</p>
+      </div>
+
+      <form onsubmit="handleOrderSubmit(event)" class="space-y-3.5 sm:space-y-4">
+        
+        <div>
+          <label id="lblSelectedService" class="block text-xs font-bold text-gray-300 mb-1">الخدمة الرقمية المختارة:</label>
+          <div id="selectedServiceBadge" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-extrabold text-xs p-2.5 sm:p-3 rounded-xl break-words">
+            -
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblName" class="block text-xs font-bold text-gray-300 mb-1">الاسم الكامل *</label>
+            <input type="text" id="clientName" required placeholder="مثال: محمد علي السالم" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+          <div>
+            <label id="lblEmail" class="block text-xs font-bold text-gray-300 mb-1">البريد الإلكتروني للعميل *</label>
+            <input type="email" id="clientEmail" required placeholder="client@domain.com" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblPhone" class="block text-xs font-bold text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
+            <input type="tel" id="clientPhone" required placeholder="+964 770 123 4567" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+          <div>
+            <label id="lblCompany" class="block text-xs font-bold text-gray-300 mb-1">اسم الشركة / المؤسسة</label>
+            <input type="text" id="clientCompany" placeholder="اختياري" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+        </div>
+
+        <div>
+          <label id="lblPayment" class="block text-xs font-bold text-gray-300 mb-1">طريقة الدفع المفضلة:</label>
+          <select id="paymentMethod" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+            <option value="زين كاش / تحويل محلي">زين كاش / تحويل محلي بالدينار (IQD)</option>
+            <option value="بطاقة إلكترونية Visa/Mastercard">بطاقة إلكترونية Visa / Mastercard</option>
+            <option value="تحويل بانكي دولي (SWIFT)">تحويل بانكي دولي (AED / USD)</option>
+          </select>
+        </div>
+
+        <div>
+          <label id="lblNotes" class="block text-xs font-bold text-gray-300 mb-1">ملاحظات وتعليمات المشروع / الملفات الخاصة</label>
+          <textarea id="clientNotes" rows="3" placeholder="أضف أي تفاصيل خاصة باللغات، الترجمة، فحص الملفات، أو المواعيد..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
+        </div>
+
+        <div class="bg-black/60 p-3.5 sm:p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <div>
+            <span id="lblTotalEstimated" class="text-xs text-gray-400 block">المبلغ الشامل التقديري:</span>
+            <span id="modalDisplayPrice" class="text-lg sm:text-xl font-extrabold text-amber-400 font-title">$0</span>
+          </div>
+          <button type="submit" id="submitOrderBtn" class="w-full sm:w-auto min-h-[44px] bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 px-6 rounded-full shadow-lg transition-all cursor-pointer flex items-center justify-center">
+            تأكيد وإرسال للإدارة 🚀
+          </button>
+        </div>
+
+      </form>
+
+      <!-- SUCCESS CONFIRMATION BOX -->
+      <div id="successNotice" class="hidden text-center space-y-4 pt-6 border-t border-white/10 mt-6">
+        <div class="text-emerald-400 font-black text-lg sm:text-xl flex items-center justify-center gap-2">
+          <span>🎉 تم تسجيل الطلب بنجاح!</span>
+        </div>
+        <p class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">
+          تم تسليم بيانات الطلب رسمياً. يمكنك أيضاً إرسال تفاصيل مشروعك مباشرة للإدارة عبر الواتساب أو البريد الإلكتروني للبدء الفوري:
+        </p>
+        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a id="whatsappOrderLink" href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20متابعة%20طلبي%20الجديد" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all">
+            <svg class="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
+              <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
+            </svg>
+            <span id="whatsappOrderBtnText">إرسال تفاصيل الطلب عبر الواتساب</span>
+          </a>
+
+          <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>إرسال عبر تطبيق البريد</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AI ADVISOR MODAL -->
+  <div id="aiAdvisorModal" onclick="if(event.target === this) closeAiAdvisorModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-amber-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto modal-panel sm:max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeAiAdvisorModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
+        ✕
+      </button>
+
+      <div class="flex items-start sm:items-center gap-2.5 sm:gap-3 mb-4 rtl:pl-8 ltr:pr-8">
+        <div class="p-2 sm:p-2.5 bg-amber-500/10 rounded-xl sm:rounded-2xl border border-amber-500/30 shrink-0">
+          <i data-lucide="sparkles" class="w-5 h-5 sm:w-6 sm:h-6 text-amber-400"></i>
+        </div>
+        <div>
+          <h3 id="aiModalTitle" class="text-base sm:text-xl font-extrabold text-white font-title leading-snug">مستشار باسكود الذكي (Gemini AI)</h3>
+          <p id="aiModalSub" class="text-[10px] sm:text-xs text-gray-400 mt-0.5">صف فكرة مشروعك، طلب ترجمتك، أو فحص ملفاتك وسيقوم النظام بتحليلها وتحديد التكلفة</p>
+        </div>
+      </div>
+
+      <div class="space-y-3.5 sm:space-y-4">
+        <div>
+          <label id="aiPromptLabel" class="block text-xs font-bold text-gray-300 mb-1">صف فكرة مشروعك أو ملفاتك المطلوبة:</label>
+          <textarea id="aiPromptInput" rows="4" placeholder="مثال: أريد ترجمة مستندات وأكواد تطبيق، وفحص الملفات أمنياً مع تطبيق جوال بوابات دفع..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-amber-500"></textarea>
+        </div>
+
+        <button onclick="consultAiEngine()" id="aiSubmitBtn" type="button" class="w-full min-h-[44px] bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer">
+          <span id="aiSubmitBtnText">تحليل الفكرة والملفات واستخراج الخطة 🪄</span>
+        </button>
+
+        <!-- AI Result Output -->
+        <div id="aiResultBox" class="hidden bg-white/5 border border-amber-500/20 p-3.5 sm:p-4 rounded-2xl space-y-3 text-xs">
+          <div class="font-bold text-amber-300 text-xs sm:text-sm flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span id="aiRecHeader">توصية باسكود البرمجية:</span>
+          </div>
+          <p id="aiAdviceText" class="text-gray-300 leading-relaxed text-[11px] sm:text-xs"></p>
+          <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2 font-bold">
+            <span id="aiCostHeader" class="text-gray-400 text-[11px] sm:text-xs">التكلفة والزمن الموصى بهما:</span>
+            <span id="aiCostText" class="text-amber-400 font-title text-xs sm:text-sm"></span>
+          </div>
+          <button onclick="applyAiToOrder()" id="aiApplyBtn" type="button" class="w-full min-h-[40px] bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition-all cursor-pointer">
+            تطبيق هذه التوصية في طلب جديد
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ADD REVIEW MODAL -->
+  <div id="addReviewModal" onclick="if(event.target === this) closeAddReviewModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-md bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl my-auto modal-panel sm:max-h-[90vh] overflow-y-auto">
+      <button onclick="closeAddReviewModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">✕</button>
+      <h3 id="revModalTitle" class="text-base sm:text-lg font-bold text-white mb-4 rtl:pl-8 ltr:pr-8">✍️ إضافة تقييم لمشروعك مع باسكود</h3>
+      <form onsubmit="handleReviewSubmit(event)" class="space-y-3">
+        <div>
+          <label id="revNameLbl" class="block text-xs text-gray-300 mb-1">الاسم الكامل *</label>
+          <input type="text" id="revName" required placeholder="مثال: المهندس علي حسين" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl min-h-[44px]">
+        </div>
+        <div>
+          <label id="revRoleLbl" class="block text-xs text-gray-300 mb-1">الموقع / الشركة والبلد *</label>
+          <input type="text" id="revRole" required placeholder="بغداد - العراق | ترجمة وفحص ملفات" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl min-h-[44px]">
+        </div>
+        <div>
+          <label id="revCommentLbl" class="block text-xs text-gray-300 mb-1">الرأي والتقييم *</label>
+          <textarea id="revComment" required rows="3" placeholder="اكتب تجربتك وانطباعك عن جودة وسرعة تنفيذ الخدمة..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs p-3 rounded-xl"></textarea>
+        </div>
+        <button type="submit" id="revSubmitBtn" class="w-full min-h-[44px] bg-white hover:bg-cyan-400 text-black font-bold text-xs py-3 rounded-xl transition-all cursor-pointer flex items-center justify-center">
+          نشر التقييم فوراً
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Floating Live Notification Toast Popup -->
+  <div id="liveNotificationToast" class="fixed bottom-20 left-3 right-3 sm:left-auto sm:right-6 z-50 hidden sm:max-w-sm bg-[#0e1117]/98 border border-amber-500/40 text-white rounded-2xl shadow-2xl p-3.5 sm:p-4 backdrop-blur-md transition-all">
+    <div class="flex items-start gap-3">
+      <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
+        <i data-lucide="bell-ring" class="w-5 h-5"></i>
+      </div>
+      <div class="flex-1 pr-1">
+        <div class="flex items-center justify-between gap-2">
+          <span id="toastHeaderTitle" class="font-black text-xs text-amber-300">إشعار جديد من BASCODE</span>
+          <button onclick="hideNotificationToast()" class="text-gray-400 hover:text-white text-xs p-0.5 cursor-pointer">✕</button>
+        </div>
+        <p id="toastBodyText" class="text-xs text-gray-200 mt-1 leading-relaxed">
+          🎉 تم تنفيذ واستلام طلب جديد لخدمة فحص الأكواد وترجمة الملفات بنجاح.
+        </p>
+        <div class="mt-2.5 flex items-center gap-2">
+          <button onclick="hideNotificationToast(); openAiAdvisorModal();" class="bg-amber-400 hover:bg-amber-300 text-black text-[10px] font-black py-1 px-2.5 rounded-lg transition-colors cursor-pointer">
+            ✨ استشر الذكاء الاصطناعي
+          </button>
+          <a href="https://wa.me/9647875929178" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline text-[10px] font-bold flex items-center gap-1">
+            <span>التواصل الفوري</span>
+            <i data-lucide="external-link" class="w-2.5 h-2.5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Quick Action Buttons (WhatsApp + Direct Mail) -->
+  <div class="fixed bottom-5 left-5 sm:bottom-6 sm:left-6 z-40 flex flex-col gap-3 items-start">
+    
+    <!-- Floating WhatsApp Support Button (+9647875929178) -->
+    <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="group relative bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 hover:scale-105 transition-all border border-emerald-400/40">
+      
+      <!-- Pulsing Online Badge -->
+      <span class="absolute -top-1 -right-1 flex h-3.5 w-3.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-[#06070a]"></span>
+      </span>
+
+      <!-- WhatsApp SVG Icon -->
+      <svg class="w-5 h-5 fill-current text-white shrink-0" viewBox="0 0 24 24">
+        <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
+      </svg>
+
+      <span class="font-black text-xs tracking-wide hidden sm:inline" id="whatsappFloatingText">الدعم السريع (واتساب)</span>
+    </a>
+
+    <!-- Direct Mail Floating Button -->
+    <a href="mailto:bascode84@gmail.com" class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-xs p-3.5 sm:px-4 sm:py-3 rounded-full shadow-2xl flex items-center gap-2 hover:scale-105 transition-all">
+      <i data-lucide="mail" class="w-4 h-4"></i>
+      <span class="hidden sm:inline" id="floatingContactText">تواصل البريد الإداري</span>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#040507] border-t border-white/10 py-10 sm:py-12 px-4 mt-16 sm:mt-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-xs text-gray-400 mb-8">
+      
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="relative w-11 h-11 rounded-2xl p-[2px] bg-gradient-to-tr from-amber-400 via-yellow-300 via-amber-500 to-cyan-400 shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+            <div class="w-full h-full rounded-[13px] overflow-hidden bg-[#070a10] relative p-0.5 border border-white/10">
+              <img src="logo.jpg" alt="BASCODE Logo" onerror="handleLogoFail(this)" class="loader-logo-img w-full h-full object-cover rounded-[11px]" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/30 pointer-events-none"></div>
+            </div>
+            <span class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-gradient-to-r from-amber-300 to-yellow-500 rounded-full border-2 border-[#0a0d14] shadow animate-pulse"></span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-black text-white font-title">BAS<span class="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">CODE</span></span>
+            <span class="text-[9px] font-extrabold text-cyan-300 tracking-wider">GLOBAL DIGITAL PLATFORM</span>
+          </div>
+        </div>
+        <p id="footerAboutText" class="leading-relaxed">
+          المنصة العالمية الرائدة في البرمجة والترجمة وفحص الملفات والأمن السيبراني.
+          CODE. DESIGN. SECURE. SUCCEED.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 id="footerQuickLinksTitle" class="font-bold text-white text-sm mb-3">روابط سريعة</h4>
+        <ul class="space-y-2">
+          <li><a href="#services" id="fLinkServices" class="hover:text-cyan-400 transition-colors">دليل الخدمات البرمجية الرقمية</a></li>
+          <li><a href="#calculator" id="fLinkCalc" class="hover:text-amber-400 transition-colors">حاسبة التكلفة الفورية</a></li>
+          <li><a href="#techstack" id="fLinkTech" class="hover:text-cyan-400 transition-colors">منظومة التقنيات واللغات</a></li>
+          <li><a href="#reviews" id="fLinkReviews" class="hover:text-cyan-400 transition-colors">تقييمات العملاء الموثقة</a></li>
+          <li><a href="#portfolio" id="fLinkPortfolio" class="hover:text-cyan-400 transition-colors">معرض المشاريع والخدمات</a></li>
+          <li><a href="#faq" id="fLinkFaq" class="hover:text-cyan-400 transition-colors">الأسئلة الشائعة</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <h4 id="footerSupportTitle" class="font-bold text-white text-sm mb-3">الدعم السريع والبريد</h4>
+        <p id="footerSupportSub">الواتساب المباشر والدعم الفني:</p>
+        <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="text-[#25D366] font-extrabold text-xs flex items-center gap-1.5 hover:underline block pb-1">
+          <svg class="w-4 h-4 fill-current text-[#25D366]" viewBox="0 0 24 24">
+            <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
+          </svg>
+          <span id="footerWhatsappNumber">+964 787 592 9178</span>
+        </a>
+        <p id="footerEmailSub">البريد الإلكتروني للإدارة والتنفيذ:</p>
+        <a href="mailto:bascode84@gmail.com" class="text-cyan-400 font-bold underline block">bascode84@gmail.com</a>
+        <p id="footerSupport24" class="pt-2 text-[10px] text-emerald-400">✓ استقبال طلبات البرمجة والترجمة 24/7</p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 id="footerCurrencyTitle" class="font-bold text-white text-sm mb-3">العملات المعتمدة بالمنصة</h4>
+        <p>🇮🇶 الدينار العراقي (IQD) - 1,310</p>
+        <p>🇦🇪 الدرهم الإماراتي (AED) - 3.67</p>
+        <p>🇺🇸 الدولار الأمريكي (USD) - Base</p>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 border-t border-white/5 text-center text-xs text-gray-500">
+      <p id="footerCopyright">© 2026 منصة باسكود (BASCODE). جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
 <!-- PLATFORM JAVASCRIPT LOGIC -->
   <script>
     // Initialize Lucide Icons
