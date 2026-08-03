@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
 <head>
-  <!-- Google tag (gtag.js) -->
+ <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLJWJZN8RN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -608,7 +608,10 @@
 
           <!-- Category Buttons -->
           <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 text-[10.5px] sm:text-xs font-bold scrollbar-none touch-scroll-x flex-nowrap w-full" id="categoryButtonsContainer">
-            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الكل (50)</button>
+            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الكل (54)</button>
+            <button onclick="filterCategory('office')" id="catBtnOffice" class="cat-btn bg-emerald-500/20 text-emerald-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-emerald-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
+              <span>📊 الوورد والإكسل</span>
+            </button>
             <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>✨ ترجمة الملفات</span>
             </button>
@@ -980,6 +983,59 @@
     </div>
   </div>
 
+  <!-- FULL SERVICE DETAIL MODAL -->
+  <div id="serviceDetailModal" onclick="if(event.target === this) closeServiceDetailModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-[#0c0e12] border border-cyan-500/30 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto space-y-5">
+      
+      <button onclick="closeServiceDetailModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="rtl:pl-8 ltr:pr-8 space-y-2 border-b border-white/10 pb-4">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span id="detailCategoryBadge" class="text-[10px] sm:text-xs font-black text-cyan-300 bg-cyan-500/20 border border-cyan-500/40 px-3 py-1 rounded-full">الخدمات البرمجية</span>
+          <span id="detailDeliveryTime" class="text-[10px] sm:text-xs font-bold text-amber-300 bg-amber-500/20 border border-amber-500/40 px-3 py-1 rounded-full">مدة التسليم: 1-2 يوم</span>
+        </div>
+        <h3 id="detailTitle" class="text-lg sm:text-2xl font-black text-white font-title leading-snug">عنوان الخدمة تفصيلياً</h3>
+      </div>
+
+      <!-- Description Section -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-extrabold text-cyan-400 flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>الوصف الشامل ونطاق العمل التفصيلي:</span>
+        </h4>
+        <p id="detailDescription" class="text-xs text-gray-200 leading-relaxed bg-white/5 p-4 rounded-2xl border border-white/5"></p>
+      </div>
+
+      <!-- Features Checklist -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-extrabold text-cyan-400 flex items-center gap-1.5">
+          <i data-lucide="check-square" class="w-4 h-4"></i>
+          <span>المميزات المضمنة والمعايير التقنية:</span>
+        </h4>
+        <ul id="detailFeaturesList" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300 bg-white/5 p-4 rounded-2xl border border-white/5">
+        </ul>
+      </div>
+
+      <!-- Quality Seal Guarantee -->
+      <div class="bg-emerald-500/10 border border-emerald-500/30 p-3.5 rounded-2xl flex items-center gap-3 text-xs text-emerald-300 font-extrabold">
+        <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400 shrink-0"></i>
+        <span>ضمان منصة باسكود (BASCODE Guarantee): تسليم كافة الملفات والسورس كود المصدري كاملاً، مع فحص أمني وتأمين ضد الثغرات ودعم فني استشاري.</span>
+      </div>
+
+      <!-- Modal Action Buttons -->
+      <div class="pt-2 flex items-center justify-between border-t border-white/10">
+        <button id="detailOrderNowBtn" type="button" class="w-full min-h-[46px] bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 hover:scale-[1.01] text-white font-black text-sm py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 transition-all cursor-pointer flex items-center justify-center gap-2">
+          <span>طلب الخدمة فوراً 🚀</span>
+          <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
   <!-- DIRECT ORDER CHECKOUT MODAL -->
   <div id="orderModal" onclick="if(event.target === this) closeModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
     <div class="relative w-full max-w-xl bg-[#0c0e12] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto">
@@ -1055,22 +1111,22 @@
       <!-- SUCCESS CONFIRMATION BOX -->
       <div id="successNotice" class="hidden text-center space-y-4 pt-6 border-t border-white/10 mt-6">
         <div class="text-emerald-400 font-black text-lg sm:text-xl flex items-center justify-center gap-2">
-          <span>🎉 تم تسجيل الطلب بنجاح!</span>
+          <span>🎉 تم إرسال وتسجيل طلبك بنجاح!</span>
         </div>
         <p class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">
-          تم تسليم بيانات الطلب رسمياً. يمكنك أيضاً إرسال تفاصيل مشروعك مباشرة للإدارة عبر الواتساب أو البريد الإلكتروني للبدء الفوري:
+          تم تجهيز وتوجيه كافة بيانات مشروعك للإرسال المباشر إلى البريد الإلكتروني للإدارة (<span class="text-cyan-300 font-bold underline">bascode84@gmail.com</span>). يمكنك الضغط على الأزرار أدناه للفتح والتأكيد المباشر:
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-400 text-white font-extrabold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>إرسال البيانات فوراً إلى البريد الإداري (bascode84@gmail.com)</span>
+          </a>
+
           <a id="whatsappOrderLink" href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20متابعة%20طلبي%20الجديد" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all">
             <svg class="w-4 h-4 fill-current text-white shrink-0" viewBox="0 0 24 24">
               <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
             </svg>
-            <span id="whatsappOrderBtnText">إرسال تفاصيل الطلب عبر الواتساب</span>
-          </a>
-
-          <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
-            <i data-lucide="send" class="w-4 h-4"></i>
-            <span>إرسال عبر تطبيق البريد</span>
+            <span id="whatsappOrderBtnText">إرسال عبر الواتساب (+9647875929178)</span>
           </a>
         </div>
       </div>
@@ -1107,18 +1163,30 @@
         </button>
 
         <!-- AI Result Output -->
-        <div id="aiResultBox" class="hidden bg-white/5 border border-amber-500/20 p-3.5 sm:p-4 rounded-2xl space-y-3 text-xs">
-          <div class="font-bold text-amber-300 text-xs sm:text-sm flex items-center gap-2">
-            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-            <span id="aiRecHeader">توصية باسكود البرمجية:</span>
+        <div id="aiResultBox" class="hidden bg-white/5 border border-amber-500/30 p-4 sm:p-5 rounded-2xl space-y-3.5 text-xs">
+          <div class="font-bold text-amber-300 text-xs sm:text-sm flex items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+            <span class="flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-400 shrink-0"></i>
+              <span id="aiRecHeader">تحليل وتوصية باسكود الذكية:</span>
+            </span>
+            <span class="text-[10px] bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 px-2 py-0.5 rounded-full font-mono font-bold">BASCODE AI</span>
           </div>
-          <p id="aiAdviceText" class="text-gray-300 leading-relaxed text-[11px] sm:text-xs"></p>
-          <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-2 font-bold">
-            <span id="aiCostHeader" class="text-gray-400 text-[11px] sm:text-xs">التكلفة والزمن الموصى بهما:</span>
-            <span id="aiCostText" class="text-amber-400 font-title text-xs sm:text-sm"></span>
+
+          <p id="aiAdviceText" class="text-gray-200 leading-relaxed text-[11px] sm:text-xs font-sans whitespace-pre-line"></p>
+
+          <div id="aiDeliverablesContainer" class="hidden space-y-1.5 pt-2 border-t border-white/10">
+            <span class="text-[11px] font-bold text-cyan-400 block">📌 أهم المخرجات والمواصفات المحددة:</span>
+            <ul id="aiDeliverablesList" class="space-y-1 text-[10.5px] sm:text-xs text-gray-300"></ul>
           </div>
-          <button onclick="applyAiToOrder()" id="aiApplyBtn" type="button" class="w-full min-h-[40px] bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs py-2.5 rounded-xl transition-all cursor-pointer">
-            تطبيق هذه التوصية في طلب جديد
+
+          <div class="pt-2.5 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-bold">
+            <span id="aiCostHeader" class="text-gray-400 text-[11px] sm:text-xs">التكلفة الشاملة والمدة التقديرية:</span>
+            <span id="aiCostText" class="text-amber-400 font-title text-xs sm:text-sm bg-black/40 px-2.5 py-1 rounded-xl border border-amber-500/30"></span>
+          </div>
+
+          <button onclick="applyAiToOrder()" id="aiApplyBtn" type="button" class="w-full min-h-[44px] bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 hover:scale-[1.01] text-white font-black text-xs py-3 rounded-xl transition-all cursor-pointer shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            <span>تأكيد اعتماد هذه التوصية وإرسالها فوراً للإدارة 🚀</span>
           </button>
         </div>
       </div>
@@ -1997,6 +2065,350 @@
         descEn: 'AI bot integrated into GitHub Pull Requests to automatically detect code smells, bugs, and performance flaws.',
         featuresAr: ['فحص سحب الكود PR تلقائياً', 'اكتشاف الأخطاء البرمجية وثغرات الذاكرة', 'توصيات كتابة كود نظيف (Clean Code)', 'تسريع عملية المراجعة البرمجية'],
         featuresEn: ['Automated PR pull-request scan', 'Memory leak & bug detection', 'Clean Code architecture feedback', 'Accelerated dev review velocity']
+      },
+      /* 20 Digital Utility & Support Services distributed across main categories */
+      {
+        id: 'quick-landing-page',
+        cat: 'web',
+        isFeatured: true,
+        badgeAr: '🌐 تطوير ويب سريعة',
+        badgeEn: '🌐 Fast Web Development',
+        titleAr: 'بناء صفحة هبوط سريعة متجاوبة (Single Page Landing Page)',
+        titleEn: 'Single Page Fast Responsive Landing Page',
+        priceUSD: 90,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تصميم وتكويد صفحة هبوط إعلانية سريعة وفائقة الأداء لعرض منتجك أو خدمتك مع أزرار الاتصال والواتساب المباشرة.',
+        descEn: 'High-speed conversion-focused landing page featuring responsive mobile layout, WhatsApp CTA buttons, and form integration.',
+        featuresAr: ['واجهة متجاوبة مع كافة الهواتف 100%', 'ربط مباشر مع الواتساب والاتصال', 'نموذج استقبال الطلبات الفوري', 'تسليم كامل جاهز للنشر خلال 24 ساعة'],
+        featuresEn: ['100% Mobile responsive layout', 'Direct WhatsApp & Phone call CTA buttons', 'Instant lead order form integration', 'Full source code delivered in 24 hours']
+      },
+      {
+        id: 'quick-app-icon',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تصميم أيقونة تطبيق وشاشة ترحيبية (App Icon & Splash Screen)',
+        titleEn: 'App Icon & Splash Screen Graphic Design',
+        priceUSD: 50,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تصميم أبعاد وقياسات أيقونة التطبيق والشاشة الافتتاحية المعتمدة لدى متجر أبل وجوجل بلاي بأعلى جودة.',
+        descEn: 'Official high-resolution app icon vectors and splash screens formatted for iOS App Store and Google Play console.',
+        featuresAr: ['تصميم فيكتور بدقة ودقة ألوان عالية', 'قياسات معتمدة لـ iOS & Android', 'تسليم كافة الصيغ (PNG, SVG, Figma)', 'خلفية شفافة وألوان بصرية ممتازة'],
+        featuresEn: ['High-res vector design', 'All App Store & Google Play dimensions', 'Exported as PNG, SVG, Figma files', 'Transparent background & branding assets']
+      },
+      {
+        id: 'quick-webview-app',
+        cat: 'mobile',
+        isFeatured: false,
+        titleAr: 'تحويل موقعك إلى تطبيق جوال (Webview Mobile App Build)',
+        titleEn: 'Turn Website into Mobile App (Webview APK/IPA)',
+        priceUSD: 100,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تحويل موقعك أو متجرك الإلكتروني إلى تطبيق جوال أندرويد وأيفون جاهز للتثبيت والمشاركة مع زبائنك.',
+        descEn: 'Package your website into functional Android APK/AAB and iOS builds with splash screen and offline caching.',
+        featuresAr: ['تجهيز ملف APK و AAB لأندرويد', 'شاشة ترحيب حصرية وحفظ الكاش', 'دعم الملاحة والإشعارات الأساسية', 'جاهز للتثبيت والمشاركة الفورية'],
+        featuresEn: ['Android APK & AAB bundle creation', 'Custom branded splash screen', 'Offline caching & smooth scroll', 'Ready for instant user distribution']
+      },
+      {
+        id: 'quick-ssl-setup',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'تركيب وتفعيل شهادة الأمان SSL (SSL Certificate Setup)',
+        titleEn: 'SSL Certificate Setup & HTTPS Lock',
+        priceUSD: 30,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تفعيل تشفير HTTPS ورابط القفل الأخضر لحماية بيانات زوار موقعك وتفادي تحذيرات متصفحات جوجل.',
+        descEn: 'HTTPS setup, SSL certificate installation, and forced 301 redirects to ensure domain trustworthiness.',
+        featuresAr: ['تفعيل قفل الأمان HTTPS', 'إعادة توجيه HTTP تلقائياً', 'تأمين نقل البيانات والفروم', 'تجديد تلقائي دائم بدون رسوم'],
+        featuresEn: ['Active HTTPS lock badge', 'Automatic 301 HTTP redirect', 'Encrypted form data transmission', 'Auto-renewing lifetime certificate']
+      },
+      {
+        id: 'quick-domain-hosting',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'ربط وتكوين الدومين مع الاستضافة السحابية (Domain & DNS Setup)',
+        titleEn: 'Domain & Cloud DNS Configuration',
+        priceUSD: 40,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'ضبط سجلات DNS والربط السلس بين نطاق موقعك (.com / .iq / .ae) وسيرفر الاستضافة السحابية بمرونة عالية.',
+        descEn: 'DNS zone record configuration (A, CNAME, MX) linking domain name registrar with cloud hosting servers.',
+        featuresAr: ['إعداد سجلات A, CNAME, MX, TXT', 'ربط الدومين خلال ساعات قليلة', 'تأمين بروتوكول حماية DNS', 'اختبار الفحص والاتصال الكامل'],
+        featuresEn: ['A, CNAME, MX, TXT record mapping', 'Fast domain propagation', 'DNS security record validation', 'Connection verification test']
+      },
+      {
+        id: 'quick-business-email',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'إنشاء وتفعيل البريد الإلكتروني الرسمي للشركة (Professional Business Email)',
+        titleEn: 'Professional Business Email Setup',
+        priceUSD: 35,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'إعداد بريد إلكتروني رسمي احترافي باسم نطاقك (info@yourdomain.com) وتوصيله بهاتفك وويب ميل.',
+        descEn: 'Custom domain email configuration (info@yourcompany.com) with Outlook/Gmail app synchronization.',
+        featuresAr: ['إعداد بريد باسم شركتك الخاص', 'ربط مع تطبيقات Gmail / Outlook', 'تأمين سجلات SPF & DKIM لمنع السپام', 'تسليم دليل الدخول والشرح'],
+        featuresEn: ['Custom domain email inbox', 'Gmail & Outlook mobile integration', 'SPF, DKIM, DMARC spam-free records', 'Login credentials & setup guide']
+      },
+      {
+        id: 'quick-bug-fix',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'إصلاح أخطاء وشاشات العطل البرمجية السريعة (Quick Bug Fix)',
+        titleEn: 'Emergency Quick Software Bug Fix',
+        priceUSD: 60,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'معالجة سريعة للأخطاء البرمجية المباشرة، انقطاع الخدمة، مشكلات الروابط، القوالب، أو قواعد البيانات.',
+        descEn: 'Troubleshooting and fixing code exceptions, layout breaking bugs, database connection errors, and script crashes.',
+        featuresAr: ['تشخيص مباشر لمصدر الخطأ البرمجي', 'إصلاح الخلل بدون تأثير على البيانات', 'استعادة عمل الخدمة فوراً', 'تقرير توثيقي بالإصلاحات المنجزة'],
+        featuresEn: ['Root-cause bug diagnosis', 'Safe fix without data loss', 'Immediate uptime restoration', 'Summary report of resolution']
+      },
+      {
+        id: 'quick-media-compress',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'ضغط وتحويل ملفات الميديا والصور بدقة عالية (Media Compression)',
+        titleEn: 'High-Fidelity Media & Image Compression',
+        priceUSD: 25,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'ضغط أحجام مقاطع الفيديو والصور للمواقع والتطبيقات مع الحفاظ التام على الجودة والألوان الأصلية.',
+        descEn: 'Lossless and visually lossy image/video compression converting raw formats to lightweight WebP and MP4.',
+        featuresAr: ['تقليل حجم الصور حتى 80%', 'تحويل لصيغ WebP و AVIF السريعة', 'تسريع تحكم وتحميل الصفحات', 'معالجة دفعة ملفات كاملة'],
+        featuresEn: ['Up to 80% file size reduction', 'WebP & AVIF high-speed conversion', 'Page loading speed optimization', 'Bulk media file processing']
+      },
+      {
+        id: 'quick-qr-code',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'إنشاء رمز QR تفاعلي مخصص مع شعار الشركة (Custom Branded QR Code)',
+        titleEn: 'Custom Branded Vector QR Code',
+        priceUSD: 20,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'إنشاء باركود استجابة سريعة QR مدمج مع شعارك لتوجيه الزوار للواتساب، الموقع، المنيو، أو الخرائط.',
+        descEn: 'Vector QR code styled with corporate brand colors and embedded logo linking to WhatsApp, Menus, or Maps.',
+        featuresAr: ['دمج شعار شركتك داخل الباركود', 'توجيه للروابط والواتساب والخرائط', 'ملفات طباعة عالية الدقة SVG/PDF', 'صلاحية دائمة بدون رسوم'],
+        featuresEn: ['Embedded brand logo inside QR', 'Link to WhatsApp, Website, Maps', 'Print-ready SVG & PDF formats', 'Lifetime permanent redirect URL']
+      },
+      {
+        id: 'quick-social-banner',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تصميم غلاف وبنر احترافي لصفحات التواصل (Social Media Banner)',
+        titleEn: 'Social Media Banner & Cover Graphics',
+        priceUSD: 45,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تصميم بنر غلاف متناسق لصفحات فيسبوك، لنكد إن، أو تويتر يعبر عن خدمات وهوية مؤسستك.',
+        descEn: 'High-impact social media headers designed for Facebook, LinkedIn, Twitter, and YouTube channel banners.',
+        featuresAr: ['قياسات دقيقة ومثالية لكل منصة', 'تصميم مبتكر بهوية الشركة', 'تسليم ملفات الجرافيك الفيكتور', 'تعديلات وسرعة تنفيذ عالية'],
+        featuresEn: ['Platform-exact display resolution', 'Custom branding graphics', 'Vector & high-res export files', 'Fast turnaround time']
+      },
+      {
+        id: 'quick-contact-form',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'إضافة نموذج تواصل واستبيان تفاعلي مع التنبيهات (Interactive Form Setup)',
+        titleEn: 'Interactive Form & Survey Setup',
+        priceUSD: 50,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'بناء نموذج استقبال طلبات أو استبيان تفاعلي يرسل البيانات فوراً لبريدك الإلكتروني أو الواتساب.',
+        descEn: 'Custom web input forms and lead surveys sending submission data directly to email and WhatsApp.',
+        featuresAr: ['نموذج استقبال بيانات متطور', 'تنبيهات فورية على البريد والواتساب', 'حماية ضد الرسائل العشوائية Spam', 'تصميم متناسق مع شاشة الهاتف'],
+        featuresEn: ['Advanced multi-field form', 'Instant email & WhatsApp alerts', 'reCAPTCHA anti-spam filter', 'Mobile fluid layout']
+      },
+      {
+        id: 'quick-live-stream',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'إعداد وتجهيز صفحة بث مباشر مخصصة للموقع (Live Streaming Setup)',
+        titleEn: 'Custom Web Live Stream Player Setup',
+        priceUSD: 80,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تضمين مشغل بث مباشر فائق السرعة وبدون إعلانات داخل موقعك للفعاليات، الندوات، والدورات.',
+        descEn: 'Embedding ultra-low latency live video stream player into custom web pages without external ad overlays.',
+        featuresAr: ['مشغل فيديو بث مباشر سريع', 'توافق مع أجهزة الجوال والشاشات', 'دعم الدردشة المباشرة للجمهور', 'بدون أي إعلانات مزعجة'],
+        featuresEn: ['High-speed video player', 'Fully responsive mobile playback', 'Live chatbox integration', 'Zero annoying ad popups']
+      },
+      {
+        id: 'quick-cv-portfolio',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تصميم وتنفيذ سيرة ذاتية ومعرض أعمال تفاعلي (Interactive CV & Portfolio)',
+        titleEn: 'Interactive Digital CV & Personal Portfolio',
+        priceUSD: 40,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تصميم سيرة ذاتية احترافية بصيغة PDF تفاعلية قابلة للضغط أو رابط ويب شخصي سريع التصفح.',
+        descEn: 'ATS-compliant resume design and interactive digital portfolio showcasing experience and project links.',
+        featuresAr: ['تنسيق حديث وفق معايير ATS', 'روابط تفاعلية للمشاريع والبريد', 'نسخة PDF بدقة طباعة عالية', 'تصميم أنيق ومريح للقراءة'],
+        featuresEn: ['ATS-friendly layout standard', 'Clickable links for projects & contact', 'High-print resolution PDF file', 'Clean professional visual style']
+      },
+      {
+        id: 'quick-google-maps',
+        cat: 'growth',
+        isFeatured: false,
+        titleAr: 'إضافة وتأمين موقع شركتك في خرائط جوجل (Google Maps Business Setup)',
+        titleEn: 'Google Maps Business Listing & Audit',
+        priceUSD: 35,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'إنشاء وتأمين ملف شركتك على جوجل ماب، وإضافة الصور، رقم الهاتف، الموقع، وأوقات العمل.',
+        descEn: 'Google Business Profile creation, map pin placement, category optimization, and contact details verification.',
+        featuresAr: ['إضافة موقع دقيق على الخريطة', 'إدراج رقم الهاتف والواتساب الرسميين', 'إضافة الصور وأوقات الدوام', 'تفعيل استقبال تقييمات العملاء'],
+        featuresEn: ['Accurate GPS location pin', 'Official phone & WhatsApp linking', 'Photos & business hours setup', 'Customer reviews activation']
+      },
+      {
+        id: 'quick-email-signature',
+        cat: 'design',
+        isFeatured: false,
+        titleAr: 'تصميم توقيع بريد إلكتروني تفاعلي HTML (Interactive Email Signature)',
+        titleEn: 'Interactive HTML Email Signature',
+        priceUSD: 30,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'توقيع بريدي أنيق يظهر أسفل رسائلك يحتوي على شعارك وأزرار الاتصال والتواصل الاجتماعي المباشرة.',
+        descEn: 'HTML clickable email signature with profile image, logo, and active social media contact buttons.',
+        featuresAr: ['كود HTML متوافق مع Gmail/Outlook', 'أزرار اضغط للاتصال والواتساب', 'شعار وصورة العميل بجودة عالية', 'دليل تفعيل بسيط في 3 خطوات'],
+        featuresEn: ['Gmail & Outlook HTML code', 'Click-to-call & WhatsApp links', 'High-res avatar & logo graphics', 'Easy 3-step installation guide']
+      },
+      {
+        id: 'quick-zaincash-setup',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'ربط وتفعيل بوابة الدفع زين كاش أو كي كارد (ZainCash / QiCard Gateway Setup)',
+        titleEn: 'ZainCash / QiCard Payment Gateway Setup',
+        priceUSD: 120,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'ربط المتاجر والمنصات بمحفظة زين كاش العراقية أو كي كارد واستلام الأموال بالدينار فوراً.',
+        descEn: 'Integration of Iraqi local payment gateways (ZainCash / QiCard) for automatic checkout in IQD currency.',
+        featuresAr: ['تكامل مع API زين كاش وكي كارد', 'تأمين المعاملات والتحويلات المالية', 'رسائل تأكيد عملية الدفع للعميل', 'لوحة متابعة المبيعات بالدينار'],
+        featuresEn: ['ZainCash & QiCard API integration', 'Encrypted transaction security', 'Instant order payment confirmation', 'Sales tracking in IQD currency']
+      },
+      {
+        id: 'quick-pdf-format',
+        cat: 'office',
+        isFeatured: false,
+        titleAr: 'تحويل وتنسيق ملفات PDF إلى Word/Excel بدون تشويه (PDF Formatting & Conversion)',
+        titleEn: 'PDF to Editable Word/Excel Formatting',
+        priceUSD: 25,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تحويل وتنسيق المستندات والجدول المعقدة إلى ملفات قابلة للتعديل مع الحفاظ التام على الخطوط والترتيب.',
+        descEn: 'Extracting text and tables from PDF/images into formatted Word and Excel files preserving original layout.',
+        featuresAr: ['الحفاظ على ترتيب النصوص والجدول', 'دعم كامل للغة العربية والإنجليزية', 'استخراج النصوص من الـScans الضوئية', 'جاهز للتعديل والطباعة الفورية'],
+        featuresEn: ['Preserved text & table alignment', 'Full Arabic & English support', 'OCR text extraction from scans', '100% editable output file']
+      },
+      {
+        id: 'quick-bio-link',
+        cat: 'web',
+        isFeatured: false,
+        titleAr: 'إنشاء صفحة روابط تواصل مجمعة (Linktree / Bio Link Page)',
+        titleEn: 'Linktree / Custom Bio Link Aggregator Page',
+        priceUSD: 35,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'صفحة واحدة أنيقة تجمع كافة روابط منصات التواصل، أرقامك، ومتجرك لوضعها في بايو إنستغرام وتيك توك.',
+        descEn: 'Single responsive bio page linking all social channels, WhatsApp, portfolio, and location for Instagram bio.',
+        featuresAr: ['روابط سريعة تفاعلية ملونة', 'تصميم بهوية ولعار حسابك', 'إحصائيات عدد النقرات والزيارات', 'رابط خاص وسريع التصفح'],
+        featuresEn: ['Interactive colorful link buttons', 'Custom brand colors & avatar logo', 'Click analytics counter', 'Fast loading mobile bio link']
+      },
+      {
+        id: 'quick-auto-responder',
+        cat: 'ai',
+        isFeatured: false,
+        titleAr: 'ربط رد آلي تلقائي ورسالة ترحيب للواتساب (WhatsApp Auto-Responder)',
+        titleEn: 'WhatsApp Auto-Responder & Welcome Bot',
+        priceUSD: 70,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'إعداد ردود تلقائية ذكية ورسائل ترحيب وقائمة خيارات سريعة للرد على زوار الواتساب على مدار الساعة.',
+        descEn: 'Setting up automated welcome messages, interactive keyword menus, and instant replies on WhatsApp Business.',
+        featuresAr: ['قائمة خيارات تفاعلية للعميل', 'رد تلقائي على الاستفسارات المكررة', 'تحويل العميل للقسم المناسب', 'يعمل تلقائياً بدون انقطاع 24/7'],
+        featuresEn: ['Interactive menu choices for leads', 'Automated answers to common FAQs', 'Smart chat routing', '24/7 uninterrupted operation']
+      },
+      {
+        id: 'quick-site-backup',
+        cat: 'scan',
+        isFeatured: false,
+        titleAr: 'إنشاء وحفظ نسخة احتياطية كاملة للموقع والسيرفر (Full Site Backup & Restore)',
+        titleEn: 'Complete Site & Database Backup Package',
+        priceUSD: 45,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'استخراج نسخة احتياطية مشفرة وشاملة لكافة ملفات موقعك وقواعد البيانات لحفظها بأمان واستعادتها طوارئ.',
+        descEn: 'Comprehensive backup archive of website files, databases, and SSL configs stored securely for emergency restoration.',
+        featuresAr: ['نسخ كافة ملفات الكود وقواعد البيانات', 'حفظ النسخة في مجلد سحابي آمن', 'إمكانية الاسترجاع الفوري عند الطوارئ', 'تقرير سلامة واختبار النسخة'],
+        featuresEn: ['Full codebase & database dump', 'Secure cloud storage upload', 'One-click disaster restoration test', 'Backup integrity audit report']
+      },
+      /* MS Word & MS Excel Services */
+      {
+        id: 'ms-word-formatting-design',
+        cat: 'office',
+        isFeatured: true,
+        badgeAr: '📄 خدمات وورد احترافية',
+        badgeEn: '📄 MS Word Professional',
+        titleAr: 'تنسيق وتصميم تقارير ومستندات Microsoft Word الاحترافية',
+        titleEn: 'Professional MS Word Document Design & Formatting',
+        priceUSD: 35,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'تنسيق وتصميم التقارير، البحوث، العقود، والكتب على برنامج وورد بهوية بصرية ممتازة، قوالب جاهزة، جداول ورسومات احترافية وفهرس محتويات تلقائي.',
+        descEn: 'Professional formatting of reports, research papers, contracts, and ebooks in Microsoft Word with custom branding, automated TOC, tables, and typography.',
+        featuresAr: ['فهرس محتويات تلقائي (Automated Table of Contents)', 'تنسيق الخطوط والعناوين والهوامش', 'تصميم الجداول والأغلفة والأشكال المخصصة', 'تصدير للطباعة وPDF بدقة عالية'],
+        featuresEn: ['Automated Table of Contents & Cross-references', 'Consistent typography, headers & margins', 'Custom cover page, tables & graphics', 'Print-ready & high-res PDF export']
+      },
+      {
+        id: 'ms-excel-automation-dashboards',
+        cat: 'office',
+        isFeatured: true,
+        badgeAr: '📊 جداول إكسل متقدمة',
+        badgeEn: '📊 MS Excel Advanced',
+        titleAr: 'بناء جداول ونماذج إكسل المحاسبية واللوحات التفاعلية (MS Excel Automation & Dashboards)',
+        titleEn: 'MS Excel Dashboards, Advanced Formulas & Automation',
+        priceUSD: 60,
+        timeAr: '2 يوم',
+        timeEn: '2 Days',
+        descAr: 'تطوير شيتات وجداول إكسل ذكية للرواتب، الحسابات، إدارة المخزون، والتقارير المالية مع معادلات معقدة، Pivot Tables، ولوحة مؤشرات تفاعلية (Dashboard).',
+        descEn: 'Custom automated Excel workbooks for payroll, financial auditing, inventory management, featuring advanced formulas, VLOOKUP/XLOOKUP, Pivot Tables, and dynamic charts.',
+        featuresAr: ['معادلات متقدمة (XLOOKUP, INDEX-MATCH, Nested IFs)', 'جداول ديناميكية Pivot Tables ورسوم بيانية', 'لوحة مؤشرات قياسية تفاعلية Dashboard', 'حماية الخلايا وتنسيق شرطي تلقائي Conditional Formatting'],
+        featuresEn: ['Advanced formulas (XLOOKUP, INDEX-MATCH, Nested IFs)', 'Dynamic Pivot Tables & interactive charts', 'Executive KPI dashboard overview', 'Cell protection & conditional formatting']
+      },
+      {
+        id: 'ms-excel-vba-macro-programming',
+        cat: 'office',
+        isFeatured: false,
+        titleAr: 'برمجة ماكرو وأتمتة أفعال إكسل التلقائية (MS Excel VBA & Macro Programming)',
+        titleEn: 'MS Excel VBA Macro Programming & Process Automation',
+        priceUSD: 95,
+        timeAr: '3 أيام',
+        timeEn: '3 Days',
+        descAr: 'أتمتة المهام المكررة في إكسل بضغطة زر واحدة باستخدام أكواد VBA والماكرو لتوليد التقارير التلقائية واستيراد/تصدير البيانات بسرعة فائقة.',
+        descEn: 'Automate repetitive spreadsheet workflows using custom VBA macros, automated data extraction, custom buttons, and report generators.',
+        featuresAr: ['برمجة أكواد VBA وماكرو مخصصة', 'أتمتة جمع وترحيل البيانات بضغطة زر', 'استيراد وتصدير التقارير التلقائي', 'تقليل الأخطاء البشرية وتسريع العمل 10x'],
+        featuresEn: ['Custom VBA macro script development', 'One-click data consolidation & migration', 'Automated report generation & export', 'Eliminating human errors & 10x workflow speed']
+      },
+      {
+        id: 'ms-word-excel-data-entry',
+        cat: 'office',
+        isFeatured: false,
+        titleAr: 'تفريغ وتدقيق وتنظيف بيانات Word & Excel (Data Entry & Formatting)',
+        titleEn: 'MS Word & Excel Data Entry, Cleanup & Verification',
+        priceUSD: 40,
+        timeAr: '1 يوم',
+        timeEn: '1 Day',
+        descAr: 'إدخال وتفريغ السجلات والبيانات من الصور والملفات الورقية أو الـ PDF إلى ملفات Word و Excel منظمّة ومفرزة بدون أخطاء.',
+        descEn: 'Accurate data entry, extraction, deduplication, and cleanup into structured MS Word documents and Excel spreadsheets.',
+        featuresAr: ['تفريغ وتدقيق البيانات بدقة 100%', 'إزالة التكرارات وتنظيف الحقول المعطوبة', 'ترتيب وتنسيق السجلات أبجدياً وتاريخياً', 'تسليم ملفات منظمة وسهلة البحث'],
+        featuresEn: ['100% accurate data extraction & entry', 'Deduplication & field data cleaning', 'Alphabetical & chronological organization', 'Structured & easily searchable files']
       }
     ];
 
@@ -2032,8 +2444,10 @@
         servicesBadge: 'دليل الخدمات البرمجية والهندسية والرقمية',
         servicesTitle: 'كافة خدمات منصة باسكود الرقمية العالمية',
         servicesSub: 'اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة',
-        searchPlaceholder: 'ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)...',
-        catAll: 'الكل (50)',
+        searchPlaceholder: 'ابحث عن خدمة (وورد، إكسل، ترجمة، فحص ملفات، متجر)...',
+        catAll: 'الكل (54)',
+        catOffice: '📊 الوورد والإكسل',
+        catQuick: '🛠️ الخدمات المساندة والأدوات (20)',
         catTrans: '✨ ترجمة الملفات',
         catScan: '🛡️ فحص الملفات والأمن',
         catWeb: 'البرمجة والويب',
@@ -2130,8 +2544,10 @@
         servicesBadge: 'Digital & Software Services Catalog',
         servicesTitle: 'BASCODE Global Digital Services',
         servicesSub: 'Select any service to review specifications, options, instant pricing, and send direct order to admin.',
-        searchPlaceholder: 'Search service (translation, file scan, web, app)...',
-        catAll: 'All (50)',
+        searchPlaceholder: 'Search service (Word, Excel, translation, file scan, web)...',
+        catAll: 'All (54)',
+        catOffice: '📊 Word & Excel',
+        catQuick: '🛠️ Digital Utility & Tools (20)',
         catTrans: '✨ File Translation',
         catScan: '🛡️ File Scan & Cyber',
         catWeb: 'Web & Software',
@@ -2222,6 +2638,21 @@
       return `${amount.toLocaleString()} ${curr.symbol}`;
     }
 
+    // Safe DOM property setters
+    function safeSetText(id, text) {
+      const el = document.getElementById(id);
+      if (el && text !== undefined) {
+        el.innerText = text;
+      }
+    }
+
+    function safeSetPlaceholder(id, text) {
+      const el = document.getElementById(id);
+      if (el && text !== undefined) {
+        el.placeholder = text;
+      }
+    }
+
     // Language Toggle
     function toggleLanguage() {
       currentLang = currentLang === 'ar' ? 'en' : 'ar';
@@ -2229,138 +2660,115 @@
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 
       const t = TRANSLATIONS[currentLang];
-      document.getElementById('langBtnText').innerText = t.langBtn;
-      document.getElementById('heroBadgeText').innerText = t.heroBadge;
-      document.getElementById('heroTitleMain').innerText = t.heroTitleMain;
-      document.getElementById('heroTitleSub').innerText = t.heroTitleSub;
-      document.getElementById('heroSubtitle').innerText = t.heroSubtitle;
+      safeSetText('langBtnText', t.langBtn);
+      safeSetText('heroBadgeText', t.heroBadge);
+      safeSetText('heroTitleMain', t.heroTitleMain);
+      safeSetText('heroTitleSub', t.heroTitleSub);
+      safeSetText('heroSubtitle', t.heroSubtitle);
 
-      document.getElementById('btnBrowseServices').innerText = t.btnBrowseServices;
-      document.getElementById('btnCalcInteractive').innerText = t.btnCalcInteractive;
-      document.getElementById('btnAiAdvisor').innerText = t.btnAiAdvisor;
+      safeSetText('btnBrowseServices', t.btnBrowseServices);
+      safeSetText('btnCalcInteractive', t.btnCalcInteractive);
+      safeSetText('btnAiAdvisor', t.btnAiAdvisor);
 
-      if (document.getElementById('navServices')) {
-        document.getElementById('navServices').innerText = t.navServices;
-        document.getElementById('navCalc').innerText = t.navCalc;
-        document.getElementById('navTech').innerText = t.navTech;
-        document.getElementById('navReviews').innerText = t.navReviews;
-        document.getElementById('navPortfolio').innerText = t.navPortfolio;
-        document.getElementById('navFaq').innerText = t.navFaq;
-        document.getElementById('navAiBtn').innerText = t.navAiBtn;
-      }
+      safeSetText('navServices', t.navServices);
+      safeSetText('navCalc', t.navCalc);
+      safeSetText('navTech', t.navTech);
+      safeSetText('navReviews', t.navReviews);
+      safeSetText('navPortfolio', t.navPortfolio);
+      safeSetText('navFaq', t.navFaq);
+      safeSetText('navAiBtn', t.navAiBtn);
 
-      if (document.getElementById('heroNavServices')) {
-        document.getElementById('heroNavServices').innerText = t.navServices;
-        document.getElementById('heroNavCalc').innerText = t.navCalc;
-        document.getElementById('heroNavTech').innerText = t.navTech;
-        document.getElementById('heroNavReviews').innerText = t.navReviews;
-        document.getElementById('heroNavPortfolio').innerText = t.navPortfolio;
-        document.getElementById('heroNavFaq').innerText = t.navFaq;
-      }
+      safeSetText('heroNavServices', t.navServices);
+      safeSetText('heroNavCalc', t.navCalc);
+      safeSetText('heroNavTech', t.navTech);
+      safeSetText('heroNavReviews', t.navReviews);
+      safeSetText('heroNavPortfolio', t.navPortfolio);
+      safeSetText('heroNavFaq', t.navFaq);
 
-      if (document.getElementById('mDrawerLangBtnText')) {
-        document.getElementById('mDrawerLangBtnText').innerText = t.langBtn;
-      }
-      if (document.getElementById('mNavServices')) {
-        document.getElementById('mNavServices').innerText = t.mNavServices;
-        document.getElementById('mNavCalc').innerText = t.mNavCalc;
-        document.getElementById('mNavTech').innerText = t.mNavTech;
-        document.getElementById('mNavReviews').innerText = t.mNavReviews;
-        document.getElementById('mNavPortfolio').innerText = t.mNavPortfolio;
-        document.getElementById('mNavFaq').innerText = t.mNavFaq;
-        document.getElementById('mNavAiBtn').innerText = t.mNavAiBtn;
-      }
+      safeSetText('mDrawerLangBtnText', t.langBtn);
+      safeSetText('mNavServices', t.mNavServices);
+      safeSetText('mNavCalc', t.mNavCalc);
+      safeSetText('mNavTech', t.mNavTech);
+      safeSetText('mNavReviews', t.mNavReviews);
+      safeSetText('mNavPortfolio', t.mNavPortfolio);
+      safeSetText('mNavFaq', t.mNavFaq);
+      safeSetText('mNavAiBtn', t.mNavAiBtn);
 
-      if (document.getElementById('navWhatsappText')) {
-        document.getElementById('navWhatsappText').innerText = t.navWhatsappText;
-      }
-      if (document.getElementById('whatsappFloatingText')) {
-        document.getElementById('whatsappFloatingText').innerText = t.whatsappFloatingText;
-      }
-      if (document.getElementById('mNavWhatsapp')) {
-        document.getElementById('mNavWhatsapp').innerText = t.mNavWhatsapp;
-      }
-      if (document.getElementById('whatsappOrderBtnText')) {
-        document.getElementById('whatsappOrderBtnText').innerText = t.whatsappOrderBtnText;
-      }
+      safeSetText('navWhatsappText', t.navWhatsappText);
+      safeSetText('whatsappFloatingText', t.whatsappFloatingText);
+      safeSetText('mNavWhatsapp', t.mNavWhatsapp);
+      safeSetText('whatsappOrderBtnText', t.whatsappOrderBtnText);
 
-      if (document.getElementById('announcementBadge')) {
-        document.getElementById('announcementBadge').innerText = t.announcementBadge;
-        document.getElementById('announcementMsgText').innerText = t.announcementMsgText;
-        document.getElementById('announcementActionText').innerText = t.announcementActionText;
-      }
+      safeSetText('announcementBadge', t.announcementBadge);
+      safeSetText('announcementMsgText', t.announcementMsgText);
+      safeSetText('announcementActionText', t.announcementActionText);
 
-      if (document.getElementById('notifTitle')) {
-        document.getElementById('notifTitle').innerText = t.notifTitle;
-        document.getElementById('notifMarkReadBtn').innerText = t.notifMarkReadBtn;
-        document.getElementById('notifItem1Title').innerText = t.notifItem1Title;
-        document.getElementById('notifItem1Sub').innerText = t.notifItem1Sub;
-        document.getElementById('notifItem2Title').innerText = t.notifItem2Title;
-        document.getElementById('notifItem2Sub').innerText = t.notifItem2Sub;
-        document.getElementById('notifItem3Title').innerText = t.notifItem3Title;
-        document.getElementById('notifItem3Sub').innerText = t.notifItem3Sub;
-        document.getElementById('notifContactSupportText').innerText = t.notifContactSupportText;
-        if (document.getElementById('testNotifBtnText')) {
-          document.getElementById('testNotifBtnText').innerText = t.testNotifBtnText;
-        }
-      }
+      safeSetText('notifTitle', t.notifTitle);
+      safeSetText('notifMarkReadBtn', t.notifMarkReadBtn);
+      safeSetText('notifItem1Title', t.notifItem1Title);
+      safeSetText('notifItem1Sub', t.notifItem1Sub);
+      safeSetText('notifItem2Title', t.notifItem2Title);
+      safeSetText('notifItem2Sub', t.notifItem2Sub);
+      safeSetText('notifItem3Title', t.notifItem3Title);
+      safeSetText('notifItem3Sub', t.notifItem3Sub);
+      safeSetText('notifContactSupportText', t.notifContactSupportText);
+      safeSetText('testNotifBtnText', t.testNotifBtnText);
 
-      if (document.getElementById('toastHeaderTitle')) {
-        document.getElementById('toastHeaderTitle').innerText = t.toastHeaderTitle;
-        document.getElementById('toastBodyText').innerText = t.toastBodyText;
-      }
+      safeSetText('toastHeaderTitle', t.toastHeaderTitle);
+      safeSetText('toastBodyText', t.toastBodyText);
 
-      document.getElementById('statProjects').innerText = t.statProjects;
-      document.getElementById('statSatisfaction').innerText = t.statSatisfaction;
-      document.getElementById('statCountries').innerText = t.statCountries;
-      document.getElementById('statSupport').innerText = t.statSupport;
+      safeSetText('statProjects', t.statProjects);
+      safeSetText('statSatisfaction', t.statSatisfaction);
+      safeSetText('statCountries', t.statCountries);
+      safeSetText('statSupport', t.statSupport);
 
-      document.getElementById('servicesBadge').innerText = t.servicesBadge;
-      document.getElementById('servicesTitle').innerText = t.servicesTitle;
-      document.getElementById('servicesSub').innerText = t.servicesSub;
-      document.getElementById('serviceSearchInput').placeholder = t.searchPlaceholder;
+      safeSetText('servicesBadge', t.servicesBadge);
+      safeSetText('servicesTitle', t.servicesTitle);
+      safeSetText('servicesSub', t.servicesSub);
+      safeSetPlaceholder('serviceSearchInput', t.searchPlaceholder);
 
-      document.getElementById('catBtnAll').innerText = t.catAll;
-      document.getElementById('catBtnTrans').innerText = t.catTrans;
-      document.getElementById('catBtnScan').innerText = t.catScan;
-      document.getElementById('catBtnWeb').innerText = t.catWeb;
-      document.getElementById('catBtnMobile').innerText = t.catMobile;
-      document.getElementById('catBtnDesign').innerText = t.catDesign;
-      document.getElementById('catBtnAi').innerText = t.catAi;
-      document.getElementById('catBtnGrowth').innerText = t.catGrowth;
+      safeSetText('catBtnAll', t.catAll);
+      safeSetText('catBtnOffice', t.catOffice);
+      safeSetText('catBtnTrans', t.catTrans);
+      safeSetText('catBtnScan', t.catScan);
+      safeSetText('catBtnWeb', t.catWeb);
+      safeSetText('catBtnMobile', t.catMobile);
+      safeSetText('catBtnDesign', t.catDesign);
+      safeSetText('catBtnAi', t.catAi);
+      safeSetText('catBtnGrowth', t.catGrowth);
 
-      document.getElementById('calcBadge').innerText = t.calcBadge;
-      document.getElementById('calcTitle').innerText = t.calcTitle;
-      document.getElementById('calcSub').innerText = t.calcSub;
-      document.getElementById('calcLabelType').innerText = t.calcLabelType;
-      document.getElementById('calcLabelScope').innerText = t.calcLabelScope;
-      document.getElementById('calcLabelAddons').innerText = t.calcLabelAddons;
-      document.getElementById('addonMultilangText').innerText = t.addonMultilangText;
-      document.getElementById('addonPaymentsText').innerText = t.addonPaymentsText;
-      document.getElementById('addonSecurityText').innerText = t.addonSecurityText;
-      document.getElementById('calcTotalLabel').innerText = t.calcTotalLabel;
-      document.getElementById('calcSubmitBtnText').innerText = t.calcSubmitBtnText;
+      safeSetText('calcBadge', t.calcBadge);
+      safeSetText('calcTitle', t.calcTitle);
+      safeSetText('calcSub', t.calcSub);
+      safeSetText('calcLabelType', t.calcLabelType);
+      safeSetText('calcLabelScope', t.calcLabelScope);
+      safeSetText('calcLabelAddons', t.calcLabelAddons);
+      safeSetText('addonMultilangText', t.addonMultilangText);
+      safeSetText('addonPaymentsText', t.addonPaymentsText);
+      safeSetText('addonSecurityText', t.addonSecurityText);
+      safeSetText('calcTotalLabel', t.calcTotalLabel);
+      safeSetText('calcSubmitBtnText', t.calcSubmitBtnText);
 
-      document.getElementById('modalOrderHeader').innerText = t.modalOrderHeader;
-      document.getElementById('modalOrderSub').innerText = t.modalOrderSub;
-      document.getElementById('lblSelectedService').innerText = t.lblSelectedService;
-      document.getElementById('lblName').innerText = t.lblName;
-      document.getElementById('lblEmail').innerText = t.lblEmail;
-      document.getElementById('lblPhone').innerText = t.lblPhone;
-      document.getElementById('lblCompany').innerText = t.lblCompany;
-      document.getElementById('lblPayment').innerText = t.lblPayment;
-      document.getElementById('lblNotes').innerText = t.lblNotes;
-      document.getElementById('lblTotalEstimated').innerText = t.lblTotalEstimated;
-      document.getElementById('submitOrderBtn').innerText = t.confirmAndSendBtn;
+      safeSetText('modalOrderHeader', t.modalOrderHeader);
+      safeSetText('modalOrderSub', t.modalOrderSub);
+      safeSetText('lblSelectedService', t.lblSelectedService);
+      safeSetText('lblName', t.lblName);
+      safeSetText('lblEmail', t.lblEmail);
+      safeSetText('lblPhone', t.lblPhone);
+      safeSetText('lblCompany', t.lblCompany);
+      safeSetText('lblPayment', t.lblPayment);
+      safeSetText('lblNotes', t.lblNotes);
+      safeSetText('lblTotalEstimated', t.lblTotalEstimated);
+      safeSetText('submitOrderBtn', t.confirmAndSendBtn);
 
-      document.getElementById('cartDrawerTitle').innerText = t.cartDrawerTitle;
-      document.getElementById('cartDrawerTotalLabel').innerText = t.cartDrawerTotalLabel;
-      document.getElementById('cartCheckoutBtnText').innerText = t.cartCheckoutBtnText;
+      safeSetText('cartDrawerTitle', t.cartDrawerTitle);
+      safeSetText('cartDrawerTotalLabel', t.cartDrawerTotalLabel);
+      safeSetText('cartCheckoutBtnText', t.cartCheckoutBtnText);
 
-      document.getElementById('currIqdLabel').innerText = t.currIqdLabel;
-      document.getElementById('currAedLabel').innerText = t.currAedLabel;
-      document.getElementById('currUsdLabel').innerText = t.currUsdLabel;
-      document.getElementById('floatingContactText').innerText = t.floatingContactText;
+      safeSetText('currIqdLabel', t.currIqdLabel);
+      safeSetText('currAedLabel', t.currAedLabel);
+      safeSetText('currUsdLabel', t.currUsdLabel);
+      safeSetText('floatingContactText', t.floatingContactText);
 
       populateCalcDropdowns();
       renderServices();
@@ -2375,6 +2783,7 @@
       if (currentLang === 'ar') {
         typeSelect.innerHTML = `
           <option value="150" selected>✨ ترجمة الملفات والمستندات ($150)</option>
+          <option value="50">📄 خدمات وتصميم مستندات Word و Excel ($50)</option>
           <option value="200">🛡️ فحص الملفات والأمن السيبراني ($200)</option>
           <option value="1200">تطبيق / موقع ويب متكامل ($1,200)</option>
           <option value="1500">تطبيق جوال iOS & Android ($1,500)</option>
@@ -2391,6 +2800,7 @@
       } else {
         typeSelect.innerHTML = `
           <option value="150" selected>✨ File & Document Translation ($150)</option>
+          <option value="50">📄 MS Word & Excel Services ($50)</option>
           <option value="200">🛡️ File Malware & Security Scan ($200)</option>
           <option value="1200">Fullstack Web Application ($1,200)</option>
           <option value="1500">Mobile App iOS & Android ($1,500)</option>
@@ -2473,21 +2883,99 @@
               </ul>
             </div>
 
-            <div class="pt-2.5 sm:pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 w-full">
+            <div class="pt-2.5 sm:pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 w-full flex-wrap">
               <div class="shrink min-w-0">
                 <span class="text-[8.5px] sm:text-[10px] text-gray-400 block truncate">${t.approvedCostLabel}</span>
                 <span class="text-xs sm:text-base font-black text-amber-400 font-title leading-tight block truncate">${formatPrice(s.priceUSD)}</span>
               </div>
 
-              <button onclick="openModalForService('${safeTitle}', ${s.priceUSD})" class="bg-white hover:bg-cyan-400 text-black font-extrabold text-[9.5px] sm:text-xs py-1.5 sm:py-2 px-2.5 sm:px-3.5 rounded-full shadow transition-all cursor-pointer min-h-[32px] sm:min-h-[36px] flex items-center justify-center shrink-0 whitespace-nowrap">
-                ${t.orderServiceBtn}
-              </button>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button onclick="openServiceDetailModal('${s.id}')" class="bg-white/10 hover:bg-white/20 text-cyan-300 font-extrabold text-[9.5px] sm:text-xs py-1.5 sm:py-2 px-2.5 sm:px-3 rounded-full border border-cyan-500/30 transition-all cursor-pointer min-h-[32px] sm:min-h-[36px] flex items-center justify-center shrink-0 whitespace-nowrap">
+                  <span>${currentLang === 'ar' ? 'التفاصيل 👁️' : 'Details 👁️'}</span>
+                </button>
+                <button onclick="openModalForService('${safeTitle}', ${s.priceUSD})" class="bg-white hover:bg-cyan-400 text-black font-extrabold text-[9.5px] sm:text-xs py-1.5 sm:py-2 px-2.5 sm:px-3.5 rounded-full shadow transition-all cursor-pointer min-h-[32px] sm:min-h-[36px] flex items-center justify-center shrink-0 whitespace-nowrap">
+                  ${t.orderServiceBtn}
+                </button>
+              </div>
             </div>
           </div>
         `;
       }).join('');
 
       lucide.createIcons();
+    }
+
+    // Open Service Details Modal
+    function openServiceDetailModal(serviceId) {
+      const s = services.find(item => item.id === serviceId);
+      if (!s) return;
+
+      const isAr = currentLang === 'ar';
+      const title = isAr ? s.titleAr : s.titleEn;
+      const desc = isAr ? s.descAr : s.descEn;
+      const time = isAr ? s.timeAr : s.timeEn;
+      const features = isAr ? s.featuresAr : s.featuresEn;
+
+      safeSetText('detailTitle', title);
+      safeSetText('detailDeliveryTime', isAr ? `مدة التسليم الممتازة: ${time}` : `Delivery Time: ${time}`);
+      
+      let catLabel = isAr ? 'خدمات باسكود الرقمية' : 'BASCODE Digital Service';
+      switch(s.cat) {
+        case 'office': catLabel = isAr ? '📊 الوورد والإكسل' : 'MS Word & Excel'; break;
+        case 'quick': catLabel = isAr ? '🛠️ الخدمات المساندة والأدوات' : 'Digital Utility & Tools'; break;
+        case 'translation': catLabel = isAr ? '✨ ترجمة الملفات' : 'File Translation'; break;
+        case 'scan': catLabel = isAr ? '🛡️ فحص الملفات والأمن' : 'File Security Scan'; break;
+        case 'web': catLabel = isAr ? 'البرمجة والويب' : 'Web & Software'; break;
+        case 'mobile': catLabel = isAr ? 'تطبيقات الجوال' : 'Mobile Apps'; break;
+        case 'design': catLabel = isAr ? 'التصميم UI/UX' : 'UI/UX Design'; break;
+        case 'ai': catLabel = isAr ? 'الذكاء الاصطناعي' : 'AI Solutions'; break;
+        case 'growth': catLabel = isAr ? 'التسويق وSEO' : 'SEO & Marketing'; break;
+      }
+      safeSetText('detailCategoryBadge', catLabel);
+      safeSetText('detailDescription', desc);
+
+      const priceUSD = s.priceUSD;
+      const priceIQD = Math.round(priceUSD * 1500).toLocaleString('en-US');
+      const priceAED = Math.round(priceUSD * 3.67).toLocaleString('en-US');
+
+      safeSetText('detailPriceUSD', `$${priceUSD.toLocaleString('en-US')}`);
+      safeSetText('detailPriceIQD', `${priceIQD} د.ع`);
+      safeSetText('detailPriceAED', `${priceAED} د.إ`);
+
+      const listContainer = document.getElementById('detailFeaturesList');
+      if (listContainer) {
+        listContainer.innerHTML = features.map(f => `
+          <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold shrink-0">✓</span> <span>${f}</span></li>
+        `).join('');
+      }
+
+      const safeTitle = title.replace(/'/g, "\\'");
+
+      const orderBtn = document.getElementById('detailOrderNowBtn');
+      if (orderBtn) {
+        orderBtn.onclick = function() {
+          closeServiceDetailModal();
+          openModalForService(safeTitle, priceUSD);
+        };
+      }
+
+      const modal = document.getElementById('serviceDetailModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeServiceDetailModal() {
+      const modal = document.getElementById('serviceDetailModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+      }
     }
 
     // Switch Category
@@ -2498,10 +2986,12 @@
         b.classList.remove('bg-cyan-500', 'text-black');
         b.classList.add('bg-white/5', 'text-gray-300');
       });
-      if (event && event.target) {
-        const btn = event.target.closest('button') || event.target;
-        btn.classList.remove('bg-white/5', 'text-gray-300');
-        btn.classList.add('bg-cyan-500', 'text-black');
+      if (window.event && window.event.target) {
+        const btn = window.event.target.closest('button') || window.event.target;
+        if (btn && btn.classList) {
+          btn.classList.remove('bg-white/5', 'text-gray-300');
+          btn.classList.add('bg-cyan-500', 'text-black');
+        }
       }
       renderServices();
     }
@@ -2525,30 +3015,45 @@
 
     // Calculator Logic
     function recalculateCost() {
-      const typePrice = parseFloat(document.getElementById('calcType').value || 150);
-      const scopeMult = parseFloat(document.getElementById('calcScope').value || 1.0);
+      const typeEl = document.getElementById('calcType');
+      const scopeEl = document.getElementById('calcScope');
+      if (!typeEl || !scopeEl) return;
+
+      const typePrice = parseFloat(typeEl.value || 150);
+      const scopeMult = parseFloat(scopeEl.value || 1.0);
       let addons = 0;
-      if (document.getElementById('addMultilang').checked) addons += 200;
-      if (document.getElementById('addPayments').checked) addons += 250;
-      if (document.getElementById('addSecurity').checked) addons += 300;
+      const addMultilang = document.getElementById('addMultilang');
+      const addPayments = document.getElementById('addPayments');
+      const addSecurity = document.getElementById('addSecurity');
+
+      if (addMultilang && addMultilang.checked) addons += 200;
+      if (addPayments && addPayments.checked) addons += 250;
+      if (addSecurity && addSecurity.checked) addons += 300;
 
       const totalUSD = (typePrice * scopeMult) + addons;
-      document.getElementById('calcTotalDisplay').innerText = formatPrice(totalUSD);
+      safeSetText('calcTotalDisplay', formatPrice(totalUSD));
       
       const t = TRANSLATIONS[currentLang];
       const days = Math.round(10 * scopeMult);
-      document.getElementById('calcDaysDisplay').innerText = `(${t.calcExpectedDelivery} ${days}-${days+3} ${t.daysWord})`;
+      safeSetText('calcDaysDisplay', `(${t.calcExpectedDelivery} ${days}-${days+3} ${t.daysWord})`);
     }
 
     function openModalFromCalc() {
       const typeSelect = document.getElementById('calcType');
-      const title = (currentLang === 'ar' ? 'طلب حسبة باسكود - ' : 'BASCODE Estimator - ') + typeSelect.options[typeSelect.selectedIndex].text;
-      const typePrice = parseFloat(typeSelect.value);
-      const scopeMult = parseFloat(document.getElementById('calcScope').value);
+      if (!typeSelect) return;
+
+      const title = (currentLang === 'ar' ? 'طلب حسبة باسكود - ' : 'BASCODE Estimator - ') + (typeSelect.options[typeSelect.selectedIndex] ? typeSelect.options[typeSelect.selectedIndex].text : '');
+      const typePrice = parseFloat(typeSelect.value || 150);
+      const scopeEl = document.getElementById('calcScope');
+      const scopeMult = parseFloat(scopeEl ? scopeEl.value : 1.0);
       let addons = 0;
-      if (document.getElementById('addMultilang').checked) addons += 200;
-      if (document.getElementById('addPayments').checked) addons += 250;
-      if (document.getElementById('addSecurity').checked) addons += 300;
+      const addMultilang = document.getElementById('addMultilang');
+      const addPayments = document.getElementById('addPayments');
+      const addSecurity = document.getElementById('addSecurity');
+
+      if (addMultilang && addMultilang.checked) addons += 200;
+      if (addPayments && addPayments.checked) addons += 250;
+      if (addSecurity && addSecurity.checked) addons += 300;
 
       const totalUSD = (typePrice * scopeMult) + addons;
       openModalForService(title, totalUSD);
@@ -2562,18 +3067,27 @@
       activeServiceTitle = title;
       activeServicePrice = priceUSD;
 
-      document.getElementById('selectedServiceBadge').innerText = `${title} — (${formatPrice(priceUSD)})`;
-      document.getElementById('modalDisplayPrice').innerText = formatPrice(priceUSD);
-      document.getElementById('successNotice').classList.add('hidden');
-      document.getElementById('orderModal').classList.remove('hidden');
-      document.getElementById('orderModal').classList.add('flex');
-      document.body.classList.add('overflow-hidden');
+      safeSetText('selectedServiceBadge', `${title} — (${formatPrice(priceUSD)})`);
+      safeSetText('modalDisplayPrice', formatPrice(priceUSD));
+      
+      const notice = document.getElementById('successNotice');
+      if (notice) notice.classList.add('hidden');
+
+      const modal = document.getElementById('orderModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+      }
     }
 
     function closeModal() {
-      document.getElementById('orderModal').classList.add('hidden');
-      document.getElementById('orderModal').classList.remove('flex');
-      document.body.classList.remove('overflow-hidden');
+      const modal = document.getElementById('orderModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.classList.remove('overflow-hidden');
+      }
     }
 
     async function handleOrderSubmit(e) {
@@ -2602,6 +3116,34 @@
         }
       };
 
+      // Construct immediate Mailto URL with target bascode84@gmail.com
+      const subject = encodeURIComponent(`[طلب خدمة جديد - BASCODE ${randomRef}] العميل: ${name}`);
+      const body = encodeURIComponent(
+        `مرحباً إدارة باسكود (BASCODE)،\n\n` +
+        `وصلكم طلب جديد عبر المنصة للتنفيذ والتواصل مع العميل:\n\n` +
+        `--------------------------------------------------\n` +
+        `📌 بيانات العميل:\n` +
+        `- الاسم: ${name}\n` +
+        `- البريد الإلكتروني: ${email}\n` +
+        `- رقم الهاتف / الواتساب: ${phone}\n` +
+        `- الشركة / المؤسسة: ${company || 'غير محدد'}\n\n` +
+        `--------------------------------------------------\n` +
+        `🛠️ الخدمة المطلوبة:\n` +
+        `- ${activeServiceTitle}\n\n` +
+        `--------------------------------------------------\n` +
+        `💰 التكلفة وطريقة الدفع:\n` +
+        `- التكلفة: ${formatPrice(activeServicePrice)}\n` +
+        `- العملة: ${currentCurrency}\n` +
+        `- طريقة الدفع: ${paymentMethod}\n\n` +
+        `--------------------------------------------------\n` +
+        `📝 ملاحظات وتعليمات العميل:\n` +
+        `${notes || 'لا توجد ملاحظات إضافية'}\n\n` +
+        `رقم المرجعية: ${randomRef}\n` +
+        `موجه تلقائياً إلى: bascode84@gmail.com`
+      );
+
+      let mailtoUrl = `mailto:bascode84@gmail.com?subject=${subject}&body=${body}`;
+
       try {
         const res = await fetch('/api/orders', {
           method: 'POST',
@@ -2611,19 +3153,45 @@
         const data = await res.json();
         
         if (data.mailtoUrl) {
-          document.getElementById('emailMailtoLink').href = data.mailtoUrl;
+          mailtoUrl = data.mailtoUrl;
         }
       } catch (err) {
-        // Mailto fallback
-        const subject = encodeURIComponent(`[طلب جديد - BASCODE ${randomRef}] العميل: ${name}`);
-        const body = encodeURIComponent(`الاسم: ${name}\nالبريد: ${email}\nالهاتف: ${phone}\nالشركة: ${company}\nالخدمة: ${activeServiceTitle}\nالسعر: ${formatPrice(activeServicePrice)}\nطريقة الدفع: ${paymentMethod}\nملاحظات: ${notes}`);
-        document.getElementById('emailMailtoLink').href = `mailto:bascode84@gmail.com?subject=${subject}&body=${body}`;
+        console.warn('Fallback to client mailto generation');
       }
 
+      // Set Mailto Link
+      const emailBtn = document.getElementById('emailMailtoLink');
+      if (emailBtn) {
+        emailBtn.href = mailtoUrl;
+      }
+
+      // Set WhatsApp Link
+      const waText = encodeURIComponent(
+        `مرحباً إدارة منصة باسكود (BASCODE) 👋\n` +
+        `قمت بطلب خدمة جديدة عبر المنصة:\n` +
+        `🔹 رقم الطلب: ${randomRef}\n` +
+        `🔹 الاسم: ${name}\n` +
+        `🔹 الخدمة: ${activeServiceTitle}\n` +
+        `🔹 التكلفة: ${formatPrice(activeServicePrice)}\n` +
+        `🔹 البريد: ${email}\n` +
+        `🔹 الهاتف: ${phone}\n` +
+        `أرجو التواصل لمعالجة الطلب والتنفيذ.`
+      );
+      const waBtn = document.getElementById('whatsappOrderLink');
+      if (waBtn) {
+        waBtn.href = `https://wa.me/9647875929178?text=${waText}`;
+      }
+
+      // Show success notice
       document.getElementById('successNotice').classList.remove('hidden');
 
+      // Trigger automatic mailto popup to send directly to bascode84@gmail.com
+      setTimeout(() => {
+        window.location.href = mailtoUrl;
+      }, 300);
+
       const notifTitle = currentLang === 'ar' ? `تسجيل طلب جديد (${randomRef})` : `New Order Created (${randomRef})`;
-      const notifMsg = currentLang === 'ar' ? `تم تسجيل طلبك لخدمة ${activeServiceTitle} بنجاح وإرساله للإدارة.` : `Your request for ${activeServiceTitle} has been submitted successfully.`;
+      const notifMsg = currentLang === 'ar' ? `تم تسجيل طلبك لخدمة ${activeServiceTitle} بنجاح وإرساله إلى البريد الإداري (bascode84@gmail.com).` : `Your request for ${activeServiceTitle} has been submitted to admin email (bascode84@gmail.com).`;
       addLiveNotification(notifTitle, notifMsg, 'check-circle');
     }
 
@@ -2716,7 +3284,7 @@
       if (!prompt.trim()) return;
 
       const btn = document.getElementById('aiSubmitBtnText');
-      btn.innerText = currentLang === 'ar' ? 'جاري التحليل واستخراج الخطة... ⏳' : 'Analyzing prompt and generating plan... ⏳';
+      btn.innerText = currentLang === 'ar' ? 'جاري التحليل واستخراج الخطة مع كشف الأسعار... ⏳' : 'Analyzing prompt and generating price plan... ⏳';
 
       try {
         const res = await fetch('/api/ai-consultant', {
@@ -2727,9 +3295,27 @@
         const data = await res.json();
 
         document.getElementById('aiAdviceText').innerText = data.recommendation || (currentLang === 'ar' ? 'نوصي بـ حزمة باسكود لترجمة وفحص الملفات والبرمجة مع الدعم بالدينار العراقي.' : 'We recommend BASCODE file translation, scanning, and development package.');
-        const cost = data.estimatedCostUSD || 1200;
-        document.getElementById('aiCostText').innerText = `${formatPrice(cost)} (${data.estimatedTime || '10 - 14 Days'})`;
+        
+        const costUSD = data.estimatedCostUSD || 1200;
+        const formattedPrice = formatPrice(costUSD);
+        const timeText = data.estimatedTime || (currentLang === 'ar' ? '10 - 14 يوم عمل' : '10 - 14 Days');
+        
+        document.getElementById('aiCostText').innerText = `${formattedPrice} (${timeText})`;
+
+        // Render Deliverables
+        const delivList = document.getElementById('aiDeliverablesList');
+        const delivBox = document.getElementById('aiDeliverablesContainer');
+        if (Array.isArray(data.keyDeliverables) && data.keyDeliverables.length > 0) {
+          delivList.innerHTML = data.keyDeliverables.map(item => `
+            <li class="flex items-start gap-1.5"><span class="text-emerald-400 font-bold">✓</span> <span>${item}</span></li>
+          `).join('');
+          delivBox.classList.remove('hidden');
+        } else {
+          delivBox.classList.add('hidden');
+        }
+
         document.getElementById('aiResultBox').classList.remove('hidden');
+        lucide.createIcons();
       } catch (err) {
         document.getElementById('aiAdviceText').innerText = currentLang === 'ar' ? 'بناءً على الفكرة، نوصي بخدمة ترجمة وفحص الملفات والويب المتكامل مع التأمين السحابي.' : 'Based on your prompt, we recommend our translation, malware scan, and fullstack package.';
         document.getElementById('aiCostText').innerText = `${formatPrice(1200)} (10 - 14 Days)`;
@@ -2742,7 +3328,7 @@
     function applyAiToOrder() {
       const advice = document.getElementById('aiAdviceText').innerText;
       closeAiAdvisorModal();
-      openModalForService(`استشارة ذكية: ${advice.substring(0, 45)}...`, 1200);
+      openModalForService(`استشارة ذكية وخطة مخصصة: (${advice.substring(0, 45)}...)`, 1200);
     }
 
     // Add Review Logic
