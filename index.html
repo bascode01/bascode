@@ -10,7 +10,6 @@
 
   gtag('config', 'G-C98WSPPRL5');
 </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BASCODE | باسكود - المنصة العالمية المتقدمة للبرمجة والخدمات الرقمية</title>
@@ -136,50 +135,45 @@
       background: #06b6d4;
     }
 
-    /* Mobile & Cross-Device Auto-Scaling & Responsiveness Rules */
+    /* Complete Mobile Auto-Scaling & Responsiveness Rules */
     html {
       overflow-x: hidden;
       scroll-padding-top: 75px;
-      box-sizing: border-box;
-    }
-    *, *:before, *:after {
-      box-sizing: inherit;
     }
     body {
       overflow-x: hidden;
       width: 100%;
-      max-width: 100vw;
+    }
+
+    /* Mobile Layout & Responsiveness Rules */
+    html {
+      overflow-x: hidden;
+      scroll-padding-top: 75px;
+    }
+    body {
+      overflow-x: hidden;
+      width: 100%;
     }
 
     /* Mobile Grid & Services Fitting Constraints */
     #services {
       width: 100%;
-      max-width: 100%;
       box-sizing: border-box;
     }
     #servicesContainer {
       width: 100%;
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 1rem;
       box-sizing: border-box;
     }
-    @media (min-width: 580px) {
+    @media (min-width: 540px) {
       #servicesContainer {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.25rem;
       }
     }
-    @media (min-width: 960px) {
+    @media (min-width: 1024px) {
       #servicesContainer {
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
-      }
-    }
-    @media (min-width: 1400px) {
-      #servicesContainer {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.5rem;
       }
     }
     #servicesContainer > * {
@@ -190,71 +184,74 @@
 
     @media (max-width: 639px) {
       .glass-card {
-        padding: 0.95rem 1rem;
-        border-radius: 1.25rem;
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
       }
       .glass-card:hover {
-        transform: none;
+        transform: none !important;
       }
       h1 {
-        font-size: clamp(1.4rem, 6.2vw, 2.2rem);
-        line-height: 1.25;
+        font-size: clamp(1.35rem, 6vw, 2.2rem) !important;
+        line-height: 1.25 !important;
       }
       h2 {
-        font-size: clamp(1.2rem, 5.2vw, 1.75rem);
-        line-height: 1.3;
+        font-size: clamp(1.15rem, 5vw, 1.75rem) !important;
+        line-height: 1.3 !important;
       }
       p, span, li, h3, h4, label {
         word-break: break-word;
         overflow-wrap: break-word;
       }
       input, select, textarea {
-        font-size: 13px;
+        font-size: 13px !important;
       }
       #heroQuickNav {
-        padding: 0.5rem;
+        padding: 0.5rem !important;
       }
 
       /* Services Section Mobile Scaling & Fitting */
       #services {
-        margin-top: 0.25rem;
+        margin-top: 0.25rem !important;
       }
       #servicesTitle {
-        font-size: clamp(1.15rem, 4.8vw, 1.65rem);
-        line-height: 1.3;
+        font-size: clamp(1.05rem, 4.2vw, 1.6rem) !important;
+        line-height: 1.3 !important;
       }
       #servicesSub {
-        font-size: clamp(0.72rem, 3vw, 0.82rem);
-        line-height: 1.45;
+        font-size: clamp(0.68rem, 2.7vw, 0.78rem) !important;
+        line-height: 1.4 !important;
       }
       #servicesContainer {
-        gap: 0.85rem;
+        gap: 0.75rem !important;
       }
       #servicesContainer .glass-card {
-        padding: 0.95rem 1rem;
-        border-radius: 1.25rem;
-        max-width: 100%;
+        padding: 0.85rem 0.875rem !important;
+        border-radius: 1.25rem !important;
+        max-width: 100% !important;
         box-shadow: 0 4px 20px -2px rgba(0,0,0,0.4);
       }
       #servicesContainer h3 {
-        font-size: 0.9rem;
-        line-height: 1.3;
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
       }
       #servicesContainer p {
-        font-size: 0.75rem;
-        line-height: 1.4;
+        font-size: 0.72rem !important;
+        line-height: 1.38 !important;
       }
       #servicesContainer ul {
-        padding-top: 0.25rem;
+        padding-top: 0.25rem !important;
       }
       #servicesContainer ul li {
-        font-size: 0.7rem;
-        line-height: 1.3;
+        font-size: 0.68rem !important;
+        line-height: 1.25 !important;
       }
     }
     @media (max-width: 380px) {
       .glass-card {
-        padding: 0.8rem;
+        padding: 0.75rem !important;
+      }
+      button, a {
+        font-size: 11px !important;
       }
     }
   </style>
@@ -321,11 +318,7 @@
           </select>
         </div>
 
-        <!-- Request Tracker Nav Button -->
-        <button onclick="openTrackOrderModal()" class="bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 font-bold text-[10px] sm:text-xs py-1 sm:py-2 px-2 sm:px-3 rounded-xl flex items-center gap-1 transition-all cursor-pointer hover:scale-105 shrink-0" title="تتبع حالة طلبك برقم المرجعية">
-          <i data-lucide="search" class="w-3.5 h-3.5 text-cyan-400"></i>
-          <span id="navTrackOrderText" class="hidden sm:inline">تتبع الطلب</span>
-        </button>
+
 
         <!-- Admin Email Contact Box (Top Header Copy - Next to Digital Services Cart) -->
         <a href="mailto:bascode84@gmail.com" 
@@ -456,15 +449,6 @@
       </div>
 
       <div class="pt-5 border-t border-white/10 space-y-2.5 text-xs mt-5">
-        <!-- Track Order Drawer Button -->
-        <button onclick="toggleMobileMenu(); openTrackOrderModal();" class="w-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 text-cyan-300 font-bold p-3 rounded-2xl flex items-center justify-between transition-all cursor-pointer text-xs">
-          <div class="flex items-center gap-2">
-            <i data-lucide="search" class="w-4 h-4 text-cyan-400"></i>
-            <span id="mDrawerTrackText">تتبع حالة الطلب (Request ID)</span>
-          </div>
-          <i data-lucide="chevron-left" class="w-4 h-4 text-cyan-400 rtl-flip"></i>
-        </button>
-
         <!-- Direct WhatsApp Link on Mobile Drawer -->
         <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20الاستفسار%20عن%20الخدمات%20والدعم%20الفني" 
            target="_blank" 
@@ -480,34 +464,6 @@
           <i data-lucide="mail" class="w-4 h-4"></i>
           <span>البريد الإلكتروني الإداري</span>
         </a>
-
-        <!-- Official Social Links on Mobile Drawer -->
-        <div class="pt-2 border-t border-white/10 space-y-2">
-          <span class="text-[10px] font-black text-gray-400 uppercase tracking-wider block text-center" id="mDrawerFollowTitle">Follow BASCODE / تابع منصتنا</span>
-          <div class="grid grid-cols-2 gap-2">
-            <a href="https://www.instagram.com/bascode01/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               title="Instagram @bascode01" 
-               class="bg-pink-500/10 hover:bg-pink-500/20 border border-pink-500/30 text-pink-300 font-bold p-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all hover:scale-[1.02] cursor-pointer text-xs">
-              <svg class="w-3.5 h-3.5 fill-current text-pink-400 shrink-0" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>Instagram</span>
-            </a>
-
-            <a href="https://www.facebook.com/share/19QLj9ETGq/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               title="Facebook BASCODE" 
-               class="bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 text-blue-300 font-bold p-2.5 rounded-xl flex items-center justify-center gap-1.5 transition-all hover:scale-[1.02] cursor-pointer text-xs">
-              <svg class="w-3.5 h-3.5 fill-current text-blue-400 shrink-0" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-              <span>Facebook</span>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -584,10 +540,6 @@
           <i data-lucide="calculator" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
           <span id="heroNavCalc">حاسبة التكلفة</span>
         </a>
-        <button onclick="openTrackOrderModal()" class="bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px] cursor-pointer">
-          <i data-lucide="search" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
-          <span id="heroNavTrackOrder">تتبع الطلب (Request ID)</span>
-        </button>
         <a href="#techstack" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
           <i data-lucide="code-2" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
           <span id="heroNavTech">تقنياتنا</span>
@@ -609,20 +561,20 @@
       <!-- Agency Key Metrics Stats -->
       <div class="pt-6 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 max-w-4xl mx-auto">
         <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
-          <span class="text-xl sm:text-2xl font-black text-white font-title">100%</span>
-          <span id="statProjects" class="text-[10px] sm:text-[11px] text-gray-400 block">تسليم السورس كود والملكية كاملة</span>
+          <span class="text-xl sm:text-2xl font-black text-white font-title">1,850+</span>
+          <span id="statProjects" class="text-[10px] sm:text-[11px] text-gray-400 block">مشروع ونظام برمجي منجز</span>
         </div>
         <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
-          <span class="text-xl sm:text-2xl font-black text-amber-400 font-title">3 عملات</span>
-          <span id="statSatisfaction" class="text-[10px] sm:text-[11px] text-gray-400 block">تسعير شفاف ودقيق (IQD, AED, USD)</span>
+          <span class="text-xl sm:text-2xl font-black text-amber-400 font-title">99.9%</span>
+          <span id="statSatisfaction" class="text-[10px] sm:text-[11px] text-gray-400 block">نسبة رضا العملاء الرسمية</span>
         </div>
         <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
-          <span class="text-xl sm:text-2xl font-black text-cyan-400 font-title">فحص أمني</span>
-          <span id="statCountries" class="text-[10px] sm:text-[11px] text-gray-400 block">حماية وتشفير البيانات والأكواد</span>
+          <span class="text-xl sm:text-2xl font-black text-cyan-400 font-title">12 دولة</span>
+          <span id="statCountries" class="text-[10px] sm:text-[11px] text-gray-400 block">انتشار وحضور عالمي للخدمات</span>
         </div>
         <div class="glass-card p-3 sm:p-4 rounded-xl sm:rounded-2xl space-y-1">
-          <span class="text-xl sm:text-2xl font-black text-emerald-400 font-title">تتبع فوري</span>
-          <span id="statSupport" class="text-[10px] sm:text-[11px] text-gray-400 block">متابعة الطلبات برقم المرجعية (Request ID)</span>
+          <span class="text-xl sm:text-2xl font-black text-emerald-400 font-title">24/7</span>
+          <span id="statSupport" class="text-[10px] sm:text-[11px] text-gray-400 block">دعم واستجابة إدارية سريعة</span>
         </div>
       </div>
 
@@ -709,52 +661,48 @@
     <section id="services" class="space-y-5 sm:space-y-8 w-full">
       
       <!-- Section Header with Search & Filters -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-white/10 w-full min-w-0">
-        <div class="space-y-1.5 w-full lg:max-w-xl min-w-0">
-          <span id="servicesBadge" class="text-[10px] sm:text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 sm:px-3 py-1 rounded-full border border-cyan-500/20 inline-block max-w-full truncate">
+      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 pb-4 sm:pb-6 border-b border-white/10">
+        <div class="space-y-1">
+          <span id="servicesBadge" class="text-[10px] sm:text-xs font-bold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full border border-cyan-500/20 inline-block max-w-full">
             دليل الخدمات البرمجية والهندسية والرقمية
           </span>
-          <h2 id="servicesTitle" class="text-xl sm:text-2xl lg:text-3xl font-black text-white mt-1 font-title leading-snug sm:leading-tight break-words max-w-full">
-            كافة خدمات منصة باسكود الرقمية العالمية
-          </h2>
-          <p id="servicesSub" class="text-xs sm:text-sm text-gray-400 mt-1 leading-relaxed break-words max-w-full">
-            اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة
-          </p>
+          <h2 id="servicesTitle" class="text-xl sm:text-3xl font-black text-white mt-1 sm:mt-2 font-title leading-tight">كافة خدمات منصة باسكود الرقمية العالمية</h2>
+          <p id="servicesSub" class="text-[11px] sm:text-xs text-gray-400 mt-1 leading-relaxed">اختر الخدمة للاطلاع على الخيارات، التسعير، والمواصفات، ثم أرسل الطلب مباشرة للإدارة</p>
         </div>
 
         <!-- Category Tabs & Search Bar -->
-        <div class="space-y-2.5 sm:space-y-3 w-full lg:w-auto min-w-0 max-w-full">
+        <div class="space-y-2.5 sm:space-y-3 w-full lg:w-auto">
           
           <!-- Search Field -->
-          <div class="relative w-full max-w-full">
-            <input type="text" id="serviceSearchInput" oninput="handleServiceSearch(this.value)" placeholder="ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)..." class="w-full lg:w-80 bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 rounded-xl py-2.5 rtl:pr-9 rtl:pl-3 ltr:pl-9 ltr:pr-3 focus:outline-none focus:border-cyan-500 transition-all min-h-[42px]">
-            <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute rtl:right-3 ltr:left-3 top-3"></i>
+          <div class="relative w-full">
+            <input type="text" id="serviceSearchInput" oninput="handleServiceSearch(this.value)" placeholder="ابحث عن خدمة (ترجمة، فحص ملفات، متجر، تطبيق)..." class="w-full lg:w-80 bg-black/60 border border-white/10 text-xs text-white placeholder-gray-500 rounded-xl py-2 sm:py-2.5 pr-8 sm:pr-9 pl-3 focus:outline-none focus:border-cyan-500 transition-all">
+            <i data-lucide="search" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400 absolute right-3 top-2.5 sm:top-3"></i>
           </div>
 
           <!-- Category Buttons -->
-          <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 text-xs font-bold scrollbar-none touch-scroll-x flex-nowrap w-full max-w-full min-w-0" id="categoryButtonsContainer">
-            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3.5 sm:px-4 py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">الكل (54)</button>
-            <button onclick="filterCategory('office')" id="catBtnOffice" class="cat-btn bg-emerald-500/20 text-emerald-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-emerald-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">
+          <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-1.5 text-[10.5px] sm:text-xs font-bold scrollbar-none touch-scroll-x flex-nowrap w-full" id="categoryButtonsContainer">
+            <button onclick="filterCategory('all')" id="catBtnAll" class="cat-btn active bg-cyan-500 text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الكل (54)</button>
+            <button onclick="filterCategory('office')" id="catBtnOffice" class="cat-btn bg-emerald-500/20 text-emerald-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-emerald-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>📊 الوورد والإكسل</span>
             </button>
-            <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">
+            <button onclick="filterCategory('translation')" id="catBtnTrans" class="cat-btn bg-amber-500/20 text-amber-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-amber-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>✨ ترجمة الملفات</span>
             </button>
-            <button onclick="filterCategory('scan')" id="catBtnScan" class="cat-btn bg-cyan-500/20 text-cyan-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-cyan-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">
+            <button onclick="filterCategory('scan')" id="catBtnScan" class="cat-btn bg-cyan-500/20 text-cyan-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-cyan-500/40 whitespace-nowrap transition-all flex items-center gap-1 shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">
               <span>🛡️ فحص الملفات والأمن</span>
             </button>
-            <button onclick="filterCategory('web')" id="catBtnWeb" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">البرمجة والويب</button>
-            <button onclick="filterCategory('mobile')" id="catBtnMobile" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">التطبيقات</button>
-            <button onclick="filterCategory('design')" id="catBtnDesign" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">التصميم UI/UX</button>
-            <button onclick="filterCategory('ai')" id="catBtnAi" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">الذكاء الاصطناعي</button>
-            <button onclick="filterCategory('growth')" id="catBtnGrowth" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3.5 sm:px-4 py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[38px] sm:min-h-[42px] cursor-pointer">التسويق وSEO</button>
+            <button onclick="filterCategory('web')" id="catBtnWeb" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">البرمجة والويب</button>
+            <button onclick="filterCategory('mobile')" id="catBtnMobile" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التطبيقات</button>
+            <button onclick="filterCategory('design')" id="catBtnDesign" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التصميم UI/UX</button>
+            <button onclick="filterCategory('ai')" id="catBtnAi" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">الذكاء الاصطناعي</button>
+            <button onclick="filterCategory('growth')" id="catBtnGrowth" class="cat-btn bg-white/5 text-gray-300 hover:text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-white/10 whitespace-nowrap transition-all shrink-0 min-h-[34px] sm:min-h-[38px] cursor-pointer">التسويق وSEO</button>
           </div>
 
         </div>
       </div>
 
       <!-- Services Grid Cards -->
-      <div id="servicesContainer">
+      <div class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 w-full" id="servicesContainer">
         <!-- Rendered dynamically by JavaScript -->
       </div>
 
@@ -1087,77 +1035,6 @@
 
     </section>
 
-    <!-- CONTACT BASCODE SECTION ("تواصل مع باسكود") -->
-    <section id="contact" class="space-y-8 w-full">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <span id="contactBadge" class="text-xs font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
-          📬 القنوات الرسمية للتواصل
-        </span>
-        <h2 id="contactTitle" class="text-2xl sm:text-3xl font-black text-white font-title">CONTACT BASCODE / تواصل معنا</h2>
-        <p id="contactSub" class="text-xs text-gray-400">فريقنا متواجد 24/7 لاستقبال طلبات التطوير، الاستشارات الفنية، وترجمة الملفات وفحصها</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20طلب%20خدمة" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           title="WhatsApp: +964 787 592 9178"
-           class="glass-card p-5 rounded-2xl border border-emerald-500/30 hover:border-emerald-400 bg-emerald-500/5 hover:bg-emerald-500/10 transition-all flex flex-col items-center text-center space-y-3 hover:scale-105 cursor-pointer group">
-          <div class="w-12 h-12 rounded-2xl bg-[#25D366]/20 border border-[#25D366]/40 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 fill-current text-[#25D366]" viewBox="0 0 24 24">
-              <path d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.758.459 3.413 1.264 4.859L2 22l5.333-1.398c1.396.762 2.986 1.18 4.679 1.18 5.507 0 9.97-4.463 9.97-9.969 0-5.507-4.463-9.969-9.97-9.969zm0 18.234c-1.488 0-2.94-.401-4.201-1.161l-.301-.183-3.125.819.833-3.045-.2-.318c-.838-1.332-1.282-2.872-1.282-4.461 0-4.558 3.709-8.267 8.267-8.267 4.558 0 8.267 3.709 8.267 8.267 0 4.558-3.709 8.267-8.258 8.267zm4.529-6.188c-.248-.124-1.468-.724-1.696-.807-.228-.083-.394-.124-.56.124-.165.248-.641.807-.786.973-.145.165-.29.186-.538.062-.248-.124-1.047-.386-1.995-1.231-.738-.658-1.236-1.471-1.381-1.719-.145-.248-.015-.382.109-.505.111-.11.248-.29.372-.435.124-.145.165-.248.248-.414.083-.165.041-.31-.021-.435-.062-.124-.56-1.346-.767-1.842-.201-.482-.405-.417-.56-.425l-.476-.008c-.165 0-.435.062-.662.31-.228.248-.869.848-.869 2.068 0 1.22.889 2.399 1.013 2.565.124.165 1.75 2.673 4.239 3.748.592.256 1.055.409 1.416.523.595.189 1.136.162 1.564.098.477-.071 1.468-.6 1.675-1.18.207-.579.207-1.075.145-1.18-.062-.103-.228-.165-.476-.289z"/>
-            </svg>
-          </div>
-          <span class="font-extrabold text-white text-xs">WhatsApp</span>
-          <span class="text-[11px] text-emerald-400 font-mono font-bold">+964 787 592 9178</span>
-        </a>
-
-        <!-- Direct Email -->
-        <a href="mailto:bascode84@gmail.com" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           title="Email: bascode84@gmail.com"
-           class="glass-card p-5 rounded-2xl border border-amber-500/30 hover:border-amber-400 bg-amber-500/5 hover:bg-amber-500/10 transition-all flex flex-col items-center text-center space-y-3 hover:scale-105 cursor-pointer group">
-          <div class="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
-            <i data-lucide="mail" class="w-6 h-6"></i>
-          </div>
-          <span class="font-extrabold text-white text-xs">Email / البريد</span>
-          <span class="text-[11px] text-amber-300 font-mono font-bold">bascode84@gmail.com</span>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/bascode01/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           title="Instagram — @bascode01"
-           class="glass-card p-5 rounded-2xl border border-pink-500/30 hover:border-pink-400 bg-pink-500/5 hover:bg-pink-500/10 transition-all flex flex-col items-center text-center space-y-3 hover:scale-105 cursor-pointer group">
-          <div class="w-12 h-12 rounded-2xl bg-pink-500/20 border border-pink-500/40 flex items-center justify-center text-pink-400 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 fill-current text-pink-400" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </div>
-          <span class="font-extrabold text-white text-xs">Instagram</span>
-          <span class="text-[11px] text-pink-300 font-mono font-bold">@bascode01</span>
-        </a>
-
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/share/19QLj9ETGq/" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           title="Facebook — BASCODE"
-           class="glass-card p-5 rounded-2xl border border-blue-500/30 hover:border-blue-400 bg-blue-500/5 hover:bg-blue-500/10 transition-all flex flex-col items-center text-center space-y-3 hover:scale-105 cursor-pointer group">
-          <div class="w-12 h-12 rounded-2xl bg-blue-500/20 border border-blue-500/40 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 fill-current text-blue-400" viewBox="0 0 24 24">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </div>
-          <span class="font-extrabold text-white text-xs">Facebook</span>
-          <span class="text-[11px] text-blue-300 font-mono font-bold">BASCODE Page</span>
-        </a>
-      </div>
-    </section>
-
     <!-- FAQ SECTION -->
     <section id="faq" class="space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-2">
@@ -1370,45 +1247,13 @@
         <div class="text-emerald-400 font-black text-lg sm:text-xl flex items-center justify-center gap-2">
           <span>🎉 تم إرسال وتسجيل طلبك بنجاح!</span>
         </div>
-
-        <!-- Request ID Copy Badge -->
-        <div class="bg-cyan-500/10 border border-cyan-500/30 p-3.5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 text-right">
-          <div>
-            <span class="text-[11px] text-gray-400 block font-bold">رقم المرجعية المعتمد (Request ID):</span>
-            <span id="createdRefDisplay" class="text-base sm:text-lg font-black text-cyan-300 font-mono tracking-wider">#BAS-000000</span>
-          </div>
-          <button onclick="copyRequestId()" type="button" class="w-full sm:w-auto bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-xs font-bold px-4 py-2 rounded-xl border border-cyan-500/40 transition-all cursor-pointer flex items-center justify-center gap-1.5 shrink-0">
-            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-            <span id="copyRefBtnText">نسخ رقم الطلب</span>
-          </button>
-        </div>
-
-        <!-- Live Order Status Pipeline -->
-        <div class="bg-white/5 border border-white/10 p-3.5 sm:p-4 rounded-2xl space-y-2 text-right">
-          <span class="text-xs font-extrabold text-amber-400 block">مراحل تنفيذ المشروع (Order Pipeline):</span>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[10px] sm:text-xs">
-            <div class="bg-emerald-500/20 border border-emerald-500/40 p-2 rounded-xl text-emerald-300 font-extrabold text-center">
-              1. تم التقديم ✓
-            </div>
-            <div class="bg-amber-500/20 border border-amber-500/40 p-2 rounded-xl text-amber-300 font-extrabold text-center animate-pulse">
-              2. قيد المراجعة ⏳
-            </div>
-            <div class="bg-white/5 border border-white/10 p-2 rounded-xl text-gray-400 font-bold text-center">
-              3. التطوير والفحص 🛠️
-            </div>
-            <div class="bg-white/5 border border-white/10 p-2 rounded-xl text-gray-400 font-bold text-center">
-              4. التسليم والتشغيل 📦
-            </div>
-          </div>
-        </div>
-
         <p class="text-xs text-gray-300 leading-relaxed max-w-md mx-auto">
-          تم توجيه كافة بيانات مشروعك فوراً للبريد الإداري (<span class="text-cyan-300 font-bold underline">bascode84@gmail.com</span>). يسعدنا متابعتك المباشرة عبر الوسائل أدناه:
+          تم تجهيز وتوجيه كافة بيانات مشروعك للإرسال المباشر إلى البريد الإلكتروني للإدارة (<span class="text-cyan-300 font-bold underline">bascode84@gmail.com</span>). يمكنك الضغط على الأزرار أدناه للفتح والتأكيد المباشر:
         </p>
         <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a id="emailMailtoLink" href="#" target="_blank" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-400 text-white font-extrabold text-xs py-3 px-6 rounded-full shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all">
             <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>إرسال عبر البريد (bascode84@gmail.com)</span>
+            <span>إرسال البيانات فوراً إلى البريد الإداري (bascode84@gmail.com)</span>
           </a>
 
           <a id="whatsappOrderLink" href="https://wa.me/9647875929178?text=مرحباً%20منصة%20باسكود%20(BASCODE)%D9%80%20أريد%20متابعة%20طلبي%20الجديد" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-white font-black text-xs py-3 px-6 rounded-full shadow-lg hover:scale-105 transition-all">
@@ -1417,49 +1262,6 @@
             </svg>
             <span id="whatsappOrderBtnText">إرسال عبر الواتساب (+9647875929178)</span>
           </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ORDER STATUS & REQUEST TRACKER MODAL -->
-  <div id="trackOrderModal" onclick="if(event.target === this) closeTrackOrderModal()" class="fixed inset-0 z-50 hidden items-start sm:items-center justify-center p-3 sm:p-4 py-6 sm:py-8 bg-black/85 backdrop-blur-md overflow-y-auto">
-    <div class="relative w-full max-w-xl bg-[#0c0e12] border border-cyan-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl my-auto max-h-[calc(100dvh-3rem)] sm:max-h-[90vh] overflow-y-auto">
-      
-      <button onclick="closeTrackOrderModal()" type="button" class="absolute rtl:left-3 ltr:right-3 top-3 sm:rtl:left-4 sm:ltr:right-4 w-8 h-8 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer z-20">
-        ✕
-      </button>
-
-      <div class="flex items-center gap-3 mb-4 rtl:pl-8 ltr:pr-8">
-        <div class="p-2.5 bg-cyan-500/10 rounded-2xl border border-cyan-500/30 shrink-0">
-          <i data-lucide="search" class="w-6 h-6 text-cyan-400"></i>
-        </div>
-        <div>
-          <h3 id="trackModalTitle" class="text-base sm:text-xl font-extrabold text-white font-title leading-snug">تتبع حالة الطلب (Request ID Tracker)</h3>
-          <p id="trackModalSub" class="text-[10px] sm:text-xs text-gray-400">أدخل رقم المرجعية المخصص لطلبك لمتابعة مرحلة التنفيذ والتسليم المباشر</p>
-        </div>
-      </div>
-
-      <div class="space-y-4">
-        <div class="flex gap-2">
-          <input type="text" id="trackInputRef" placeholder="مثال: #BAS-829140" class="w-full bg-black/60 border border-white/10 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px] uppercase font-mono font-bold">
-          <button onclick="searchOrderStatus()" type="button" class="bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold px-5 rounded-xl text-xs transition-all flex items-center justify-center shrink-0 cursor-pointer">
-            تتبع الآن 🔍
-          </button>
-        </div>
-
-        <!-- Track Result Display Box -->
-        <div id="trackResultBox" class="hidden bg-white/5 border border-white/10 rounded-2xl p-4 space-y-4">
-          <!-- Filled dynamically by JavaScript -->
-        </div>
-
-        <!-- Recent Saved Orders Section -->
-        <div id="recentOrdersBox" class="space-y-2 pt-2 border-t border-white/10">
-          <h4 id="recentOrdersTitle" class="text-xs font-bold text-gray-400">طلباتك المسجلة مؤخراً على هذا الجهاز:</h4>
-          <div id="recentOrdersList" class="space-y-2 text-xs">
-            <!-- Dynamic list from LocalStorage -->
-          </div>
         </div>
       </div>
 
@@ -1646,39 +1448,6 @@
           المنصة العالمية الرائدة في البرمجة والترجمة وفحص الملفات والأمن السيبراني.
           CODE. DESIGN. SECURE. SUCCEED.
         </p>
-
-        <!-- Follow BASCODE Section -->
-        <div class="pt-3 border-t border-white/10 space-y-2">
-          <h5 id="footerFollowTitle" class="font-bold text-white text-xs tracking-wider uppercase flex items-center gap-1.5 font-title">
-            <i data-lucide="share-2" class="w-3.5 h-3.5 text-amber-400"></i>
-            <span>Follow BASCODE</span> / <span>تابع باسكود</span>
-          </h5>
-          <div class="flex items-center gap-2.5 pt-1">
-            <!-- Instagram Icon Button -->
-            <a href="https://www.instagram.com/bascode01/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               title="Instagram — @bascode01"
-               class="group flex items-center gap-2 bg-gradient-to-r from-purple-500/15 via-pink-500/15 to-amber-500/15 hover:from-purple-500/25 hover:to-pink-500/25 border border-pink-500/30 hover:border-pink-400 text-gray-200 hover:text-pink-300 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer shadow-md hover:scale-105">
-              <svg class="w-4 h-4 fill-current text-pink-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-              <span>Instagram</span>
-            </a>
-
-            <!-- Facebook Icon Button -->
-            <a href="https://www.facebook.com/share/19QLj9ETGq/" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               title="Facebook — BASCODE"
-               class="group flex items-center gap-2 bg-blue-600/15 hover:bg-blue-600/25 border border-blue-500/30 hover:border-blue-400 text-gray-200 hover:text-blue-300 px-3.5 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer shadow-md hover:scale-105">
-              <svg class="w-4 h-4 fill-current text-blue-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-              <span>Facebook</span>
-            </a>
-          </div>
-        </div>
       </div>
 
       <div class="space-y-2">
@@ -3493,181 +3262,6 @@
       }
     }
 
-    // Request ID & Tracker Logic
-    let currentCreatedRef = '';
-
-    function copyRequestId() {
-      if (!currentCreatedRef) return;
-      navigator.clipboard.writeText(currentCreatedRef);
-      const btnText = document.getElementById('copyRefBtnText');
-      if (btnText) {
-        btnText.innerText = currentLang === 'ar' ? 'تم النسخ! ✓' : 'Copied! ✓';
-        setTimeout(() => {
-          btnText.innerText = currentLang === 'ar' ? 'نسخ رقم الطلب' : 'Copy Request ID';
-        }, 2000);
-      }
-    }
-
-    function saveOrderToLocalHistory(order) {
-      try {
-        const stored = JSON.parse(localStorage.getItem('bascode_orders_v1') || '[]');
-        stored.unshift(order);
-        localStorage.setItem('bascode_orders_v1', JSON.stringify(stored.slice(0, 15)));
-      } catch (err) {
-        console.warn('LocalStorage save failed:', err);
-      }
-    }
-
-    function getLocalOrders() {
-      try {
-        return JSON.parse(localStorage.getItem('bascode_orders_v1') || '[]');
-      } catch (err) {
-        return [];
-      }
-    }
-
-    function openTrackOrderModal() {
-      const modal = document.getElementById('trackOrderModal');
-      if (!modal) return;
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.classList.add('overflow-hidden');
-
-      renderRecentOrdersInTracker();
-    }
-
-    function closeTrackOrderModal() {
-      const modal = document.getElementById('trackOrderModal');
-      if (!modal) return;
-
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.classList.remove('overflow-hidden');
-    }
-
-    function renderRecentOrdersInTracker() {
-      const listEl = document.getElementById('recentOrdersList');
-      if (!listEl) return;
-
-      const orders = getLocalOrders();
-      if (orders.length === 0) {
-        listEl.innerHTML = `<p class="text-xs text-gray-500 py-2">${currentLang === 'ar' ? 'لا توجد طلبات مسجلة سابقاً على هذا الجهاز.' : 'No saved requests found on this device.'}</p>`;
-        return;
-      }
-
-      listEl.innerHTML = orders.map(ord => `
-        <div onclick="fillTrackInput('${ord.orderId}')" class="bg-white/5 hover:bg-white/10 p-2.5 rounded-xl border border-white/10 flex items-center justify-between cursor-pointer transition-all">
-          <div>
-            <div class="font-extrabold text-cyan-300 font-mono text-xs">${ord.orderId}</div>
-            <div class="text-[10px] text-gray-300 font-bold">${ord.customServiceTitle}</div>
-          </div>
-          <div class="text-right">
-            <span class="text-[10px] font-bold text-amber-400 block">${formatPrice(ord.totalUSD)}</span>
-            <span class="text-[9px] text-emerald-400 font-bold">تتبع 🔍</span>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function fillTrackInput(ref) {
-      const input = document.getElementById('trackInputRef');
-      if (input) {
-        input.value = ref;
-        searchOrderStatus();
-      }
-    }
-
-    function searchOrderStatus() {
-      const input = document.getElementById('trackInputRef');
-      const box = document.getElementById('trackResultBox');
-      if (!input || !box) return;
-
-      let val = input.value.trim().toUpperCase();
-      if (!val) return;
-
-      if (!val.startsWith('#')) {
-        val = '#' + val;
-      }
-
-      const orders = getLocalOrders();
-      const matched = orders.find(o => o.orderId.toUpperCase() === val);
-
-      box.classList.remove('hidden');
-
-      if (matched) {
-        box.innerHTML = `
-          <div class="space-y-3 text-right">
-            <div class="flex items-center justify-between border-b border-white/10 pb-2">
-              <div>
-                <span class="text-[10px] text-gray-400 block font-bold">رقم الطلب المرجعي:</span>
-                <span class="text-base font-black text-cyan-300 font-mono">${matched.orderId}</span>
-              </div>
-              <span class="text-xs font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 px-3 py-1 rounded-full">
-                ✓ مؤكد ومسجل
-              </span>
-            </div>
-
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span class="text-[10px] text-gray-400 block">الخدمة المطلوبة:</span>
-                <span class="font-bold text-white">${matched.customServiceTitle}</span>
-              </div>
-              <div>
-                <span class="text-[10px] text-gray-400 block">التكلفة والعملة:</span>
-                <span class="font-bold text-amber-400">${formatPrice(matched.totalUSD)} (${matched.currency})</span>
-              </div>
-            </div>
-
-            <div class="bg-black/60 p-3 rounded-xl border border-cyan-500/30 space-y-2">
-              <span class="text-xs font-extrabold text-amber-400 block">حالة التنفيذ الحالية (Live Status):</span>
-              <p class="text-xs text-emerald-300 font-bold leading-relaxed">
-                🟢 تم استلام الطلب وتوجيهه للإدارة (bascode84@gmail.com). جارٍ المعالجة الفنية المباشرة والمتابعة عبر الواتساب (+9647875929178).
-              </p>
-            </div>
-
-            <div class="flex flex-col sm:flex-row gap-2 pt-1">
-              <a href="https://wa.me/9647875929178?text=${encodeURIComponent(`مرحباً إدارة باسكود 👋 أستفسر عن حالة الطلب المرجعي: ${matched.orderId}`)}" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow">
-                <span>تواصل واتساب برقم الطلب</span>
-              </a>
-              <a href="mailto:bascode84@gmail.com?subject=${encodeURIComponent(`[استفسار عن طلب - BASCODE ${matched.orderId}]`)}" target="_blank" rel="noopener noreferrer" class="w-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5">
-                <span>استفسار عبر البريد</span>
-              </a>
-            </div>
-          </div>
-        `;
-      } else {
-        box.innerHTML = `
-          <div class="space-y-3 text-right">
-            <div class="flex items-center justify-between border-b border-white/10 pb-2">
-              <div>
-                <span class="text-[10px] text-gray-400 block font-bold">رقم الطلب المرجعي:</span>
-                <span class="text-base font-black text-cyan-300 font-mono">${val}</span>
-              </div>
-              <span class="text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1 rounded-full">
-                ⏳ قيد المراجعة الإدارية
-              </span>
-            </div>
-
-            <p class="text-xs text-gray-200 leading-relaxed">
-              تم تسليم الاستعلام بالنظام. الطلب <span class="text-cyan-300 font-bold">${val}</span> قيد التدقيق الإداري والفني المباشر. يمكنك الاستفسار عنه فوراً عبر القنوات الرسمية:
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-2 pt-1">
-              <a href="https://wa.me/9647875929178?text=${encodeURIComponent(`مرحباً إدارة باسكود 👋 أريد متابعة الطلب رقم ${val}`)}" target="_blank" rel="noopener noreferrer" class="w-full bg-[#25D366] text-white font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow">
-                <span>متابعة فورية عبر الواتساب</span>
-              </a>
-              <a href="mailto:bascode84@gmail.com?subject=${encodeURIComponent(`[متابعة طلب ${val}]`)}" target="_blank" rel="noopener noreferrer" class="w-full bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-1.5">
-                <span>متابعة عبر البريد الإداري</span>
-              </a>
-            </div>
-          </div>
-        `;
-      }
-
-      if (window.lucide) lucide.createIcons();
-    }
-
     async function handleOrderSubmit(e) {
       e.preventDefault();
       const name = document.getElementById('clientName').value;
@@ -3678,27 +3272,20 @@
       const notes = document.getElementById('clientNotes').value;
 
       const randomRef = `#BAS-${Math.floor(100000 + Math.random() * 900000)}`;
-      currentCreatedRef = randomRef;
-
-      safeSetText('createdRefDisplay', randomRef);
-
-      const newOrderRecord = {
-        orderId: randomRef,
-        clientName: name,
-        clientEmail: email,
-        clientPhone: phone,
-        companyName: company,
-        paymentMethod: paymentMethod,
-        notes: notes,
-        customServiceTitle: activeServiceTitle,
-        totalUSD: activeServicePrice,
-        currency: currentCurrency,
-        date: new Date().toISOString()
-      };
-      saveOrderToLocalHistory(newOrderRecord);
 
       const payload = {
-        orderDetails: newOrderRecord
+        orderDetails: {
+          orderId: randomRef,
+          clientName: name,
+          clientEmail: email,
+          clientPhone: phone,
+          companyName: company,
+          paymentMethod: paymentMethod,
+          notes: notes,
+          customServiceTitle: activeServiceTitle,
+          totalUSD: activeServicePrice,
+          currency: currentCurrency
+        }
       };
 
       // Construct immediate Mailto URL with target bascode84@gmail.com
