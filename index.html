@@ -422,14 +422,6 @@
             <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
           </a>
 
-          <a href="#portfolio" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400"></i>
-              <span id="mNavPortfolio">معرض المشاريع والأعمال</span>
-            </div>
-            <i data-lucide="chevron-left" class="w-4 h-4 text-gray-400 rtl-flip"></i>
-          </a>
-
           <a href="#faq" onclick="toggleMobileMenu()" class="p-3 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/5 transition-colors flex items-center justify-between">
             <div class="flex items-center gap-2.5">
               <i data-lucide="help-circle" class="w-4 h-4 text-cyan-400"></i>
@@ -488,30 +480,41 @@
       </h1>
 
       <!-- Hero Subtitle -->
-      <p id="heroSubtitle" class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto">
-        Professional digital solutions for businesses, startups and individuals. Web development, mobile apps, AI solutions, cybersecurity, design and digital services with instant calculation in IQD, AED, and USD.
+      <p id="heroSubtitle" class="text-xs sm:text-base text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        حلول رقمية احترافية للأفراد والشركات. نحوّل أفكارك إلى مواقع إلكترونية، متاجر، تطبيقات، أنظمة مخصصة وحلول رقمية مصممة باحترافية.
       </p>
 
       <!-- CTA Buttons -->
       <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-3.5 pt-2">
-        <button onclick="openModalForService('مشروع جديد عبر باسكود - Start A Project', 1200)" class="w-full sm:w-auto min-h-[44px] justify-center bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
-          <span id="btnStartProject">🚀 START A PROJECT / ابدأ مشروعك</span>
+        <button onclick="openModalForService('ابدأ مشروعك - Start A Project', 0)" class="w-full sm:w-auto min-h-[44px] justify-center bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-yellow-400 text-black font-black text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
+          <span id="btnStartProject">🚀 ابدأ مشروعك الآن</span>
         </button>
 
         <a href="#services" class="w-full sm:w-auto min-h-[44px] justify-center bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg shadow-cyan-500/25 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
-          <span id="btnBrowseServices">🔍 EXPLORE SERVICES / استكشف خدماتنا</span>
+          <span id="btnBrowseServices">🔍 استكشف خدماتنا</span>
           <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
         </a>
 
         <a href="#calculator" class="w-full sm:w-auto min-h-[44px] justify-center bg-white/5 hover:bg-white/10 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-white/10 transition-all flex items-center gap-2 hover:border-amber-400/50 cursor-pointer">
           <i data-lucide="calculator" class="w-4 h-4 text-amber-400"></i>
-          <span id="btnCalcInteractive">حاسبة التكلفة</span>
+          <span id="btnCalcInteractive">احصل على عرض سعر</span>
         </a>
 
         <button onclick="openAiAdvisorModal()" class="w-full sm:w-auto min-h-[44px] justify-center bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full border border-amber-500/30 transition-all flex items-center gap-2 hover:scale-105 cursor-pointer">
           <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
           <span id="btnAiAdvisor">مستشار الذكاء الاصطناعي</span>
         </button>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-4 text-[11px] font-bold text-cyan-300 bg-black/40 border border-white/10 p-3 rounded-2xl max-w-3xl mx-auto">
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i> <span id="tBar1">حلول رقمية احترافية</span></span>
+        <span class="text-white/20">•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-cyan-400"></i> <span id="tBar2">تطوير مخصص للأنظمة</span></span>
+        <span class="text-white/20">•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-amber-400"></i> <span id="tBar3">متوافق مع جميع الشاشات</span></span>
+        <span class="text-white/20">•</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check-circle" class="w-4 h-4 text-purple-400"></i> <span id="tBar4">دعم وتواصل مباشر 24/7</span></span>
       </div>
 
       <!-- Live Currency Exchange Rates Bar (Restricted strictly to IQD, USD, AED) -->
@@ -548,10 +551,6 @@
           <i data-lucide="star" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0"></i>
           <span id="heroNavReviews">تقييمات العملاء</span>
         </a>
-        <a href="#portfolio" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
-          <i data-lucide="briefcase" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
-          <span id="heroNavPortfolio">معرض الأعمال</span>
-        </a>
         <a href="#faq" class="bg-white/5 hover:bg-cyan-500/20 hover:text-cyan-300 border border-white/10 hover:border-cyan-500/40 px-1.5 sm:px-3 py-2 sm:py-3 rounded-xl transition-all flex items-center justify-center gap-1 sm:gap-1.5 shadow-sm hover:scale-105 min-h-[40px] sm:min-h-[44px]">
           <i data-lucide="help-circle" class="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0"></i>
           <span id="heroNavFaq">الأسئلة الشائعة</span>
@@ -565,6 +564,99 @@
 
   <!-- Main Content Area -->
   <main class="w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 lg:py-10 space-y-8 sm:space-y-14 lg:space-y-20 overflow-hidden sm:overflow-visible">
+
+    <!-- ABOUT US SECTION ("من نحن؟") -->
+    <section id="about" class="space-y-6 glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden">
+      <div class="absolute -left-20 -top-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 max-w-4xl mx-auto space-y-4 text-center sm:text-right rtl:sm:text-right ltr:sm:text-left">
+        <div class="inline-flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 px-3.5 py-1 rounded-full text-xs font-extrabold text-cyan-300">
+          <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
+          <span id="aboutBadge">من نحن؟ (About Us)</span>
+        </div>
+        <h2 id="aboutTitle" class="text-2xl sm:text-3xl font-black text-white font-title">عن منصة BASCODE الرقمية العالمية</h2>
+        <p id="aboutDesc1" class="text-xs sm:text-sm text-gray-200 leading-relaxed">
+          BASCODE منصة رقمية متخصصة في تطوير الحلول التقنية والخدمات الرقمية للأفراد والشركات. نساعد العملاء على تحويل أفكارهم إلى منتجات رقمية عملية، بدايةً من تصميم الفكرة وحتى التطوير والتسليم.
+        </p>
+        <p id="aboutDesc2" class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+          تشمل خدماتنا تطوير المواقع والمتاجر الإلكترونية، التطبيقات، الأنظمة المخصصة، حلول الذكاء الاصطناعي، الأمن السيبراني والتصميم والخدمات الرقمية. هدفنا هو تقديم حلول عملية، احترافية وقابلة للتطوير تساعد عملاءنا على بناء حضور رقمي قوي.
+        </p>
+        <div class="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-3">
+          <a href="#whybascode" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-black text-xs px-6 py-3 rounded-full shadow-lg transition-all flex items-center gap-2 hover:scale-105">
+            <span id="aboutBtnText">تعرف علينا أكثر</span>
+            <i data-lucide="arrow-left" class="w-4 h-4 rtl-flip"></i>
+          </a>
+          <button onclick="openModalForService('استشارة عامة - BASCODE General Request', 0)" class="bg-white/5 hover:bg-white/10 text-white font-bold text-xs px-6 py-3 rounded-full border border-white/10 transition-all flex items-center gap-2 cursor-pointer">
+            <i data-lucide="message-square" class="w-4 h-4 text-amber-400"></i>
+            <span id="aboutBtnContact">تواصل معنا المباشر</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTIONS SECTION ("حلول الشركات وحلول الأفراد") -->
+    <section id="solutions" class="space-y-8 w-full">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span id="solBadge" class="text-xs font-bold text-amber-400 bg-amber-500/10 px-3.5 py-1 rounded-full border border-amber-500/20">
+          💼 حلول متكاملة
+        </span>
+        <h2 id="solTitle" class="text-2xl sm:text-3xl font-black text-white font-title">حلول برمجية مخصصة للشركات والأفراد</h2>
+        <p id="solSub" class="text-xs text-gray-400">اختر مسار خدماتك للحصول على حزمة مخصصة لاحتياجات عملك أو حضورك الشخصي</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Corporate Solutions -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-cyan-500/30 bg-cyan-500/5 space-y-4 hover:border-cyan-400 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="p-3 bg-cyan-500/20 rounded-2xl text-cyan-400">
+                <i data-lucide="building-2" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-extrabold text-cyan-300 uppercase tracking-widest block">ENTERPRISE SOLUTIONS</span>
+                <h3 id="corpTitle" class="text-lg sm:text-xl font-black text-white">حلول للشركات والمؤسسات</h3>
+              </div>
+            </div>
+            <p id="corpDesc" class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              نوفر للشركات والمؤسسات بنية رقمية كاملة: مواقع رسمية، متاجر إلكترونية ضخمة، أنظمة إدارية مخصصة (CRM/ERP)، أتمتة العمليات، والذكاء الاصطناعي مع فحص وتأمين سيبراني.
+            </p>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i> <span id="corpFeat1">مواقع ومتاجر الشركات والأنظمة المخصصة</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i> <span id="corpFeat2">أتمتة العمليات وربط بوابات الدفع</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-cyan-400 shrink-0"></i> <span id="corpFeat3">تدقيق أمني وسيرفرات سحابية محمية</span></li>
+            </ul>
+          </div>
+          <button onclick="openModalForService('حلول الشركات والمؤسسات - Corporate Solutions', 1500)" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs py-3.5 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-4">
+            <span id="corpBtnText">طلب حلول للشركات 🏢</span>
+          </button>
+        </div>
+
+        <!-- Individual Solutions -->
+        <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-amber-500/30 bg-amber-500/5 space-y-4 hover:border-amber-400 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <div class="p-3 bg-amber-500/20 rounded-2xl text-amber-400">
+                <i data-lucide="user-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[10px] font-extrabold text-amber-300 uppercase tracking-widest block">PERSONAL SOLUTIONS</span>
+                <h3 id="indivTitle" class="text-lg sm:text-xl font-black text-white">حلول للأفراد والرواد</h3>
+              </div>
+            </div>
+            <p id="indivDesc" class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              نساعد الأفراد وأصحاب المشاريع الناشئة والخبراء في بناء حضورهم الرقمي: مواقع شخصية، معرض أعمال (Portfolio)، تصميم السيرة الذاتية (CV)، ترجمة المستندات والبحوث، والخدمات الرقمية.
+            </p>
+            <ul class="space-y-2 text-xs text-gray-300 pt-2">
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i> <span id="indivFeat1">مواقع شخصية ومعارض الأعمال</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i> <span id="indivFeat2">تصميم السيرة الذاتية والصفحات التعريفية</span></li>
+              <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i> <span id="indivFeat3">ترجمة الملفات والأبحاث وتصميم Word/Excel</span></li>
+            </ul>
+          </div>
+          <button onclick="openModalForService('حلول الأفراد والرواد - Individual Solutions', 300)" class="w-full bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs py-3.5 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer mt-4">
+            <span id="indivBtnText">طلب حلول للأفراد 👤</span>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <!-- HOW IT WORKS SECTION ("كيف نعمل") -->
     <section id="howitworks" class="space-y-8 w-full">
@@ -803,59 +895,59 @@
     <section id="whybascode" class="space-y-8 w-full">
       <div class="text-center max-w-2xl mx-auto space-y-2">
         <span id="whyBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3.5 py-1 rounded-full border border-cyan-500/20">
-          🏆 معايير الثقة والاحترافية
+          🏆 لماذا تختار BASCODE؟
         </span>
-        <h2 id="whyTitle" class="text-2xl sm:text-3xl font-black text-white font-title">لماذا يختار العملاء باسكود (Why BASCODE)?</h2>
-        <p id="whySub" class="text-xs text-gray-400">مميزات تجعلنا الشريك البرمجي والتكنيكي المفضل للمؤسسات والأفراد</p>
+        <h2 id="whyTitle" class="text-2xl sm:text-3xl font-black text-white font-title">لماذا تختار منصة BASCODE لبناء مشروعك؟</h2>
+        <p id="whySub" class="text-xs text-gray-400">نلتزم بأعلى معايير البرمجة والأمان والجودة لتقديم منتج رقمي متكامل</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-cyan-500/40 transition-all">
           <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-bold text-lg">
-            ⚡
+            💻
           </div>
-          <h3 id="why1Title" class="font-bold text-white text-base">خدمات برمجية احترافية</h3>
-          <p id="why1Desc" class="text-xs text-gray-300 leading-relaxed">كتابة كود نظيف ومعتمد لأحدث المقاييس مع تسليم السورس كود المصدري كاملاً ملكية 100%.</p>
+          <h3 id="why1Title" class="font-bold text-white text-base">حلول مخصصة</h3>
+          <p id="why1Desc" class="text-xs text-gray-300 leading-relaxed">لا نقدم حلولاً جاهزة فقط، بل نبني الحل حسب احتياجات ومتطلبات مشروعك الفريدة.</p>
         </div>
 
         <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-amber-500/40 transition-all">
           <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-bold text-lg">
-            💎
+            ⚡
           </div>
-          <h3 id="why2Title" class="font-bold text-white text-base">تسعير شفاف ومعتمد</h3>
-          <p id="why2Desc" class="text-xs text-gray-300 leading-relaxed">تحديد الأسعار فوراً بالدينار العراقي، الدرهم الإماراتي، والدولار بدون أي رسوم خفية.</p>
+          <h3 id="why2Title" class="font-bold text-white text-base">تنفيذ احترافي</h3>
+          <p id="why2Desc" class="text-xs text-gray-300 leading-relaxed">نركز على الأداء العالي، السرعة الفائقة، سهولة الاستخدام وجودة التنفيذ البرمجي.</p>
         </div>
 
         <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-emerald-500/40 transition-all">
           <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg">
-            🚀
+            🔐
           </div>
-          <h3 id="why3Title" class="font-bold text-white text-base">استجابة ودعم سريع 24/7</h3>
-          <p id="why3Desc" class="text-xs text-gray-300 leading-relaxed">تواصل مباشر عبر البريد الإداري والواتساب الرسمي لتلقي الطلبات والدعم الاستشاري.</p>
-        </div>
-
-        <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-rose-500/40 transition-all">
-          <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-lg">
-            🛡️
-          </div>
-          <h3 id="why4Title" class="font-bold text-white text-base">تطوير وفحص أمني</h3>
-          <p id="why4Desc" class="text-xs text-gray-300 leading-relaxed">فحص سيبراني شامل للملفات والسكربتات وتطهير البرمجيات ضد الفايروسات والثغرات.</p>
+          <h3 id="why3Title" class="font-bold text-white text-base">أمان وخصوصية</h3>
+          <p id="why3Desc" class="text-xs text-gray-300 leading-relaxed">نهتم بأمان البيانات وحماية البنية التقنية أثناء وبعد تطوير المشاريع والملفات.</p>
         </div>
 
         <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-purple-500/40 transition-all">
           <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 font-bold text-lg">
-            🌐
+            📱
           </div>
-          <h3 id="why5Title" class="font-bold text-white text-base">ترجمة وتوطين شامل</h3>
-          <p id="why5Desc" class="text-xs text-gray-300 leading-relaxed">ترجمة ملفات PDF والأكواد والمستندات الفنية بدقة مع الحفاظ على التنسيق والتركيب الأصلي.</p>
+          <h3 id="why4Title" class="font-bold text-white text-base">متوافق مع جميع الأجهزة</h3>
+          <p id="why4Desc" class="text-xs text-gray-300 leading-relaxed">المواقع والتطبيقات مصممة بدقة للعمل بسلاسة على الهاتف المحمول والكمبيوتر والتابلت.</p>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-rose-500/40 transition-all">
+          <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-400 font-bold text-lg">
+            💬
+          </div>
+          <h3 id="why5Title" class="font-bold text-white text-base">دعم مباشر</h3>
+          <p id="why5Desc" class="text-xs text-gray-300 leading-relaxed">تواصل مباشر وسريع مع فريق BASCODE لمتابعة كافة مراحل وإحصائيات مشروعك.</p>
         </div>
 
         <div class="glass-card p-6 rounded-2xl space-y-3 border border-white/10 hover:border-blue-500/40 transition-all">
           <div class="w-10 h-10 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 font-bold text-lg">
-            📜
+            🚀
           </div>
-          <h3 id="why6Title" class="font-bold text-white text-base">خطوات عمل واضحة وموثقة</h3>
-          <p id="why6Desc" class="text-xs text-gray-300 leading-relaxed">دليل إرشادي وخطوات موثقة لكل مشروع لضمان أقصى درجات الجودة والسهولة للعميل.</p>
+          <h3 id="why6Title" class="font-bold text-white text-base">قابل للتطوير</h3>
+          <p id="why6Desc" class="text-xs text-gray-300 leading-relaxed">نبني المشاريع بهيكلية مرنة تسمح بإضافة ميزات وتوسعات جديدة مستقبلًا بسهولة.</p>
         </div>
       </div>
     </section>
@@ -939,82 +1031,797 @@
 
     </section>
 
-    <!-- PORTFOLIO / CASE STUDIES SHOWCASE -->
+
+
+    <!-- PORTFOLIO SHOWCASE SECTION ("معرض الأعمال") -->
     <section id="portfolio" class="space-y-8">
       
-      <div class="pb-4 border-b border-white/10">
-        <span id="portBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
-          معرض الأكواد والخدمات الرقمية
+      <!-- Section Header & Filter Tabs -->
+      <div class="glass-card p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/10 space-y-6">
+        <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 pb-4 border-b border-white/10">
+          <div class="space-y-2">
+            <span id="portBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3.5 py-1.5 rounded-full border border-cyan-500/20 inline-flex items-center gap-1.5">
+              <span>🎨 معرض الأعمال والحلول الرقمية</span>
+            </span>
+            <h2 id="portTitle" class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-title">معرض الأعمال</h2>
+            <p id="portSub" class="text-xs sm:text-sm text-gray-300 max-w-2xl leading-relaxed">
+              استكشف نماذج من المشاريع والحلول الرقمية التي صممناها وطوّرناها في مجالات مختلفة.
+            </p>
+          </div>
+
+          <!-- All / Categories Filter Tabs -->
+          <div class="flex items-center gap-1.5 overflow-x-auto pb-2 max-w-full shrink-0 text-xs scrollbar-none">
+            <button onclick="filterPortfolio('all')" id="portTab-all" class="port-tab active-port-tab bg-cyan-500 text-black font-extrabold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap shadow-md">
+              الكل (10)
+            </button>
+            <button onclick="filterPortfolio('web')" id="portTab-web" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              🌐 مواقع
+            </button>
+            <button onclick="filterPortfolio('stores')" id="portTab-stores" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              🛒 متاجر
+            </button>
+            <button onclick="filterPortfolio('apps')" id="portTab-apps" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              📱 تطبيقات
+            </button>
+            <button onclick="filterPortfolio('systems')" id="portTab-systems" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              💻 أنظمة
+            </button>
+            <button onclick="filterPortfolio('ai')" id="portTab-ai" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              🤖 AI
+            </button>
+            <button onclick="filterPortfolio('cyber')" id="portTab-cyber" class="port-tab bg-white/5 text-gray-300 hover:text-white hover:bg-white/10 font-bold px-3.5 py-2 rounded-xl cursor-pointer transition-all whitespace-nowrap">
+              🛡️ Cybersecurity
+            </button>
+          </div>
+        </div>
+
+        <!-- Portfolio Cards Grid (10 Separate Cards) -->
+        <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+          
+          <!-- Project 1: E-commerce Store -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-amber-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="stores">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-amber-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="absolute top-0 left-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-amber-400 font-mono">
+                  🛒 E-Commerce Shop
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 space-y-1.5">
+                <div class="bg-black/60 p-2.5 rounded-xl border border-white/10 flex items-center justify-between">
+                  <div>
+                    <span class="text-white font-bold text-xs block">منتجات إلكترونية وفاخرة</span>
+                    <span class="text-[9px] text-gray-400">خصم 20% + شحن مجاني</span>
+                  </div>
+                  <span class="bg-amber-500 text-black font-extrabold text-[10px] px-2 py-1 rounded-md">$120.00</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-emerald-400 font-bold flex items-center gap-1">✓ بوابات دفع آمنة (Stripe)</span>
+                <span class="bg-white/10 text-white px-2 py-0.5 rounded-md">السلة (3)</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                    متاجر إلكترونية
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$1,200 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-amber-300 transition-colors">
+                  متجر إلكتروني متكامل للبيع والتسوق
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  متجر إلكتروني شامل لإدارة المنتجات، السلة، المدفوعات السريعة، وتتبع الشحنات.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span><span>سلة تسوق ودفع إلكتروني آمن</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-amber-400 font-bold">✓</span><span>إدارة المنتجات والمخزون</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-amber-300 px-2 py-0.5 rounded-md">Next.js</span>
+                  <span class="bg-white/5 text-[10px] text-amber-300 px-2 py-0.5 rounded-md">Tailwind</span>
+                  <span class="bg-white/5 text-[10px] text-amber-300 px-2 py-0.5 rounded-md">Stripe</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p1')" class="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('متجر إلكتروني متكامل للبيع والتسوق', 1200)" class="bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Mobile Application -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-purple-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="apps">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-purple-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-purple-400 font-mono">
+                  📱 Mobile Native App
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 space-y-1">
+                <div class="bg-purple-600/30 border border-purple-500/30 p-2 rounded-xl text-purple-200 text-[10px] flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse shrink-0"></span>
+                  <span>🔔 تم تأكيد طلبك بنجاح! جاري التوصيل...</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-purple-300">iOS & Android App</span>
+                <span class="bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded-md border border-purple-500/30">React Native / Flutter</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-purple-400 bg-purple-500/10 px-2.5 py-0.5 rounded-full border border-purple-500/20">
+                    تطبيقات الموبايل
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$1,800 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-purple-300 transition-colors">
+                  تطبيق موبايل ذكي للخدمات والمبيعات
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  تطبيق متوافق مع iOS & Android لإدارة الخدمات وتوفير تجربة مستخدم سريعة.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-purple-400 font-bold">✓</span><span>واجهة مستخدم عصرية وسريعة الاستجابة</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-purple-400 font-bold">✓</span><span>إشعارات فورية Push Notifications</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-purple-300 px-2 py-0.5 rounded-md">React Native</span>
+                  <span class="bg-white/5 text-[10px] text-purple-300 px-2 py-0.5 rounded-md">Flutter</span>
+                  <span class="bg-white/5 text-[10px] text-purple-300 px-2 py-0.5 rounded-md">Firebase</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p2')" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('تطبيق موبايل ذكي للخدمات والمبيعات', 1800)" class="bg-purple-600 hover:bg-purple-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Admin Dashboard -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="systems">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-cyan-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-cyan-400 font-mono">
+                  📊 BASCODE Admin Control
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5 my-2 z-10 text-[9px] text-center">
+                <div class="bg-black/50 p-1.5 rounded-lg border border-white/10">
+                  <span class="text-gray-400 block text-[8px]">المشاريع</span>
+                  <span class="text-white font-black text-xs">128</span>
+                </div>
+                <div class="bg-black/50 p-1.5 rounded-lg border border-white/10">
+                  <span class="text-gray-400 block text-[8px]">المستخدمين</span>
+                  <span class="text-cyan-400 font-black text-xs">2,560</span>
+                </div>
+                <div class="bg-emerald-500/20 p-1.5 rounded-lg border border-emerald-500/30">
+                  <span class="text-emerald-300 block text-[8px]">الإيرادات</span>
+                  <span class="text-emerald-400 font-black text-xs">$24.5k</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-cyan-300">رسوم بيانية حية بـ Recharts</span>
+                <span class="text-emerald-400 font-bold">● 99.9% Uptime</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                    لوحات تحكم وأنظمة
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$1,400 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  لوحة تحكم وتطوير أنظمة إدارة الأعمال BASCODE Admin
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  لوحة قيادة تفاعلية لمتابعة المبيعات، الفواتير، التحليلات البيانية والموظفين.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>رسوم بيانية حية بـ Recharts</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>إدارة المستويات والصلاحيات</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">React</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">TypeScript</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">Tailwind</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p3')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('لوحة تحكم وتطوير أنظمة إدارة الأعمال BASCODE Admin', 1400)" class="bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Business ERP System -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-emerald-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="systems">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-emerald-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-emerald-400 font-mono">
+                  🏢 BASECODE Enterprise ERP
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 my-2 z-10 text-[9px]">
+                <div class="bg-black/50 p-2 rounded-xl border border-emerald-500/30">
+                  <span class="text-gray-400 block text-[8px]">إجمالي الأرباح</span>
+                  <span class="text-emerald-400 font-mono font-black text-xs">$248,690</span>
+                </div>
+                <div class="bg-black/50 p-2 rounded-xl border border-emerald-500/30">
+                  <span class="text-gray-400 block text-[8px]">الطلبات النشطة</span>
+                  <span class="text-cyan-400 font-mono font-black text-xs">3,756</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-emerald-300">إدارة المخزون والمالية</span>
+                <span class="text-white bg-emerald-500/20 px-2 py-0.5 rounded-md border border-emerald-500/30">Laravel & Vue</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                    أنظمة الشركات ERP
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$2,200 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-emerald-300 transition-colors">
+                  نظام إدارة الأعمال وتخطيط الموارد (BASCODE ERP)
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  نظام شامل للمخزون، المبيعات، المشتريات، الموارد البشرية، والمالية الدقيقة.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span><span>إدارة المخزون وتنبيهات النقص</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span><span>المحاسبة العامة والفواتير الضريبية</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">Laravel</span>
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">Vue.js</span>
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">MySQL</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p4')" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('نظام إدارة الأعمال وتخطيط الموارد BASCODE ERP', 2200)" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Real Estate Platform -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-blue-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="web">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-blue-400 font-mono">
+                  🏰 Real Estate Platform
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 space-y-1.5">
+                <div class="bg-black/60 p-2.5 rounded-xl border border-blue-500/30 flex items-center justify-between">
+                  <div>
+                    <span class="text-white font-bold text-xs block">فيلا فاخرة للإيجار والبيع</span>
+                    <span class="text-[9px] text-gray-400">📍 الرياض / دبي • 4 غرف • 3 حمامات</span>
+                  </div>
+                  <span class="bg-blue-500 text-white font-extrabold text-[10px] px-2 py-1 rounded-md">$350,000</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-cyan-300 font-bold">🎥 جولة افتراضية 3D</span>
+                <span class="bg-white/10 text-white px-2 py-0.5 rounded-md">حاسبة التمويل</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20">
+                    مواقع ومنصات
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$1,100 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-blue-300 transition-colors">
+                  منصة عقارية لإدارة وعرض العقارات والمشاريع
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  منصة تفاعلية لعرض العقارات، البحث المتقدم، الجولات الافتراضية، والحجز المباشر.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-blue-400 font-bold">✓</span><span>فلترة عقارية متقدمة للبحث</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-blue-400 font-bold">✓</span><span>حاسبة تمويل عقاري تفاعلية</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">Next.js</span>
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">Tailwind</span>
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">Maps API</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p5')" class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('منصة عقارية لإدارة وعرض العقارات والمشاريع', 1100)" class="bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Appointment Booking System -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="systems">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-cyan-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-cyan-400 font-mono">
+                  📅 Booking & Calendar System
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 grid grid-cols-3 gap-1 text-[9px] text-center">
+                <div class="bg-emerald-500/20 border border-emerald-500/30 p-1.5 rounded-lg text-emerald-300 font-bold">
+                  09:00 AM ✓
+                </div>
+                <div class="bg-emerald-500/20 border border-emerald-500/30 p-1.5 rounded-lg text-emerald-300 font-bold">
+                  11:30 AM ✓
+                </div>
+                <div class="bg-black/50 border border-white/10 p-1.5 rounded-lg text-gray-500 font-bold">
+                  02:00 PM 🔒
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-cyan-300">مزامنة Google Calendar</span>
+                <span class="text-emerald-400 font-bold">تأكيد واتساب آلي</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                    أنظمة حجز مواعيد
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$650 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  نظام حجز مواعيد واستشارات أونلاين
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  نظام حجز آلي للعيادات والمراكز والاستشارات مع التقويم التفاعلي والدفع.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>تقويم تفاعلي لاختيار الأوقات</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>تأكيد آلي عبر الواتساب والبريد</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">React</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">Node.js</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">Calendar API</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p6')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('نظام حجز مواعيد واستشارات أونلاين', 650)" class="bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7: E-Learning Platform -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-indigo-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="web">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-indigo-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-indigo-400 font-mono">
+                  🎓 E-Learning Academy
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 space-y-1.5">
+                <div class="bg-black/60 p-2.5 rounded-xl border border-indigo-500/30 flex items-center justify-between text-[10px]">
+                  <div>
+                    <span class="text-white font-bold block">دورة البرمجة الاحترافية</span>
+                    <span class="text-emerald-400 font-mono font-bold">78% مكتمل • شهادة جاهزة</span>
+                  </div>
+                  <span class="bg-indigo-600 text-white px-2 py-1 rounded-md text-[9px] font-bold">مشاهدة الدرس</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-indigo-300">اختبارات آلية + مشغل آمن</span>
+                <span class="text-emerald-400 font-bold">✓ شهادات معتمدة</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-indigo-400 bg-indigo-500/10 px-2.5 py-0.5 rounded-full border border-indigo-500/20">
+                    منصات تعليمية
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$950 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-indigo-300 transition-colors">
+                  منصة تعليمية متكاملة للدورات والاختبارات
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  منصة تفاعلية تقدّم مقاطع الفيديو المشفرة، الاختبارات الآلية، والشهادات المعتمدة.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-indigo-400 font-bold">✓</span><span>مشغل فيديو آمن وحماية المحتوى</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-indigo-400 font-bold">✓</span><span>إصدار شهادات إتمام بكود تحقق</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-indigo-300 px-2 py-0.5 rounded-md">React</span>
+                  <span class="bg-white/5 text-[10px] text-indigo-300 px-2 py-0.5 rounded-md">Tailwind</span>
+                  <span class="bg-white/5 text-[10px] text-indigo-300 px-2 py-0.5 rounded-md">HLS Streaming</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p7')" class="text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('منصة تعليمية متكاملة للدورات والاختبارات', 950)" class="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 8: Cybersecurity Audit System -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-emerald-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="cyber">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-emerald-950/50 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-emerald-400 font-mono">
+                  🛡️ Cyber Defense & Scanner
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 bg-black/70 p-2 rounded-xl border border-emerald-500/30 font-mono text-[9px] text-emerald-400 space-y-1">
+                <div>> scanning target_server --full</div>
+                <div>[SUCCESS] 0 Critical Vulnerabilities Found</div>
+                <div class="text-cyan-300">[SSL/TLS] Encrypted 256-Bit Standard</div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-emerald-300 font-bold">🛡️ 100% Secure Score</span>
+                <span class="text-white bg-emerald-500/20 px-2 py-0.5 rounded-md">OWASP Verified</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                    الأمن السيبراني
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$800 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-emerald-300 transition-colors">
+                  منصة فحص وحماية الأمن السيبراني
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  نظام فحص أمني آلي للمواقع والسيرفرات لاكتشاف الثغرات وتأمين البيانات من الاختراق.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span><span>فحص الثغرات البرمجية OWASP Top 10</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-emerald-400 font-bold">✓</span><span>تشفير وحماية الاتصالات SSL</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">Python Security</span>
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">OWASP ZAP</span>
+                  <span class="bg-white/5 text-[10px] text-emerald-300 px-2 py-0.5 rounded-md">Linux Hardening</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p8')" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('منصة فحص وحماية الأمن السيبراني', 800)" class="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 9: AI Assistant & Chatbot -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-blue-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="ai">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-blue-400 font-mono">
+                  🤖 AI Chatbot & Assistant
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="my-2 z-10 space-y-1.5">
+                <div class="bg-blue-600/30 border border-blue-500/30 text-blue-100 p-2 rounded-xl text-[10px]">
+                  "مرحباً بك! كيف يمكنني مساعدتك في أتمتة أعمالك اليوم؟ 👋"
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-blue-300">استجابة 0.4 ثانية</span>
+                <span class="text-emerald-400 font-bold">99% دقة الإجابات</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-blue-400 bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-500/20">
+                    الذكاء الاصطناعي
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$850 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-blue-300 transition-colors">
+                  مساعد ذكاء اصطناعي وشات بوت مخصص للأعمال
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  مساعد ذكي يعالج اللغة الطبيعية ومدرّب على بيانات شركتك للرد التلقائي والإجابة 24/7.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-blue-400 font-bold">✓</span><span>تدريب مخصص على ملفات الشركة</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-blue-400 font-bold">✓</span><span>دعم كامل للغة العربية والإنجليزي</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">Python</span>
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">Gemini API</span>
+                  <span class="bg-white/5 text-[10px] text-blue-300 px-2 py-0.5 rounded-md">OpenAI</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p9')" class="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('مساعد ذكاء اصطناعي وشات بوت مخصص للأعمال', 850)" class="bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 10: Project Management Platform -->
+          <div class="port-card glass-card rounded-2xl sm:rounded-3xl border border-white/10 hover:border-cyan-500/40 overflow-hidden transition-all duration-300 group flex flex-col justify-between" data-cat="systems">
+            <!-- Visual Card Header -->
+            <div class="bg-gradient-to-br from-slate-950 via-cyan-950/40 to-slate-900 p-4 border-b border-white/10 relative min-h-[190px] flex flex-col justify-between overflow-hidden">
+              <div class="flex items-center justify-between text-[11px] font-bold z-10">
+                <span class="flex items-center gap-1.5 text-cyan-400 font-mono">
+                  📋 Project Management Kanban
+                </span>
+                <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2.5 py-0.5 rounded-full border border-amber-500/30 font-bold">
+                  Demo Project
+                </span>
+              </div>
+              <div class="grid grid-cols-3 gap-1 my-2 z-10 text-[8px] text-center">
+                <div class="bg-white/10 p-1.5 rounded-lg border border-white/10">
+                  <span class="text-gray-400 block">قيد الانتظار</span>
+                  <span class="text-white font-bold text-[9px]">4 مهام</span>
+                </div>
+                <div class="bg-cyan-500/20 p-1.5 rounded-lg border border-cyan-500/30">
+                  <span class="text-cyan-300 block">قيد التنفيذ</span>
+                  <span class="text-cyan-300 font-bold text-[9px]">8 مهام ⚡</span>
+                </div>
+                <div class="bg-emerald-500/20 p-1.5 rounded-lg border border-emerald-500/30">
+                  <span class="text-emerald-300 block">مكتملة</span>
+                  <span class="text-emerald-300 font-bold text-[9px]">15 مهمة ✓</span>
+                </div>
+              </div>
+              <div class="flex items-center justify-between text-[9px] text-gray-400 z-10">
+                <span class="text-cyan-300">Drag & Drop Kanban</span>
+                <span class="text-emerald-400 font-bold">مخطط جانت (Gantt)</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="p-5 space-y-4 flex-1 flex flex-col justify-between">
+              <div class="space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/20">
+                    إدارة المشاريع
+                  </span>
+                  <span class="text-xs font-mono font-bold text-gray-300">$1,000 USD</span>
+                </div>
+                <h3 class="text-base font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  منصة إدارة وتتبع المهام والمشاريع والفرق
+                </h3>
+                <p class="text-xs text-gray-300 leading-relaxed">
+                  منصة لتوزيع المهام، لوحات Kanban، متابعة الوقت، والتواصل بين أفراد الفريق.
+                </p>
+                <div class="space-y-1 text-[11px] text-gray-300 pt-1">
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>لوحات Kanban بسحب وإفلات</span></div>
+                  <div class="flex items-center gap-1.5"><span class="text-cyan-400 font-bold">✓</span><span>تحديد المواعيد والإنتاجية</span></div>
+                </div>
+              </div>
+              <div class="space-y-3 pt-3 border-t border-white/5">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">React</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">TypeScript</span>
+                  <span class="bg-white/5 text-[10px] text-cyan-300 px-2 py-0.5 rounded-md">Tailwind</span>
+                </div>
+                <div class="flex items-center justify-between gap-2 pt-1">
+                  <button onclick="openProjectDetails('p10')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 cursor-pointer">
+                    <span>مشاهدة المشروع</span>
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+                  </button>
+                  <button onclick="openModalForService('منصة إدارة وتتبع المهام والمشاريع والفرق', 1000)" class="bg-cyan-500 hover:bg-cyan-400 text-black font-extrabold text-xs px-3.5 py-1.5 rounded-xl cursor-pointer">
+                    طلب مثل هذا
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Section Bottom Call to Action -->
+        <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+          <div class="space-y-1">
+            <h3 class="text-lg sm:text-xl font-black text-white font-title">هل لديك مشروع؟ دعنا نبنيه معًا.</h3>
+            <p class="text-xs text-gray-400">تواصل مع فريق باسكود لتحويل فكرتك إلى تطبيق أو منصة ناجحة بأعلى كفاءة.</p>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <button onclick="filterPortfolio('all')" class="bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-bold text-xs px-4 py-2.5 rounded-xl border border-white/10 transition-colors cursor-pointer">
+              عرض جميع الأعمال
+            </button>
+            <button onclick="openModalForService('طلب مشروع مخصص جديد', 500)" class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black font-extrabold text-xs px-6 py-2.5 rounded-xl transition-all cursor-pointer shadow-lg shadow-amber-500/20">
+              ابدأ مشروعك الآن 🚀
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section id="track" class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/10 space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span id="trackBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3.5 py-1 rounded-full border border-cyan-500/20">
+          🔍 متابعة حية ومباشرة
         </span>
-        <h2 id="portTitle" class="text-2xl sm:text-3xl font-black text-white mt-2 font-title">نماذج من أعمال وخبرات منصة باسكود</h2>
-        <p id="portSub" class="text-xs text-gray-400 mt-1">أنظمة برمجية وحلول ترجمة وفحص ملفات تمت زيادة كفاءتها وتأمينها بنجاح</p>
+        <h2 id="trackTitle" class="text-2xl sm:text-3xl font-black text-white font-title">نظام متابعة حالة المشروع (Project Order Tracker)</h2>
+        <p id="trackSub" class="text-xs text-gray-400">أدخل كود مشروعك المعتمد لمتابعة مراحل التنفيذ والاختبار والتسليم فوراً</p>
       </div>
 
-      <div id="portfolioGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        
-        <!-- Showcase Item 1 -->
-        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-white/10 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-full border border-amber-500/20">
-                منصة عقارية كاملة
-              </span>
-              <span class="text-xs text-gray-400">1,800$ USD</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-black text-white">منصة إدارة العقارات والمزادات الذكية</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              تطوير موقع ويب وسيرفر كامل يتيح للبائعين والمشترين التزايد الحقيقي على العقارات مع نظام إشعارات فورية وتكامل خرائط جوجل.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">React</span>
-            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Node.js Express</span>
-            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">PostgreSQL</span>
-          </div>
+      <div class="max-w-xl mx-auto space-y-4">
+        <div class="flex flex-col sm:flex-row items-center gap-2">
+          <input type="text" id="trackCodeInput" placeholder="أدخل كود المشروع (مثال: BSC-1001)" class="w-full bg-black/60 border border-white/10 text-white text-xs sm:text-sm font-bold rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          <button onclick="trackProjectStatus()" class="w-full sm:w-auto bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-extrabold text-xs px-6 py-3 rounded-xl cursor-pointer shrink-0 min-h-[44px] flex items-center justify-center gap-2">
+            <i data-lucide="search" class="w-4 h-4"></i>
+            <span id="trackBtnText">متابعة حالة الطلب</span>
+          </button>
         </div>
 
-        <!-- Showcase Item 2: Translation Showcase -->
-        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-amber-500/30 bg-amber-500/5 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-amber-300 bg-amber-500/20 px-2.5 py-1 rounded-full border border-amber-500/30">
-                ✨ ترجمة وتوطين برجمي
-              </span>
-              <span class="text-xs text-gray-400">150$ USD</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-black text-white">توطين وترجمة مستندات نظام مالية ومصرفية</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              ترجمة كاملة ومزدوجة (عربي / إنجليزي) لكافة مستندات النظام وقواعد البيانات والملفات النصية مع الحفاظ على التنسيق والتركيب.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">Technical Localization</span>
-            <span class="bg-white/5 text-[10px] font-bold text-amber-300 px-2.5 py-1 rounded-lg">i18n Standards</span>
-          </div>
+        <div class="flex items-center justify-center gap-2 text-[10px] text-gray-400 flex-wrap">
+          <span id="trackTryText">جرب الأكواد التجريبية:</span>
+          <button onclick="document.getElementById('trackCodeInput').value='BSC-1001'; trackProjectStatus();" class="text-cyan-400 underline hover:text-cyan-300 font-mono cursor-pointer">BSC-1001</button>
+          <span>•</span>
+          <button onclick="document.getElementById('trackCodeInput').value='BSC-1002'; trackProjectStatus();" class="text-amber-400 underline hover:text-amber-300 font-mono cursor-pointer">BSC-1002</button>
+          <span>•</span>
+          <button onclick="document.getElementById('trackCodeInput').value='BSC-1003'; trackProjectStatus();" class="text-emerald-400 underline hover:text-emerald-300 font-mono cursor-pointer">BSC-1003</button>
         </div>
 
-        <!-- Showcase Item 3: File Security Scan -->
-        <div class="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl space-y-3 sm:space-y-4 border border-cyan-500/30 bg-cyan-500/5 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-[10px] font-bold text-cyan-300 bg-cyan-500/20 px-2.5 py-1 rounded-full border border-cyan-500/30">
-                🛡️ فحص ملفات وسيرفرات
-              </span>
-              <span class="text-xs text-gray-400">200$ USD</span>
-            </div>
-            <h3 class="text-base sm:text-lg font-black text-white">تدقيق أمني وفحص فايروسات لملفات تطبيق مؤسسي</h3>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              فحص سيبراني شامل لأكثر من 500 ملف برمجي واكتشاف ثغرات تسريب البيانات وتطهير السكربتات بتقرير أمني رسمي.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Malware Audit</span>
-            <span class="bg-white/5 text-[10px] font-bold text-cyan-300 px-2.5 py-1 rounded-lg">Security Report</span>
-          </div>
+        <div id="trackerResultBox" class="hidden bg-black/60 border border-cyan-500/30 p-5 rounded-2xl space-y-4">
+          <!-- Timeline filled dynamically -->
         </div>
+      </div>
+    </section>
 
+    <!-- PAYMENT METHODS & POLICY SECTION ("وسائل الدفع وسياسة الدفع") -->
+    <section id="payments" class="glass-card p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-white/10 space-y-6">
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <span id="payBadge" class="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3.5 py-1 rounded-full border border-emerald-500/20">
+          💳 وسائل الدفع والشفافية
+        </span>
+        <h2 id="payTitle" class="text-2xl sm:text-3xl font-black text-white font-title">وسائل الدفع الإلكتروني وسياسة التعامل</h2>
+        <p id="paySub" class="text-xs text-gray-400">طرق دفع آمنة ومعتمدة رسمياً تناسب العملاء داخل العراق وخارجه</p>
       </div>
 
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl space-y-1.5 hover:border-emerald-500/40 transition-all">
+          <div class="text-emerald-400 font-extrabold text-sm">ZainCash</div>
+          <span class="text-[10px] text-gray-300 block">زين كاش (بالدينار IQD)</span>
+        </div>
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl space-y-1.5 hover:border-cyan-500/40 transition-all">
+          <div class="text-cyan-400 font-extrabold text-sm">Visa / Mastercard</div>
+          <span class="text-[10px] text-gray-300 block">البطاقات الإلكترونية (USD)</span>
+        </div>
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl space-y-1.5 hover:border-amber-500/40 transition-all">
+          <div class="text-amber-400 font-extrabold text-sm">Bank SWIFT Transfer</div>
+          <span class="text-[10px] text-gray-300 block">تحويل مصرفي (IQD / AED)</span>
+        </div>
+        <div class="bg-black/50 border border-white/10 p-4 rounded-2xl space-y-1.5 hover:border-purple-500/40 transition-all">
+          <div class="text-purple-400 font-extrabold text-sm">Exchange Offices</div>
+          <span class="text-[10px] text-gray-300 block">مكاتب الصرافة المعتمدة</span>
+        </div>
+      </div>
+
+      <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl text-center max-w-2xl mx-auto space-y-2">
+        <p id="payPolicyNote" class="text-xs text-amber-300 font-bold">
+          📌 ملاحظة هامة: يتم إرسال تفاصيل وحسابات الدفع رسمياً بعد الاتفاق على تفاصيل وعرض أسعار المشروع.
+        </p>
+        <button onclick="openPaymentPolicyModal()" class="text-xs font-bold text-cyan-300 hover:text-cyan-200 underline cursor-pointer">
+          <span id="payPolicyBtnText">الاطلاع على سياسة الدفع الشفافة والضمان</span>
+        </button>
+      </div>
     </section>
 
     <!-- FAQ SECTION -->
@@ -1169,47 +1976,110 @@
 
       <form onsubmit="handleOrderSubmit(event)" class="space-y-3.5 sm:space-y-4">
         
+        <!-- Selected Service & Category -->
         <div>
-          <label id="lblSelectedService" class="block text-xs font-bold text-gray-300 mb-1">الخدمة الرقمية المختارة:</label>
+          <label id="lblSelectedService" class="block text-xs font-bold text-gray-300 mb-1">الخدمة / نوع الطلب المختار:</label>
           <div id="selectedServiceBadge" class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-extrabold text-xs p-2.5 sm:p-3 rounded-xl break-words">
             -
           </div>
         </div>
 
+        <!-- 1. Full Name & 2. Email -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <label id="lblName" class="block text-xs font-bold text-gray-300 mb-1">الاسم الكامل *</label>
+            <label id="lblName" class="block text-xs font-bold text-gray-300 mb-1">1. الاسم الكامل *</label>
             <input type="text" id="clientName" required placeholder="مثال: محمد علي السالم" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
           <div>
-            <label id="lblEmail" class="block text-xs font-bold text-gray-300 mb-1">البريد الإلكتروني للعميل *</label>
+            <label id="lblEmail" class="block text-xs font-bold text-gray-300 mb-1">2. البريد الإلكتروني *</label>
             <input type="email" id="clientEmail" required placeholder="client@domain.com" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
         </div>
 
+        <!-- 3. Phone & 4. Company -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div>
-            <label id="lblPhone" class="block text-xs font-bold text-gray-300 mb-1">رقم الهاتف / الواتساب *</label>
+            <label id="lblPhone" class="block text-xs font-bold text-gray-300 mb-1">3. رقم الهاتف / الواتساب *</label>
             <input type="tel" id="clientPhone" required placeholder="+964 770 123 4567" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
           <div>
-            <label id="lblCompany" class="block text-xs font-bold text-gray-300 mb-1">اسم الشركة / المؤسسة</label>
+            <label id="lblCompany" class="block text-xs font-bold text-gray-300 mb-1">4. اسم الشركة / الجهة</label>
             <input type="text" id="clientCompany" placeholder="اختياري" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
           </div>
         </div>
 
-        <div>
-          <label id="lblPayment" class="block text-xs font-bold text-gray-300 mb-1">طريقة الدفع المفضلة:</label>
-          <select id="paymentMethod" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
-            <option value="زين كاش / تحويل محلي">زين كاش / تحويل محلي بالدينار (IQD)</option>
-            <option value="بطاقة إلكترونية Visa/Mastercard">بطاقة إلكترونية Visa / Mastercard</option>
-            <option value="تحويل بانكي دولي (SWIFT)">تحويل بانكي دولي (AED / USD)</option>
-          </select>
+        <!-- 5. Project Name & 6. Budget -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblProjName" class="block text-xs font-bold text-gray-300 mb-1">5. اسم المشروع / المسمى البرمجي</label>
+            <input type="text" id="projectName" placeholder="مثال: متجر الكتروني / تطبيق جوال" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+          <div>
+            <label id="lblBudget" class="block text-xs font-bold text-gray-300 mb-1">6. الميزانية المتوقعة ($)</label>
+            <select id="clientBudget" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+              <option value="حسب التقدير التلقائي للخدمة">حسب التقدير التلقائي للخدمة</option>
+              <option value="100$ - 300$">$100 - $300 (مشاريع صغيرة / ترجمة)</option>
+              <option value="300$ - 800$">$300 - $800 (مواقع وتطبيقات متوسطة)</option>
+              <option value="800$ - 2000$">$800 - $2,000 (منصات متكاملة وعقارية)</option>
+              <option value="2000$+">$2,000+ (أنظمة مخصصة وحلول شركات)</option>
+            </select>
+          </div>
         </div>
 
+        <!-- 7. Target Deadline & 8. Design Status -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblDeadline" class="block text-xs font-bold text-gray-300 mb-1">7. الموعد المطلوب للتسليم</label>
+            <input type="text" id="clientDeadline" placeholder="مثال: خلال 7 أيام / عاجل" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+          </div>
+          <div>
+            <label id="lblDesignStatus" class="block text-xs font-bold text-gray-300 mb-1">8. هل لديك تصميم جاهز؟</label>
+            <select id="clientHasDesign" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+              <option value="نعم (Figma / Adobe XD)">نعم، يوجد تصميم جاهز (Figma / XD)</option>
+              <option value="لا، يتطلب تصميم كامل من باسكود">لا، يتطلب تصميم كامل من باسكود</option>
+              <option value="يوجد فكرة / نماذج مشابهة">يوجد فكرة ونماذج توضيحية مشابهة</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 9. Domain Status & 10. Hosting Status -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblDomainStatus" class="block text-xs font-bold text-gray-300 mb-1">9. هل لديك اسم دومين (Domain)؟</label>
+            <select id="clientHasDomain" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+              <option value="نعم، لدي دومين محجوز">نعم، لدي دومين جاهز ومحجوز</option>
+              <option value="لا، أطلب حجز دومين جديد من باسكود">لا، أطلب حجز دومين جديد من باسكود</option>
+            </select>
+          </div>
+          <div>
+            <label id="lblHostingStatus" class="block text-xs font-bold text-gray-300 mb-1">10. هل لديك استضافة وسيرفر؟</label>
+            <select id="clientHasHosting" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+              <option value="نعم، لدي سيرفر واستضافة">نعم، لدي سيرفر أو استضافة سحابية</option>
+              <option value="لا، أطلب تجهيز سيرفر وسحابية من باسكود">لا، أطلب إعداد وتأمين سيرفر من باسكود</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 11. Payment Method & 12. File Attachment -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div>
+            <label id="lblPayment" class="block text-xs font-bold text-gray-300 mb-1">11. طريقة الدفع المفضلة:</label>
+            <select id="paymentMethod" class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500 min-h-[44px]">
+              <option value="زين كاش / تحويل محلي">زين كاش / تحويل محلي بالدينار (IQD)</option>
+              <option value="بطاقة إلكترونية Visa/Mastercard">بطاقة إلكترونية Visa / Mastercard</option>
+              <option value="تحويل بانكي دولي (SWIFT)">تحويل بانكي دولي (AED / USD)</option>
+            </select>
+          </div>
+          <div>
+            <label id="lblFileAttach" class="block text-xs font-bold text-gray-300 mb-1">12. إرفاق ملف / مستند (اختياري)</label>
+            <input type="file" id="clientFile" class="w-full bg-black/60 border border-white/10 text-gray-300 text-xs rounded-xl p-2 focus:outline-none focus:border-cyan-500 min-h-[44px] cursor-pointer">
+          </div>
+        </div>
+
+        <!-- 13. Project Description & Extra Notes -->
         <div>
-          <label id="lblNotes" class="block text-xs font-bold text-gray-300 mb-1">ملاحظات وتعليمات المشروع / الملفات الخاصة</label>
-          <textarea id="clientNotes" rows="3" placeholder="أضف أي تفاصيل خاصة باللغات، الترجمة، فحص الملفات، أو المواعيد..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
+          <label id="lblNotes" class="block text-xs font-bold text-gray-300 mb-1">13. وصف ونطاق المشروع والتعليمات الإضافية *</label>
+          <textarea id="clientNotes" rows="3" required placeholder="اكتب تفاصيل الفكرة، الميزات المطلوب تنفيذها، أو ملاحظات الملفات واللغات..." class="w-full bg-black/60 border border-white/10 text-white text-sm sm:text-xs rounded-xl p-3 focus:outline-none focus:border-cyan-500"></textarea>
         </div>
 
         <div class="bg-black/60 p-3.5 sm:p-4 rounded-2xl border border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
@@ -1439,7 +2309,6 @@
           <li><a href="#calculator" id="fLinkCalc" class="hover:text-amber-400 transition-colors">حاسبة التكلفة الفورية</a></li>
           <li><a href="#techstack" id="fLinkTech" class="hover:text-cyan-400 transition-colors">منظومة التقنيات واللغات</a></li>
           <li><a href="#reviews" id="fLinkReviews" class="hover:text-cyan-400 transition-colors">تقييمات العملاء الموثقة</a></li>
-          <li><a href="#portfolio" id="fLinkPortfolio" class="hover:text-cyan-400 transition-colors">معرض المشاريع والخدمات</a></li>
           <li><a href="#faq" id="fLinkFaq" class="hover:text-cyan-400 transition-colors">الأسئلة الشائعة</a></li>
         </ul>
       </div>
@@ -1513,6 +2382,110 @@
       </div>
     </div>
   </footer>
+
+  <!-- PROJECT DETAILS SHOWCASE MODAL -->
+  <div id="projectDetailModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-card bg-slate-950/95 border border-cyan-500/30 rounded-2xl sm:rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-5 relative max-h-[92vh] overflow-y-auto">
+      <!-- Close Button -->
+      <button onclick="closeProjectDetails()" class="absolute top-4 left-4 sm:top-6 sm:left-6 text-gray-400 hover:text-white p-2 rounded-xl bg-white/5 hover:bg-white/10 transition-colors cursor-pointer z-20">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Visual Preview Mockup Header -->
+      <div id="pModalVisual" class="w-full rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-slate-900 via-indigo-950 to-black p-4 relative min-h-[160px] flex flex-col justify-between">
+        <!-- Dynamically rendered visual representation -->
+      </div>
+
+      <!-- Header Info -->
+      <div class="space-y-2 pt-1">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="pModalBadge" class="text-xs font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+              متجر إلكتروني
+            </span>
+            <span id="pModalCategory" class="text-xs text-gray-400 font-mono">
+              متاجر إلكترونية
+            </span>
+          </div>
+          <span id="pModalStatus" class="text-[10px] font-extrabold text-amber-300 bg-amber-500/20 px-3 py-1 rounded-full border border-amber-500/30 font-mono">
+            Demo Project • مشروع تجريبي
+          </span>
+        </div>
+        <div class="flex items-center justify-between gap-4">
+          <h3 id="pModalTitle" class="text-xl sm:text-2xl font-black text-white font-title leading-snug">
+            عنوان المشروع
+          </h3>
+          <p id="pModalPrice" class="text-sm font-mono font-bold text-amber-400 shrink-0">
+            $1,200 USD
+          </p>
+        </div>
+      </div>
+
+      <!-- Overview & Description -->
+      <div class="bg-white/5 p-4 rounded-xl border border-white/10 space-y-1.5">
+        <h4 class="text-xs font-bold text-cyan-400 flex items-center gap-1.5">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>الوصف الكامل للمشروع:</span>
+        </h4>
+        <p id="pModalDesc" class="text-xs sm:text-sm text-gray-200 leading-relaxed">
+          وصف تفصيلي للحل البرمجي...
+        </p>
+      </div>
+
+      <!-- Problem vs Solution Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <div class="bg-rose-950/30 border border-rose-500/20 p-3.5 rounded-xl space-y-1">
+          <span class="text-rose-400 font-bold block text-[11px]">⚠️ التحدي / المشكلة:</span>
+          <p id="pModalProblem" class="text-gray-300 text-[11px] leading-relaxed">تحدي المبيعات أو الأداء...</p>
+        </div>
+        <div class="bg-emerald-950/30 border border-emerald-500/20 p-3.5 rounded-xl space-y-1">
+          <span class="text-emerald-400 font-bold block text-[11px]">💡 الحل البرمجي المقدم:</span>
+          <p id="pModalSolution" class="text-gray-300 text-[11px] leading-relaxed">الحل الرقمي المنفذ...</p>
+        </div>
+      </div>
+
+      <!-- Features Checklist -->
+      <div class="space-y-2">
+        <h4 class="text-xs font-bold text-cyan-400">المميزات والخصائص الرئيسية:</h4>
+        <ul id="pModalFeatures" class="space-y-2 bg-black/30 p-4 rounded-xl border border-white/5">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+
+      <!-- Execution Duration & Tech Stack -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+        <div class="space-y-1.5">
+          <h4 class="text-xs font-bold text-gray-400">منظومة التقنيات المستخدمة:</h4>
+          <div id="pModalTech" class="flex flex-wrap gap-1.5">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+        <div class="bg-white/5 p-3 rounded-xl border border-white/10 flex items-center justify-between">
+          <span class="text-xs text-gray-400 font-bold">مدة التنفيذ والتسليم:</span>
+          <span id="pModalDuration" class="text-xs font-bold text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/20 font-mono">5 - 10 أيام</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+        <div class="flex items-center gap-2">
+          <a id="pModalDemoBtn" href="#contact" onclick="closeProjectDetails()" class="px-4 py-2 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>معاينة Demo Live</span>
+          </a>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="closeProjectDetails()" class="px-4 py-2 rounded-xl text-xs font-bold text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 cursor-pointer">
+            إغلاق
+          </button>
+          <button id="pModalOrderBtn" class="px-5 py-2.5 rounded-xl text-xs font-black text-black bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 transition-all cursor-pointer shadow-lg shadow-amber-500/20 flex items-center gap-1.5">
+            <span>ابدأ مشروعك الآن</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5 rtl:rotate-180"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- PLATFORM JAVASCRIPT LOGIC -->
   <script>
@@ -3767,14 +4740,22 @@
 
     async function handleOrderSubmit(e) {
       e.preventDefault();
-      const name = document.getElementById('clientName').value;
-      const email = document.getElementById('clientEmail').value;
-      const phone = document.getElementById('clientPhone').value;
-      const company = document.getElementById('clientCompany').value;
-      const paymentMethod = document.getElementById('paymentMethod').value;
-      const notes = document.getElementById('clientNotes').value;
+      const name = document.getElementById('clientName') ? document.getElementById('clientName').value : '';
+      const email = document.getElementById('clientEmail') ? document.getElementById('clientEmail').value : '';
+      const phone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value : '';
+      const company = document.getElementById('clientCompany') ? document.getElementById('clientCompany').value : '';
+      const projName = document.getElementById('projectName') ? document.getElementById('projectName').value : '';
+      const budget = document.getElementById('clientBudget') ? document.getElementById('clientBudget').value : '';
+      const deadline = document.getElementById('clientDeadline') ? document.getElementById('clientDeadline').value : '';
+      const hasDesign = document.getElementById('clientHasDesign') ? document.getElementById('clientHasDesign').value : '';
+      const hasDomain = document.getElementById('clientHasDomain') ? document.getElementById('clientHasDomain').value : '';
+      const hasHosting = document.getElementById('clientHasHosting') ? document.getElementById('clientHasHosting').value : '';
+      const paymentMethod = document.getElementById('paymentMethod') ? document.getElementById('paymentMethod').value : '';
+      const fileInput = document.getElementById('clientFile');
+      const fileName = (fileInput && fileInput.files && fileInput.files[0]) ? fileInput.files[0].name : 'لا يوجد ملف مرفق';
+      const notes = document.getElementById('clientNotes') ? document.getElementById('clientNotes').value : '';
 
-      const randomRef = `#BAS-${Math.floor(100000 + Math.random() * 900000)}`;
+      const randomRef = `BSC-${Math.floor(1000 + Math.random() * 9000)}`;
 
       const payload = {
         orderDetails: {
@@ -3783,7 +4764,14 @@
           clientEmail: email,
           clientPhone: phone,
           companyName: company,
+          projectName: projName,
+          budget: budget,
+          deadline: deadline,
+          hasDesign: hasDesign,
+          hasDomain: hasDomain,
+          hasHosting: hasHosting,
           paymentMethod: paymentMethod,
+          fileName: fileName,
           notes: notes,
           customServiceTitle: activeServiceTitle,
           totalUSD: activeServicePrice,
@@ -3791,30 +4779,38 @@
         }
       };
 
-      // Construct immediate Mailto URL with target bascode84@gmail.com
-      const subject = encodeURIComponent(`[طلب خدمة جديد - BASCODE ${randomRef}] العميل: ${name}`);
+      const subject = encodeURIComponent(`[طلب جديد - BASCODE ${randomRef}] ${projName || activeServiceTitle} - العميل: ${name}`);
       const body = encodeURIComponent(
         `مرحباً إدارة باسكود (BASCODE)،\n\n` +
-        `وصلكم طلب جديد عبر المنصة للتنفيذ والتواصل مع العميل:\n\n` +
+        `وصلكم طلب جديد ومفصّل عبر المنصة للتنفيذ والتواصل المباشر مع العميل:\n\n` +
         `--------------------------------------------------\n` +
-        `📌 بيانات العميل:\n` +
-        `- الاسم: ${name}\n` +
+        `📌 1. بيانات التواصل والجهة:\n` +
+        `- الاسم الكامل: ${name}\n` +
         `- البريد الإلكتروني: ${email}\n` +
         `- رقم الهاتف / الواتساب: ${phone}\n` +
-        `- الشركة / المؤسسة: ${company || 'غير محدد'}\n\n` +
+        `- اسم الشركة / الجهة: ${company || 'غير محدد'}\n\n` +
         `--------------------------------------------------\n` +
-        `🛠️ الخدمة المطلوبة:\n` +
-        `- ${activeServiceTitle}\n\n` +
+        `🛠️ 2. معلومات ونطاق المشروع:\n` +
+        `- الخدمة المحددة: ${activeServiceTitle}\n` +
+        `- اسم المشروع: ${projName || 'غير محدد'}\n` +
+        `- الميزانية المتوقعة: ${budget || 'حسب تقدير الخدمة'}\n` +
+        `- الموعد المطلوب للتسليم: ${deadline || 'عادي'}\n\n` +
         `--------------------------------------------------\n` +
-        `💰 التكلفة وطريقة الدفع:\n` +
-        `- التكلفة: ${formatPrice(activeServicePrice)}\n` +
-        `- العملة: ${currentCurrency}\n` +
-        `- طريقة الدفع: ${paymentMethod}\n\n` +
+        `⚙️ 3. المتطلبات التقنية:\n` +
+        `- حالة التصميم: ${hasDesign}\n` +
+        `- حالة الدومين: ${hasDomain}\n` +
+        `- حالة الاستضافة/السيرفر: ${hasHosting}\n` +
+        `- اسم الملف المرفق: ${fileName}\n\n` +
         `--------------------------------------------------\n` +
-        `📝 ملاحظات وتعليمات العميل:\n` +
-        `${notes || 'لا توجد ملاحظات إضافية'}\n\n` +
-        `رقم المرجعية: ${randomRef}\n` +
-        `موجه تلقائياً إلى: bascode84@gmail.com`
+        `💳 4. التكلفة وطريقة الدفع:\n` +
+        `- التكلفة التقديرية: ${formatPrice(activeServicePrice)}\n` +
+        `- العملة المختارة: ${currentCurrency}\n` +
+        `- طريقة الدفع المفضلة: ${paymentMethod}\n\n` +
+        `--------------------------------------------------\n` +
+        `📝 5. الوصف والتعليمات الإضافية:\n` +
+        `${notes || 'لا توجد تعليمات إضافية'}\n\n` +
+        `كود المتابعة للمشروع: ${randomRef}\n` +
+        `موجه تلقائياً إلى البريد المعتمد: bascode84@gmail.com`
       );
 
       let mailtoUrl = `mailto:bascode84@gmail.com?subject=${subject}&body=${body}`;
@@ -3826,7 +4822,6 @@
           body: JSON.stringify(payload)
         });
         const data = await res.json();
-        
         if (data.mailtoUrl) {
           mailtoUrl = data.mailtoUrl;
         }
@@ -3834,19 +4829,17 @@
         console.warn('Fallback to client mailto generation');
       }
 
-      // Set Mailto Link
       const emailBtn = document.getElementById('emailMailtoLink');
       if (emailBtn) {
         emailBtn.href = mailtoUrl;
       }
 
-      // Set WhatsApp Link
       const waText = encodeURIComponent(
         `مرحباً إدارة منصة باسكود (BASCODE) 👋\n` +
-        `قمت بطلب خدمة جديدة عبر المنصة:\n` +
-        `🔹 رقم الطلب: ${randomRef}\n` +
+        `قمت بطلب مشروع جديد عبر المنصة:\n` +
+        `🔹 كود المشروع: ${randomRef}\n` +
         `🔹 الاسم: ${name}\n` +
-        `🔹 الخدمة: ${activeServiceTitle}\n` +
+        `🔹 اسم المشروع: ${projName || activeServiceTitle}\n` +
         `🔹 التكلفة: ${formatPrice(activeServicePrice)}\n` +
         `🔹 البريد: ${email}\n` +
         `🔹 الهاتف: ${phone}\n` +
@@ -3857,17 +4850,561 @@
         waBtn.href = `https://wa.me/9647875929178?text=${waText}`;
       }
 
-      // Show success notice
       document.getElementById('successNotice').classList.remove('hidden');
 
-      // Trigger automatic mailto popup to send directly to bascode84@gmail.com
+      const trackInput = document.getElementById('trackCodeInput');
+      if (trackInput) trackInput.value = randomRef;
+
       setTimeout(() => {
         window.location.href = mailtoUrl;
       }, 300);
 
-      const notifTitle = currentLang === 'ar' ? `تسجيل طلب جديد (${randomRef})` : `New Order Created (${randomRef})`;
-      const notifMsg = currentLang === 'ar' ? `تم تسجيل طلبك لخدمة ${activeServiceTitle} بنجاح وإرساله إلى البريد الإداري (bascode84@gmail.com).` : `Your request for ${activeServiceTitle} has been submitted to admin email (bascode84@gmail.com).`;
+      const notifTitle = currentLang === 'ar' ? `تسجيل مشروع جديد (${randomRef})` : `New Order Created (${randomRef})`;
+      const notifMsg = currentLang === 'ar' ? `تم تسجيل طلبك لكود ${randomRef} بنجاح وإرساله للبريد الإداري (bascode84@gmail.com).` : `Your request ${randomRef} was submitted to admin email.`;
       addLiveNotification(notifTitle, notifMsg, 'check-circle');
+    }
+
+    const projectsData = {
+      p1: {
+        title: 'متجر إلكتروني متكامل للبيع والتسوق',
+        badge: 'متاجر إلكترونية',
+        price: '$1,200 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'متاجر إلكترونية وتسوق',
+        duration: '5 - 10 أيام',
+        desc: 'متجر إلكتروني متكامل ومهيأ لإدارة كافة المنتجات والطلبات والعملاء، يوفر تجربة تسوق سلسة مع سلة مشتريات ديناميكية وبوابات دفع إلكترونية آمنة.',
+        problem: 'صعوبة التحصيل المباشر وضياع الفرص بسبب عدم وجود منصة تسوق وسلة شراء تفاعلية.',
+        solution: 'متجر إلكتروني سريع مع نظام بوابات دفع آمن وتتبع مباشر للطلبات مع تنبيهات واتساب.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-amber-400 font-mono mb-2">
+            <span>🛒 E-Commerce Showcase Demo</span>
+            <span class="bg-amber-500/20 text-amber-300 text-[10px] px-2 py-0.5 rounded-full border border-amber-500/30">Live Platform</span>
+          </div>
+          <div class="bg-black/60 p-3 rounded-xl border border-white/10 flex items-center justify-between my-2">
+            <div>
+              <span class="text-white font-bold text-xs block">منتجات إلكترونية وفاخرة</span>
+              <span class="text-[10px] text-gray-400">خصم 20% + شحن آلي وسريع</span>
+            </div>
+            <span class="bg-amber-500 text-black font-extrabold text-xs px-2.5 py-1 rounded-lg">$120.00</span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-emerald-400 font-bold mt-2">
+            <span>✓ بوابات دفع آمنة (Stripe / Visa / Mada)</span>
+            <span class="bg-white/10 text-white px-2 py-0.5 rounded-md">السلة (3 عناصر)</span>
+          </div>
+        `,
+        features: [
+          'سلة تسوق ديناميكية وإتمام الشراء بنقرة واحدة',
+          'دعم بوابات الدفع الإلكترونية (Stripe, Visa, Mada, Apple Pay)',
+          'إدارة المنتجات، الأصناف، المخزون، ونسب الخصومات',
+          'تتبع حالة الشحنة والطلبات مع إشعارات مباشرة للعميل'
+        ],
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'Stripe API', 'Node.js']
+      },
+      p2: {
+        title: 'تطبيق موبايل ذكي للخدمات والمبيعات',
+        badge: 'تطبيقات الموبايل',
+        price: '$1,800 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'تطبيقات الهواتف الذكية',
+        duration: '10 - 15 يوم',
+        desc: 'تطبيق موبايل احترافي متوافق مع نظامي iOS و Android، مصمم لتوفير أسرع تجربة للمستخدم مع دعم الإشعارات الفورية والتكامل مع الخرائط والدفع.',
+        problem: 'صعوبة الوصول للعملاء عبر المتصفح فقط وحاجة الأعمال لتواجد دائم على هواتف المستخدمين.',
+        solution: 'تطبيق Native/Cross-platform سريع الاستجابة يدعم الإشعارات التلقائية والوضع الداكن.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-purple-400 font-mono mb-2">
+            <span>📱 iOS & Android Native App</span>
+            <span class="bg-purple-500/20 text-purple-300 text-[10px] px-2 py-0.5 rounded-full border border-purple-500/30">Cross Platform</span>
+          </div>
+          <div class="bg-purple-900/30 border border-purple-500/30 p-3 rounded-xl text-purple-200 text-xs flex items-center gap-2.5 my-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-400 animate-pulse shrink-0"></span>
+            <span>🔔 تم تأكيد طلبك بنجاح! السائق في الطريق...</span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-2">
+            <span>متوافق مع App Store و Google Play</span>
+            <span class="text-purple-300 font-bold">4.9 ★★★★★</span>
+          </div>
+        `,
+        features: [
+          'تصميم واجهات مستخدم سلسة وعصرية (iOS & Android)',
+          'نظام إشعارات فورية Push Notifications للعملاء',
+          'ربط مع نظام التتبع والمواقع الجغرافية (GPS)',
+          'لوحة إدارة خلفية لمتابعة نشاط المستخدمين والتطبيق'
+        ],
+        tech: ['React Native', 'Flutter', 'Firebase', 'Tailwind', 'REST API']
+      },
+      p3: {
+        title: 'لوحة تحكم وتطوير أنظمة إدارة الأعمال BASCODE Admin',
+        badge: 'لوحة تحكم ونظام إداري',
+        price: '$1,400 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'أنظمة الشركات ولوحات التحكم',
+        duration: '7 - 12 يوم',
+        desc: 'لوحة تحكم تفاعلية مخصصة لمتابعة كافة العمليات والمبيعات والإحصائيات وإدارة أفراد الفريق والصلاحيات بسهولة أينما كنت.',
+        problem: 'عشوائية البيانات وعدم وجود رؤية بيانية دقيقة لأداء الشركة والمبيعات.',
+        solution: 'لوحة قيادة تفاعلية مجهزة بـ Recharts لإظهار مؤشرات الأداء الحية والمبيعات في مكان واحد.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-cyan-400 font-mono mb-2">
+            <span>📊 BASCODE Admin Executive Panel</span>
+            <span class="bg-cyan-500/20 text-cyan-300 text-[10px] px-2 py-0.5 rounded-full border border-cyan-500/30">Analytics Active</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 my-2 text-center text-xs">
+            <div class="bg-black/50 p-2 rounded-xl border border-white/10">
+              <span class="text-gray-400 block text-[9px]">المشاريع</span>
+              <span class="text-white font-black text-sm">128</span>
+            </div>
+            <div class="bg-black/50 p-2 rounded-xl border border-white/10">
+              <span class="text-gray-400 block text-[9px]">المستخدمين</span>
+              <span class="text-cyan-400 font-black text-sm">2,560</span>
+            </div>
+            <div class="bg-emerald-500/20 p-2 rounded-xl border border-emerald-500/30">
+              <span class="text-emerald-300 block text-[9px]">الإيرادات</span>
+              <span class="text-emerald-400 font-black text-sm">$24.5k</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span>رسوم بيانية بـ Recharts</span>
+            <span class="text-emerald-400 font-bold">● System Uptime 99.9%</span>
+          </div>
+        `,
+        features: [
+          'لوحة قيادة تفاعلية مجهزة بـ Recharts للرسوم البيانية',
+          'إدارة كاملة للمستخدمين والصلاحيات (Admin, Manager, Editor)',
+          'سجل المبيعات والطلبات والفواتير المباشرة',
+          'تكامل مع قواعد البيانات مع التنبيهات المباشرة'
+        ],
+        tech: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'Node.js Express']
+      },
+      p4: {
+        title: 'نظام إدارة الأعمال وتخطيط الموارد (BASCODE ERP)',
+        badge: 'أنظمة الشركات ERP',
+        price: '$2,200 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'أنظمة وبرمجيات مخصصة',
+        duration: '14 - 21 يوم',
+        desc: 'حل برمدجي متكامل لتخطيط الموارد (ERP)، إدارة المخزون والمستودعات، المبيعات والمشتريات وإصدار الفواتير المعتمدة.',
+        problem: 'تشتت العمليات الإدارية بين ملفات متعددة وعدم دقة المحاسبة والمخزون.',
+        solution: 'نظام ERP مركزي يربط بين المخزون، الحسابات، الموارد البشرية، والتقارير المالية.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-emerald-400 font-mono mb-2">
+            <span>🏢 BASECODE Enterprise ERP Suite</span>
+            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/30">ERP Active</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 my-2 text-xs">
+            <div class="bg-black/50 p-2.5 rounded-xl border border-emerald-500/30">
+              <span class="text-gray-400 block text-[9px]">إجمالي صافي الأرباح</span>
+              <span class="text-emerald-400 font-mono font-black text-sm">$248,690</span>
+            </div>
+            <div class="bg-black/50 p-2.5 rounded-xl border border-emerald-500/30">
+              <span class="text-gray-400 block text-[9px]">الطلبات والمشتريات</span>
+              <span class="text-cyan-400 font-mono font-black text-sm">3,756</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span>إدارة المخزون والمالية</span>
+            <span class="text-emerald-400 font-bold">فواتير ضريبية معتمدة</span>
+          </div>
+        `,
+        features: [
+          'إدارة المستودعات، الأصول، والمخزون مع تنبيهات النقص',
+          'نظام المحاسبة والفواتير الضريبية وتتبع المدفوعات والديون',
+          'صلاحيات دخول دقيقة لكل قسم (المبيعات، المحاسبة، الإدارة)',
+          'تقارير دورية قابلة للتصدير بملفات PDF و Excel'
+        ],
+        tech: ['Laravel PHP', 'Vue.js', 'MySQL', 'Tailwind CSS']
+      },
+      p5: {
+        title: 'منصة عقارية لإدارة وعرض العقارات والمشاريع',
+        badge: 'مواقع ومنصات',
+        price: '$1,100 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'المنصات والمواقع العقارية',
+        duration: '7 - 12 يوم',
+        desc: 'منصة عقارية متطورة لعرض العقارات والمشاريع السكنية والتجارية، مجهزة بنظام البحث والفلترة المتقدم والجولات الافتراضية.',
+        problem: 'صعوبة استعراض العقارات بالطرق التقليدية وقلة تفاعل المشترين.',
+        solution: 'منصة تفاعلية تدعم الجولات الافتراضية والبحث بالجغرافيا والفلترة الدقيقة.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-blue-400 font-mono mb-2">
+            <span>🏰 Real Estate Interactive Hub</span>
+            <span class="bg-blue-500/20 text-blue-300 text-[10px] px-2 py-0.5 rounded-full border border-blue-500/30">3D Tour Ready</span>
+          </div>
+          <div class="bg-black/60 p-3 rounded-xl border border-blue-500/30 flex items-center justify-between my-2 text-xs">
+            <div>
+              <span class="text-white font-bold block">فيلا فاخرة للإيجار والبيع</span>
+              <span class="text-[10px] text-gray-400">📍 الرياض / دبي • 4 غرف • 3 حمامات</span>
+            </div>
+            <span class="bg-blue-600 text-white font-bold px-2.5 py-1 rounded-lg text-xs">$350,000</span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-cyan-300 font-bold mt-1">
+            <span>🎥 جولات افتراضية 3D + خرائط تفاعلية</span>
+            <span class="bg-white/10 text-white px-2 py-0.5 rounded-md">حاسبة تمويل عقاري</span>
+          </div>
+        `,
+        features: [
+          'عرض العقارات والمشاريع بأسلوب عصري عالي الجودة',
+          'فلترة متقدمة للبحث حسب السعر، المنطقة، والمساحة',
+          'حاسبة التمويل العقاري والتواصل المباشر مع المسوق',
+          'دعم الخرائط التفاعلية والجولات الافتراضية'
+        ],
+        tech: ['Next.js', 'Tailwind CSS', 'Google Maps API', 'Node.js']
+      },
+      p6: {
+        title: 'نظام حجز مواعيد واستشارات أونلاين',
+        badge: 'أنظمة حجز مواعيد',
+        price: '$650 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'أنظمة الأتمتة والحجوزات',
+        duration: '4 - 7 أيام',
+        desc: 'نظام آلي لحجز المواعيد والاستشارات للعيادات والمراكز والمستشارين، يتيح اختيار الأوقات المتاحة والدفع المباشر.',
+        problem: 'تداخل المواعيد وضياع الوقت في المتابعة اليدوية والاتصالات الهاتفية.',
+        solution: 'تقويم حجز آلي يحدد الأوقات الشاغرة ويرسل تذكيرات تلقائية عبر الواتساب.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-cyan-400 font-mono mb-2">
+            <span>📅 Automated Booking Calendar</span>
+            <span class="bg-cyan-500/20 text-cyan-300 text-[10px] px-2 py-0.5 rounded-full border border-cyan-500/30">Calendar Synced</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 my-2 text-center text-xs">
+            <div class="bg-emerald-500/20 border border-emerald-500/30 p-2 rounded-xl text-emerald-300 font-bold">
+              09:00 AM ✓
+            </div>
+            <div class="bg-emerald-500/20 border border-emerald-500/30 p-2 rounded-xl text-emerald-300 font-bold">
+              11:30 AM ✓
+            </div>
+            <div class="bg-black/50 border border-white/10 p-2 rounded-xl text-gray-500 font-bold">
+              02:00 PM 🔒
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span>مزامنة Google Calendar</span>
+            <span class="text-emerald-400 font-bold">تأكيد آلي عبر WhatsApp</span>
+          </div>
+        `,
+        features: [
+          'جدول مواعيد تفاعلي يحدد الساعات المتاحة تلقائياً',
+          'ربط مباشر مع تقويم Google وتطبيقات المواعيد',
+          'إرسال رسائل تذكير تلقائية عبر الواتساب والبريد',
+          'دفع قيمة الاستشارة أو العربون أونلاين'
+        ],
+        tech: ['React', 'Node.js', 'Google Calendar API', 'WhatsApp API']
+      },
+      p7: {
+        title: 'منصة تعليمية متكاملة للدورات والاختبارات',
+        badge: 'منصات تعليمية',
+        price: '$950 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'المنصات التعليمية والتدريب',
+        duration: '7 - 12 يوم',
+        desc: 'منصة تعليمية مخصصة للأكاديميات والمدربين لتقديم الدورات التدريبية عبر الفيديو مع الاختبارات وإصدار الشهادات المعتمدة.',
+        problem: 'سرقة وتسريب المحتوى التعليمي وعدم سهولة تقديم الاختبارات وإصدار الشهادات.',
+        solution: 'منصة محمية بمشغل فيديو مشفر وإصدار تلقائي للشهادات الرقمية.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-indigo-400 font-mono mb-2">
+            <span>🎓 E-Learning Academy Platform</span>
+            <span class="bg-indigo-500/20 text-indigo-300 text-[10px] px-2 py-0.5 rounded-full border border-indigo-500/30">DRM Protected</span>
+          </div>
+          <div class="bg-black/60 p-3 rounded-xl border border-indigo-500/30 flex items-center justify-between my-2 text-xs">
+            <div>
+              <span class="text-white font-bold block">دورة البرمجة الاحترافية</span>
+              <span class="text-emerald-400 font-mono font-bold text-[10px]">78% مكتمل • شهادة جاهزة</span>
+            </div>
+            <span class="bg-indigo-600 text-white font-bold px-2.5 py-1 rounded-lg text-xs">متابعة الدرس</span>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-indigo-300 font-bold mt-1">
+            <span>مشغل فيديو آمن + اختبارات آلية</span>
+            <span class="text-emerald-400">✓ شهادات كود تحقق QR</span>
+          </div>
+        `,
+        features: [
+          'حماية مقاطع الفيديو ومنع التحميل أو التسجيل',
+          'نظام الاختبارات والأسئلة التفاعلية وتصحيحها آلياً',
+          'إصدار شهادات الإتمام التلقائية برمز تحقق QR',
+          'تتبع نسبة تقدم الطالب في المحتوى التدريبي'
+        ],
+        tech: ['React', 'Tailwind CSS', 'Node.js', 'Video HLS Encryption']
+      },
+      p8: {
+        title: 'منصة فحص وحماية الأمن السيبراني',
+        badge: 'الأمن السيبراني',
+        price: '$800 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'الأمن السيبراني والتدقيق الأمني',
+        duration: '5 - 9 أيام',
+        desc: 'نظام فحص أمني للمواقع والأنظمة لتشخيص الثغرات البرمجية والتهديدات وسد المنافذ غير الآمنة قبل استغلالها.',
+        problem: 'تعرض المواقع والأنظمة للااختراقات وتسريب البيانات الحساسة.',
+        solution: 'نظام فحص آلي يطبق معايير OWASP للكتشاف الثغرات وتأمين السيرفرات.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-emerald-400 font-mono mb-2">
+            <span>🛡️ Cybersecurity Vulnerability Scanner</span>
+            <span class="bg-emerald-500/20 text-emerald-300 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/30">OWASP Top 10</span>
+          </div>
+          <div class="bg-black/70 p-2.5 rounded-xl border border-emerald-500/30 font-mono text-xs text-emerald-400 my-2 space-y-1">
+            <div>> scanning target_system --full-audit</div>
+            <div>[SUCCESS] 0 Critical Vulnerabilities Found</div>
+            <div class="text-cyan-300">[SSL/TLS] 256-Bit Encrypted Standard</div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span class="text-emerald-300 font-bold">🛡️ 100% Security Grade Score</span>
+            <span class="text-white bg-emerald-500/20 px-2 py-0.5 rounded-md">SSL Secured</span>
+          </div>
+        `,
+        features: [
+          'فحص شامل للثغرات المعتمدة عالمياً (OWASP Top 10)',
+          'تقرير تفصيلي بنقاط الضعف وكيفية علاجها برمجياً',
+          'تشفير وتأمين الاتصالات والبيانات الحساسة',
+          'اختبار اختراق محاكي للأنظمة والشبكات'
+        ],
+        tech: ['Python Security Frameworks', 'OWASP ZAP', 'Linux Security Hardening']
+      },
+      p9: {
+        title: 'مساعد ذكاء اصطناعي وشات بوت مخصص للأعمال',
+        badge: 'الذكاء الاصطناعي',
+        price: '$850 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'حلول الأتمتة والذكاء الاصطناعي',
+        duration: '5 - 8 أيام',
+        desc: 'نظام مساعد ذكي يتعلم من ملفات ومستندات شركتك للرد التلقائي والإجابة السريعة على العملاء وتوجيه الطلبات.',
+        problem: 'تراكم استفسارات العملاء وتأخر الرد اليدوي مما يسبب ضياع صفقات المبيعات.',
+        solution: 'مساعد ذكاء اصطناعي يجيب على العملاء فورياً 24/7 بدقة عالية.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-blue-400 font-mono mb-2">
+            <span>🤖 Custom Trained AI Assistant</span>
+            <span class="bg-blue-500/20 text-blue-300 text-[10px] px-2 py-0.5 rounded-full border border-blue-500/30">Gemini Powered</span>
+          </div>
+          <div class="bg-blue-900/30 border border-blue-500/30 text-blue-100 p-3 rounded-xl text-xs my-2">
+            "أهلاً بك! كيف يمكنني مساعدتك في أتمتة خدماتك اليوم؟ 👋"
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span class="text-blue-300">استجابة فائقة السرعة 0.4s</span>
+            <span class="text-emerald-400 font-bold">دعم كامل للغة العربية</span>
+          </div>
+        `,
+        features: [
+          'تدريب مخصص على ملفات الشركة وبيانات المنتجات والخدمات',
+          'استجابة فورية ذكية باللغتين العربية والإنجليزي',
+          'إمكانية ربط الشات بوت مع الواتساب والموقع الإلكتروني',
+          'لوحة تحليلات لمعرفة أكثر الأسئلة المكررة من العملاء'
+        ],
+        tech: ['Python', 'Gemini API / OpenAI', 'FastAPI', 'Tailwind UI']
+      },
+      p10: {
+        title: 'منصة إدارة وتتبع المهام والمشاريع والفرق',
+        badge: 'إدارة المشاريع',
+        price: '$1,000 USD',
+        status: 'Demo Project • مشروع تجريبي متاح للطلب',
+        category: 'أنظمة إدارة فرق العمل',
+        duration: '6 - 10 أيام',
+        desc: 'منصة تفاعلية لتوزيع المهام ومتابعة سير العمل بين أفراد الفريق مع لوحات Kanban وخطوط زمنية دقيقة للإنتاجية.',
+        problem: 'عدم وضوح المسؤوليات وتأخر تسليم المشاريع بسبب ضعف المتابعة.',
+        solution: 'منصة Kanban بسحب وإفلات تفاعلي تحدد مواعيد التسليم ونسب الإنجاز.',
+        visualHtml: `
+          <div class="flex items-center justify-between text-xs font-bold text-cyan-400 font-mono mb-2">
+            <span>📋 Interactive Project Kanban Board</span>
+            <span class="bg-cyan-500/20 text-cyan-300 text-[10px] px-2 py-0.5 rounded-full border border-cyan-500/30">Drag & Drop</span>
+          </div>
+          <div class="grid grid-cols-3 gap-2 my-2 text-center text-xs">
+            <div class="bg-white/10 p-2 rounded-xl border border-white/10">
+              <span class="text-gray-400 block text-[9px]">قيد الانتظار</span>
+              <span class="text-white font-bold text-xs">4 مهام</span>
+            </div>
+            <div class="bg-cyan-500/20 p-2 rounded-xl border border-cyan-500/30">
+              <span class="text-cyan-300 block text-[9px]">قيد التنفيذ</span>
+              <span class="text-cyan-300 font-bold text-xs">8 مهام ⚡</span>
+            </div>
+            <div class="bg-emerald-500/20 p-2 rounded-xl border border-emerald-500/30">
+              <span class="text-emerald-300 block text-[9px]">مكتملة</span>
+              <span class="text-emerald-300 font-bold text-xs">15 مهمة ✓</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] text-gray-400 mt-1">
+            <span>لوحات Kanban وتوزيع الأدوار</span>
+            <span class="text-emerald-400 font-bold">مخطط جانت (Gantt Chart)</span>
+          </div>
+        `,
+        features: [
+          'لوحات Kanban تفاعلية مع إمكانية السحب والإفلات',
+          'تحديد المواعيد المحددة والتنبيهات المباشرة للموظفين',
+          'تتبع الوقت المستغرق ونسبة إنتاجية كل عضو في الفريق',
+          'إرفاق الملفات والتعليقات المباشرة داخل كل مهمة'
+        ],
+        tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js']
+      }
+    };
+
+    function openProjectDetails(pId) {
+      const p = projectsData[pId];
+      if (!p) return;
+
+      document.getElementById('pModalTitle').innerText = p.title;
+      document.getElementById('pModalBadge').innerText = p.badge;
+      document.getElementById('pModalPrice').innerText = p.price;
+      document.getElementById('pModalCategory').innerText = p.category;
+      document.getElementById('pModalDesc').innerText = p.desc;
+      
+      const pStatus = document.getElementById('pModalStatus');
+      if (pStatus) pStatus.innerText = p.status || 'Demo Project • مشروع تجريبي';
+
+      const pProblem = document.getElementById('pModalProblem');
+      if (pProblem) pProblem.innerText = p.problem || 'تطوير وتحديث العمليات الرقمية';
+
+      const pSolution = document.getElementById('pModalSolution');
+      if (pSolution) pSolution.innerText = p.solution || 'تقديم حل برمجي متكامل وسريع';
+
+      const pDuration = document.getElementById('pModalDuration');
+      if (pDuration) pDuration.innerText = p.duration || '5 - 10 أيام';
+
+      const visualContainer = document.getElementById('pModalVisual');
+      if (visualContainer && p.visualHtml) {
+        visualContainer.innerHTML = p.visualHtml;
+      }
+
+      const featList = document.getElementById('pModalFeatures');
+      featList.innerHTML = p.features.map(f => `
+        <li class="flex items-start gap-2 text-xs text-gray-200">
+          <span class="text-cyan-400 font-bold shrink-0">✓</span>
+          <span>${f}</span>
+        </li>
+      `).join('');
+      
+      const techList = document.getElementById('pModalTech');
+      techList.innerHTML = p.tech.map(t => `
+        <span class="bg-cyan-500/10 text-cyan-300 text-[11px] font-bold px-3 py-1 rounded-lg border border-cyan-500/20">${t}</span>
+      `).join('');
+      
+      const orderBtn = document.getElementById('pModalOrderBtn');
+      orderBtn.onclick = function() {
+        closeProjectDetails();
+        openModalForService(p.title, parseInt(p.price.replace(/[^0-9]/g, '')) || 300);
+      };
+      
+      document.getElementById('projectDetailModal').classList.remove('hidden');
+    }
+
+    // Order Tracking Logic
+    function trackProjectStatus() {
+      const codeInput = document.getElementById('trackCodeInput');
+      const code = (codeInput ? codeInput.value : '').trim().toUpperCase();
+      const box = document.getElementById('trackerResultBox');
+      if (!box) return;
+
+      if (!code) {
+        alert(currentLang === 'ar' ? 'يرجى إدخال كود المشروع المعتمد (مثال: BSC-1001).' : 'Please enter project code (e.g., BSC-1001).');
+        return;
+      }
+
+      box.classList.remove('hidden');
+
+      let projectInfo = {
+        code: code,
+        titleAr: 'تطوير مشروع وتجهيز النظام',
+        titleEn: 'System Development & Execution',
+        clientAr: 'عميل باسكود المعتمد',
+        clientEn: 'Verified BASCODE Client',
+        statusAr: 'قيد البرمجة والتنفيذ ⚡',
+        statusEn: 'In Progress ⚡',
+        progress: '65%',
+        step1Done: true, step2Done: true, step3Done: true, step4Done: false, step5Done: false,
+        dateAr: 'بدء التنفيذ: حديثاً | التسليم التقديري: خلال 3-5 أيام',
+        dateEn: 'Started: Recently | Est. Delivery: In 3-5 days'
+      };
+
+      if (code === 'BSC-1001') {
+        projectInfo = {
+          code: 'BSC-1001',
+          titleAr: 'منصة عقارية كاملة ونظام مزادات ذكي',
+          titleEn: 'Real Estate Platform & Bidding Engine',
+          clientAr: 'شركة المجد العقارية (بغداد)',
+          clientEn: 'Al-Majd Real Estate Co.',
+          statusAr: 'مكتمل وجاهز للتسليم 🚀',
+          statusEn: 'Completed & Launched 🚀',
+          progress: '100%',
+          step1Done: true, step2Done: true, step3Done: true, step4Done: true, step5Done: true,
+          dateAr: 'الحالة: تم التسليم والتشغيل المباشر بنجاح',
+          dateEn: 'Delivery Status: Successfully Launched'
+        };
+      } else if (code === 'BSC-1002') {
+        projectInfo = {
+          code: 'BSC-1002',
+          titleAr: 'ترجمة وتوطين برجمي ومستندات مصرفية',
+          titleEn: 'Banking Specs Technical Localization',
+          clientAr: 'مؤسسة الزبيدي للحلول المالية (أربيل)',
+          clientEn: 'Al-Zubaidi Financial Solutions',
+          statusAr: 'الفحص النهائي والتدقيق 🛡️',
+          statusEn: 'Final Review & Audit 🛡️',
+          progress: '85%',
+          step1Done: true, step2Done: true, step3Done: true, step4Done: true, step5Done: false,
+          dateAr: 'التسليم المتوقع: غداً 06:00 مساءً',
+          dateEn: 'Expected Delivery: Tomorrow 6:00 PM'
+        };
+      } else if (code === 'BSC-1003') {
+        projectInfo = {
+          code: 'BSC-1003',
+          titleAr: 'فحص سيبراني وتطهير ملفات وسيرفرات',
+          titleEn: 'Enterprise Cyber Audit & Code Scan',
+          clientAr: 'مجموعة المظفر للتجارة الدولية',
+          clientEn: 'Al-Muzaffar Int. Group',
+          statusAr: 'تحليل المتطلبات وقواعد البيانات 🔍',
+          statusEn: 'Requirements & Scope Study 🔍',
+          progress: '30%',
+          step1Done: true, step2Done: true, step3Done: false, step4Done: false, step5Done: false,
+          dateAr: 'التسليم المتوقع: خلال 3 أيام',
+          dateEn: 'Expected Delivery: In 3 days'
+        };
+      }
+
+      const isAr = currentLang === 'ar';
+      box.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-white/10 flex-wrap gap-2">
+            <div>
+              <span class="text-xs text-cyan-400 font-mono font-bold">${projectInfo.code}</span>
+              <h4 class="font-extrabold text-white text-sm sm:text-base">${isAr ? projectInfo.titleAr : projectInfo.titleEn}</h4>
+              <span class="text-[10px] text-gray-400 block">${isAr ? projectInfo.clientAr : projectInfo.clientEn}</span>
+            </div>
+            <div class="text-left rtl:text-right">
+              <span class="text-xs font-black text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20 block">${isAr ? projectInfo.statusAr : projectInfo.statusEn}</span>
+              <span class="text-[10px] text-gray-400 block mt-1">${isAr ? projectInfo.dateAr : projectInfo.dateEn}</span>
+            </div>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-bold">
+              <span class="text-gray-300">${isAr ? 'نسبة إنجاز المشروع الحالية:' : 'Current Progress:'}</span>
+              <span class="text-cyan-400 font-mono">${projectInfo.progress}</span>
+            </div>
+            <div class="w-full h-2.5 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-cyan-500 to-amber-400 rounded-full transition-all duration-500" style="width: ${projectInfo.progress}"></div>
+            </div>
+          </div>
+
+          <!-- Steps Timeline -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[10px] text-center pt-2">
+            <div class="p-2 rounded-xl border ${projectInfo.step1Done ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-white/5 border-white/10 text-gray-400'}">
+              <span class="block font-bold">1. ${isAr ? 'استلام الطلب' : 'Received'}</span>
+              <span>${projectInfo.step1Done ? '✓ تم' : 'قيد الانتظار'}</span>
+            </div>
+            <div class="p-2 rounded-xl border ${projectInfo.step2Done ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-white/5 border-white/10 text-gray-400'}">
+              <span class="block font-bold">2. ${isAr ? 'تحليل المواصفات' : 'Analysis'}</span>
+              <span>${projectInfo.step2Done ? '✓ تم' : 'قيد الانتظار'}</span>
+            </div>
+            <div class="p-2 rounded-xl border ${projectInfo.step3Done ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-white/5 border-white/10 text-gray-400'}">
+              <span class="block font-bold">3. ${isAr ? 'البرمجة والترجمة' : 'Development'}</span>
+              <span>${projectInfo.step3Done ? '✓ تم' : 'جاري العمل'}</span>
+            </div>
+            <div class="p-2 rounded-xl border ${projectInfo.step4Done ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-white/5 border-white/10 text-gray-400'}">
+              <span class="block font-bold">4. ${isAr ? 'الفحص والاختبار' : 'QA & Audit'}</span>
+              <span>${projectInfo.step4Done ? '✓ تم' : 'مقبل'}</span>
+            </div>
+            <div class="p-2 rounded-xl border ${projectInfo.step5Done ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-white/5 border-white/10 text-gray-400'}">
+              <span class="block font-bold">5. ${isAr ? 'التسليم والتشغيل' : 'Launch'}</span>
+              <span>${projectInfo.step5Done ? '✓ تم' : 'مقبل'}</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function openPaymentPolicyModal() {
+      openLegalModal('refund');
     }
 
     // Cart System Logic
@@ -4267,6 +5804,33 @@
     setTimeout(() => {
       showNotificationToast();
     }, 4000);
+
+    // PORTFOLIO FILTER & DETAILS MODAL LOGIC
+    function filterPortfolio(cat) {
+      const cards = document.querySelectorAll('.port-card');
+      const tabs = document.querySelectorAll('.port-tab');
+      tabs.forEach(t => {
+        t.classList.remove('bg-cyan-500', 'text-black', 'font-extrabold', 'active-port-tab');
+        t.classList.add('bg-white/5', 'text-gray-300', 'font-bold');
+      });
+      const activeTab = document.getElementById('portTab-' + cat);
+      if (activeTab) {
+        activeTab.classList.remove('bg-white/5', 'text-gray-300', 'font-bold');
+        activeTab.classList.add('bg-cyan-500', 'text-black', 'font-extrabold', 'active-port-tab');
+      }
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function closeProjectDetails() {
+      document.getElementById('projectDetailModal').classList.add('hidden');
+    }
 
     // Interactive Spoken Presentation Player Engine (Arabic Speech Synthesis & Synchronized Service Clips)
     let isPlatformVideoPlaying = false;
