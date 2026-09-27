@@ -12,14 +12,14 @@
   gtag('config', 'G-C98WSPPRL5');
 </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>باسكود | حلول رقمية متكاملة</title>
   <meta name="description" content="باسكود - منصة احترافية متكاملة لطلب وشراء الخدمات والحلول الرقمية وإرسال الطلبات مباشرة عبر واتساب." />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Readex+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Readex+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -29,13 +29,6 @@
         extend: {
           fontFamily: {
             sans: ['"Readex Pro"', '"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              gold: '#E5B545',
-              dark: '#0d0f12',
-              emerald: '#047857'
-            }
           }
         }
       }
@@ -50,6 +43,7 @@
     }
     .custom-scroll::-webkit-scrollbar {
       width: 6px;
+      height: 6px;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
       background: #cbd5e1;
@@ -57,30 +51,29 @@
     }
   </style>
 </head>
-<body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-emerald-600 selection:text-white">
+<body class="bg-neutral-50 text-neutral-900 antialiased selection:bg-emerald-600 selection:text-white flex flex-col min-h-screen">
 
   <!-- Top Announcement Bar -->
-  <div id="topBanner" class="bg-neutral-900 text-white text-xs py-2 px-4 border-b border-neutral-800">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-neutral-300">مرحباً بك في <strong>باسكود</strong> — إنجاز احترافي وتأكيد فوري للطلبات عبر واتساب</span>
+  <div id="topBanner" class="bg-neutral-900 text-white text-xs py-2 px-3 sm:px-4 border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-[11px] sm:text-xs">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+        <span id="bannerText">مرحباً بك في <strong>باسكود</strong> — إنجاز احترافي وتأكيد فوري للطلبات عبر واتساب</span>
       </div>
-      <div class="flex items-center gap-4 text-[11px] text-neutral-400">
-        <span class="dir-ltr font-mono">واتساب: +964 785 396 1359</span>
-        <button onclick="document.getElementById('topBanner').style.display='none'" class="text-neutral-400 hover:text-white">✕</button>
+      <div class="flex items-center gap-3 text-[11px] text-neutral-400 shrink-0">
+        <span class="dir-ltr font-mono hidden sm:inline">+964 785 396 1359</span>
+        <button onclick="document.getElementById('topBanner').style.display='none'" class="text-neutral-400 hover:text-white p-1">✕</button>
       </div>
     </div>
   </div>
 
   <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-15 sm:h-16 flex items-center justify-between gap-2 sm:gap-4">
       
       <!-- Brand Logo & Name -->
-      <a href="#" class="flex items-center gap-3 text-xl font-bold tracking-tight text-neutral-900 group">
-        <div class="h-10 w-14 rounded-xl overflow-hidden border border-neutral-800 shadow-md flex items-center justify-center bg-[#0d0f12] shrink-0 group-hover:scale-105 transition-transform">
-          <!-- BA Logo SVG -->
+      <a href="#" class="flex items-center gap-2 sm:gap-3 text-base sm:text-lg font-bold tracking-tight text-neutral-900 group shrink-0 min-w-0">
+        <div class="h-8 w-11 sm:h-10 sm:w-14 rounded-xl overflow-hidden border border-neutral-800 shadow-md flex items-center justify-center bg-[#0d0f12] shrink-0">
           <svg viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-0.5">
             <defs>
               <linearGradient id="g-face" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -102,56 +95,44 @@
               </linearGradient>
             </defs>
             <rect width="300" height="200" fill="#0D0F12" />
-            <!-- Letter A -->
             <polygon points="196,24 138,174 162,174 204,64" fill="#0E1013" />
             <polygon points="198,24 140,174 164,174 198,80 238,174 264,174" fill="url(#ti-face)" />
-            <!-- Letter B -->
             <path d="M42 30 L118 30 C138 30 150 39 150 54 C150 67 140 75 120 77 L102 77 L102 87 L122 87 C143 87 156 98 156 120 C156 140 140 154 112 154 L42 154 Z" fill="url(#g-face)" />
             <circle cx="85" cy="54" r="8" fill="#0D0F12" />
             <circle cx="90" cy="115" r="10" fill="#0D0F12" />
-            <!-- Circuit Trace on B -->
             <polyline points="116,122 84,122 66,138 44,138" stroke="#F5C452" stroke-width="4" stroke-linecap="round" />
             <circle cx="40" cy="138" r="6" stroke="#FFF0AE" stroke-width="2" fill="#0D0F12" />
             <polyline points="94,142 74,142 56,158 36,158" stroke="#F5C452" stroke-width="4" stroke-linecap="round" />
             <circle cx="32" cy="158" r="6" stroke="#FFF0AE" stroke-width="2" fill="#0D0F12" />
-            <!-- Swoosh -->
             <path d="M64 173 C102 173 138 153 174 133 C210 113 242 104 274 108 C246 117 210 129 176 149 C136 173 98 181 64 181 Z" fill="url(#sw-gold)" />
           </svg>
         </div>
-        <span className="font-semibold text-neutral-950 group-hover:text-emerald-700 transition-colors">
-          باسكود حلول رقمية متكاملة
+        <span id="brandName" class="font-bold text-neutral-950 text-xs sm:text-sm md:text-base truncate">
+          باسكود للحلول الرقمية
         </span>
       </a>
 
-      <!-- Navigation links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-600">
-        <a href="#services" class="hover:text-emerald-700 transition-colors">الخدمات</a>
-        <a href="#features" class="hover:text-emerald-700 transition-colors">مميزاتنا</a>
-        <a href="#contact" class="hover:text-emerald-700 transition-colors">خدمة العملاء</a>
-      </nav>
-
       <!-- Controls: Currency & Language & Cart -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-1.5 sm:gap-2">
         <!-- Currency Select -->
-        <div class="relative">
-          <select id="currencySelect" onchange="setCurrency(this.value)" class="text-xs p-1.5 rounded-lg border border-neutral-200 bg-neutral-100 font-mono font-bold cursor-pointer">
-            <option value="SAR">🇸🇦 SAR (ر.س)</option>
-            <option value="USD">🇺🇸 USD ($)</option>
-            <option value="IQD">🇮🇶 IQD (د.ع)</option>
-            <option value="AED">🇦🇪 AED (د.إ)</option>
-          </select>
-        </div>
+        <select id="currencySelect" onchange="setCurrency(this.value)" class="text-[11px] sm:text-xs p-1.5 rounded-lg border border-neutral-200 bg-neutral-100 font-mono font-bold cursor-pointer">
+          <option value="SAR">🇸🇦 SAR</option>
+          <option value="USD">🇺🇸 USD</option>
+          <option value="IQD">🇮🇶 IQD</option>
+          <option value="AED">🇦🇪 AED</option>
+        </select>
 
         <!-- Language Toggle -->
-        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-2.5 py-1.5 rounded-lg border border-neutral-200 bg-neutral-100 text-xs font-bold text-neutral-800 hover:bg-neutral-200 transition-colors flex items-center gap-1">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="px-2 py-1.5 rounded-lg border border-neutral-200 bg-neutral-100 text-[11px] sm:text-xs font-bold text-neutral-800 hover:bg-neutral-200 transition-colors flex items-center gap-1">
           <span>🌐</span>
           <span id="langLabel">EN</span>
         </button>
 
-        <button onclick="toggleCart()" class="relative flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-medium text-xs transition-colors shadow-sm">
+        <!-- Cart Button -->
+        <button onclick="toggleCart()" class="relative flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-medium text-xs transition-colors shadow-sm min-h-[34px]">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-          <span id="cartBtnText">سلة الطلب</span>
-          <span id="cartCountBadge" class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+          <span id="cartBtnText" class="hidden sm:inline">سلة الطلب</span>
+          <span id="cartCountBadge" class="bg-emerald-600 text-white text-[10px] font-bold px-1.5 py-0.2 rounded-full">0</span>
         </button>
       </div>
 
@@ -159,13 +140,13 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative bg-neutral-950 text-white py-16 sm:py-24 border-b border-neutral-800 overflow-hidden">
+  <section class="relative bg-neutral-950 text-white py-12 sm:py-20 border-b border-neutral-800 overflow-hidden">
     <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:16px_16px]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl space-y-6">
+      <div class="max-w-3xl space-y-5">
         
-        <div class="flex items-center gap-2 text-xs text-neutral-400 font-medium">
-          <span class="text-emerald-400 font-semibold">باسكود حلول رقمية متكاملة</span>
+        <div class="flex flex-wrap items-center gap-2 text-xs text-neutral-400 font-medium" id="heroBadges">
+          <span class="text-emerald-400 font-semibold">باسكود للحلول الرقمية</span>
           <span>·</span>
           <span>تسليم معتمد ومباشر</span>
           <span>·</span>
@@ -173,28 +154,27 @@
         </div>
 
         <!-- Headline -->
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3]">
-          <span class="block text-white">حيث تبدأ فكرتك، يبدأ المستقبل.</span>
-          <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-l from-amber-300 via-emerald-400 to-teal-300 text-2xl sm:text-3xl lg:text-4xl font-bold">
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3]">
+          <span class="block text-white" id="heroTitle1">حيث تبدأ فكرتك، يبدأ المستقبل.</span>
+          <span id="heroTitle2" class="block mt-2 text-transparent bg-clip-text bg-gradient-to-l from-amber-300 via-emerald-400 to-teal-300 text-xl sm:text-3xl lg:text-4xl font-bold">
             نحوّل الأفكار الطموحة إلى تجارب رقمية استثنائية
           </span>
         </h1>
 
-        <p class="text-base sm:text-lg text-neutral-300 leading-relaxed font-light">
-          اختر خدماتك في تطبيقات الموبايل، الأنظمة الإدارية، البيانات وExcel، الأمن السيبراني، الذكاء الاصطناعي، والمستندات. سجّل بياناتك بسهولة واستلم تأكيد الطلب فوراً عبر واتساب لبدء التنفيذ.
+        <p id="heroDesc" class="text-sm sm:text-base text-neutral-300 leading-relaxed font-light">
+          اختر خدماتك في تطبيقات الموبايل، الأنظمة الإدارية، البيانات وExcel، الأمن السيبراني، والذكاء الاصطناعي. سجّل بياناتك بسهولة واستلم تأكيد الطلب فوراً عبر واتساب لبدء التنفيذ.
         </p>
 
         <!-- Search Bar -->
         <div class="pt-2 max-w-xl">
           <div class="relative flex items-center bg-neutral-900 border border-neutral-700 rounded-xl p-1.5 focus-within:border-emerald-500 transition-all">
-            <svg class="w-5 h-5 text-neutral-400 mx-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <svg class="w-5 h-5 text-neutral-400 mx-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             <input
               type="text"
               id="searchInput"
               oninput="handleSearch(this.value)"
-              placeholder="ابحث عن خدمة (مثلاً: تطبيق جوال، إكسل، أمن سيبراني، ذكاء اصطناعي)..."
-              class="w-full bg-transparent text-sm text-white placeholder-neutral-400 focus:outline-none py-2 px-1 text-right"
-              dir="rtl"
+              placeholder="ابحث عن خدمة (تطبيق جوال، إكسل، أمن سيبراني، ذكاء اصطناعي)..."
+              class="w-full bg-transparent text-xs sm:text-sm text-white placeholder-neutral-400 focus:outline-none py-1.5 px-1"
             />
           </div>
         </div>
@@ -204,17 +184,17 @@
   </section>
 
   <!-- Categories Filter -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-    <div class="flex items-center gap-2 overflow-x-auto pb-4 custom-scroll" id="categoriesContainer">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <div class="flex items-center gap-2 overflow-x-auto pb-2 custom-scroll" id="categoriesContainer">
       <!-- Generated via JS -->
     </div>
   </section>
 
   <!-- Services Grid -->
-  <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <div class="flex items-center justify-between mb-8 pb-4 border-b border-neutral-200">
+  <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    <div class="flex items-center justify-between mb-6 pb-3 border-b border-neutral-200">
       <div>
-        <h2 class="text-xl sm:text-2xl font-bold text-neutral-900">الخدمات الرقمية المتاحة</h2>
+        <h2 id="catalogTitle" class="text-lg sm:text-2xl font-bold text-neutral-900">الخدمات الرقمية المتاحة للطلب</h2>
         <p class="text-xs text-neutral-500 mt-1" id="servicesCount">جاري تحميل الخدمات...</p>
       </div>
     </div>
@@ -226,39 +206,39 @@
   </section>
 
   <!-- Official Customer Service & Contact Info Box -->
-  <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-    <div class="bg-gradient-to-r from-emerald-950 via-neutral-900 to-neutral-950 text-white rounded-3xl p-8 sm:p-12 border border-emerald-900/50 shadow-xl">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="space-y-4">
-          <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold">
+  <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+    <div class="bg-gradient-to-r from-emerald-950 via-neutral-900 to-neutral-950 text-white rounded-3xl p-6 sm:p-10 border border-emerald-900/50 shadow-xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="space-y-3">
+          <span id="contactBadge" class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 rounded-full text-xs font-semibold">
             دعم فني واستلام معتمد
           </span>
-          <h3 class="text-2xl sm:text-3xl font-bold">جاهزون لبدء مشروعك الرقمي القادم؟</h3>
-          <p class="text-neutral-300 text-sm leading-relaxed">
+          <h3 id="contactTitle" class="text-xl sm:text-2xl font-bold">جاهزون لبدء مشروعك الرقمي القادم؟</h3>
+          <p id="contactDesc" class="text-neutral-300 text-xs sm:text-sm leading-relaxed">
             فريق باسكود متاح لمتابعة كافة الاستفسارات، استلام المتطلبات المخصصة، وتقديم الاستشارات التقنية الفورية عبر واتساب والبريد المعتمد.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://wa.me/9647853961359" target="_blank" class="bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700 p-5 rounded-2xl transition-all group flex flex-col justify-between">
-            <div class="text-emerald-400 mb-3">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2.6 22l4.28-1.28C8.38 21.49 10.13 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.95 14.15c-.21.58-1.21 1.13-1.68 1.18-.46.06-.9.27-2.98-.59-2.52-1.04-4.14-3.6-4.27-3.77-.13-.17-1.02-1.36-1.02-2.59s.64-1.84.87-2.09c.23-.25.5-.31.67-.31.17 0 .34 0 .49.01.16.01.37-.06.58.44.21.5.73 1.77.79 1.9.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.68 1.11 1.45 1.8 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.17-.26.35-.22.58-.13.23.09 1.48.7 1.74.83.26.13.43.19.49.3.06.11.06.64-.15 1.22z"/></svg>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a href="https://wa.me/9647853961359" target="_blank" class="bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700 p-4 rounded-2xl transition-all group flex flex-col justify-between">
+            <div class="text-emerald-400 mb-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2.6 22l4.28-1.28C8.38 21.49 10.13 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.95 14.15c-.21.58-1.21 1.13-1.68 1.18-.46.06-.9.27-2.98-.59-2.52-1.04-4.14-3.6-4.27-3.77-.13-.17-1.02-1.36-1.02-2.59s.64-1.84.87-2.09c.23-.25.5-.31.67-.31.17 0 .34 0 .49.01.16.01.37-.06.58.44.21.5.73 1.77.79 1.9.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.68 1.11 1.45 1.8 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.17-.26.35-.22.58-.13.23.09 1.48.7 1.74.83.26.13.43.19.49.3.06.11.06.64-.15 1.22z"/></svg>
             </div>
             <div>
-              <span class="text-xs text-neutral-400 block mb-1">رقم استلام الطلبات (واتساب):</span>
-              <span class="text-sm font-bold text-white font-mono dir-ltr block group-hover:text-emerald-400 transition-colors">
+              <span id="contactWhatsAppLabel" class="text-[11px] text-neutral-400 block mb-1">رقم استلام الطلبات (واتساب):</span>
+              <span class="text-xs sm:text-sm font-bold text-white font-mono dir-ltr block group-hover:text-emerald-400 transition-colors">
                 +964 785 396 1359
               </span>
             </div>
           </a>
 
-          <a href="mailto:bascode84@gmail.com" class="bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700 p-5 rounded-2xl transition-all group flex flex-col justify-between">
-            <div class="text-emerald-400 mb-3">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <a href="mailto:bascode84@gmail.com" class="bg-neutral-800/80 hover:bg-neutral-800 border border-neutral-700 p-4 rounded-2xl transition-all group flex flex-col justify-between">
+            <div class="text-emerald-400 mb-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             </div>
             <div>
-              <span class="text-xs text-neutral-400 block mb-1">بريد خدمة العملاء:</span>
-              <span class="text-sm font-bold text-white font-mono block group-hover:text-emerald-400 transition-colors">
+              <span id="contactEmailLabel" class="text-[11px] text-neutral-400 block mb-1">بريد خدمة العملاء:</span>
+              <span class="text-xs sm:text-sm font-bold text-white font-mono block group-hover:text-emerald-400 transition-colors">
                 bascode84@gmail.com
               </span>
             </div>
@@ -268,18 +248,18 @@
     </div>
   </section>
 
-  <!-- Cart / Checkout Drawer -->
-  <div id="cartDrawerBackdrop" onclick="toggleCart()" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
-  <aside id="cartDrawer" class="fixed top-0 bottom-0 left-0 w-full max-w-md bg-white z-50 shadow-2xl flex flex-col transform -translate-x-full transition-transform duration-300">
+  <!-- Cart / Checkout Modal (Centered & Compact) -->
+  <div id="cartDrawerBackdrop" onclick="toggleCart()" class="fixed inset-0 bg-neutral-950/75 backdrop-blur-xs z-50 hidden transition-opacity flex items-center justify-center p-3 sm:p-6">
+    <div id="cartDrawer" onclick="event.stopPropagation()" class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] sm:max-h-[85vh] shadow-2xl flex flex-col justify-between overflow-hidden border border-neutral-200">
     
     <!-- Drawer Header -->
-    <div class="p-5 border-b border-neutral-200 flex items-center justify-between bg-neutral-50">
+    <div class="p-4 sm:p-5 border-b border-neutral-200 flex items-center justify-between bg-neutral-50 shrink-0">
       <div class="flex items-center gap-2">
         <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
         </div>
         <div>
-          <h3 class="font-bold text-sm text-neutral-900">سلة طلب الخدمات</h3>
+          <h3 id="drawerHeaderTitle" class="font-bold text-sm text-neutral-900">سلة طلب الخدمات</h3>
           <span class="text-[11px] text-neutral-500" id="cartHeaderCount">0 خدمات محددة</span>
         </div>
       </div>
@@ -289,7 +269,7 @@
     </div>
 
     <!-- Drawer Content (Items & Form) -->
-    <div class="flex-1 overflow-y-auto p-5 space-y-6 custom-scroll">
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5 custom-scroll">
       
       <!-- Cart Items List -->
       <div id="cartItemsList" class="space-y-3">
@@ -297,49 +277,49 @@
       </div>
 
       <!-- Customer Form -->
-      <div id="checkoutFormSection" class="border-t border-neutral-200 pt-5 space-y-4">
-        <h4 class="font-bold text-xs text-neutral-900 flex items-center gap-1.5">
-          <span>بيانات مقدم الطلب (العميل)</span>
+      <div id="checkoutFormSection" class="border-t border-neutral-200 pt-4 space-y-3.5">
+        <h4 id="custFormTitle" class="font-bold text-xs text-neutral-900">
+          بيانات مقدم الطلب (العميل)
         </h4>
 
         <div>
-          <label class="block text-[11px] font-semibold text-neutral-700 mb-1">الاسم الكامل *</label>
-          <input type="text" id="custName" placeholder="الاسم ثلاثي أو اسم المنشأة" class="w-full text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600" />
+          <label id="lblCustName" class="block text-[11px] font-semibold text-neutral-700 mb-1">الاسم الكامل *</label>
+          <input type="text" id="custName" placeholder="الاسم ثلاثي أو اسم المنشأة" class="w-full text-base sm:text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600" />
         </div>
 
         <div>
-          <label class="block text-[11px] font-semibold text-neutral-700 mb-1">رقم الجوال (واتساب) *</label>
+          <label id="lblCustPhone" class="block text-[11px] font-semibold text-neutral-700 mb-1">رقم الجوال (واتساب) *</label>
           <div class="flex gap-2">
-            <input type="text" id="custPhone" placeholder="7853961359" class="flex-1 text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600 font-mono dir-ltr" />
-            <select id="custCountry" class="text-xs p-2.5 rounded-lg border border-neutral-300 bg-neutral-50 font-mono">
-              <option value="+964" selected>🇮🇶 +964 (العراق)</option>
-              <option value="+966">🇸🇦 +966 (السعودية)</option>
-              <option value="+971">🇦🇪 +971 (الإمارات)</option>
-              <option value="+965">🇰🇼 +965 (الكويت)</option>
-              <option value="+20">🇪🇬 +20 (مصر)</option>
-              <option value="+962">🇯🇴 +962 (الأردن)</option>
+            <select id="custCountry" class="text-xs p-2.5 rounded-lg border border-neutral-300 bg-neutral-50 font-mono shrink-0">
+              <option value="+964" selected>🇮🇶 +964</option>
+              <option value="+966">🇸🇦 +966</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+965">🇰🇼 +965</option>
+              <option value="+20">🇪🇬 +20</option>
+              <option value="+962">🇯🇴 +962</option>
             </select>
+            <input type="tel" id="custPhone" placeholder="7853961359" class="flex-1 text-base sm:text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600 font-mono dir-ltr" />
           </div>
         </div>
 
         <div>
-          <label class="block text-[11px] font-semibold text-neutral-700 mb-1">البريد الإلكتروني *</label>
-          <input type="email" id="custEmail" placeholder="name@example.com" class="w-full text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600 font-mono dir-ltr" />
+          <label id="lblCustEmail" class="block text-[11px] font-semibold text-neutral-700 mb-1">البريد الإلكتروني *</label>
+          <input type="email" id="custEmail" placeholder="name@example.com" class="w-full text-base sm:text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600 font-mono dir-ltr" />
         </div>
 
         <div>
-          <label class="block text-[11px] font-semibold text-neutral-700 mb-1">ملاحظات أو متطلبات خاصة بالمشروع</label>
-          <textarea id="custNotes" rows="2" placeholder="اذكر أي تفاصيل إضافية حول فكرة مشروعك..." class="w-full text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600"></textarea>
+          <label id="lblCustNotes" class="block text-[11px] font-semibold text-neutral-700 mb-1">ملاحظات أو متطلبات خاصة بالمشروع</label>
+          <textarea id="custNotes" rows="2" placeholder="اذكر أي تفاصيل إضافية حول فكرة مشروعك..." class="w-full text-base sm:text-xs p-2.5 rounded-lg border border-neutral-300 focus:outline-none focus:border-emerald-600"></textarea>
         </div>
 
         <!-- Official Receiving Banner inside Drawer -->
-        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-[11px] space-y-1.5 text-emerald-950">
+        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-[11px] space-y-1 text-emerald-950">
           <div class="font-bold flex items-center justify-between">
-            <span>رقم استلام الطلبات الرسمي:</span>
+            <span id="lblDrawerWaTitle">رقم استلام الطلبات الرسمي:</span>
             <span class="font-mono text-emerald-800 dir-ltr">+964 785 396 1359</span>
           </div>
           <div class="flex items-center justify-between text-neutral-600">
-            <span>خدمة العملاء:</span>
+            <span id="lblDrawerSupportTitle">خدمة العملاء:</span>
             <span class="font-mono">bascode84@gmail.com</span>
           </div>
         </div>
@@ -349,197 +329,241 @@
     </div>
 
     <!-- Drawer Footer -->
-    <div class="p-5 border-t border-neutral-200 bg-neutral-50 space-y-3">
+    <div class="p-4 sm:p-5 border-t border-neutral-200 bg-neutral-50 space-y-3 shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))]">
       <div class="flex items-center justify-between text-sm font-bold">
-        <span>المجموع الإجمالي:</span>
-        <span class="text-emerald-700 text-base" id="cartTotalPrice">0 ر.س</span>
+        <span id="lblDrawerTotal">المجموع الإجمالي:</span>
+        <span class="text-emerald-700 text-base font-mono" id="cartTotalPrice">0 ر.س</span>
       </div>
 
-      <button onclick="submitOrderToWhatsApp()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition-colors">
+      <button onclick="submitOrderToWhatsApp()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition-colors min-h-[44px]">
         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 2.17.7 4.19 1.9 5.86L2.6 22l4.28-1.28C8.38 21.49 10.13 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.95 14.15c-.21.58-1.21 1.13-1.68 1.18-.46.06-.9.27-2.98-.59-2.52-1.04-4.14-3.6-4.27-3.77-.13-.17-1.02-1.36-1.02-2.59s.64-1.84.87-2.09c.23-.25.5-.31.67-.31.17 0 .34 0 .49.01.16.01.37-.06.58.44.21.5.73 1.77.79 1.9.06.13.1.28.02.45-.09.17-.13.28-.26.43-.13.15-.27.34-.39.46-.13.13-.26.27-.11.53.15.26.68 1.11 1.45 1.8 1 .89 1.84 1.17 2.1 1.3.26.13.41.11.56-.06.15-.17.65-.76.82-1.02.17-.26.35-.22.58-.13.23.09 1.48.7 1.74.83.26.13.43.19.49.3.06.11.06.64-.15 1.22z"/></svg>
-        <span>إرسال الطلب عبر واتساب (+964 785 396 1359)</span>
+        <span id="btnSubmitOrder">إرسال الطلب عبر واتساب (+964 785 396 1359)</span>
       </button>
     </div>
 
-  </aside>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer class="bg-neutral-900 text-neutral-400 text-xs border-t border-neutral-800 py-12">
+  <footer class="bg-neutral-900 text-neutral-400 text-xs border-t border-neutral-800 py-10 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-        <div class="md:col-span-2 space-y-3">
-          <div class="flex items-center gap-3 text-white font-bold text-base">
-            <div class="h-8 w-12 rounded-lg overflow-hidden border border-neutral-700 bg-[#0d0f12] flex items-center justify-center">
-              <span class="text-amber-400 font-bold text-xs">BA</span>
-            </div>
-            <span>باسكود حلول رقمية متكاملة</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-white font-bold text-sm">
+            <span>باسكود للحلول الرقمية</span>
           </div>
-          <p class="text-neutral-400 text-xs leading-relaxed max-w-md">
-            حيث تبدأ فكرتك، يبدأ المستقبل. نحوّل الأفكار الطموحة إلى تجارب رقمية استثنائية مع ربط مباشر لطلبات العملاء عبر واتساب لضمان سرعة الإنجاز ودقة المتابعة.
+          <p id="footerAbout" class="text-neutral-400 text-xs leading-relaxed max-w-sm">
+            حيث تبدأ فكرتك، يبدأ المستقبل. خدمات برمجية وتصميم وتسويق مع إرسال الطلبات مباشرة عبر واتساب.
           </p>
         </div>
 
         <div>
-          <h4 class="text-white font-semibold mb-3">أقسام الخدمات</h4>
-          <ul class="space-y-2 text-[11px]">
-            <li>تطبيقات الجوال (iOS & Android)</li>
-            <li>الأنظمة الإدارية وDashboards</li>
-            <li>تحليل البيانات ونماذج Excel</li>
-            <li>الأمن السيبراني وفحص الثغرات</li>
-            <li>حلول الذكاء الاصطناعي والأتمتة</li>
+          <h4 id="footerContactTitle" class="text-white font-semibold mb-2">التواصل المعتمد</h4>
+          <ul class="space-y-1 text-[11px]">
+            <li class="dir-ltr text-start font-mono text-neutral-300">WhatsApp: +964 785 396 1359</li>
+            <li class="font-mono text-neutral-300">Email: bascode84@gmail.com</li>
           </ul>
         </div>
 
-        <div>
-          <h4 class="text-white font-semibold mb-3">التواصل المعتمد</h4>
-          <ul class="space-y-2 text-[11px]">
-            <li class="dir-ltr text-right font-mono text-neutral-300">واتساب: +964 785 396 1359</li>
-            <li class="font-mono text-neutral-300">البريد: bascode84@gmail.com</li>
-            <li class="text-emerald-400 font-medium">تسليم معتمد وضمان جودة 100%</li>
-          </ul>
+        <div class="flex items-center">
+          <span class="text-emerald-400 text-xs font-semibold" id="footerBadge">
+            ✓ تسليم معتمد وضمان جودة 100% لجميع الخدمات
+          </span>
         </div>
       </div>
 
-      <div class="pt-8 border-t border-neutral-800 text-center text-neutral-500 text-[11px]">
-        © 2026 باسكود حلول رقمية متكاملة. جميع الحقوق محفوظة.
+      <div class="pt-6 border-t border-neutral-800 text-center text-neutral-500 text-[11px]" id="footerCopyright">
+        © 2026 باسكود للحلول الرقمية. جميع الحقوق محفوظة.
       </div>
     </div>
   </footer>
 
-  <!-- Script Logic (100% Self Contained) -->
+  <!-- Script Logic (100% Self Contained & Bilingual) -->
   <script>
-    // 12 Professional Services
     const SERVICES = [
       {
         id: 'srv-app-01',
-        title: 'تصميم وتطوير تطبيق جوال مخصص (iOS & Android) فائق السرعة',
+        titleAr: 'تصميم وتطوير تطبيق جوال مخصص (iOS & Android) فائق السرعة',
+        titleEn: 'Custom High-Performance Mobile App Development (iOS & Android)',
         category: 'mobile_apps',
-        categoryLabel: 'تطبيقات الموبايل',
-        shortDescription: 'تطوير تطبيق أصيل أو هجين بواجهات عصرية وتجربة مستخدم سلسة وربط بوابات الدفع وقواعد البيانات السحابية.',
+        categoryLabelAr: 'تطبيقات الموبايل',
+        categoryLabelEn: 'Mobile Apps',
+        shortDescriptionAr: 'تطوير تطبيق أصيل أو هجين بواجهات عصرية وتجربة مستخدم سلسة وربط بوابات الدفع وقواعد البيانات السحابية.',
+        shortDescriptionEn: 'Native or hybrid mobile application with modern UI/UX, payment gateway integration, and cloud databases.',
         price: 2900,
         deliveryDays: 7,
-        badge: 'خدمة نخبـوية'
-      },
-      {
-        id: 'srv-app-02',
-        title: 'تطوير واجهات مستخدم تفاعلية (UI/UX) للتطبيقات الجوالة',
-        category: 'mobile_apps',
-        categoryLabel: 'تطبيقات الموبايل',
-        shortDescription: 'دراسة سلوك المستخدم وبناء النماذج التفاعلية (Wireframes & Prototypes) على Figma مع تصدير ملفات التصميم الكاملة.',
-        price: 1250,
-        deliveryDays: 4,
-        badge: 'الأكثر طلباً'
+        badgeAr: 'خدمة نخبـوية',
+        badgeEn: 'Elite Service'
       },
       {
         id: 'srv-sys-01',
-        title: 'برمجة لوحة تحكم سحابية ونظام إداري مخصص (ERP / CRM)',
-        category: 'management_systems',
-        categoryLabel: 'أنظمة إدارية',
-        shortDescription: 'بناء منصة إدارة متكاملة للمبيعات والمخزون والفواتير وإدارة المستخدمين مع صلاحيات متعددة وتقارير لحظية.',
-        price: 3400,
-        deliveryDays: 10,
-        badge: 'للشركات'
-      },
-      {
-        id: 'srv-sys-02',
-        title: 'تطوير متجر إلكتروني متكامل عالي التحويل وسريع الاستجابة',
-        category: 'management_systems',
-        categoryLabel: 'أنظمة إدارية',
-        shortDescription: 'متجر احترافي جاهز للبيع وربط الدفع الإلكتروني (Apple Pay, مدى, فيزا) مع نظام إدارة الطلبات والخصومات والشحن.',
-        price: 2100,
-        deliveryDays: 5,
-        badge: 'شامل الربط'
+        titleAr: 'بناء وتطوير نظام إداري ولوحة تحكم مخصصة (SaaS / ERP Dashboard)',
+        titleEn: 'Custom Cloud Management System & Admin Dashboard (SaaS / ERP)',
+        category: 'systems_dashboards',
+        categoryLabelAr: 'الأنظمة ولوحات التحكم',
+        categoryLabelEn: 'Systems & Dashboards',
+        shortDescriptionAr: 'لوحة قيادة سحابية متقدمة لإدارة العملاء والمبيعات والمخزون، مع صلاحيات مستخدمين وتقارير بيانية تفاعلية.',
+        shortDescriptionEn: 'Advanced cloud dashboard for managing clients, sales, inventory, user roles, and live analytics.',
+        price: 2400,
+        deliveryDays: 6,
+        badgeAr: 'حلول مؤسسية',
+        badgeEn: 'Enterprise'
       },
       {
         id: 'srv-data-01',
-        title: 'تصميم شيتات Excel ذكية ونماذج أتمتة متقدمة (VBA & Macros)',
+        titleAr: 'تصميم قوالب إكسل ذكية متقدمة وأتمتة جداول البيانات (VBA & Power BI)',
+        titleEn: 'Advanced Excel Templates & Data Automation (VBA & Power BI)',
         category: 'data_excel',
-        categoryLabel: 'بيانات وإكسل',
-        shortDescription: 'بناء قوالب إكسل آلية لحساب الأرباح وإدارة المخزون والرواتب مع واجهات مستخدم مخصصة وتصدير تقارير PDF تلقائياً.',
-        price: 650,
+        categoryLabelAr: 'البيانات وExcel',
+        categoryLabelEn: 'Data & Excel',
+        shortDescriptionAr: 'شيتات محاسبية وإدارية متطورة، أتمتة معادلات معقدة، تنظيف البيانات، وداشبورد تفاعلي يوفر وقتك وجهدك.',
+        shortDescriptionEn: 'Sophisticated accounting & management sheets, complex formulas, data cleaning, and dynamic dashboards.',
+        price: 480,
         deliveryDays: 2,
-        badge: 'تسليم سريع'
-      },
-      {
-        id: 'srv-data-02',
-        title: 'بناء لوحات تحليل بيانات تفاعلية (Power BI / Google Looker)',
-        category: 'data_excel',
-        categoryLabel: 'بيانات وإكسل',
-        shortDescription: 'ربط مصادر البيانات المتعددة وتحويل الأرقام الخام إلى رسوم بيانية ومؤشرات أداء رئيسية (KPIs) لدعم اتخاذ القرار.',
-        price: 1450,
-        deliveryDays: 4,
-        badge: 'دقة عالية'
+        badgeAr: 'أتمتة ذكية',
+        badgeEn: 'Smart Automation'
       },
       {
         id: 'srv-sec-01',
-        title: 'فحص أمني شامل للمواقع والتطبيقات واختبار الاختراق',
-        category: 'cyber_security',
-        categoryLabel: 'أمن سيبراني',
-        shortDescription: 'كشف الثغرات الأمنية (OWASP Top 10) وفحص تسريب البيانات مع تقرير مفصل بإجراءات المعالجة وسد المنافذ.',
-        price: 2200,
-        deliveryDays: 4,
-        badge: 'أعلى حماية'
-      },
-      {
-        id: 'srv-sec-02',
-        title: 'تأمين الخوادم السحابية وإعداد جدران الحماية والنسخ الاحتياطي',
-        category: 'cyber_security',
-        categoryLabel: 'أمن سيبراني',
-        shortDescription: 'ضبط خوادم Linux/Cloud وتشفير قواعد البيانات وإعداد خطط الاستعادة الآلية في حالات الطوارئ والـ Disaster Recovery.',
-        price: 1600,
+        titleAr: 'فحص أمني شامل واختبار اختراق وحماية المواقع والأنظمة',
+        titleEn: 'Comprehensive Penetration Testing, Security Audit & Hardening',
+        category: 'cybersecurity',
+        categoryLabelAr: 'الأمن السيبراني',
+        categoryLabelEn: 'Cybersecurity',
+        shortDescriptionAr: 'كشف الثغرات الأمنية الحرجة، فحص قواعد البيانات، تعزيز جدران الحماية، وإعداد تقرير امتثال أمني معتمد.',
+        shortDescriptionEn: 'OWASP vulnerability assessment, database protection, firewall configuration, and compliance audit.',
+        price: 1250,
         deliveryDays: 3,
-        badge: 'أمان معتمد'
+        badgeAr: 'حماية معتمدة',
+        badgeEn: 'Certified Security'
       },
       {
         id: 'srv-ai-01',
-        title: 'تطوير وكيل ذكاء اصطناعي (AI Chatbot) مخصص لخدمة العملاء',
-        category: 'ai_solutions',
-        categoryLabel: 'ذكاء اصطناعي',
-        shortDescription: 'تدريب بوت محادثة ذكي على بيانات شركتك أو متجرك للرد الفوري على استفسارات العملاء وأتمتة المبيعات 24/7.',
-        price: 2600,
-        deliveryDays: 6,
-        badge: 'تقنية حديثة'
-      },
-      {
-        id: 'srv-ai-02',
-        title: 'أتمتة سير العمل الرقمي بالذكاء الاصطناعي (Zapier / Make / APIs)',
-        category: 'ai_solutions',
-        categoryLabel: 'ذكاء اصطناعي',
-        shortDescription: 'ربط الأنظمة وتوليد المحتوى تلقائياً وإرسال الإشعارات وأتمتة المهام اليومية لتقليل ساعات العمل اليدوي بنسبة 80%.',
-        price: 1850,
+        titleAr: 'تكامل وتطوير حلول الذكاء الاصطناعي والشات بوت المخصص للأعمال',
+        titleEn: 'Custom AI Chatbot & Intelligent Business Automation',
+        category: 'artificial_intelligence',
+        categoryLabelAr: 'الذكاء الاصطناعي',
+        categoryLabelEn: 'Artificial Intelligence',
+        shortDescriptionAr: 'بناء مساعد ذكي مدرب على بيانات نشاطك، أتمتة الردود وخدمة العملاء، وتوليد المحتوى وتحليل البيانات بالـ AI.',
+        shortDescriptionEn: 'Smart AI assistant trained on your business data, 24/7 automated customer service, and smart analytics.',
+        price: 1600,
         deliveryDays: 4,
-        badge: 'وفر وقتك'
+        badgeAr: 'تقنية المستقبل',
+        badgeEn: 'Next-Gen Tech'
       },
       {
         id: 'srv-doc-01',
-        title: 'صياغة وتنسيق العقود والوثائق الرسمية والملفات التعريفية',
+        titleAr: 'ترجمة معتمدة وتنسيق وصياغة المستندات والعقود الاحترافية',
+        titleEn: 'Certified Legal Translation & Executive Document Formatting',
         category: 'documents_translation',
-        categoryLabel: 'مستندات وترجمة',
-        shortDescription: 'كتابة وتنسيق البروفايلات للشركات (Company Profile) والعروض الفنية والمالية بطباعة احترافية وألوان الهوية.',
-        price: 850,
-        deliveryDays: 3,
-        badge: 'تصميم فاخر'
+        categoryLabelAr: 'المستندات والترجمة',
+        categoryLabelEn: 'Documents & Translation',
+        shortDescriptionAr: 'ترجمة بشرية متخصصة للعقود القانونية والملفات التجارية، مع تدقيق لغوي وتنسيق رسمي راقٍ للطباعة والعرض.',
+        shortDescriptionEn: 'Specialized human translation for contracts and corporate papers, with proofreading and executive formatting.',
+        price: 390,
+        deliveryDays: 2,
+        badgeAr: 'دقة واحتراف',
+        badgeEn: 'High Precision'
       },
       {
-        id: 'srv-doc-02',
-        title: 'ترجمة تقنية وقانونية معتمدة للوثائق والمواقع (عربي - إنجليزي)',
-        category: 'documents_translation',
-        categoryLabel: 'مستندات وترجمة',
-        shortDescription: 'ترجمة دقيقة متخصصة في المصطلحات البرمجية والتعاقدية ومستندات الأنظمة مع التدقيق اللغوي الشامل وضمان الجودة.',
+        id: 'srv-web-01',
+        titleAr: 'برمجة وتطوير متجر إلكتروني متكامل وسريع',
+        titleEn: 'Full-Stack High-Converting E-Commerce Web Development',
+        category: 'development',
+        categoryLabelAr: 'برمجة وتطوير',
+        categoryLabelEn: 'Development',
+        shortDescriptionAr: 'متجر إلكتروني متجاوب مخصص مع لوحة تحكم شاملة وربط بوابات الدفع والشحن وسرعة فائقة.',
+        shortDescriptionEn: 'Responsive, high-converting digital store with comprehensive admin dashboard, payment gateways, and speed optimization.',
+        price: 1850,
+        deliveryDays: 5,
+        badgeAr: 'الأكثر طلباً',
+        badgeEn: 'Most Popular'
+      },
+      {
+        id: 'srv-brand-01',
+        titleAr: 'تصميم هوية بصرية كاملة وشعار فاخر للشركات',
+        titleEn: 'Complete Corporate Visual Identity & Branding System',
+        category: 'design',
+        categoryLabelAr: 'تصميم وهوية',
+        categoryLabelEn: 'Design & Branding',
+        shortDescriptionAr: 'ابتكار هوية تجارية مميزة تعكس رقي علامتك مع ملف إرشادات الهوية وملفات الطباعة.',
+        shortDescriptionEn: 'Distinctive corporate logo, complete color palette, brand guidelines book, and printable commercial collateral.',
+        price: 980,
+        deliveryDays: 3,
+        badgeAr: 'خدمة مميزة',
+        badgeEn: 'Luxury Design'
+      },
+      {
+        id: 'srv-mkt-01',
+        titleAr: 'إدارة حملات إعلانية ممولة احترافية وزيادة المبيعات',
+        titleEn: 'Digital Marketing Campaign Management & Targeted Ads (Google / Meta)',
+        category: 'marketing',
+        categoryLabelAr: 'تسويق رقمي',
+        categoryLabelEn: 'Digital Marketing',
+        shortDescriptionAr: 'إدارة وتحسين الحملات على تيك توك وسناب شات وجوجل بذكاء لتحقيق أعلى عائد استثماري ROAS.',
+        shortDescriptionEn: 'High-ROI advertising campaigns on Google Ads, Instagram, and TikTok with conversion tracking and detailed weekly reports.',
         price: 750,
+        deliveryDays: 4,
+        badgeAr: 'عائد مرتفع',
+        badgeEn: 'High ROI'
+      },
+      {
+        id: 'srv-video-01',
+        titleAr: 'إنتاج فيديو موشن جرافيك ترويجي مع تعليق صوتي فخم',
+        titleEn: 'Motion Graphics Video & Explainer Animation (Voiceover Included)',
+        category: 'video',
+        categoryLabelAr: 'مونتاج وفيديو',
+        categoryLabelEn: 'Video & Motion',
+        shortDescriptionAr: 'فيديو ترويجي احترافي يشرح خدمتك أو تطبيقك في 30-60 ثانية برسوم جذابة وصوت رخيم.',
+        shortDescriptionEn: 'Engaging 2D/3D motion graphics video explaining your service with professional voiceover and sound design.',
+        price: 850,
+        deliveryDays: 4,
+        badgeAr: 'عالي الجودة',
+        badgeEn: 'Creative Production'
+      },
+      {
+        id: 'srv-web-02',
+        titleAr: 'تصميم وبرمجة صفحة هبوط بيعية (Landing Page) خارقة',
+        titleEn: 'High-Converting Sales Landing Page Design & Rapid Development',
+        category: 'development',
+        categoryLabelAr: 'برمجة وتطوير',
+        categoryLabelEn: 'Development',
+        shortDescriptionAr: 'صفحة هبوط فائقة السرعة مصممة لرفع معدل التحويل وجمع العملاء المحتملين بكفاءة.',
+        shortDescriptionEn: 'Ultra-fast landing page engineered to boost conversion rates and capture qualified leads efficiently.',
+        price: 690,
         deliveryDays: 2,
-        badge: 'تدقيق لغوي'
+        badgeAr: 'تحويل عالي',
+        badgeEn: 'High Conversion'
+      },
+      {
+        id: 'srv-content-01',
+        titleAr: 'كتابة محتوى تعريفي وسيو وبروفايل شركات تسويقي',
+        titleEn: 'Corporate Profile, SEO Copywriting & Marketing Content',
+        category: 'content',
+        categoryLabelAr: 'كتابة ومحتوى',
+        categoryLabelEn: 'Content & Copy',
+        shortDescriptionAr: 'صياغة محتوى احترافي بأسلوب نخبوي يعبر عن رسالة وقيم شركتك ويجذب العملاء المستهدفين.',
+        shortDescriptionEn: 'High-end professional copywriting articulating your company vision, values, and driving conversions.',
+        price: 490,
+        deliveryDays: 2,
+        badgeAr: 'صياغة راقية',
+        badgeEn: 'Elite Copy'
       }
     ];
 
     const CATEGORIES = [
-      { id: 'all', label: 'كافة الخدمات' },
-      { id: 'mobile_apps', label: 'تطبيقات الموبايل' },
-      { id: 'management_systems', label: 'أنظمة إدارية' },
-      { id: 'data_excel', label: 'بيانات وإكسل' },
-      { id: 'cyber_security', label: 'أمن سيبراني' },
-      { id: 'ai_solutions', label: 'ذكاء اصطناعي' },
-      { id: 'documents_translation', label: 'مستندات وترجمة' }
+      { id: 'all', labelAr: 'كافة الخدمات', labelEn: 'All Services' },
+      { id: 'mobile_apps', labelAr: 'تطبيقات الموبايل', labelEn: 'Mobile Apps' },
+      { id: 'systems_dashboards', labelAr: 'الأنظمة ولوحات التحكم', labelEn: 'Systems & Dashboards' },
+      { id: 'data_excel', labelAr: 'البيانات وExcel', labelEn: 'Data & Excel' },
+      { id: 'cybersecurity', labelAr: 'الأمن السيبراني', labelEn: 'Cybersecurity' },
+      { id: 'artificial_intelligence', labelAr: 'الذكاء الاصطناعي', labelEn: 'Artificial Intelligence' },
+      { id: 'documents_translation', labelAr: 'المستندات والترجمة', labelEn: 'Documents & Translation' },
+      { id: 'development', labelAr: 'برمجة وتطوير', labelEn: 'Development' },
+      { id: 'design', labelAr: 'تصميم وهوية', labelEn: 'Design & Branding' },
+      { id: 'marketing', labelAr: 'تسويق رقمي', labelEn: 'Digital Marketing' },
+      { id: 'video', labelAr: 'مونتاج وفيديو', labelEn: 'Video & Motion' },
+      { id: 'content', labelAr: 'كتابة ومحتوى', labelEn: 'Content & Copy' }
     ];
 
     const CURRENCIES = {
@@ -578,35 +602,94 @@
       currentLang = currentLang === 'ar' ? 'en' : 'ar';
       document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = currentLang;
-      document.getElementById('langLabel').innerText = currentLang === 'ar' ? 'EN' : 'عربي';
-      document.getElementById('cartBtnText').innerText = currentLang === 'ar' ? 'سلة الطلب' : 'Cart';
+      document.title = currentLang === 'ar' ? 'باسكود | حلول رقمية متكاملة' : 'BasCode | Integrated Digital Solutions';
+      
+      applyLanguageTexts();
       renderCategories();
       renderServices();
       updateCartUI();
     }
 
-    // Initialize
+    function applyLanguageTexts() {
+      const isEn = currentLang === 'en';
+      document.getElementById('langLabel').innerText = isEn ? 'عربي' : 'EN';
+      document.getElementById('bannerText').innerHTML = isEn
+        ? 'Welcome to <strong>BasCode</strong> — Certified delivery and instant WhatsApp order confirmation.'
+        : 'مرحباً بك في <strong>باسكود</strong> — إنجاز احترافي وتأكيد فوري للطلبات عبر واتساب';
+      document.getElementById('brandName').innerText = isEn ? 'BasCode Digital Solutions' : 'باسكود للحلول الرقمية';
+      document.getElementById('cartBtnText').innerText = isEn ? 'Cart' : 'سلة الطلب';
+
+      document.getElementById('heroBadges').innerHTML = isEn
+        ? '<span class="text-emerald-400 font-semibold">BasCode Digital Solutions</span><span>·</span><span>Certified Direct Delivery</span><span>·</span><span>Automated WhatsApp Dispatch</span>'
+        : '<span class="text-emerald-400 font-semibold">باسكود للحلول الرقمية</span><span>·</span><span>تسليم معتمد ومباشر</span><span>·</span><span>ربط آلي مع الواتساب</span>';
+
+      document.getElementById('heroTitle1').innerText = isEn ? 'Where your idea starts, the future begins.' : 'حيث تبدأ فكرتك، يبدأ المستقبل.';
+      document.getElementById('heroTitle2').innerText = isEn ? 'Turning ambitious ideas into exceptional digital experiences' : 'نحوّل الأفكار الطموحة إلى تجارب رقمية استثنائية';
+      document.getElementById('heroDesc').innerText = isEn
+        ? 'Choose your services in Mobile Apps, Management Systems, Data & Excel, Cybersecurity, and AI. Submit your details easily and receive direct WhatsApp confirmation to start execution immediately.'
+        : 'اختر خدماتك في تطبيقات الموبايل، الأنظمة الإدارية، البيانات وExcel، الأمن السيبراني، والذكاء الاصطناعي. سجّل بياناتك بسهولة واستلم تأكيد الطلب فوراً عبر واتساب لبدء التنفيذ.';
+
+      document.getElementById('searchInput').placeholder = isEn
+        ? 'Search for a service (Mobile App, Excel, Cybersecurity, AI)...'
+        : 'ابحث عن خدمة (تطبيق جوال، إكسل، أمن سيبراني، ذكاء اصطناعي)...';
+
+      document.getElementById('catalogTitle').innerText = isEn ? 'Digital Services Available to Order' : 'الخدمات الرقمية المتاحة للطلب';
+
+      document.getElementById('contactBadge').innerText = isEn ? 'Technical Support & Certified Dispatch' : 'دعم فني واستلام معتمد';
+      document.getElementById('contactTitle').innerText = isEn ? 'Ready to Launch Your Next Digital Project?' : 'جاهزون لبدء مشروعك الرقمي القادم؟';
+      document.getElementById('contactDesc').innerText = isEn
+        ? 'The BasCode team is available around the clock to assist you with all inquiries, receive custom requests, and provide direct technical consultation via official WhatsApp and verified email.'
+        : 'فريق باسكود متاح لمتابعة كافة الاستفسارات، استلام المتطلبات المخصصة، وتقديم الاستشارات التقنية الفورية عبر واتساب والبريد المعتمد.';
+
+      document.getElementById('contactWhatsAppLabel').innerText = isEn ? 'Receiving WhatsApp Number:' : 'رقم استلام الطلبات (واتساب):';
+      document.getElementById('contactEmailLabel').innerText = isEn ? 'Customer Support Email:' : 'بريد خدمة العملاء:';
+
+      document.getElementById('drawerHeaderTitle').innerText = isEn ? 'Order Cart' : 'سلة طلب الخدمات';
+      document.getElementById('custFormTitle').innerText = isEn ? 'Customer Information' : 'بيانات مقدم الطلب (العميل)';
+      document.getElementById('lblCustName').innerText = isEn ? 'Full Name *' : 'الاسم الكامل *';
+      document.getElementById('custName').placeholder = isEn ? 'Your full name or organization name' : 'الاسم ثلاثي أو اسم المنشأة';
+      document.getElementById('lblCustPhone').innerText = isEn ? 'Phone Number (WhatsApp) *' : 'رقم الجوال (واتساب) *';
+      document.getElementById('lblCustEmail').innerText = isEn ? 'Email Address *' : 'البريد الإلكتروني *';
+      document.getElementById('lblCustNotes').innerText = isEn ? 'Project Notes or Requirements' : 'ملاحظات أو متطلبات خاصة بالمشروع';
+      document.getElementById('custNotes').placeholder = isEn ? 'Mention any specific details about your project...' : 'اذكر أي تفاصيل إضافية حول فكرة مشروعك...';
+      document.getElementById('lblDrawerWaTitle').innerText = isEn ? 'Official WhatsApp Receiver:' : 'رقم استلام الطلبات الرسمي:';
+      document.getElementById('lblDrawerSupportTitle').innerText = isEn ? 'Customer Support:' : 'خدمة العملاء:';
+      document.getElementById('lblDrawerTotal').innerText = isEn ? 'Total Amount:' : 'المجموع الإجمالي:';
+      document.getElementById('btnSubmitOrder').innerText = isEn ? 'Submit Order via WhatsApp (+964 785 396 1359)' : 'إرسال الطلب عبر واتساب (+964 785 396 1359)';
+
+      document.getElementById('footerAbout').innerText = isEn
+        ? 'Where your idea starts, the future begins. Professional development, design, and marketing services with direct WhatsApp order dispatch.'
+        : 'حيث تبدأ فكرتك، يبدأ المستقبل. خدمات برمجية وتصميم وتسويق مع إرسال الطلبات مباشرة عبر واتساب.';
+      document.getElementById('footerContactTitle').innerText = isEn ? 'Official Contact' : 'التواصل المعتمد';
+      document.getElementById('footerBadge').innerText = isEn ? '✓ Certified Delivery & 100% Quality Guarantee' : '✓ تسليم معتمد وضمان جودة 100% لجميع الخدمات';
+      document.getElementById('footerCopyright').innerText = isEn ? '© 2026 BasCode Digital Solutions. All rights reserved.' : '© 2026 باسكود للحلول الرقمية. جميع الحقوق محفوظة.';
+    }
+
     function init() {
+      applyLanguageTexts();
       renderCategories();
       renderServices();
       loadCartFromStorage();
     }
 
-    // Render Categories
     function renderCategories() {
       const container = document.getElementById('categoriesContainer');
-      container.innerHTML = CATEGORIES.map(cat => `
-        <button
-          onclick="filterCategory('${cat.id}')"
-          class="px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
-            currentCategory === cat.id
-              ? 'bg-emerald-700 text-white shadow-sm'
-              : 'bg-white text-neutral-600 hover:bg-neutral-100 border border-neutral-200'
-          }"
-        >
-          ${cat.label}
-        </button>
-      `).join('');
+      const isEn = currentLang === 'en';
+      container.innerHTML = CATEGORIES.map(cat => {
+        const label = isEn ? cat.labelEn : cat.labelAr;
+        return `
+          <button
+            onclick="filterCategory('${cat.id}')"
+            class="px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
+              currentCategory === cat.id
+                ? 'bg-emerald-700 text-white shadow-xs'
+                : 'bg-white text-neutral-600 hover:bg-neutral-100 border border-neutral-200'
+            }"
+          >
+            ${label}
+          </button>
+        `;
+      }).join('');
     }
 
     function filterCategory(catId) {
@@ -620,66 +703,76 @@
       renderServices();
     }
 
-    // Render Services Grid
     function renderServices() {
       const grid = document.getElementById('servicesGrid');
+      const isEn = currentLang === 'en';
       const filtered = SERVICES.filter(s => {
         const matchesCategory = currentCategory === 'all' || s.category === currentCategory;
-        const matchesSearch = !searchQuery || s.title.toLowerCase().includes(searchQuery) || s.shortDescription.toLowerCase().includes(searchQuery);
+        const title = isEn ? s.titleEn : s.titleAr;
+        const desc = isEn ? s.shortDescriptionEn : s.shortDescriptionAr;
+        const matchesSearch = !searchQuery || title.toLowerCase().includes(searchQuery) || desc.toLowerCase().includes(searchQuery);
         return matchesCategory && matchesSearch;
       });
 
-      document.getElementById('servicesCount').innerText = `عرض ${filtered.length} من أصل ${SERVICES.length} خدمة احترافية`;
+      document.getElementById('servicesCount').innerText = isEn
+        ? `Showing ${filtered.length} of ${SERVICES.length} available services`
+        : `عرض ${filtered.length} من أصل ${SERVICES.length} خدمة احترافية`;
 
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="col-span-full py-16 text-center text-neutral-400">
-            <p class="text-sm">لم يتم العثور على خدمات مطابقة لبحثك.</p>
+            <p class="text-xs sm:text-sm">${isEn ? 'No services found matching your criteria.' : 'لم يتم العثور على خدمات مطابقة لبحثك.'}</p>
           </div>
         `;
         return;
       }
 
-      grid.innerHTML = filtered.map(s => `
-        <div class="bg-white rounded-2xl border border-neutral-200/80 shadow-xs hover:shadow-md hover:border-emerald-600/40 transition-all flex flex-col justify-between overflow-hidden group">
-          <div class="p-6">
-            <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                ${s.badge}
-              </span>
-              <span class="text-xs text-neutral-400">تسليم خلال ${s.deliveryDays} أيام</span>
-            </div>
+      grid.innerHTML = filtered.map(s => {
+        const title = isEn ? s.titleEn : s.titleAr;
+        const desc = isEn ? s.shortDescriptionEn : s.shortDescriptionAr;
+        const badge = isEn ? s.badgeEn : s.badgeAr;
+        const deliveryText = isEn ? `${s.deliveryDays} business days` : `${s.deliveryDays} أيام عمل`;
 
-            <h3 class="text-base font-bold text-neutral-900 group-hover:text-emerald-700 transition-colors mb-2 leading-snug">
-              ${s.title}
-            </h3>
-
-            <p class="text-xs text-neutral-500 leading-relaxed line-clamp-3">
-              ${s.shortDescription}
-            </p>
-          </div>
-
-          <div class="p-6 pt-0 mt-auto">
-            <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
-              <div>
-                <span class="text-[10px] text-neutral-400 block">${currentLang === 'ar' ? 'سعر الخدمة' : 'Service Price'}</span>
-                <span class="text-base font-extrabold text-neutral-900">${formatPrice(s.price)}</span>
+        return `
+          <div class="bg-white rounded-2xl border border-neutral-200 shadow-xs hover:shadow-md transition-all flex flex-col justify-between overflow-hidden group">
+            <div class="p-5 sm:p-6">
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  ${badge}
+                </span>
+                <span class="text-[11px] text-neutral-400">${deliveryText}</span>
               </div>
-              
-              <button
-                onclick="addToCart('${s.id}')"
-                class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1.5"
-              >
-                <span>طلب الخدمة</span>
-                <span>+</span>
-              </button>
+
+              <h3 class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-700 transition-colors mb-2 leading-snug line-clamp-2">
+                ${title}
+              </h3>
+
+              <p class="text-xs text-neutral-500 leading-relaxed line-clamp-2">
+                ${desc}
+              </p>
+            </div>
+
+            <div class="p-5 sm:p-6 pt-0 mt-auto">
+              <div class="flex items-center justify-between pt-4 border-t border-neutral-100">
+                <div>
+                  <span class="text-[10px] text-neutral-400 block">${isEn ? 'Starts from' : 'سعر الخدمة'}</span>
+                  <span class="text-sm sm:text-base font-extrabold text-neutral-900 font-mono">${formatPrice(s.price)}</span>
+                </div>
+                
+                <button
+                  onclick="addToCart('${s.id}')"
+                  class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1.5 min-h-[38px]"
+                >
+                  <span>${isEn ? 'Request' : 'طلب الخدمة'}</span>
+                  <span>+</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
-    // Cart Management
     function addToCart(serviceId) {
       const srv = SERVICES.find(s => s.id === serviceId);
       if (!srv) return;
@@ -715,9 +808,8 @@
     }
 
     function toggleCart() {
-      const drawer = document.getElementById('cartDrawer');
       const backdrop = document.getElementById('cartDrawerBackdrop');
-      if (drawer.classList.contains('-translate-x-full')) {
+      if (backdrop.classList.contains('hidden')) {
         openCart();
       } else {
         closeCart();
@@ -725,52 +817,52 @@
     }
 
     function openCart() {
-      const drawer = document.getElementById('cartDrawer');
       const backdrop = document.getElementById('cartDrawerBackdrop');
-      drawer.classList.remove('-translate-x-full');
       backdrop.classList.remove('hidden');
     }
 
     function closeCart() {
-      const drawer = document.getElementById('cartDrawer');
       const backdrop = document.getElementById('cartDrawerBackdrop');
-      drawer.classList.add('-translate-x-full');
       backdrop.classList.add('hidden');
     }
 
     function updateCartUI() {
+      const isEn = currentLang === 'en';
       const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
       const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
 
       document.getElementById('cartCountBadge').innerText = totalCount;
-      document.getElementById('cartHeaderCount').innerText = `${totalCount} خدمات محددة`;
+      document.getElementById('cartHeaderCount').innerText = isEn ? `${totalCount} services selected` : `${totalCount} خدمات محددة`;
       document.getElementById('cartTotalPrice').innerText = formatPrice(totalPrice);
 
       const list = document.getElementById('cartItemsList');
       if (cart.length === 0) {
         list.innerHTML = `
           <div class="py-12 text-center text-neutral-400">
-            <p class="text-xs">${currentLang === 'ar' ? 'سلتك فارغة حالياً. اختر الخدمات المطلوبة للمتابعة.' : 'Your cart is empty. Choose services to continue.'}</p>
+            <p class="text-xs">${isEn ? 'Your cart is empty. Select services to proceed.' : 'سلتك فارغة حالياً. اختر الخدمات المطلوبة للمتابعة.'}</p>
           </div>
         `;
         return;
       }
 
-      list.innerHTML = cart.map(item => `
-        <div class="p-3 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center justify-between gap-3 text-xs">
-          <div class="flex-1 min-w-0">
-            <h5 class="font-bold text-neutral-900 truncate">${item.title}</h5>
-            <span class="text-emerald-700 font-semibold text-[11px]">${formatPrice(item.price)}</span>
-          </div>
+      list.innerHTML = cart.map(item => {
+        const title = isEn ? item.titleEn : item.titleAr;
+        return `
+          <div class="p-3 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center justify-between gap-3 text-xs">
+            <div class="flex-1 min-w-0">
+              <h5 class="font-bold text-neutral-900 truncate">${title}</h5>
+              <span class="text-emerald-700 font-semibold font-mono text-[11px]">${formatPrice(item.price)}</span>
+            </div>
 
-          <div class="flex items-center gap-2">
-            <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded bg-white border border-neutral-300 flex items-center justify-center font-bold text-neutral-600 hover:bg-neutral-100">-</button>
-            <span class="font-bold text-xs">${item.quantity}</span>
-            <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded bg-white border border-neutral-300 flex items-center justify-center font-bold text-neutral-600 hover:bg-neutral-100">+</button>
-            <button onclick="removeFromCart('${item.id}')" class="text-red-500 hover:text-red-700 mr-1">✕</button>
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded bg-white border border-neutral-300 flex items-center justify-center font-bold text-neutral-600 hover:bg-neutral-100">-</button>
+              <span class="font-bold text-xs px-1 font-mono">${item.quantity}</span>
+              <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded bg-white border border-neutral-300 flex items-center justify-center font-bold text-neutral-600 hover:bg-neutral-100">+</button>
+              <button onclick="removeFromCart('${item.id}')" class="text-neutral-400 hover:text-red-500 p-1">✕</button>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
 
     function saveCart() {
@@ -789,10 +881,10 @@
       } catch (e) {}
     }
 
-    // Submit Order to Official WhatsApp Number (+964 785 396 1359)
     function submitOrderToWhatsApp() {
+      const isEn = currentLang === 'en';
       if (cart.length === 0) {
-        alert('يرجى إضافة خدمة واحدة على الأقل للسلة للمتابعة.');
+        alert(isEn ? 'Please add at least one service to your cart.' : 'يرجى إضافة خدمة واحدة على الأقل للسلة للمتابعة.');
         return;
       }
 
@@ -803,52 +895,68 @@
       const notes = document.getElementById('custNotes').value.trim();
 
       if (!name) {
-        alert('يرجى إدخال الاسم الكامل.');
+        alert(isEn ? 'Please enter your full name.' : 'يرجى إدخال الاسم الكامل.');
         document.getElementById('custName').focus();
         return;
       }
       if (!phone) {
-        alert('يرجى إدخال رقم الجوال.');
+        alert(isEn ? 'Please enter your WhatsApp phone number.' : 'يرجى إدخال رقم الجوال.');
         document.getElementById('custPhone').focus();
         return;
       }
       if (!email || !email.includes('@')) {
-        alert('يرجى إدخال بريد إلكتروني صالح.');
+        alert(isEn ? 'Please enter a valid email address.' : 'يرجى إدخال بريد إلكتروني صالح.');
         document.getElementById('custEmail').focus();
         return;
       }
 
       const orderNumber = 'BSC-' + Math.floor(100000 + Math.random() * 900000);
-      const totalPrice = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+      const totalAmountFormatted = formatPrice(cart.reduce((sum, i) => sum + (i.price * i.quantity), 0));
 
-      // Build WhatsApp Message
-      let msg = `*طلب خدمة جديد - باسكود للحلول الرقمية*\n`;
-      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
-      msg += `📌 *رقم الطلب:* #${orderNumber}\n`;
-      msg += `👤 *اسم العميل:* ${name}\n`;
-      msg += `📱 *رقم الجوال:* ${country} ${phone}\n`;
-      msg += `📧 *البريد الإلكتروني:* ${email}\n`;
-      if (notes) {
-        msg += `📝 *ملاحظات وتفاصيل:* ${notes}\n`;
+      let msg = '';
+      if (isEn) {
+        msg = `*New Service Order from BasCode Digital Solutions* 🚀\n`;
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `📌 *Order Number:* #${orderNumber}\n`;
+        msg += `👤 *Customer Name:* ${name}\n`;
+        msg += `📱 *Phone Number:* ${country} ${phone}\n`;
+        msg += `📧 *Email:* ${email}\n`;
+        if (notes) {
+          msg += `📝 *Notes & Requirements:* ${notes}\n`;
+        }
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `🛒 *Requested Services:*\n`;
+        cart.forEach((item, idx) => {
+          msg += `${idx + 1}. ${item.titleEn}\n   Quantity: ${item.quantity} | Total: ${formatPrice(item.price * item.quantity)}\n`;
+        });
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `💰 *Total Amount:* ${totalAmountFormatted}\n\n`;
+        msg += `Hello BasCode, I would like to confirm this order and begin execution.`;
+      } else {
+        msg = `*طلب خدمة جديد - باسكود للحلول الرقمية* 🚀\n`;
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `📌 *رقم الطلب:* #${orderNumber}\n`;
+        msg += `👤 *اسم العميل:* ${name}\n`;
+        msg += `📱 *رقم الجوال:* ${country} ${phone}\n`;
+        msg += `📧 *البريد الإلكتروني:* ${email}\n`;
+        if (notes) {
+          msg += `📝 *ملاحظات وتفاصيل:* ${notes}\n`;
+        }
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `🛒 *الخدمات المطلوبة:*\n`;
+        cart.forEach((item, idx) => {
+          msg += `${idx + 1}. ${item.titleAr}\n   الكمية: ${item.quantity} | السعر: ${formatPrice(item.price * item.quantity)}\n`;
+        });
+        msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+        msg += `💰 *المجموع الإجمالي:* ${totalAmountFormatted}\n\n`;
+        msg += `مرحباً باسكود، أود تأكيد هذا الطلب وبدء التنفيذ معكم.`;
       }
-      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
-      msg += `🛒 *الخدمات المطلوبة:*\n`;
-      cart.forEach((item, idx) => {
-        msg += `${idx + 1}. ${item.title}\n   الكمية: ${item.quantity} | السعر: ${item.price * item.quantity} ر.س\n`;
-      });
-      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
-      msg += `💰 *المجموع الإجمالي:* ${totalPrice} ر.س\n\n`;
-      msg += `مرحباً باسكود، أود تأكيد هذا الطلب وبدء التنفيذ معكم.`;
 
-      // Official WhatsApp Number
       const whatsappNumber = '9647853961359';
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-
-      // Open WhatsApp directly
       window.open(url, '_blank');
     }
 
-    // Run initialization
     window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
