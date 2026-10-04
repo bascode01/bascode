@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -116,12 +115,15 @@
         
         <div class="lg:col-span-7 space-y-5">
           <!-- Trust Metadata -->
-          <div id="heroBadges" class="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-neutral-400 font-medium">
-            <span id="heroBadge1" class="text-emerald-400 font-bold">✓ باسكود للحلول الرقمية</span>
-            <span>·</span>
-            <span id="heroBadge2">تسليم معتمد وضمان 100%</span>
-            <span>·</span>
-            <span id="heroBadge3">إرسال آلي وتأكيد فوري عبر واتساب</span>
+          <div id="heroBadges" class="inline-flex flex-wrap items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-[11px] sm:text-xs text-neutral-300 shadow-sm">
+            <span id="heroBadge1" class="text-emerald-400 font-bold flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              ✓ باسكود للحلول الرقمية
+            </span>
+            <span class="text-neutral-700">|</span>
+            <span id="heroBadge2" class="text-neutral-300">تسليم معتمد وضمان 100%</span>
+            <span class="text-neutral-700">|</span>
+            <span id="heroBadge3" class="text-neutral-300">إرسال وتأكيد فوري عبر واتساب</span>
           </div>
 
           <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.3]">
@@ -162,34 +164,34 @@
           </div>
 
           <!-- Live Metrics Ribbon -->
-          <div class="pt-3 border-t border-neutral-800/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-neutral-300">
-            <div class="space-y-0.5">
+          <div class="pt-3 border-t border-neutral-800/80 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 text-neutral-300">
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-xl p-2.5 sm:p-3 space-y-1 hover:border-neutral-700 transition-colors">
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400">🏆</span>
-                <span class="font-mono font-extrabold text-sm sm:text-base text-white">+350</span>
+                <span class="text-emerald-400 text-sm">🏆</span>
+                <span class="font-mono font-black text-sm sm:text-base text-white">+350</span>
               </div>
-              <p id="metric1Label" class="text-[10px] sm:text-[11px] text-neutral-400">مشروع منجز ومسلّم</p>
+              <p id="metric1Label" class="text-[10px] sm:text-[11px] text-neutral-400 leading-tight">مشروع منجز ومسلّم</p>
             </div>
-            <div class="space-y-0.5">
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-xl p-2.5 sm:p-3 space-y-1 hover:border-neutral-700 transition-colors">
               <div class="flex items-center gap-1.5">
-                <span class="text-amber-400">⭐</span>
-                <span class="font-mono font-extrabold text-sm sm:text-base text-white">99.4%</span>
+                <span class="text-amber-400 text-sm">⭐</span>
+                <span class="font-mono font-black text-sm sm:text-base text-white">99.4%</span>
               </div>
-              <p id="metric2Label" class="text-[10px] sm:text-[11px] text-neutral-400">نسبة رضا العملاء</p>
+              <p id="metric2Label" class="text-[10px] sm:text-[11px] text-neutral-400 leading-tight">نسبة رضا العملاء</p>
             </div>
-            <div class="space-y-0.5">
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-xl p-2.5 sm:p-3 space-y-1 hover:border-neutral-700 transition-colors">
               <div class="flex items-center gap-1.5">
-                <span class="text-teal-400">⏱️</span>
-                <span class="font-mono font-extrabold text-sm sm:text-base text-white">&lt; 15m</span>
+                <span class="text-teal-400 text-sm">⏱️</span>
+                <span class="font-mono font-black text-sm sm:text-base text-white">&lt; 15m</span>
               </div>
-              <p id="metric3Label" class="text-[10px] sm:text-[11px] text-neutral-400">متوسط الرد على واتساب</p>
+              <p id="metric3Label" class="text-[10px] sm:text-[11px] text-neutral-400 leading-tight">متوسط الرد على واتساب</p>
             </div>
-            <div class="space-y-0.5">
+            <div class="bg-neutral-900/60 border border-neutral-800/80 rounded-xl p-2.5 sm:p-3 space-y-1 hover:border-neutral-700 transition-colors">
               <div class="flex items-center gap-1.5">
-                <span class="text-emerald-400">🛡️</span>
-                <span class="font-mono font-extrabold text-sm sm:text-base text-white">100%</span>
+                <span class="text-emerald-400 text-sm">🛡️</span>
+                <span class="font-mono font-black text-sm sm:text-base text-white">100%</span>
               </div>
-              <p id="metric4Label" class="text-[10px] sm:text-[11px] text-neutral-400">ضمان تسليم معتمد</p>
+              <p id="metric4Label" class="text-[10px] sm:text-[11px] text-neutral-400 leading-tight">ضمان تسليم معتمد</p>
             </div>
           </div>
         </div>
@@ -229,41 +231,45 @@
     <div class="space-y-4 mb-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4">
         <div>
-          <div class="flex items-center gap-2 text-xs text-neutral-500 font-medium">
-            <span id="catalogTag" class="text-emerald-700 font-semibold">باقة الخدمات</span>
-            <span>·</span>
-            <span id="catalogSub">تنفيذ احترافي مباشر</span>
+          <div class="inline-flex items-center gap-2 text-xs text-neutral-500 font-medium bg-neutral-100 px-2.5 py-1 rounded-lg">
+            <span id="catalogTag" class="text-emerald-700 font-bold">باقة الخدمات</span>
+            <span class="text-neutral-300">·</span>
+            <span id="catalogSub" class="text-neutral-600">تنفيذ احترافي مباشر</span>
           </div>
-          <h2 id="catalogTitle" class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-neutral-950 tracking-tight mt-1">
+          <h2 id="catalogTitle" class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-neutral-950 tracking-tight mt-1.5">
             الخدمات الرقمية المتاحة للطلب
           </h2>
         </div>
-
-        <!-- Sorting Control -->
-        <div class="flex items-center gap-2 self-start sm:self-auto text-xs">
-          <span id="sortLabel" class="text-neutral-500 font-medium">الترتيب حسب:</span>
-          <select id="sortSelector" onchange="handleSort(this.value)" class="bg-white border border-neutral-200 text-neutral-800 py-1.5 px-3 rounded-lg focus:outline-none focus:border-emerald-600 text-xs font-medium cursor-pointer shadow-2xs">
-            <option value="default">الترتيب الافتراضي</option>
-            <option value="popular">الأكثر طلباً</option>
-            <option value="price-asc">الأقل سعراً</option>
-            <option value="price-desc">الأعلى سعراً</option>
-          </select>
-        </div>
       </div>
 
-      <!-- Categories Filter (Matching Default Sort Style) -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 py-3 border-b border-neutral-200 w-full">
-        <div class="flex items-center gap-2 text-xs w-full sm:w-auto">
-          <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
-            <span>📂</span>
-            <span id="catSelectLabel">تصنيف الخدمة:</span>
-          </span>
-          <select id="categorySelector" onchange="filterCategory(this.value)" class="flex-1 sm:flex-none bg-white border border-neutral-200 text-neutral-800 py-1.5 px-3 rounded-lg focus:outline-none focus:border-emerald-600 text-xs font-semibold cursor-pointer shadow-2xs hover:border-neutral-300 transition-colors">
-            <!-- populated by JS -->
-          </select>
+      <!-- Unified Neat Control Toolbar -->
+      <div class="bg-white rounded-2xl border border-neutral-200/90 shadow-2xs p-3 sm:p-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3 flex-1">
+          <!-- Category Filter -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 px-3 py-1.5 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+            <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
+              <span>📂</span>
+              <span id="catSelectLabel">تصنيف الخدمة:</span>
+            </span>
+            <select id="categorySelector" onchange="filterCategory(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs">
+              <!-- populated by JS -->
+            </select>
+          </div>
+
+          <!-- Sorting Filter -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 px-3 py-1.5 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+            <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
+              <span>↕️</span>
+              <span id="sortLabel">الترتيب حسب:</span>
+            </span>
+            <select id="sortSelector" onchange="handleSort(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs">
+              <!-- populated by JS -->
+            </select>
+          </div>
         </div>
 
-        <div id="servicesCount" class="text-xs text-neutral-500 font-medium whitespace-nowrap self-start sm:self-center px-1 shrink-0 flex items-center gap-1.5">
+        <!-- Services Count Badge -->
+        <div id="servicesCount" class="text-xs text-neutral-600 font-medium whitespace-nowrap self-start md:self-center flex items-center gap-1.5 px-2 py-1 rounded-lg bg-neutral-50 border border-neutral-200/80 shrink-0">
           <!-- count populated by JS -->
         </div>
       </div>
@@ -288,21 +294,36 @@
         <h2 id="howTitle" class="text-xl sm:text-2xl font-extrabold text-neutral-950">كيف تعمل منصة باسكود لإنجاز طلبك؟</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-5 border border-neutral-200 shadow-xs space-y-3">
-          <span class="text-2xl font-black text-neutral-200 font-mono">01</span>
-          <h3 id="step1Title" class="text-sm font-bold text-neutral-900">اختر الخدمة والإضافات</h3>
-          <p id="step1Desc" class="text-xs text-neutral-500 leading-relaxed">استعرض باقة الخدمات الرقمية واطلع على تفاصيل التنفيذ والمدة والسعر واضغط على "طلب الخدمة".</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-lg font-mono">خطوة 01</span>
+              <span class="text-2xl opacity-80">🛒</span>
+            </div>
+            <h3 id="step1Title" class="text-base font-bold text-neutral-900">اختر الخدمة والإضافات</h3>
+            <p id="step1Desc" class="text-xs text-neutral-500 leading-relaxed">استعرض باقة الخدمات الرقمية واطلع على تفاصيل التنفيذ والمدة والسعر واضغط على "طلب الخدمة".</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-neutral-200 shadow-xs space-y-3">
-          <span class="text-2xl font-black text-neutral-200 font-mono">02</span>
-          <h3 id="step2Title" class="text-sm font-bold text-neutral-900">سجّل بياناتك الأساسية</h3>
-          <p id="step2Desc" class="text-xs text-neutral-500 leading-relaxed">أدخل اسمك ورقم جوالك والبريد الإلكتروني وأي ملاحظات خاصة بمشروعك في نموذج الطلب.</p>
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-lg font-mono">خطوة 02</span>
+              <span class="text-2xl opacity-80">✍️</span>
+            </div>
+            <h3 id="step2Title" class="text-base font-bold text-neutral-900">سجّل بياناتك الأساسية</h3>
+            <p id="step2Desc" class="text-xs text-neutral-500 leading-relaxed">أدخل اسمك ورقم جوالك والبريد الإلكتروني وأي ملاحظات خاصة بمشروعك في نموذج الطلب.</p>
+          </div>
         </div>
-        <div class="bg-white rounded-2xl p-5 border border-neutral-200 shadow-xs space-y-3">
-          <span class="text-2xl font-black text-neutral-200 font-mono">03</span>
-          <h3 id="step3Title" class="text-sm font-bold text-neutral-900">إرسال وتأكيد عبر واتساب</h3>
-          <p id="step3Desc" class="text-xs text-neutral-500 leading-relaxed">يتم إرسال تفاصيل طلبك مباشرة في محادثة واتساب الرسمية لبدء التنفيذ والاعتماد فوراً.</p>
+        <div class="bg-white rounded-2xl p-6 border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-1 rounded-lg font-mono">خطوة 03</span>
+              <span class="text-2xl opacity-80">💬</span>
+            </div>
+            <h3 id="step3Title" class="text-base font-bold text-neutral-900">إرسال وتأكيد عبر واتساب</h3>
+            <p id="step3Desc" class="text-xs text-neutral-500 leading-relaxed">يتم إرسال تفاصيل طلبك مباشرة في محادثة واتساب الرسمية لبدء التنفيذ والاعتماد فوراً.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -320,24 +341,24 @@
         <h2 id="featTitle" class="text-xl sm:text-2xl font-extrabold text-neutral-950">لماذا يختارنا مئات العملاء والشركات؟</h2>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
-        <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2.5">
-          <span class="text-2xl">🛡️</span>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-xs">
+        <div class="p-5 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl">🛡️</div>
           <h3 id="feat1Title" class="font-bold text-neutral-900 text-sm">ضمان تسليم معتمد 100%</h3>
           <p id="feat1Desc" class="text-neutral-500 leading-relaxed">نلتزم بتسليم كافة متطلباتك بدقة متناهية وفي المواعيد المحددة مع عقود وفواتير رسمية.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2.5">
-          <span class="text-2xl">⚡</span>
+        <div class="p-5 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl">⚡</div>
           <h3 id="feat2Title" class="font-bold text-neutral-900 text-sm">تأكيد فوري عبر واتساب</h3>
           <p id="feat2Desc" class="text-neutral-500 leading-relaxed">لا حاجة للانتظار الطويل، يتم التواصل معك والتأكيد والمتابعة مباشرة عبر قنوات الواتساب السريعة.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2.5">
-          <span class="text-2xl">🔄</span>
+        <div class="p-5 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-xl">🔄</div>
           <h3 id="feat3Title" class="font-bold text-neutral-900 text-sm">تعديلات حتى الرضا التام</h3>
           <p id="feat3Desc" class="text-neutral-500 leading-relaxed">نقدم جولات مراجعة وتدقيق مستمرة حتى تتطابق المخرجات مع تطلعاتك وأهدافك التجارية.</p>
         </div>
-        <div class="p-5 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2.5">
-          <span class="text-2xl">🔒</span>
+        <div class="p-5 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center text-xl">🔒</div>
           <h3 id="feat4Title" class="font-bold text-neutral-900 text-sm">حماية وسرية تامة للمعلومات</h3>
           <p id="feat4Desc" class="text-neutral-500 leading-relaxed">نحافظ على خصوصية وأمان ملفاتك وبيانات نشاطك التجاري بأعلى معايير التشفير والأمان.</p>
         </div>
@@ -357,31 +378,55 @@
         <h2 id="revTitle" class="text-xl sm:text-2xl font-extrabold text-neutral-950">ماذا يقول عملاؤنا عن باسكود؟</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
-        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-2xs space-y-3">
-          <div class="text-amber-400">★★★★★</div>
-          <p id="rev1Quote" class="text-neutral-700 leading-relaxed">"قامت باسكود بتطوير متجرنا الإلكتروني وربط بوابات الدفع في وقت قياسي وبأداء فائق السرعة، المبيعات تضاعفت وتجربة الشراء ممتعة جداً."</p>
-          <div class="pt-3 border-t border-neutral-100">
-            <h4 id="rev1Author" class="font-bold text-neutral-900">سلطان الشمري</h4>
-            <span id="rev1Role" class="text-neutral-400 text-[11px]">مؤسس متجر رتيل للموضة</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 text-xs">
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-amber-400 text-sm tracking-wider">★★★★★</span>
+              <span class="text-neutral-300 font-serif text-2xl leading-none">“</span>
+            </div>
+            <p id="rev1Quote" class="text-neutral-700 leading-relaxed font-normal">"قامت باسكود بتطوير متجرنا الإلكتروني وربط بوابات الدفع في وقت قياسي وبأداء فائق السرعة، المبيعات تضاعفت وتجربة الشراء ممتعة جداً."</p>
+          </div>
+          <div class="pt-3 border-t border-neutral-100 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-800 font-black text-sm flex items-center justify-center shrink-0">س</div>
+            <div class="min-w-0">
+              <h4 id="rev1Author" class="font-bold text-neutral-900 text-xs sm:text-sm truncate">سلطان الشمري</h4>
+              <span id="rev1Role" class="text-neutral-500 text-[11px] truncate block">مؤسس متجر رتيل للموضة</span>
+            </div>
           </div>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-2xs space-y-3">
-          <div class="text-amber-400">★★★★★</div>
-          <p id="rev2Quote" class="text-neutral-700 leading-relaxed">"نظام الكاشير ونقاط البيع السحابي غيّر طريقة عملنا في المطعم، سريع للغاية وسهل للموظفين ويدعم طباعة الفواتير بدون أي توقف."</p>
-          <div class="pt-3 border-t border-neutral-100">
-            <h4 id="rev2Author" class="font-bold text-neutral-900">عمر الخالدي</h4>
-            <span id="rev2Role" class="text-neutral-400 text-[11px]">مدير سلسلة مطاعم وكافيهات</span>
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-amber-400 text-sm tracking-wider">★★★★★</span>
+              <span class="text-neutral-300 font-serif text-2xl leading-none">“</span>
+            </div>
+            <p id="rev2Quote" class="text-neutral-700 leading-relaxed font-normal">"نظام الكاشير ونقاط البيع السحابي غيّر طريقة عملنا في المطعم، سريع للغاية وسهل للموظفين ويدعم طباعة الفواتير بدون أي توقف."</p>
+          </div>
+          <div class="pt-3 border-t border-neutral-100 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-800 font-black text-sm flex items-center justify-center shrink-0">ع</div>
+            <div class="min-w-0">
+              <h4 id="rev2Author" class="font-bold text-neutral-900 text-xs sm:text-sm truncate">عمر الخالدي</h4>
+              <span id="rev2Role" class="text-neutral-500 text-[11px] truncate block">مدير سلسلة مطاعم وكافيهات</span>
+            </div>
           </div>
         </div>
 
-        <div class="bg-white p-5 rounded-2xl border border-neutral-200 shadow-2xs space-y-3">
-          <div class="text-amber-400">★★★★★</div>
-          <p id="rev3Quote" class="text-neutral-700 leading-relaxed">"النظام المحاسبي السحابي منظم ودقيق، القيود اليومية والفواتير الضريبية أصبحت مؤتمتة ومريحة جداً لمحاسبي الشركة."</p>
-          <div class="pt-3 border-t border-neutral-100">
-            <h4 id="rev3Author" class="font-bold text-neutral-900">أحمد التميمي</h4>
-            <span id="rev3Role" class="text-neutral-400 text-[11px]">مدير مالي بشركة استيراد وتوزيع</span>
+        <div class="bg-white p-5 sm:p-6 rounded-2xl border border-neutral-200/90 shadow-2xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-amber-400 text-sm tracking-wider">★★★★★</span>
+              <span class="text-neutral-300 font-serif text-2xl leading-none">“</span>
+            </div>
+            <p id="rev3Quote" class="text-neutral-700 leading-relaxed font-normal">"النظام المحاسبي السحابي منظم ودقيق، القيود اليومية والفواتير الضريبية أصبحت مؤتمتة ومريحة جداً لمحاسبي الشركة."</p>
+          </div>
+          <div class="pt-3 border-t border-neutral-100 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-teal-100 text-teal-800 font-black text-sm flex items-center justify-center shrink-0">أ</div>
+            <div class="min-w-0">
+              <h4 id="rev3Author" class="font-bold text-neutral-900 text-xs sm:text-sm truncate">أحمد التميمي</h4>
+              <span id="rev3Role" class="text-neutral-500 text-[11px] truncate block">مدير مالي بشركة استيراد وتوزيع</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1532,7 +1577,7 @@
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/75 via-transparent to-transparent pointer-events-none"></div>
               
               <!-- Floating Category Tag -->
               <div class="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 flex items-center gap-1.5">
@@ -1543,58 +1588,61 @@
 
               <!-- Floating Delivery & Review Badge -->
               <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] text-white">
-                <span class="font-mono text-[10px] bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-neutral-300">
+                <span class="font-mono text-[10px] font-medium bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-neutral-200">
                   ⏱️ ${deliveryText}
                 </span>
-                <span class="text-amber-300 text-xs font-bold flex items-center gap-1">
+                <span class="text-amber-300 text-xs font-bold flex items-center gap-1 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded">
                   ★ 5.0
                 </span>
               </div>
             </div>
 
+            <!-- Card Content Body -->
             <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
               <div>
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <div class="flex items-center justify-between gap-2 mb-2.5">
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200/80">
                     ${badge}
                   </span>
                 </div>
 
-                <h3 class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-700 transition-colors mb-2 leading-snug line-clamp-2">
+                <h3 class="text-sm sm:text-base font-bold text-neutral-900 group-hover:text-emerald-700 transition-colors mb-2 leading-snug line-clamp-2 min-h-[2.75rem]">
                   ${title}
                 </h3>
 
-                <p class="text-xs text-neutral-500 leading-relaxed mb-3 line-clamp-2">
+                <p class="text-xs text-neutral-500 leading-relaxed mb-3.5 line-clamp-2 min-h-[2.5rem]">
                   ${desc}
                 </p>
 
-                <div class="space-y-1.5 pt-2.5 border-t border-neutral-100 text-xs text-neutral-600">
+                <!-- Key Highlights Box -->
+                <div class="p-2.5 rounded-xl bg-neutral-50/80 border border-neutral-100 space-y-1.5 text-xs text-neutral-700">
                   ${features.slice(0, 2).map(f => `
-                    <div class="flex items-center gap-1.5 truncate">
-                      <span class="text-emerald-600 font-bold">✓</span>
-                      <span class="truncate">${f}</span>
+                    <div class="flex items-center gap-2 truncate">
+                      <span class="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black flex items-center justify-center shrink-0">✓</span>
+                      <span class="truncate font-medium">${f}</span>
                     </div>
                   `).join('')}
                 </div>
               </div>
 
-              <div class="pt-4 border-t border-neutral-100 flex items-center justify-between gap-1.5 sm:gap-2 mt-4">
+              <!-- Card Pricing and Actions Footer -->
+              <div class="pt-4 border-t border-neutral-100 flex items-center justify-between gap-2 mt-4">
                 <div class="min-w-0 flex-1">
-                  <span class="text-[10px] text-neutral-400 block">${t.startsFrom}</span>
-                  <span class="text-sm sm:text-base md:text-lg font-bold text-neutral-950 font-mono truncate block">${formatPrice(s.price)}</span>
+                  <span class="text-[10px] text-neutral-400 font-medium block leading-none mb-1">${t.startsFrom}</span>
+                  <span class="text-base sm:text-lg font-black text-neutral-950 font-mono truncate block leading-none">${formatPrice(s.price)}</span>
                 </div>
                 
-                <div class="flex items-center gap-1 sm:gap-2 shrink-0">
+                <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <button
                     onclick="openServiceDetail('${s.id}')"
-                    class="px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100 rounded-lg transition-colors cursor-pointer min-h-[36px]"
+                    class="px-2.5 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-semibold text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100 border border-neutral-200/80 rounded-xl transition-all cursor-pointer min-h-[36px]"
                   >
                     ${t.detailsBtn}
                   </button>
 
                   <button
                     onclick="addToCart('${s.id}')"
-                    class="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-emerald-700 hover:bg-emerald-800 active:scale-95 text-white text-[11px] sm:text-xs font-bold rounded-lg transition-all shadow-xs flex items-center gap-1 cursor-pointer min-h-[36px]"
+                    class="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-[11px] sm:text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1 cursor-pointer min-h-[36px]"
                   >
                     <span>+</span>
                     <span>${t.requestBtn}</span>
