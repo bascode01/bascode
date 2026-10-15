@@ -77,6 +77,7 @@
       <!-- Desktop Nav -->
       <nav class="hidden lg:flex items-center gap-6 text-xs sm:text-sm font-medium text-neutral-600">
         <a href="#services" id="navServices" class="hover:text-emerald-700 transition-colors">باقة الخدمات</a>
+        <a href="#about" id="navAbout" class="hover:text-emerald-700 transition-colors">من نحن</a>
         <a href="#how-it-works" id="navHow" class="hover:text-emerald-700 transition-colors">كيف نعمل</a>
         <a href="#features" id="navFeatures" class="hover:text-emerald-700 transition-colors">الضمانات</a>
         <a href="#reviews" id="navReviews" class="hover:text-emerald-700 transition-colors">آراء العملاء</a>
@@ -85,7 +86,11 @@
 
       <!-- Action Controls -->
       <div class="flex items-center gap-1.5 sm:gap-2">
-
+        <!-- Strictly 1 Currency: USD ($) Badge -->
+        <div class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200/90 rounded-lg shadow-2xs font-mono select-none" title="الأسعار معتمدة بالدولار الأمريكي فقط">
+          <span class="text-emerald-600 font-black">$</span>
+          <span>USD</span>
+        </div>
 
         <!-- Language Button -->
         <button onclick="toggleLanguage()" class="flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-neutral-700 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 rounded-lg transition-colors shadow-2xs cursor-pointer">
@@ -242,45 +247,311 @@
         </div>
       </div>
 
-      <!-- Unified Neat Control Toolbar -->
-      <div class="bg-white rounded-2xl border border-neutral-200/90 shadow-2xs p-3 sm:p-3.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
-        <div class="flex flex-wrap items-center gap-2 sm:gap-3 flex-1">
-          <!-- Category Filter -->
-          <div class="flex items-center gap-2 text-xs bg-neutral-50 px-3 py-1.5 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+                  <!-- Unified Dedicated Filter Control Center -->
+      <div class="bg-white rounded-2xl border border-neutral-200/90 shadow-sm p-4 sm:p-5 space-y-4">
+        
+        <!-- Filter Bar Header -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-neutral-100">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-sm border border-emerald-200/80 shadow-2xs">
+              🎛️
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-neutral-900 flex items-center gap-2">
+                <span id="filterSectionTitle">تصفية وفلترة الخدمات المتاحة</span>
+                <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                  USD ($) فقط
+                </span>
+              </h3>
+              <p id="filterSectionSub" class="text-[11px] text-neutral-500">اختر القسم، نطاق السعر، أو مدة الإنجاز لتخصيص نتائجك بدقة</p>
+            </div>
+          </div>
+
+          <!-- Currency Assurance & Reset Button -->
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-[11px] font-mono font-bold text-neutral-600 bg-neutral-100 px-2.5 py-1 rounded-lg border border-neutral-200 flex items-center gap-1">
+              <span>💵</span>
+              <span id="currencyNotice">الأسعار بالدولار ($ USD)</span>
+            </span>
+            <button
+              id="resetFiltersBtn"
+              onclick="resetAllFilters()"
+              class="hidden px-3 py-1.5 text-xs font-bold rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white transition-all shadow-xs cursor-pointer flex items-center gap-1.5"
+            >
+              <span>↺</span>
+              <span id="resetFiltersLabel">إعادة ضبط الفلاتر</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Dropdowns Row (4 Filter Controls) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <!-- 1. Category Filter -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 hover:bg-neutral-100/60 px-3 py-2.5 rounded-xl border border-neutral-200 focus-within:border-emerald-600 focus-within:bg-white transition-all">
             <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
               <span>📂</span>
-              <span id="catSelectLabel">تصنيف الخدمة:</span>
+              <span id="catSelectLabel">القسم:</span>
             </span>
-            <select id="categorySelector" onchange="filterCategory(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs">
+            <select id="categorySelector" onchange="filterCategory(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs w-full">
               <!-- populated by JS -->
             </select>
           </div>
 
-          <!-- Sorting Filter -->
-          <div class="flex items-center gap-2 text-xs bg-neutral-50 px-3 py-1.5 rounded-xl border border-neutral-200 hover:border-neutral-300 transition-colors">
+          <!-- 2. Price Range Filter (USD Only) -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 hover:bg-neutral-100/60 px-3 py-2.5 rounded-xl border border-neutral-200 focus-within:border-emerald-600 focus-within:bg-white transition-all">
+            <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
+              <span>💰</span>
+              <span id="priceSelectLabel">السعر ($ USD):</span>
+            </span>
+            <select id="priceSelector" onchange="handlePriceFilter(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs w-full">
+              <option value="all">كل الأسعار (USD $)</option>
+              <option value="under300">اقتصادية (أقل من $300)</option>
+              <option value="300to800">متوسطة ($300 - $800)</option>
+              <option value="over800">مشاريع متقدمة ومؤسسية (أكثر من $800)</option>
+            </select>
+          </div>
+
+          <!-- 3. Delivery Duration Filter (مدة الإنجاز) -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 hover:bg-neutral-100/60 px-3 py-2.5 rounded-xl border border-neutral-200 focus-within:border-emerald-600 focus-within:bg-white transition-all">
+            <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
+              <span>⏱️</span>
+              <span id="deliverySelectLabel">مدة الإنجاز:</span>
+            </span>
+            <select id="deliverySelector" onchange="handleDeliveryFilter(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs w-full">
+              <option value="all">كافة المدد</option>
+              <option value="quick">تسليم فوري وسريع (1 - 3 أيام)</option>
+              <option value="medium">مدة متوسطة (4 - 12 يوم)</option>
+              <option value="major">مشاريع كبرى وشاملة (14 - 30 يوم)</option>
+            </select>
+          </div>
+
+          <!-- 4. Sorting Filter -->
+          <div class="flex items-center gap-2 text-xs bg-neutral-50 hover:bg-neutral-100/60 px-3 py-2.5 rounded-xl border border-neutral-200 focus-within:border-emerald-600 focus-within:bg-white transition-all">
             <span class="text-neutral-500 font-medium flex items-center gap-1.5 shrink-0">
               <span>↕️</span>
-              <span id="sortLabel">الترتيب حسب:</span>
+              <span id="sortLabel">الترتيب:</span>
             </span>
-            <select id="sortSelector" onchange="handleSort(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs">
+            <select id="sortSelector" onchange="handleSort(this.value)" class="bg-transparent text-neutral-900 font-bold focus:outline-none cursor-pointer text-xs w-full">
               <!-- populated by JS -->
             </select>
           </div>
         </div>
 
-        <!-- Services Count Badge -->
-        <div id="servicesCount" class="text-xs text-neutral-600 font-medium whitespace-nowrap self-start md:self-center flex items-center gap-1.5 px-2 py-1 rounded-lg bg-neutral-50 border border-neutral-200/80 shrink-0">
-          <!-- count populated by JS -->
+        <!-- Dynamic Filter Status & Live Search Bar (Interactive Filter Component - Selector Child 2) -->
+        <div class="pt-3.5 border-t border-neutral-100 flex flex-col gap-3">
+          <!-- Quick Interactive Category Filter Buttons (True Filter Buttons, not a flat strip) -->
+          <div class="flex flex-wrap items-center gap-2" id="categoriesContainer">
+            <!-- Populated dynamically by JS as active toggle buttons with counts -->
+          </div>
+
+          <!-- Live Search & Results Bar -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+            <!-- Search Bar -->
+            <div class="relative w-full sm:w-80 md:w-96 shrink-0">
+              <input
+                id="searchInput"
+                type="text"
+                oninput="handleSearch(this.value)"
+                placeholder="ابحث باسم الخدمة أو التقنية (React, Flutter, OWASP, SEO)..."
+                class="w-full text-xs bg-neutral-50 hover:bg-neutral-100/70 focus:bg-white text-neutral-900 px-3.5 py-2.5 pr-9 pl-9 rounded-xl border border-neutral-200 focus:border-emerald-600 focus:outline-none transition-colors placeholder:text-neutral-400 font-medium"
+              />
+              <span class="absolute right-3 top-2.5 text-neutral-400 text-xs pointer-events-none">🔍</span>
+              <button
+                id="clearSearchBtn"
+                onclick="clearSearch()"
+                class="hidden absolute left-3 top-2.5 text-neutral-400 hover:text-neutral-700 text-xs font-bold cursor-pointer"
+                title="مسح البحث"
+              >✕</button>
+            </div>
+
+            <!-- Services Count Badge -->
+            <div id="servicesCount" class="text-xs text-neutral-700 font-bold whitespace-nowrap flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-50 border border-neutral-200 shrink-0 font-mono">
+              <!-- count populated by JS -->
+            </div>
+          </div>
+
+          <!-- Active Filter Badges Container (shows when any filter is active) -->
+          <div id="activeFilterPills" class="hidden flex flex-wrap items-center gap-1.5 text-xs pt-1">
+            <!-- Populated by JS -->
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Services Grid (Rich Photographic Cards) -->
+      <!-- Services Grid (Rich Photographic Cards) -->
     <div id="servicesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
       <!-- Populated dynamically by JavaScript -->
     </div>
 
   </main>
+
+  <!-- About Us Section (من نحن — BASCODE) -->
+  <section id="about" class="py-16 bg-neutral-900 text-white relative overflow-hidden border-t border-neutral-800">
+    <!-- Ambient Background Glows -->
+    <div class="absolute -top-32 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section Header -->
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-wide">
+          <span>✨</span>
+          <span id="aboutBadge">من نحن — BASCODE</span>
+        </div>
+        <h2 id="aboutTitle" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+          باسكود فريق عربي متخصص في البرمجة والخدمات الرقمية
+        </h2>
+        <p id="aboutDesc" class="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+          نحوّل أفكارك إلى مواقع وتطبيقات وأنظمة تعمل فعلاً — بتسليم سريع، أسعار واضحة، ودعم مستمر بعد الإطلاق.
+        </p>
+      </div>
+
+      <!-- Core Disciplines Grid (4 Pillars) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+        <!-- 1. Programming -->
+        <div class="bg-neutral-800/80 border border-neutral-700/80 hover:border-emerald-500/60 rounded-2xl p-5.5 transition-all hover:bg-neutral-800 group shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner shadow-emerald-500/10">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 id="aboutPillar1Title" class="text-sm sm:text-base font-bold text-white mb-2 flex items-center justify-between">
+            برمجة متكاملة
+            <span class="text-[10px] text-emerald-400 font-mono bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded">Fullstack</span>
+          </h3>
+          <p id="aboutPillar1Desc" class="text-xs text-neutral-400 leading-relaxed">
+            تطوير تطبيقات الويب، الهواتف الذكية (iOS & Android)، المتاجر الإلكترونية، وأنظمة SaaS وERP المؤسسية.
+          </p>
+        </div>
+
+        <!-- 2. Cybersecurity -->
+        <div class="bg-neutral-800/80 border border-neutral-700/80 hover:border-cyan-500/60 rounded-2xl p-5.5 transition-all hover:bg-neutral-800 group shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner shadow-cyan-500/10">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 id="aboutPillar2Title" class="text-sm sm:text-base font-bold text-white mb-2 flex items-center justify-between">
+            أمن سيبراني
+            <span class="text-[10px] text-cyan-400 font-mono bg-cyan-500/15 border border-cyan-500/30 px-2 py-0.5 rounded">Security</span>
+          </h3>
+          <p id="aboutPillar2Desc" class="text-xs text-neutral-400 leading-relaxed">
+            فحص Malware وتطهير السكربتات، كشف ثغرات OWASP، وتحصين السيرفرات والبنى السحابية AWS وGCP.
+          </p>
+        </div>
+
+        <!-- 3. Technical Translation & Localization -->
+        <div class="bg-neutral-800/80 border border-neutral-700/80 hover:border-amber-500/60 rounded-2xl p-5.5 transition-all hover:bg-neutral-800 group shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner shadow-amber-500/10">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 id="aboutPillar3Title" class="text-sm sm:text-base font-bold text-white mb-2 flex items-center justify-between">
+            ترجمة تقنية وتوطين
+            <span class="text-[10px] text-amber-400 font-mono bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded">i18n</span>
+          </h3>
+          <p id="aboutPillar3Desc" class="text-xs text-neutral-400 leading-relaxed">
+            توطين الكود المصدري (i18n)، ترجمة وثائق API التقنية، والعقود الرقمية والملفات مع حفظ التنسيق 100%.
+          </p>
+        </div>
+
+        <!-- 4. Artificial Intelligence -->
+        <div class="bg-neutral-800/80 border border-neutral-700/80 hover:border-purple-500/60 rounded-2xl p-5.5 transition-all hover:bg-neutral-800 group shadow-xs">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner shadow-purple-500/10">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+            </svg>
+          </div>
+          <h3 id="aboutPillar4Title" class="text-sm sm:text-base font-bold text-white mb-2 flex items-center justify-between">
+            ذكاء اصطناعي وأتمتة
+            <span class="text-[10px] text-purple-400 font-mono bg-purple-500/15 border border-purple-500/30 px-2 py-0.5 rounded">AI & RAG</span>
+          </h3>
+          <p id="aboutPillar4Desc" class="text-xs text-neutral-400 leading-relaxed">
+            ربط Gemini AI، شات بوت وأتمتة 24/7، أنظمة RAG وقواعد معرفة بدون هلوسة، وتسريع أداء المواقع.
+          </p>
+        </div>
+      </div>
+
+      <!-- Motto & Statement Banner -->
+      <div class="bg-gradient-to-r from-emerald-950/80 via-neutral-900 to-emerald-950/80 border border-emerald-500/40 rounded-2xl p-6 sm:p-8 text-center max-w-4xl mx-auto shadow-2xl mb-12 relative overflow-hidden">
+        <div class="relative z-10">
+          <p class="text-emerald-400 text-[11px] font-bold mb-2 uppercase tracking-widest" id="aboutMottoTag">رؤيتنا ورسالتنا</p>
+          <blockquote id="aboutMotto" class="text-xl sm:text-2xl md:text-3xl font-black text-white italic tracking-wide">
+            "نبني لك نظاماً يعمل عنك" 🚀
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Social Media Follow & Instant Contact Channels -->
+      <div class="bg-neutral-800/70 border border-neutral-700 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <!-- Follow Us on Social Media -->
+          <div class="space-y-3.5 text-center lg:text-right rtl:lg:text-right ltr:lg:text-left w-full lg:w-auto">
+            <div class="flex items-center justify-center lg:justify-start gap-2 text-xs font-bold text-emerald-400">
+              <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span id="aboutFollowTitle">تابعنا على منصات التواصل الاجتماعي:</span>
+            </div>
+            <!-- Social Buttons with Authentic Vector Icons -->
+            <div class="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3 flex-wrap">
+              <!-- Instagram -->
+              <a href="https://instagram.com/bascode01" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-950 border border-neutral-700 hover:border-pink-500 text-white text-xs font-semibold transition-all shadow-xs group">
+                <svg class="w-4 h-4 text-pink-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>إنستغرام: <span class="font-mono text-pink-400 group-hover:text-pink-300">instagram.com/bascode01</span></span>
+              </a>
+              <!-- TikTok -->
+              <a href="https://tiktok.com/@bascode7" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-950 border border-neutral-700 hover:border-cyan-400 text-white text-xs font-semibold transition-all shadow-xs group">
+                <svg class="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298 0 .586.044.86.126V9.41a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 10.83 4.47 6.28 6.28 0 0 0 1.85-4.47V8.8a8.27 8.27 0 0 0 4.84 1.54V6.91a4.85 4.85 0 0 1-1.07-.22z"/>
+                </svg>
+                <span>تيك توك: <span class="font-mono text-cyan-400 group-hover:text-cyan-300">tiktok.com/@bascode7</span></span>
+              </a>
+              <!-- Facebook -->
+              <a href="https://facebook.com/share/1A7wtbtnzb" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-950 border border-neutral-700 hover:border-blue-400 text-white text-xs font-semibold transition-all shadow-xs group">
+                <svg class="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>فيسبوك: <span class="font-mono text-blue-400 group-hover:text-blue-300">facebook.com/share/1A7wtbtnzb</span></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- WhatsApp Direct Order CTA -->
+          <div class="w-full lg:w-auto flex flex-col sm:flex-row items-center gap-3 shrink-0">
+            <div class="text-center lg:text-right rtl:lg:text-right ltr:lg:text-left">
+              <span class="inline-flex items-center gap-1.5 text-xs font-bold text-white">
+                <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span id="aboutCtaTitle">للطلب والاستفسار تواصل معنا:</span>
+              </span>
+              <span class="block text-[11px] text-emerald-300" id="aboutCtaSub">نرد خلال دقائق عبر الواتساب المعتمد</span>
+            </div>
+            <a href="https://wa.me/9647853961359?text=مرحباً%20باسكود،%20أود%20الاستفسار%20عن%20خدماتكم" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/60 hover:shadow-emerald-900/80 transition-all cursor-pointer group">
+              <svg class="w-4 h-4 text-white fill-current shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+              </svg>
+              <span id="aboutWhatsappBtn">تواصل عبر الواتساب فوراً</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- How It Works Section -->
   <section id="how-it-works" class="py-14 bg-neutral-100/70 border-t border-neutral-200">
@@ -458,13 +729,58 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-neutral-950 text-neutral-400 text-xs border-t border-neutral-800 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div>
-        <p id="footerBrand" class="text-white font-bold text-sm">باسكود للحلول الرقمية (BasCode)</p>
-        <p id="footerDesc" class="text-neutral-500 text-[11px] mt-0.5">تسليم معتمد وتأكيد فوري للطلبات عبر واتساب: +964 785 396 1359</p>
+    <!-- Footer -->
+  <footer class="bg-neutral-950 text-neutral-400 text-xs border-t border-neutral-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-800/80">
+        <div class="space-y-1.5 max-w-md">
+          <div class="flex items-center gap-2.5">
+            <span class="text-white font-extrabold text-base">باسكود للحلول الرقمية (BasCode)</span>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">معتمد</span>
+          </div>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            "نبني لك نظاماً يعمل عنك" 🚀 — فريق عربي متخصص في البرمجة، الأمن السيبراني، الترجمة التقنية، والذكاء الاصطناعي.
+          </p>
+        </div>
+
+        <!-- Social Media Fast Links in Footer -->
+        <div class="flex items-center gap-2 flex-wrap">
+          <a href="https://instagram.com/bascode01" target="_blank" rel="noopener noreferrer" title="Instagram" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 hover:text-white transition-colors group">
+            <svg class="w-3.5 h-3.5 text-pink-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span class="font-mono text-[11px]">Instagram</span>
+          </a>
+          <a href="https://tiktok.com/@bascode7" target="_blank" rel="noopener noreferrer" title="TikTok" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 hover:text-white transition-colors group">
+            <svg class="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298 0 .586.044.86.126V9.41a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 10.83 4.47 6.28 6.28 0 0 0 1.85-4.47V8.8a8.27 8.27 0 0 0 4.84 1.54V6.91a4.85 4.85 0 0 1-1.07-.22z"/>
+            </svg>
+            <span class="font-mono text-[11px]">TikTok</span>
+          </a>
+          <a href="https://facebook.com/share/1A7wtbtnzb" target="_blank" rel="noopener noreferrer" title="Facebook" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 hover:text-white transition-colors group">
+            <svg class="w-3.5 h-3.5 text-blue-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span class="font-mono text-[11px]">Facebook</span>
+          </a>
+          <a href="https://wa.me/9647853961359?text=مرحباً%20باسكود،%20أود%20الاستفسار%20عن%20خدماتكم" target="_blank" rel="noopener noreferrer" title="WhatsApp" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-700/60 text-emerald-300 hover:text-white transition-colors group">
+            <svg class="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform shrink-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span class="font-mono text-[11px] font-bold">+964 785 396 1359</span>
+          </a>
+        </div>
       </div>
-      <p id="footerCopy" class="text-[11px] text-neutral-500">© 2026 باسكود. جميع الحقوق محفوظة.</p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500">
+        <p id="footerCopy">© 2026 باسكود (BasCode). جميع الحقوق محفوظة — تسليم سريع، أسعار واضحة، ودعم مستمر.</p>
+        <div class="flex items-center gap-4">
+          <a href="#services" class="hover:text-emerald-400 transition-colors">الخدمات</a>
+          <a href="#about" class="hover:text-emerald-400 transition-colors">من نحن</a>
+          <a href="#how-it-works" class="hover:text-emerald-400 transition-colors">كيف نعمل</a>
+          <a href="#faq" class="hover:text-emerald-400 transition-colors">الأسئلة الشائعة</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -588,469 +904,1101 @@
     };
 
     const SERVICES = [
+      // === Table 1: البرمجيات والأنظمة المتكاملة ===
       {
-        id: 'srv-ecom-01',
-        titleAr: 'تصميم وبرمجة متجر إلكتروني احترافي متكامل وسريع',
-        titleEn: 'Custom High-Converting E-Commerce Store Design & Development',
-        category: 'web_stores',
-        categoryLabelAr: 'المتاجر الإلكترونية',
-        categoryLabelEn: 'Online Stores',
-        shortDescriptionAr: 'متجر بيع رقمي حديث وسريع متوافق 100% مع الجوال، متضمن ربط بوابات الدفع الإلكتروني وشركات الشحن ولوحة تحكم شاملة.',
-        shortDescriptionEn: 'High-speed responsive online store with payment gateways, automated shipping integration, and complete admin dashboard.',
-        image: IMAGE_DATA.ecom,
-        price: 520,
-        deliveryDays: 4,
-        badgeAr: 'الأكثر طلباً',
-        badgeEn: 'Best Seller',
-        featuresAr: [
-          'تصميم متجر عصري جذاب متوافق 100% مع الهواتف الذكية والكمبيوتر',
-          'ربط وتفعيل بوابات الدفع الإلكتروني (Apple Pay, Mada, Visa, Mastercard)',
-          'لوحة تحكم عربية سهلة لإدارة المنتجات والطلبات والعملاء والمخزون',
-          'ربط آلي مع شركات الشحن والتوصيل وحساب التكاليف تلقائياً'
-        ],
-        featuresEn: [
-          'Modern store design 100% responsive across mobile and desktop devices',
-          'Integrated payment gateways (Apple Pay, Visa, Mastercard, Stripe)',
-          'User-friendly admin dashboard to manage products, orders, and stock',
-          'Automated shipping calculation and courier API integrations'
-        ],
-        deliverablesAr: [
-          'متجر إلكتروني كامل ومنشور جاهز لاستقبال العملاء والمبيعات فوراً',
-          'بيانات الدخول للوحة التحكم ودليل فيديو مسجل لإدارة المتجر',
-          'ربط النطاق (Domain) والاستضافة السحابية وشهادة الأمان SSL مجاناً',
-          'دعم فني وضمان أداء مجاني لمدة 45 يوماً'
-        ],
-        deliverablesEn: [
-          'Live, deployed e-commerce store ready for immediate customer sales',
-          'Admin control credentials and recorded video walk-through guide',
-          'Custom domain connection, cloud hosting, and free SSL certificate',
-          '45 days of complimentary technical support and warranty'
-        ]
-      },
-      {
-        id: 'srv-web-corp-01',
-        titleAr: 'تصميم وتطوير مواقع إلكترونية احترافية للشركات والأعمال',
-        titleEn: 'Corporate Website Design & Business Development',
-        category: 'websites_design',
-        categoryLabelAr: 'تصميم المواقع',
-        categoryLabelEn: 'Websites Design',
-        shortDescriptionAr: 'موقع تعريفي مؤسسي راقٍ يعكس فخامة علامتك التجارية، فائق السرعة ومتجاوب مع كافة الشاشات لتعزيز ثقة عملائك.',
-        shortDescriptionEn: 'Luxury corporate website showcasing your brand authority, ultra-fast loading speed, and responsive layout across all screens.',
-        image: IMAGE_DATA.web,
-        price: 390,
-        deliveryDays: 3,
-        badgeAr: 'واجهة فاخرة',
-        badgeEn: 'Luxury UI',
-        featuresAr: [
-          'تصميم مخصص نخبوي يعبر عن ثقل وهوية نشاطك التجاري بدقة',
-          'سرعة تحميل فائقة تفتح في أقل من ثانية وتوافق مع كافة الشاشات',
-          'صفحات كاملة: من نحن، خدماتنا، معرض الأعمال، ونموذج تواصل ذكي',
-          'ربط مباشر بنقرة واحدة مع محادثة واتساب والبريد وخرائط جوجل'
-        ],
-        featuresEn: [
-          'Bespoke elite design representing your business authority',
-          'Sub-second ultra-fast loading time and responsive UI',
-          'Full pages: About Us, Services, Portfolio, and Smart Contact',
-          'One-click WhatsApp, email, and Google Maps integration'
-        ],
-        deliverablesAr: [
-          'موقع إلكتروني حي ومربوط بالدومين الرسمي لشركتك',
-          'الكود المصدري النظيف وتوثيق استخدام الموقع',
-          'تهيئة سيو كاملة للظهور في نتائج البحث الأولى بمحرك جوجل',
-          'شهادة حماية وأمان وتأمين ضد الاختراقات'
-        ],
-        deliverablesEn: [
-          'Live website launched on your official company domain',
-          'Clean source code, documentation, and CMS guide',
-          'Complete on-page SEO setup for top Google search visibility',
-          'Enterprise SSL security and cyber-hardening'
-        ]
-      },
-      {
-        id: 'srv-accounting-01',
-        titleAr: 'نظام محاسبي سحابي متكامل لإدارة الحسابات والفواتير (Cloud ERP)',
-        titleEn: 'Cloud Accounting & Financial Management ERP System',
-        category: 'accounting_systems',
-        categoryLabelAr: 'الأنظمة المحاسبية',
-        categoryLabelEn: 'Accounting Systems',
-        shortDescriptionAr: 'برنامج محاسبي سحابي معتمد لإدارة القيود اليومية، دليل الحسابات، الذمم المدينة والدائنة، وميزان المراجعة وتقارير الأرباح.',
-        shortDescriptionEn: 'Compliant cloud accounting software for general ledger, chart of accounts, accounts receivable/payable, trial balance, and profit reports.',
-        image: IMAGE_DATA.accounting,
-        price: 690,
-        deliveryDays: 5,
-        badgeAr: 'إدارة مالية دقيقة',
-        badgeEn: 'Financial Precision',
-        featuresAr: [
-          'دليل حسابات شجري متكامل وميزان مراجعة وتقارير الأرباح والخسائر',
-          'إصدار فواتير ضريبية إلكترونية معتمدة برمز QR وفق متطلبات الفوترة',
-          'إدارة متكاملة للذمم المدينة والدائنة وسندات القبض والصرف',
-          'كشف حساب تفصيلي للعملاء والموردين مع التصدير إلى PDF و Excel'
-        ],
-        featuresEn: [
-          'Multi-level chart of accounts, trial balance, and P&L statements',
-          'Compliant electronic tax invoices with automated QR generation',
-          'Accounts receivable/payable, cash receipts, and disbursement vouchers',
-          'Comprehensive statements with instant PDF and Excel exports'
-        ],
-        deliverablesAr: [
-          'نظام محاسبي سحابي مرخص ومثبت على خادمك أو سحابتك الخاصة',
-          'تجهيز دليل الحسابات الأولي وتهيئته لنشاطك التجاري',
-          'جلسة تدريبية عملية مسجلة لشرح استخدام النظام خطوة بخطوة',
-          'دعم فني وضمان استقرار لمدة 60 يوماً'
-        ],
-        deliverablesEn: [
-          'Cloud accounting ERP deployed and configured on your server',
-          'Initial chart of accounts pre-configured for your business',
-          'Recorded video training session for your financial staff',
-          '60 days of priority technical support and entry verification'
-        ]
-      },
-      {
-        id: 'srv-pos-cashier-01',
-        titleAr: 'نظام كاشير ونقاط بيع متطور للمحلات والمطاعم (Cloud POS System)',
-        titleEn: 'Modern Cloud POS & Touchscreen Cashier System',
-        category: 'pos_cashier',
-        categoryLabelAr: 'أنظمة الكاشير (POS)',
-        categoryLabelEn: 'POS & Cashier',
-        shortDescriptionAr: 'نظام نقاط بيع سريع وسهل الاستخدام، يدعم شاشات اللمس، قارئ الباركود، طابعات الفواتير، والعمل بدون إنترنت (Offline).',
-        shortDescriptionEn: 'Fast and intuitive point of sale system with touchscreen support, barcode scanners, thermal receipt printers, and offline capability.',
-        image: IMAGE_DATA.pos,
-        price: 480,
-        deliveryDays: 3,
-        badgeAr: 'سرعة وكفاءة',
-        badgeEn: 'High Speed',
-        featuresAr: [
-          'واجهة كاشير لمسية سهلة وسريعة للغاية تلائم الموظفين دون تعقيد',
-          'دعم كامل للأجهزة: قارئ الباركود، طابعة الإيصالات الحرارية، ودرج الكاشير',
-          'العمل بكفاءة في وضع الأوفلاين (بدون إنترنت) مع مزامنة فورية عند الاتصال',
-          'إدارة المخزون وتنبيهات فورية عند وصول المنتج للحد الأدنى'
-        ],
-        featuresEn: [
-          'Ultra-responsive touchscreen sales UI employees learn in minutes',
-          'Hardware support: thermal printers, barcode scanners, cash drawers',
-          'Reliable offline mode with automated cloud sync once reconnected',
-          'Real-time inventory alerts and shift revenue reconciliation'
-        ],
-        deliverablesAr: [
-          'نظام الكاشير مثبت ومضبوط وجاهز للتشغيل فوراً على جهازك',
-          'قاعدة بيانات مهيأة ومضاف إليها كتالوج منتجاتك وأسعارها',
-          'دليل تشغيل سريع وتدريب عملي للموظفين والمشرفين',
-          'دعم فني وصيانة سريعة ومتابعة مستمرة'
-        ],
-        deliverablesEn: [
-          'POS terminal software installed and tuned for your hardware',
-          'Database initialized with your menu/catalog and pricing',
-          'Quick-start guide and live staff training walkthrough',
-          'Dedicated support and continuous operational maintenance'
-        ]
-      },
-      {
-        id: 'srv-app-01',
-        titleAr: 'تصميم وتطوير تطبيق جوال مخصص (iOS & Android) فائق السرعة',
-        titleEn: 'Custom High-Performance Mobile App Development (iOS & Android)',
-        category: 'mobile_apps',
-        categoryLabelAr: 'تطبيقات الموبايل',
-        categoryLabelEn: 'Mobile Apps',
-        shortDescriptionAr: 'تطبيق هجين احترافي متكامل بنظام Flutter أو React Native مع لوحة تحكم سحابية وتجربة مستخدم استثنائية.',
-        shortDescriptionEn: 'Cross-platform native mobile app with cloud API dashboard and modern UI/UX.',
-        image: IMAGE_DATA.app,
-        price: 850,
-        deliveryDays: 7,
-        badgeAr: 'تطوير نخبوي',
-        badgeEn: 'Premium Dev',
-        featuresAr: [
-          'واجهات مستخدم Native فائقة السلاسة والسرعة',
-          'لوحة تحكم سحابية لإدارة بيانات ومحتوى التطبيق',
-          'إشعارات لحظية مخصصة Push Notifications',
-          'جاهزية كاملة للنشر على متجري App Store و Google Play'
-        ],
-        featuresEn: [
-          'Fluid native UI/UX tailored for iOS and Android',
-          'Cloud administration dashboard to manage content and users',
-          'Targeted push notifications and real-time syncing',
-          'Complete readiness for App Store and Google Play deployment'
-        ],
-        deliverablesAr: [
-          'ملفات التطبيق كاملة مع الكود المصدري',
-          'لوحة تحكم ويب سحابية API Dashboard',
-          'مساعدة كاملة في نشر التطبيق على المتاجر'
-        ],
-        deliverablesEn: [
-          'Full application source code and binary assets',
-          'Secure cloud REST API management dashboard',
-          'Full assistance in store submission and review clearance'
-        ]
-      },
-      {
-        id: 'srv-sys-01',
-        titleAr: 'تطوير نظام إداري مخصص ولوحة تحكم أعمال متقدمة',
-        titleEn: 'Custom Admin Dashboard & Business Operating System',
-        category: 'systems_dashboards',
-        categoryLabelAr: 'الأنظمة ولوحات التحكم',
-        categoryLabelEn: 'Admin Dashboards',
-        shortDescriptionAr: 'لوحة قيادة تفاعلية مخصصة لإدارة العمليات والموظفين والتقارير الفورية مع أمان سحابي متطور.',
-        shortDescriptionEn: 'Interactive enterprise admin system with role management, analytics, and automation.',
+        id: 'srv-fullstack',
+        titleAr: 'تطبيق ويب متكامل (Fullstack)',
+        titleEn: 'Fullstack Web Application (React & Node.js)',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'React/Next.js + Node.js + قاعدة بيانات + لوحة تحكم إدارية شاملة متكاملة وسريعة.',
+        shortDescriptionEn: 'Production-ready fullstack app with React/Next.js frontend, Node.js API backend, secure DB and comprehensive dashboard.',
         image: IMAGE_DATA.sys,
-        price: 750,
-        deliveryDays: 6,
-        badgeAr: 'حلول مؤسسية',
-        badgeEn: 'Enterprise',
+        price: 1200,
+        deliveryDays: 14,
+        deliveryTextAr: '14 يوم',
+        deliveryTextEn: '14 days',
+        badgeAr: 'باقة متكاملة',
+        badgeEn: 'Fullstack Solution',
         featuresAr: [
-          'لوحة تحكم إحصائية حية برسم بياني فوري',
-          'إدارة صلاحيات الموظفين والمستخدمين متعددة المستويات',
-          'تصدير التقارير بضغطة زر لـ Excel و PDF',
-          'نسخ احتياطي آلي وتأمين سحابي متطور'
+          'واجهات تفاعلية وسريعة مبنية بـ React أو Next.js حديث',
+          'خادم وبنية برمجية قوية بـ Node.js / Express مع RESTful API',
+          'قاعدة بيانات سحابية متقدمة (PostgreSQL / MongoDB) مع أمان تام',
+          'لوحة تحكم إدارية شاملة لإدارة البيانات والعملاء والصلاحيات'
         ],
         featuresEn: [
-          'Real-time analytics and live operational metrics',
-          'Multi-tier role-based access and permissions engine',
-          'One-click automated report exports (PDF and Excel)',
-          'Automated data backups and enterprise-grade security'
+          'Modern reactive UI with React / Next.js',
+          'Robust Node.js / Express backend with scalable REST API',
+          'Secure cloud database (PostgreSQL / MongoDB) with indexing',
+          'Complete administration dashboard with role-based access'
         ],
         deliverablesAr: [
-          'نظام إداري سحابي متكامل ومثبت',
-          'توثيق برمجي ودليل استخدام الموظفين',
-          'دعم فني وتحديثات لمدة 40 يوماً'
-        ],
-        deliverablesEn: [
-          'Complete cloud admin operating system configured',
-          'Technical API documentation and employee user manual',
-          '40 days of warranty and software updates'
+          'كود مصدري كامل ونظيف موثق مع معايير Clean Code.',
+          'لوحة تحكم إدارية لإدارة المحتوى والبيانات.',
+          'دعم فني وصيانة مجانية لمدة 30 يوماً.'
         ]
       },
       {
-        id: 'srv-data-01',
-        titleAr: 'تصميم نماذج إكسل وجوجل شيت الذكية والربط البرمجي',
-        titleEn: 'Advanced Excel & Google Sheets Automation Workbooks',
-        category: 'data_excel',
-        categoryLabelAr: 'البيانات وExcel',
-        categoryLabelEn: 'Excel & Data',
-        shortDescriptionAr: 'ملفات عمل متقدمة بمعادلات برمجية وداشبورد تفاعلي وأكواد VBA وماكرو لأتمتة أعمالك اليومية.',
-        shortDescriptionEn: 'Complex financial workbooks, VBA macros, automated dashboards, and Apps Script.',
-        image: IMAGE_DATA.data,
-        price: 150,
-        deliveryDays: 2,
-        badgeAr: 'تسليم سريع',
-        badgeEn: 'Fast Delivery',
+        id: 'srv-flutter',
+        titleAr: 'تطبيق موبايل (Flutter)',
+        titleEn: 'Cross-Platform Mobile App (Flutter iOS & Android)',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'iOS + Android + رفع على المتاجر + إشعارات Push وتجربة مستخدم عصرية وسلسة.',
+        shortDescriptionEn: 'High-performance cross-platform mobile application for iOS and Android with store publishing and push notifications.',
+        image: IMAGE_DATA.app,
+        price: 1500,
+        deliveryDays: 21,
+        deliveryTextAr: '21 يوم',
+        deliveryTextEn: '21 days',
+        badgeAr: 'تطبيق هجين متكامل',
+        badgeEn: 'Cross-Platform App',
         featuresAr: [
-          'معادلات متقدمة وربط ذكي بين الجداول',
-          'لوحة مؤشرات أداء تفاعلية ديناميكية',
-          'أتمتة المهام بأكواد VBA و Apps Script',
-          'حماية المعادلات وصيغ الإدخال بكلمة مرور'
+          'كود موحد عالي الأداء يعمل بسلاسة على iOS و Android بـ Flutter',
+          'رفع ونشر التطبيق على Google Play Store و Apple App Store',
+          'نظام إشعارات فورية Push Notifications عبر Firebase',
+          'تصميم واجهات وتجربة مستخدم عصرية ومريحة 60 إطار بالثانية'
         ],
         featuresEn: [
-          'Advanced formula modeling and cross-table linkages',
-          'Interactive visual KPI dashboard with charts',
-          'Automated repetitive task macros (VBA & Apps Script)',
-          'Protected formula cells and sanitized input validation'
+          'Single high-performance codebase for iOS and Android via Flutter',
+          'Publishing and submission to Google Play Store & Apple App Store',
+          'Real-time push notifications integration via Firebase Cloud Messaging',
+          'Modern 60fps UI/UX tailored for touch devices'
         ],
         deliverablesAr: [
-          'ملف إكسل / شيت مفتوح المصدر بالكامل',
-          'فيديو مسجل لشرح طريقة الإدخال واستخراج التقارير'
-        ],
-        deliverablesEn: [
-          'Fully unlocked and documented Excel / Sheets workbook',
-          'Recorded video guide detailing data entry and report filtering'
+          'تطبيق جاهز للعمل ومرفوع على متجري Google Play و Apple App Store.',
+          'كود Flutter مصدري كامل قابل للتطوير المستقبلي.',
+          'ربط خدمات الإشعارات السحابية وقاعدة البيانات.',
+          'دعم تقني وتحديثات لمدة شهر بعد الإطلاق.'
         ]
       },
       {
-        id: 'srv-sec-01',
-        titleAr: 'فحص وتأمين المواقع والأنظمة ضد الاختراق والثغرات',
-        titleEn: 'Comprehensive Cybersecurity Penetration Testing & Hardening',
+        id: 'srv-pwa',
+        titleAr: 'تطبيق ويب تقدمي (PWA)',
+        titleEn: 'Progressive Web App (PWA)',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'يعمل كتطبيق بدون تحميل من المتاجر + دعم كامل للعمل بدون إنترنت (Offline Mode).',
+        shortDescriptionEn: 'App-like web experience with instant home screen install, zero app store fees, and full offline caching.',
+        image: IMAGE_DATA.web,
+        price: 850,
+        deliveryDays: 10,
+        deliveryTextAr: '10 أيام',
+        deliveryTextEn: '10 days',
+        badgeAr: 'تطبيق PWA خفيف وسريع',
+        badgeEn: 'Progressive Web App',
+        featuresAr: [
+          'تثبيت مباشر بنقرة واحدة على الشاشة الرئيسية للهواتف والكمبيوتر',
+          'دعم العمل بدون اتصال بالإنترنت (Offline Mode) وتخزين ذكي',
+          'سرعة استجابة فائقة وتحميل لحظي عبر Service Workers',
+          'إشعارات ويب تفاعلية وتحديثات تلقائية في الخلفية'
+        ],
+        featuresEn: [
+          'One-click direct home screen install on mobile and desktop',
+          'Offline mode with smart Service Worker caching',
+          'Instant loading times and ultra-lightweight footprint',
+          'Web push notifications and automatic background synchronization'
+        ],
+        deliverablesAr: [
+          'تطبيق PWA متكامل بشهادة HTTPS وإعدادات Web App Manifest كاملة.',
+          'برمجة Service Worker متطورة للتخزين المؤقت.',
+          'أيقونات وشاشات Splash لكافة أحجام الشاشات.',
+          'دليل الاستخدام والتثبيت.'
+        ]
+      },
+      {
+        id: 'srv-ecom-full',
+        titleAr: 'متجر إلكتروني متكامل',
+        titleEn: 'Enterprise E-Commerce Store',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'متعدد العملات + بوابات دفع إلكتروني + إدارة مخزون وشحن احترافية.',
+        shortDescriptionEn: 'Complete enterprise e-commerce platform with multi-currency support, payment gateways, and inventory control.',
+        image: IMAGE_DATA.ecom,
+        price: 1100,
+        deliveryDays: 12,
+        deliveryTextAr: '12 يوم',
+        deliveryTextEn: '12 days',
+        badgeAr: 'متجر إلكتروني شامل',
+        badgeEn: 'Enterprise Store',
+        featuresAr: [
+          'دعم كامل للدفع الإلكتروني (بطاقات ائتمان، مدى، Apple Pay، PayPal)',
+          'نظام متقدم لإدارة المنتجات والمخزون والتنبيه عند نفاد الكميات',
+          'ربط شركات الشحن والتوصيل مع تتبع الشحنات آلياً',
+          'لوحة تحكم للمبيعات والفواتير الضريبية وكوبونات الخصم والتقارير'
+        ],
+        featuresEn: [
+          'Secure multi-gateway payment processing (Cards, Apple Pay, PayPal)',
+          'Advanced inventory control with automated low-stock alerts',
+          'Shipping carrier integrations with real-time tracking numbers',
+          'Comprehensive sales dashboard, tax invoices, and coupon system'
+        ],
+        deliverablesAr: [
+          'متجر إلكتروني متكامل جاهز لاستقبال الطلبات الفورية.',
+          'لوحة تحكم إدارية باللغة العربية والإنجليزية.',
+          'ربط بوابات الدفع الإلكتروني وشركات الشحن.',
+          'تدريب كامل على إدارة المنتجات والطلبات.'
+        ]
+      },
+      {
+        id: 'srv-saas',
+        titleAr: 'منصة SaaS متعددة المشتركين',
+        titleEn: 'Multi-Tenant SaaS Platform',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'عزل بيانات المشتركين + اشتراكات شهرية ودورية + بوابات دفع آلية.',
+        shortDescriptionEn: 'Turnkey Multi-Tenant SaaS platform with isolated tenant data, automated billing subscriptions, and administration console.',
+        image: IMAGE_DATA.sys,
+        price: 2800,
+        deliveryDays: 30,
+        deliveryTextAr: '30 يوم',
+        deliveryTextEn: '30 days',
+        badgeAr: 'منصة SaaS سحابية',
+        badgeEn: 'Multi-Tenant SaaS',
+        featuresAr: [
+          'بنية تحتية سحابية مع عزل تام لبيانات وقواعد بيانات كل مشترك',
+          'نظام فوترة واشتراكات متكررة آلية (Stripe Billing / Paddle)',
+          'لوحة تحكم شاملة للـ Super Admin لمراقبة الإيرادات والمشتركين',
+          'نطاقات فرعية مخصصة لكل عميل (Subdomains) وأذونات مستخدمين'
+        ],
+        featuresEn: [
+            'Cloud architecture with strict multi-tenant data isolation',
+            'Automated recurring subscription billing (Stripe / Paddle)',
+            'Master Super Admin dashboard for tenant and revenue metrics',
+            'Custom customer subdomains and granular tenant permissions'
+        ],
+        deliverablesAr: [
+          'منصة SaaS سحابية متكاملة وجاهزة لطرح الاشتراكات.',
+          'نظام توثيق واشتراكات وبوابة دفع آلية.',
+          'بنية سحابية قابلة للتوسع مع موازنة الأحمال.',
+          'توثيق برمجي كامل ومعايير تشغيلية للمشروع.'
+        ]
+      },
+      {
+        id: 'srv-erp-crm',
+        titleAr: 'نظام مؤسسي مخصص (ERP/CRM)',
+        titleEn: 'Custom Enterprise ERP / CRM System',
+        category: 'systems_dev',
+        categoryLabelAr: 'البرمجيات والأنظمة',
+        categoryLabelEn: 'Software & Systems',
+        shortDescriptionAr: 'صلاحيات متعددة + تقارير تفاعلية + ربط API خارجي + تدريب كامل لفريقك.',
+        shortDescriptionEn: 'Tailored enterprise resource and customer management system with deep role matrix, dynamic reporting, API connectors, and training.',
+        image: IMAGE_DATA.accounting,
+        price: 2000,
+        deliveryDays: 30,
+        deliveryTextAr: '30 يوم',
+        deliveryTextEn: '30 days',
+        badgeAr: 'نظام مؤسسي ضخم',
+        badgeEn: 'Custom ERP/CRM',
+        featuresAr: [
+          'نظام مخصص 100% لإدارة شؤون الشركة والموظفين والعملاء والمبيعات',
+          'مصفوفة صلاحيات دقيقة ومستويات وصول للأقسام والموظفين (RBAC)',
+          'محرك تقارير إحصائي تفاعلي مع تصدير PDF و Excel بنقرة واحدة',
+          'ربط API مع الخدمات السحابية والبنوك + جلسات تدريب لفريقك'
+        ],
+        featuresEn: [
+          '100% custom enterprise management for staff, CRM, pipeline, and billing',
+          'Granular Role-Based Access Control (RBAC) across departments',
+          'Interactive analytics engine with one-click PDF & Excel export',
+          'API integrations with existing company services plus team training'
+        ],
+        deliverablesAr: [
+          'نظام ERP/CRM مؤسسي مخصص مركب على خوادمك السحابية.',
+          'حسابات وصلاحيات مديري الأقسام والموظفين.',
+          'جلسات تدريب فيديو ومباشرة لفريق العمل.',
+          'ضمان ودعم فني مخصص لمدة 60 يوماً.'
+        ]
+      },
+
+      // === Table 2: الأمن السيبراني وفحص الثغرات ===
+      {
+        id: 'srv-sec-malware',
+        titleAr: 'فحص ملفات وبرمجيات (Malware Scan)',
+        titleEn: 'Malware & Software Security Scan',
         category: 'cybersecurity',
         categoryLabelAr: 'الأمن السيبراني',
         categoryLabelEn: 'Cybersecurity',
-        shortDescriptionAr: 'فحص أمني دقيق لاكتشاف ثغرات الويب وسد المنافذ وتقديم تقرير أمني رسمي معتمد وخطة معالجة فورية.',
-        shortDescriptionEn: 'Full security audit, vulnerability scanning, penetration testing, and hardening.',
+        shortDescriptionAr: 'فحص فيروسات وأكواد خبيثة + تقرير أمني رسمي معتمد ومفصل.',
+        shortDescriptionEn: 'Deep scan for malicious code, backdoors, viruses, and trojans with certified security reporting.',
         image: IMAGE_DATA.sec,
-        price: 399,
+        price: 200,
+        deliveryDays: 2,
+        deliveryTextAr: '1–2 يوم',
+        deliveryTextEn: '1–2 days',
+        badgeAr: 'فحص فوري معتمد',
+        badgeEn: 'Certified Scan',
+        featuresAr: [
+          'فحص عميق وشامل لملفات النظام والأكواد والمكتبات البرمجية',
+          'كشف أكواد التجسس والتروجان وحقن قواعد البيانات المخفي',
+          'تقرير أمني معتمد يوضح مؤشرات الخطورة ومسارات الملفات المصابة',
+          'توصيات وحلول سريعة لعزل التهديدات وحماية السيرفر'
+        ],
+        featuresEn: [
+          'Deep scan across source files, packages, and web root directories',
+          'Detection of hidden malware, cryptominers, webshells, and iframes',
+          'Official security report with threat severity index and file hashes',
+          'Actionable remediation plan to isolate and eliminate infection'
+        ],
+        deliverablesAr: [
+          'تقرير فحص أمني معتمد بصيغة PDF.',
+          'قائمة بكافة الملفات المشبوهة أو المصابة وطبيعة التهديد.',
+          'خطة علاجية فورية لتطهير النظام وحمايته.'
+        ]
+      },
+      {
+        id: 'srv-sec-owasp',
+        titleAr: 'فحص ثغرات OWASP الشامل',
+        titleEn: 'OWASP Top 10 Vulnerability Assessment',
+        category: 'cybersecurity',
+        categoryLabelAr: 'الأمن السيبراني',
+        categoryLabelEn: 'Cybersecurity',
+        shortDescriptionAr: 'SQLi/XSS/CSRF + تقرير تقييم CVSS + دليل الإصلاح الهندسي خطوة بخطوة.',
+        shortDescriptionEn: 'Full web penetration test against OWASP Top 10 vulnerabilities with CVSS severity scoring and remediation guidelines.',
+        image: IMAGE_DATA.sec,
+        price: 350,
         deliveryDays: 3,
-        badgeAr: 'أمان معتمد',
-        badgeEn: 'Certified',
+        deliveryTextAr: '3 أيام',
+        deliveryTextEn: '3 days',
+        badgeAr: 'اختبار اختراق احترافي',
+        badgeEn: 'Penetration Test',
         featuresAr: [
-          'فحص شامل لأخطر ثغرات الويب OWASP Top 10',
-          'سد الثغرات وتأمين جدار الحماية WAF',
-          'تقرير أمني تنفيذي وتقني مفصل للثغرات المكتشفة',
-          'ضمان حماية وإعادة فحص مجاني بعد المعالجة'
+          'فحص متقدم لأهم 10 ثغرات أمنية (SQL Injection, XSS, CSRF, SSRF)',
+          'تقييم أمني وتصنيف دقيق للخطورة بالمعيار العالمي CVSS Score',
+          'دليل هندسي مفصل خطوة بخطوة للأكواد الواجب تعديلها لإغلاق الثغرات',
+          'تدقيق إدارة الجلسات وتشفير كلمات المرور والتوثيق'
         ],
         featuresEn: [
-          'Rigorous audit covering OWASP Top 10 web vulnerabilities',
-          'Vulnerability remediation and WAF firewall configuration',
-          'Comprehensive technical and executive penetration report',
-          'Complimentary re-audit warranty following patch deployments'
+          'Targeted assessment of OWASP Top 10 (SQLi, XSS, CSRF, SSRF, IDOR)',
+          'Standardized CVSS v3.1 risk severity scoring across all endpoints',
+          'Step-by-step developer remediation playbook with code samples',
+          'Authentication, session management, and JWT audit'
         ],
         deliverablesAr: [
-          'تقرير أمني رسمي مختوم ومفصل',
-          'جلسة استشارية لشرح الإجراءات الوقائية'
-        ],
-        deliverablesEn: [
-          'Certified comprehensive penetration test report',
-          'Consultation debrief session explaining preventative hardening'
+          'تقرير اختبار اختراق رسمي معتمد (Executive & Technical PDF Report).',
+          'أدلة الإثبات (Proof-of-Concept) لكل ثغرة مكتشفة.',
+          'دليل الإصلاح البرمجي لسد الثغرات نهائياً.',
+          'إعادة فحص مجانية بعد تطبيق الإصلاحات للتأكد من إغلاقها.'
         ]
       },
       {
-        id: 'srv-ai-01',
-        titleAr: 'برمجة وتدريب مساعد ذكاء اصطناعي (AI Chatbot) لأتمتة خدمة العملاء',
-        titleEn: 'Custom AI Customer Agent & Automated Workflow Integration',
-        category: 'artificial_intelligence',
-        categoryLabelAr: 'الذكاء الاصطناعي',
-        categoryLabelEn: 'AI Solutions',
-        shortDescriptionAr: 'مساعد ذكي مدرب على بيانات نشاطك التجاري للرد الفوري على استفسارات العملاء وجدولة المواعيد.',
-        shortDescriptionEn: 'Custom GPT/Gemini AI agent trained on your business documents for 24/7 client response.',
-        image: IMAGE_DATA.ai,
-        price: 440,
-        deliveryDays: 4,
-        badgeAr: 'تقنيات المستقبل',
-        badgeEn: 'Next-Gen',
-        featuresAr: [
-          'تدريب المودل على كتالوج وخدمات وسياسات شركتك',
-          'دمج في الموقع أو محادثات واتساب وتيليجرام',
-          'إجابات دقيقة واحترافية بدون أخطاء على مدار الساعة',
-          'لوحة تحكم بمحادثات وسجلات الذكاء الاصطناعي'
-        ],
-        featuresEn: [
-          'Trained directly on your business catalog, policies, and FAQs',
-          'Omnichannel embed in website, WhatsApp, and Telegram',
-          '24/7 polite, accurate, and hallucination-guarded responses',
-          'Conversation logs and knowledge-base management portal'
-        ],
-        deliverablesAr: [
-          'مساعد ذكاء اصطناعي مرخص ومتصل بأنظمتك',
-          'لوحة متابعة المحادثات وتحديث المعرفة'
-        ],
-        deliverablesEn: [
-          'Production-ready AI agent integrated into your channels',
-          'Knowledge update dashboard and conversational analytics'
-        ]
-      },
-      {
-        id: 'srv-motion-01',
-        titleAr: 'إنتاج ومونتاج فيديوهات موشن جرافيك وإعلانات ترويجية',
-        titleEn: 'High-Impact Motion Graphics & Video Editing Production',
-        category: 'video',
-        categoryLabelAr: 'المونتاج والموشن',
-        categoryLabelEn: 'Video & Motion',
-        shortDescriptionAr: 'فيديوهات موشن جرافيك احترافية تشرح فكرة مشروعك أو منتجك بتعليق صوتي استوديو ورسوم متحركة مبهرة.',
-        shortDescriptionEn: 'Custom 2D/3D explainer videos, brand ads, studio voiceover, and sound design.',
-        image: IMAGE_DATA.video,
-        price: 230,
-        deliveryDays: 3,
-        badgeAr: 'إنتاج إبداعي',
-        badgeEn: 'Creative',
-        featuresAr: [
-          'كتابة سيناريو إعلاني مشوق للجمهور',
-          'تعليق صوتي محترف باستوديو معتمد (Voiceover)',
-          'رسوم متحركة موشن جرافيك عالية الدقة 4K / 1080p',
-          'مؤثرات صوتية وموسيقى مرخصة'
-        ],
-        featuresEn: [
-          'Engaging commercial scriptwriting and storyboard',
-          'Professional native studio voiceover recording',
-          'Ultra HD 4K/1080p custom vector animations',
-          'Sound design, sound effects, and licensed background music'
-        ],
-        deliverablesAr: [
-          'الفيديو النهائي بصيغة MP4 جاهز للإعلانات ومواقع التواصل',
-          'مقاسات متعددة (سناب شات، إنستغرام، يوتيوب)'
-        ],
-        deliverablesEn: [
-          'Final MP4 master video optimized for ad platforms',
-          'Multi-format aspect ratios (Story 9:16, Feed 1:1, Landscape 16:9)'
-        ]
-      },
-      {
-        id: 'srv-brand-01',
-        titleAr: 'تصميم الهوية البصرية الكاملة والعلامة التجارية (Branding Kit)',
-        titleEn: 'Comprehensive Brand Identity & Visual Guidelines Design',
-        category: 'design',
-        categoryLabelAr: 'الهوية والتصميم',
-        categoryLabelEn: 'Branding & Design',
-        shortDescriptionAr: 'ابتكار شعار وهوية متكاملة تشمل المطبوعات، بطاقات الأعمال، وأدلة استخدام الألوان والخطوط.',
-        shortDescriptionEn: 'Complete corporate identity kit, logo concepts, typography guide, stationery, and social media templates.',
-        image: IMAGE_DATA.brand,
-        price: 290,
-        deliveryDays: 4,
-        badgeAr: 'هوية متميزة',
-        badgeEn: 'Iconic',
-        featuresAr: [
-          '3 مفاهيم شعار ابتكارية للاختيار بينها',
-          'دليل الهوية البصرية (Brand Guidelines)',
-          'تصاميم المطبوعات: البزنس كارد، الفولدر، والأوراق الرسمية',
-          'قوالب سوشيال ميديا قابلة للتعديل'
-        ],
-        featuresEn: [
-          '3 bespoke logo concepts developed for your business',
-          'Official brand guidelines book (colors, typography, spacing)',
-          'Complete stationery suite: business cards, letterhead, folders',
-          'Editable social media launch templates'
-        ],
-        deliverablesAr: [
-          'ملفات الفكتور الأصلية (AI, EPS, PDF, SVG, PNG)',
-          'دليل إرشادات الهوية البصرية المطبوع'
-        ],
-        deliverablesEn: [
-          'Vector master source files (AI, EPS, SVG, PDF, PNG)',
-          'Complete Brand Identity Guidelines manual'
-        ]
-      },
-      {
-        id: 'srv-mkt-01',
-        titleAr: 'إدارة وتخطيط الحملات الإعلانية الممولة والتسويق الرقمي',
-        titleEn: 'Targeted Performance Marketing & Ad Campaigns Management',
-        category: 'marketing',
-        categoryLabelAr: 'التسويق الرقمي',
-        categoryLabelEn: 'Digital Marketing',
-        shortDescriptionAr: 'إطلاق حملات تسويقية مستهدفة ومحسوبة العائد على جوجل وسناب شات وتيك توك لتحقيق أعلى المبيعات.',
-        shortDescriptionEn: 'Data-driven paid ads on Google, Snapchat, Meta, and TikTok optimized for maximum ROI.',
-        image: IMAGE_DATA.mkt,
+        id: 'srv-sec-cleanup',
+        titleAr: 'تطهير السكربتات المصابة',
+        titleEn: 'Infected Scripts & Malware Disinfection',
+        category: 'cybersecurity',
+        categoryLabelAr: 'الأمن السيبراني',
+        categoryLabelEn: 'Cybersecurity',
+        shortDescriptionAr: 'إزالة Backdoors وWebshells بدون كسر الوظائف البرمجية للموقع.',
+        shortDescriptionEn: 'Surgical removal of webshells, backdoors, injected redirectors, and malicious payloads without breaking web logic.',
+        image: IMAGE_DATA.sec,
         price: 250,
         deliveryDays: 3,
-        badgeAr: 'عائد مبيعات مرتفع',
-        badgeEn: 'High ROI',
+        deliveryTextAr: '2–3 أيام',
+        deliveryTextEn: '2–3 days',
+        badgeAr: 'تطهير وإنقاذ عاجل',
+        badgeEn: 'Emergency Cleanup',
         featuresAr: [
-          'تحديد الجمهور المستهدف بدقة واختيار الكلمات المفتاحية',
-          'تصميم وكتابة نصوص الإعلانات الجذابة (Ad Copy)',
-          'ربط وتثبيت بكسل التتبع وقياس التحويلات (Conversions)',
-          'تقارير تحليلية شفافة لأداء الميزانية والنقرات'
+          'استئصال دقيق لملفات الـ Webshells والأبواب الخلفية (Backdoors)',
+          'تنظيف الأكواد المشفرة بـ Base64 وحقن الإعلانات الخبيثة دون كسر الموقع',
+          'معالجة القوائم السوداء في Google Safe Browsing ومحركات البحث',
+          'سد الثغرة أو المنفذ المستخدم في عملية الاختراق لمنع تكرارها'
         ],
         featuresEn: [
-          'Laser-targeted audience segmentation and high-intent keywords',
-          'High-converting ad copy and graphic creative direction',
-          'Pixel tracking and conversion event setup',
-          'Transparent analytical performance dashboard'
+          'Precise removal of persistent webshells and stealthy backdoors',
+          'Cleansing of obfuscated Base64 malware and spam injections safely',
+          'Requesting blacklist delisting from Google Safe Browsing and anti-virus',
+          'Hardening entry points to prevent repeat compromises'
         ],
         deliverablesAr: [
-          'حملة إعلانية نشطة ومضبوطة بالكامل',
-          'تقرير تحليلي بالأداء والنتائج المحققة'
+          'موقع نظيف ومطهر 100% يعمل بكامل كفاءته البرمجية.',
+          'تقرير بالملفات التي تم تطهيرها والمنافذ التي تم سدها.',
+          'نسخة احتياطية نظيفة ومؤمنة من الموقع.',
+          'متابعة أمنية مكثفة لمدة 14 يوماً بعد التطهير.'
+        ]
+      },
+      {
+        id: 'srv-sec-hardening',
+        titleAr: 'تأمين السيرفرات (Hardening)',
+        titleEn: 'Server Security Hardening',
+        category: 'cybersecurity',
+        categoryLabelAr: 'الأمن السيبراني',
+        categoryLabelEn: 'Cybersecurity',
+        shortDescriptionAr: 'إغلاق المنافذ + Fail2ban + تأمين SSH وحماية الخادم ضد الهجمات.',
+        shortDescriptionEn: 'Comprehensive server hardening: firewall port lockdown, brute-force mitigation with Fail2ban, and SSH keys.',
+        image: IMAGE_DATA.sec,
+        price: 400,
+        deliveryDays: 3,
+        deliveryTextAr: '3 أيام',
+        deliveryTextEn: '3 days',
+        badgeAr: 'تحصين خوادم متقدم',
+        badgeEn: 'Server Hardening',
+        featuresAr: [
+          'إغلاق المنافذ غير المستخدمة وضبط جدار الحماية UFW / IPTables',
+          'تثبيت وتكوين Fail2ban لحظر هجمات القوة الغاشمة Brute-Force آلياً',
+          'تأمين وصول SSH عبر مفاتيح التشفير RSA/Ed25519 وتعطيل Root Login',
+          'ضبط إعدادات الأمان لخوادم Nginx / Apache وضغط حزم الحماية'
         ],
-        deliverablesEn: [
-          'Fully calibrated and active ad campaign setup',
-          'Detailed conversion, ROAS, and customer acquisition report'
+        featuresEn: [
+          'Strict firewall lockdown of open ports via UFW / IPTables',
+          'Automated brute-force ban defense using Fail2ban',
+          'SSH fortification with cryptographic keys and root login disabling',
+          'Security headers, SSL/TLS modern ciphers, and web server tuning'
+        ],
+        deliverablesAr: [
+          'خادم محصن ومؤمن بالكامل ضد الهجمات السيبرانية.',
+          'تقرير إعدادات الأمان وجدران الحماية المفعلة.',
+          'مفاتيح وصول SSH مشفرة ومؤمنة.',
+          'سجلات مراقبة وتنبيهات أمنية تلقائية.'
+        ]
+      },
+      {
+        id: 'srv-sec-cloud',
+        titleAr: 'تدقيق أمن السحابة (AWS/GCP)',
+        titleEn: 'Cloud Security Audit (AWS / GCP)',
+        category: 'cybersecurity',
+        categoryLabelAr: 'الأمن السيبراني',
+        categoryLabelEn: 'Cybersecurity',
+        shortDescriptionAr: 'صلاحيات IAM + تأمين S3 وحاويات التخزين + تفعيل سجلات CloudTrail.',
+        shortDescriptionEn: 'Thorough cloud infrastructure security review covering IAM least privilege, S3 bucket lockdowns, and CloudTrail auditing.',
+        image: IMAGE_DATA.sec,
+        price: 380,
+        deliveryDays: 4,
+        deliveryTextAr: '4 أيام',
+        deliveryTextEn: '4 days',
+        badgeAr: 'تدقيق سحابي موثق',
+        badgeEn: 'Cloud Audit',
+        featuresAr: [
+          'تدقيق سياسات الصلاحيات IAM وتطبيق مبدأ الحد الأدنى من الامتيازات',
+          'تأمين حاويات التخزين S3 Buckets / Cloud Storage ومنع تسريب البيانات',
+          'تفعيل وإعداد سجلات المراقبة والتنبيهات CloudTrail / CloudWatch',
+          'فحص الشبكات السحابية VPC ومجموعات الأمان Security Groups'
+        ],
+        featuresEn: [
+          'Audit of IAM user roles applying principle of least privilege',
+          'Public access block & encryption verification for S3 and Cloud Storage',
+          'Centralized audit logging setup via CloudTrail and CloudWatch alerts',
+          'VPC security group and public subnet exposure audit'
+        ],
+        deliverablesAr: [
+          'تقرير شامل لتدقيق الأمان السحابي متوافق مع معايير CIS Benchmarks.',
+          'قائمة الثغرات ومخاطر الصلاحيات الحالية وطرق معالجتها.',
+          'إعدادات وسياسات أمنية مطبقة لحماية البنية التحتية السحابية.'
+        ]
+      },
+
+      // === Table 3: الترجمة والتوطين التقني ===
+      {
+        id: 'srv-trans-files',
+        titleAr: 'ترجمة ملفات ومبرمجة',
+        titleEn: 'Technical Document & Code Translation',
+        category: 'translation_i18n',
+        categoryLabelAr: 'الترجمة والتوطين',
+        categoryLabelEn: 'Translation & i18n',
+        shortDescriptionAr: 'PDF/DOCX/JSON/كود مصدري مع حفظ التنسيق والتخطيط 100%.',
+        shortDescriptionEn: 'Flawless translation for technical documentation, source code comments, JSON, and PDFs preserving 100% layout.',
+        image: IMAGE_DATA.data,
+        price: 150,
+        deliveryDays: 3,
+        deliveryTextAr: '1–3 أيام',
+        deliveryTextEn: '1–3 days',
+        badgeAr: 'ترجمة تقنية دقيقة',
+        badgeEn: 'Tech Translation',
+        featuresAr: [
+          'ترجمة دقيقة للملفات التقنية (PDF, DOCX, XLSX, JSON) مع حفظ التنسيق',
+          'ترجمة الأكواد والتعليقات البرمجية بدون المساس بالمتغيرات والوظائف',
+          'مصطلحات تقنية دقيقة ومعتمدة في مجالات البرمجة وتكنولوجيا المعلومات',
+          'مراجعة وتدقيق لغوي ثنائي لضمان سلاسة المعنى واحترافية الصياغة'
+        ],
+        featuresEn: [
+          'Accurate technical translation of PDF, Word, JSON files with layout intact',
+          'Preserves code structure, variables, and parameters flawlessly',
+          'Industry-standard technical and developer terminology',
+          'Dual-pass native proofreading for natural phrasing'
+        ],
+        deliverablesAr: [
+          'الملفات المترجمة بنفس التنسيق والتصميم الأصلي 100%.',
+          'قاموس مصطلحات تقني موحد خاص بمشروعك (Glossary).',
+          'مراجعة وتعديلات مجانية حتى الرضا الكامل.'
+        ]
+      },
+      {
+        id: 'srv-trans-legal',
+        titleAr: 'ترجمة قانونية وعقود',
+        titleEn: 'Legal & Contracts Certified Translation',
+        category: 'translation_i18n',
+        categoryLabelAr: 'الترجمة والتوطين',
+        categoryLabelEn: 'Translation & i18n',
+        shortDescriptionAr: 'دقة مصطلحات قانونية + صياغة معتمدة للشروط والعقود والاتفاقيات.',
+        shortDescriptionEn: 'Precise legal translation for enterprise commercial contracts, service terms, NDA, and compliance documentation.',
+        image: IMAGE_DATA.data,
+        price: 180,
+        deliveryDays: 2,
+        deliveryTextAr: '2 يوم',
+        deliveryTextEn: '2 days',
+        badgeAr: 'ترجمة قانونية موثقة',
+        badgeEn: 'Legal Certified',
+        featuresAr: [
+          'ترجمة وصياغة عقود العمل والاتفاقيات التجارية وسياسات الخصوصية',
+          'دقة متناهية في المصطلحات والبنود القانونية المحلية والدولية',
+          'التزام صارم بالسرية التامة وعدم إفشاء أي بيانات للعملاء',
+          'مراجعة متخصصة لضمان عدم وجود أي لبس أو غموض في الصياغة'
+        ],
+        featuresEn: [
+          'Contract, NDA, Privacy Policy, and Terms of Service legal translation',
+          'Meticulous legal phrasing aligned with jurisdiction standards',
+          'Strict Non-Disclosure Agreement (NDA) and confidential handling',
+          'Legal review to ensure unambiguous interpretation'
+        ],
+        deliverablesAr: [
+          'العقود والاتفاقيات المترجمة بصيغتي Word و PDF جاهزة للتوقيع.',
+          'شهادة دقة الترجمة ومطابقتها للأصل.',
+          'نسخة مقارنة باللغتين العربية والإنجليزية جنبًا إلى جنب.'
+        ]
+      },
+      {
+        id: 'srv-trans-i18n',
+        titleAr: 'توطين كود مصدري (i18n)',
+        titleEn: 'Source Code Localization (i18n)',
+        category: 'translation_i18n',
+        categoryLabelAr: 'الترجمة والتوطين',
+        categoryLabelEn: 'Translation & i18n',
+        shortDescriptionAr: 'JSON/PO/YAML مع الحفاظ على المتغيرات {vars} ودعم RTL/LTR.',
+        shortDescriptionEn: 'Professional internationalization of code repos: JSON, PO, YAML translation with variables preservation and RTL/LTR support.',
+        image: IMAGE_DATA.web,
+        price: 300,
+        deliveryDays: 4,
+        deliveryTextAr: '4 أيام',
+        deliveryTextEn: '4 days',
+        badgeAr: 'توطين برمجي كامل',
+        badgeEn: 'Full i18n Solution',
+        featuresAr: [
+          'ترجمة وتجهيز ملفات i18next و React-intl و Flutter localization (JSON/PO/YAML)',
+          'حماية كاملة للمتغيرات البرمجية والأقواس {value} والأكواد المضمنة',
+          'تعديل وضبط اتجاه الواجهات بالكامل للغة العربية (RTL) والإنجليزية (LTR)',
+          'اختبار الواجهات التطبيقية لضمان عدم تكسر الكلمات أو خروج النصوص عن الإطار'
+        ],
+        featuresEn: [
+          'Translation of language key files: JSON, PO, YAML, Arb for React / Vue / Flutter',
+          'Strict preservation of formatting tokens, interpolation tags, and HTML tags',
+          'Full RTL/LTR bidirectional styling alignment and typography fix',
+          'Live screen validation to prevent UI overflow or broken wraps'
+        ],
+        deliverablesAr: [
+          'ملفات اللغات كاملة وجاهزة للدمج الفوري في مشروعك البرمجي.',
+          'دليل ربط وتفعيل ملفات الترجمة في الكود المصدري.',
+          'اختبار تطبيقي حي للواجهات بعد التوطين.'
+        ]
+      },
+      {
+        id: 'srv-trans-api',
+        titleAr: 'ترجمة وثائق API',
+        titleEn: 'API Documentation Localization (Swagger/OpenAPI)',
+        category: 'translation_i18n',
+        categoryLabelAr: 'الترجمة والتوطين',
+        categoryLabelEn: 'Translation & i18n',
+        shortDescriptionAr: 'Swagger/OpenAPI بصيغة Markdown/HTML مع أمثلة الطلبات والاستجابات.',
+        shortDescriptionEn: 'Localization and authoring for developer documentation: OpenAPI, Swagger schemas, Markdown and interactive HTML.',
+        image: IMAGE_DATA.sys,
+        price: 140,
+        deliveryDays: 3,
+        deliveryTextAr: '3 أيام',
+        deliveryTextEn: '3 days',
+        badgeAr: 'توثيق API للمطورين',
+        badgeEn: 'API Docs Expert',
+        featuresAr: [
+          'ترجمة وتوثيق مواصفات الـ APIs (Swagger / OpenAPI / Postman)',
+          'صياغة شروحات احترافية واضحة للمطورين بصيغة Markdown أو HTML تفاعلية',
+          'شرح المعاملات (Parameters) والأجسام (Request Body) وأكواد الرد (Status Codes)',
+          'إدراج أمثلة استدعاء واضحة بلغات برمجية متعددة (cURL, JavaScript, Python)'
+        ],
+        featuresEn: [
+          'Translation & documentation of Swagger, OpenAPI 3.0, Postman collections',
+          'Authoring interactive developer guides in Markdown and HTML',
+          'Clear breakdown of query params, response headers, and status error codes',
+          'Multi-language code snippets included (cURL, Python, JS)'
+        ],
+        deliverablesAr: [
+          'ملفات الوثائق بصيغة Markdown جاهزة للنشر على GitHub أو منصتك.',
+          'ملف مواصفات OpenAPI / Swagger مترجم ومحدث.',
+          'صفحة توثيق تفاعلية للمطورين جاهزة للاستعراض.'
+        ]
+      },
+
+      // === Table 4: الذكاء الاصطناعي والتسريع وSEO ===
+      {
+        id: 'srv-ai-gemini',
+        titleAr: 'ربط Gemini AI وأتمتة',
+        titleEn: 'Gemini AI Integration & Automation',
+        category: 'ai_seo',
+        categoryLabelAr: 'الذكاء الاصطناعي وSEO',
+        categoryLabelEn: 'AI & SEO',
+        shortDescriptionAr: 'شات بوت ذكي + ردود آلية للعملاء 24/7 + لوحة تحليلات للمحادثات.',
+        shortDescriptionEn: 'Official Gemini AI integration with smart customer support chatbot, 24/7 automated flows, and real-time conversation analytics.',
+        image: IMAGE_DATA.ai,
+        price: 900,
+        deliveryDays: 7,
+        deliveryTextAr: '7 أيام',
+        deliveryTextEn: '7 days',
+        badgeAr: 'ذكاء اصطناعي متقدم',
+        badgeEn: 'Gemini AI Powered',
+        featuresAr: [
+          'ربط نماذج Gemini AI الرسمية عبر الـ API مع موقعك أو متجرك أو تطبيقك',
+          'شات بوت ذكي يتحدث باللغة العربية والإنجليزية ويفهم احتياجات العملاء',
+          'أتمتة خدمة العملاء والرد على الاستفسارات وتوليد العروض الترويجية 24/7',
+          'لوحة تحكم إحصائية لمراقبة أداء البوت ونسبة رضا العملاء والتحليلات'
+        ],
+        featuresEn: [
+          'Native Gemini AI API integration for web, e-commerce, or mobile',
+          'Natural language conversational bot in fluent Arabic and English',
+          '24/7 customer query automation, lead qualification, and order guidance',
+          'Analytics dashboard tracking user sentiment, resolution rates, and history'
+        ],
+        deliverablesAr: [
+          'شات بوت ذكي مدمج ويعمل بكفاءة على منصتك.',
+          'تخصيص وتدريب البوت على بيانات منتجاتك وخدماتك وسياساتك.',
+          'لوحة تحكم وتحليلات المحادثات.',
+          'دعم فني وصيانة شهرية للـ API.'
+        ]
+      },
+      {
+        id: 'srv-ai-rag',
+        titleAr: 'نظام RAG وقاعدة معرفة',
+        titleEn: 'Enterprise RAG Knowledge Base System',
+        category: 'ai_seo',
+        categoryLabelAr: 'الذكاء الاصطناعي وSEO',
+        categoryLabelEn: 'AI & SEO',
+        shortDescriptionAr: 'ربط مستندات شركتك بنماذج الذكاء الاصطناعي بدون هلوسة وإجابات موثقة.',
+        shortDescriptionEn: 'Retrieval-Augmented Generation (RAG) system grounded in your business documents for accurate, zero-hallucination AI answers.',
+        image: IMAGE_DATA.ai,
+        price: 1400,
+        deliveryDays: 12,
+        deliveryTextAr: '12 يوم',
+        deliveryTextEn: '12 days',
+        badgeAr: 'نظام RAG فائق الذكاء',
+        badgeEn: 'RAG Knowledge Base',
+        featuresAr: [
+          'فهرسة وتحويل مستنداتك وملفاتك (PDF, Word, Excel) إلى قاعدة بيانات متجهات',
+          'محرك استرجاع معزز (RAG) يضمن إجابات دقيقة 100% موثقة بالمصدر',
+          'محرك بحث سيمانتك دلالي فائق السرعة يبحث بالمعنى وليس بالكلمات فقط',
+          'عزل وتشفير كامل لبيانات الشركة الحساسة مع حماية الخصوصية'
+        ],
+        featuresEn: [
+          'Automated document ingestion and vector embedding (PDF, Excel, Docs)',
+          'Grounded Retrieval-Augmented Generation preventing AI hallucinations',
+          'High-speed semantic search indexing with source citation',
+          'Enterprise-grade encryption and tenant data privacy guarantees'
+        ],
+        deliverablesAr: [
+          'نظام RAG متكامل مربوط بمستنداتك ومتاح للاستخدام الفوري.',
+          'واجهة استعلام ذكية للموظفين أو العملاء مع إظهار المراجع.',
+          'لوحة تحكم لإضافة وحذف وتحديث المستندات بسهولة.',
+          'جلسة تدريب على استخدام النظام وتحديث البيانات.'
+        ]
+      },
+      {
+        id: 'srv-speed-95',
+        titleAr: 'تسريع الموقع 95+',
+        titleEn: 'Core Web Vitals Speed Optimization (95+)',
+        category: 'ai_seo',
+        categoryLabelAr: 'الذكاء الاصطناعي وSEO',
+        categoryLabelEn: 'AI & SEO',
+        shortDescriptionAr: 'Core Web Vitals + صور WebP حديثة + CDN لتحقيق سرعة 95+ في Google.',
+        shortDescriptionEn: 'Achieve 95+ Google PageSpeed Insights on desktop and mobile: Core Web Vitals optimization, WebP compression, and CDN.',
+        image: IMAGE_DATA.web,
+        price: 280,
+        deliveryDays: 5,
+        deliveryTextAr: '5 أيام',
+        deliveryTextEn: '5 days',
+        badgeAr: 'تسريع فائق معتمد',
+        badgeEn: 'Speed 95+ Score',
+        featuresAr: [
+          'رفع تقييم Google PageSpeed Insights إلى 95+ على الهواتف وأجهزة الكمبيوتر',
+          'تحسين مقاييس Core Web Vitals الأساسية (LCP, FID, CLS, INP) لأعلى كفاءة',
+          'ضغط وتحويل جميع صور الموقع إلى صيغ الجيل الحديث WebP / AVIF',
+          'تفعيل التخزين المؤقت المتقدم وربط شبكة توصيل المحتوى العالمية CDN'
+        ],
+        featuresEn: [
+          'Guaranteed 95+ Google PageSpeed Insights rating on mobile & desktop',
+          'Optimization of critical Core Web Vitals metrics (LCP, FID, CLS, INP)',
+          'Lossless asset compression & WebP/AVIF next-gen conversion',
+          'Global CDN setup, HTTP/3, and advanced browser caching rules'
+        ],
+        deliverablesAr: [
+          'موقع فائق السرعة يفتح بلحظات ويرفع معدل التحويل والمبيعات.',
+          'تقرير PageSpeed رسمي قبل وبعد عملية التسريع.',
+          'إعدادات CDN وتخزين مؤقت دائمة بدون رسوم شهرية إضافية.'
+        ]
+      },
+      {
+        id: 'srv-seo-adv',
+        titleAr: 'تهيئة محركات البحث (SEO)',
+        titleEn: 'Comprehensive Technical SEO Optimization',
+        category: 'ai_seo',
+        categoryLabelAr: 'الذكاء الاصطناعي وSEO',
+        categoryLabelEn: 'AI & SEO',
+        shortDescriptionAr: 'كلمات مفتاحية + Schema.org معتمدة + إصلاح أخطاء Search Console.',
+        shortDescriptionEn: 'Full technical and on-page SEO: high-intent keyword mapping, structured data Schema.org, and Google Search Console error fixes.',
+        image: IMAGE_DATA.web,
+        price: 500,
+        deliveryDays: 10,
+        deliveryTextAr: '10 أيام',
+        deliveryTextEn: '10 days',
+        badgeAr: 'سيو متصدر للنتائج',
+        badgeEn: 'Top Rank SEO',
+        featuresAr: [
+          'دراسة وبحث دقيق لأفضل الكلمات المفتاحية الأكثر بحثاً وملاءمة لنشاطك',
+          'بناء وتضمين أكواد البيانات المنظمة المعتمدة (Schema.org / JSON-LD)',
+          'فحص وإصلاح كافة أخطاء الزحف والروابط المعطوبة في Google Search Console',
+          'تحسين العناوين والوصف ومعدل النقر CTR وخرائط الموقع Sitemap.xml'
+        ],
+        featuresEn: [
+          'High-intent commercial keyword research and competitive positioning',
+          'Structured data JSON-LD implementation (Organization, Product, FAQ)',
+          'Google Search Console indexing diagnostics and crawl error remediation',
+          'On-page title/meta optimization, XML sitemaps, and robots.txt tuning'
+        ],
+        deliverablesAr: [
+          'خطة واستراتيجية SEO شاملة وجاهزة للتطبيق والتصنيف.',
+          'تقرير فحص تقني كامل لمعالجة أخطاء الفهرسة والأرشفة.',
+          'أكواد Schema.org مفعلة ومختبرة بأداة Google Rich Results.',
+          'متابعة صعود الترتيب في محرك البحث لمدة شهر.'
+        ]
+      },
+
+      // === باقات المتاجر وتصميم المواقع والمحاسبة والبيانات والميديا ===
+      {
+        id: 'srv-ecom-basic',
+        titleAr: 'المتجر الإلكتروني - الباقة الأساسية',
+        titleEn: 'Online Store - Basic Package',
+        category: 'web_stores',
+        categoryLabelAr: 'المتاجر الإلكترونية',
+        categoryLabelEn: 'Online Stores',
+        shortDescriptionAr: 'تصميم واجهات متجر إلكتروني بسيطة ومتجاوبة وسريعة لزيادة المبيعات.',
+        shortDescriptionEn: 'Responsive e-commerce storefront for launching fast sales without administrative complexity.',
+        image: IMAGE_DATA.ecom,
+        price: 350,
+        deliveryDays: 3,
+        deliveryTextAr: '3 أيام',
+        deliveryTextEn: '3 days',
+        badgeAr: 'باقة أساسية',
+        badgeEn: 'Basic Package',
+        featuresAr: [
+          'تصميم واجهات متجر إلكتروني متجاوبة مع كافة الشاشات',
+          'إضافة وتجهيز حتى 30 منتجاً مع تصنيفات وصور واضحة',
+          'ربط بوابة دفع إلكتروني واحدة + خيار الدفع عند الاستلام',
+          'ربط شركة شحن وأيقونة التواصل المباشر بالواتساب'
+        ],
+        featuresEn: [
+          'Responsive storefront for all devices and mobiles',
+          'Product setup for up to 30 items with clear taxonomy',
+          '1 Payment gateway integration + Cash on Delivery',
+          '1 Shipping carrier integration + WhatsApp direct button'
+        ],
+        deliverablesAr: [
+          'متجر إلكتروني جاهز للبيع المباشر.',
+          'تدريب وإرشادات إضافة المنتجات.',
+          'دعم فني أولي لمدة أسبوعين.'
+        ]
+      },
+      {
+        id: 'srv-ecom-adv',
+        titleAr: 'المتجر الإلكتروني - الباقة المتقدمة',
+        titleEn: 'Online Store - Advanced Package',
+        category: 'web_stores',
+        categoryLabelAr: 'المتاجر الإلكترونية',
+        categoryLabelEn: 'Online Stores',
+        shortDescriptionAr: 'متجر متكامل مع لوحة تحكم شاملة لإدارة الطلبات والعملاء والمخزون.',
+        shortDescriptionEn: 'Complete e-commerce store with full admin dashboard for orders, customers, and inventory.',
+        image: IMAGE_DATA.ecom,
+        price: 600,
+        deliveryDays: 7,
+        deliveryTextAr: '7 أيام',
+        deliveryTextEn: '7 days',
+        badgeAr: 'باقة متقدمة ⭐',
+        badgeEn: 'Advanced ⭐',
+        featuresAr: [
+          'لوحة تحكم إدارية كاملة لإدارة المخزون والمبيعات والفواتير',
+          'إضافة حتى 150 منتجاً مع تنويعات الخيارات (الألوان، المقاسات)',
+          'ربط بوابات دفع متعددة وكوبونات الخصم التلقائية',
+          'تقارير تفصيلية للمبيعات وتحليلات زوار المتجر'
+        ],
+        featuresEn: [
+          'Comprehensive admin portal for stock, orders, and taxes',
+          'Up to 150 products with variants (sizes, colors)',
+          'Multi-gateway payment processing and coupons',
+          'Sales reports, analytics, and customer profiles'
+        ],
+        deliverablesAr: [
+          'متجر متكامل مربوط بلوحة تحكم احترافية.',
+          'تهيئة الدفع والشحن وحسابات الإدارة.',
+          'دعم فني وضمان لمدة شهر.'
+        ]
+      },
+      {
+        id: 'srv-web-basic',
+        titleAr: 'تصميم المواقع - الباقة الأساسية',
+        titleEn: 'Website Design - Basic Package',
+        category: 'websites_design',
+        categoryLabelAr: 'تصميم المواقع',
+        categoryLabelEn: 'Websites Design',
+        shortDescriptionAr: 'موقع تعريفي يعكس قوة وعظمة هوية مؤسستك بتصميم عصري ومتجاوب.',
+        shortDescriptionEn: 'Corporate showcase website that reflects your brand identity with responsive design.',
+        image: IMAGE_DATA.web,
+        price: 150,
+        deliveryDays: 3,
+        deliveryTextAr: '3 أيام',
+        deliveryTextEn: '3 days',
+        badgeAr: 'باقة أساسية',
+        badgeEn: 'Basic Package',
+        featuresAr: [
+          'تصميم احترافي من صفحة واحدة إلى 3 صفحات رئيسية',
+          'تجاوب كامل مع الهواتف الذكية والأجهزة اللوحية',
+          'نماذج تواصل تفاعلية وزر واتساب مباشر',
+          'سرعة تحميل فائقة وتوافق مع محركات البحث'
+        ],
+        featuresEn: [
+          'Clean 1-3 page presentation layout',
+          '100% mobile-friendly responsive layout',
+          'Interactive contact form and WhatsApp click-to-chat',
+          'Fast loading assets and basic SEO setup'
+        ],
+        deliverablesAr: [
+          'موقع تعريفي منشور على النطاق الخاص بك.',
+          'شهادة أمان SSL مجانية وتوافق مع الجوال.',
+          'دعم فني لمدة 14 يوماً.'
+        ]
+      },
+      {
+        id: 'srv-web-adv',
+        titleAr: 'تصميم المواقع - الباقة المتقدمة',
+        titleEn: 'Website Design - Advanced Package',
+        category: 'websites_design',
+        categoryLabelAr: 'تصميم المواقع',
+        categoryLabelEn: 'Websites Design',
+        shortDescriptionAr: 'موقع تعريفي وتفاعلي متقدم مع لوحة تحكم لإدارة المحتوى والأخبار.',
+        shortDescriptionEn: 'Interactive multi-page website with dynamic CMS control panel to manage articles and services.',
+        image: IMAGE_DATA.web,
+        price: 350,
+        deliveryDays: 5,
+        deliveryTextAr: '5 أيام',
+        deliveryTextEn: '5 days',
+        badgeAr: 'باقة متقدمة ⭐',
+        badgeEn: 'Advanced ⭐',
+        featuresAr: [
+          'لوحة تحكم ديناميكية لتعديل النصوص وإضافة المقالات والخدمات',
+          'حتى 7 صفحات مصممة خصيصاً لهوية شركتك',
+          'ربط خريطة تفاعلية ونماذج استقبال طلبات عروض الأسعار',
+          'تهيئة متقدمة لمحركات البحث وسرعة استجابة فائقة'
+        ],
+        featuresEn: [
+          'Dynamic CMS panel to manage posts, pages, and media',
+          'Up to 7 custom pages tailored to your brand',
+          'Interactive location maps and quotation forms',
+          'Advanced SEO optimization and performance audit'
+        ],
+        deliverablesAr: [
+          'موقع مؤسسي متكامل مع لوحة التحكم.',
+          'تدريب على إدارة وتعديل المحتوى.',
+          'دعم فني وضمان لمدة 30 يوماً.'
+        ]
+      },
+      {
+        id: 'srv-acc-basic',
+        titleAr: 'الأنظمة المحاسبية - الباقة الأساسية',
+        titleEn: 'Accounting Systems - Basic Package',
+        category: 'accounting_pos',
+        categoryLabelAr: 'المحاسبة ونقاط البيع',
+        categoryLabelEn: 'Accounting & POS',
+        shortDescriptionAr: 'نظام سحابي لإدارة المالية والمصروفات والفواتير والتقارير الأساسية.',
+        shortDescriptionEn: 'Cloud financial management for income, expenses, invoices, and core balance reports.',
+        image: IMAGE_DATA.accounting,
+        price: 300,
+        deliveryDays: 5,
+        deliveryTextAr: '5 أيام',
+        deliveryTextEn: '5 days',
+        badgeAr: 'باقة أساسية',
+        badgeEn: 'Basic Package',
+        featuresAr: [
+          'إدارة الفواتير الضريبية والمقبوضات والمدفوعات',
+          'سجل العملاء والموردين ومتابعة الديون والمستحقات',
+          'تقارير الأرباح والخسائر وحركة الصندوق',
+          'نسخ احتياطي سحابي آلي للبيانات المالية'
+        ],
+        featuresEn: [
+          'Tax invoice generation, payments, and receipts',
+          'Client and vendor ledger with balance tracking',
+          'Profit & loss statements and cash flow summaries',
+          'Automated cloud data backups'
+        ],
+        deliverablesAr: [
+          'نظام محاسبي سحابي مركب وجاهز للاستخدام.',
+          'حسابات للمحاسب والمدير.',
+          'تدريب أساسي على إدخال القيود والفواتير.'
+        ]
+      },
+      {
+        id: 'srv-acc-adv',
+        titleAr: 'الأنظمة المحاسبية - باقة الشركات',
+        titleEn: 'Accounting Systems - Corporate Package',
+        category: 'accounting_pos',
+        categoryLabelAr: 'المحاسبة ونقاط البيع',
+        categoryLabelEn: 'Accounting & POS',
+        shortDescriptionAr: 'نظام محاسبي سحابي متقدم للشركات مع شجرة حسابات وتعدد فروع ومراكز تكلفة.',
+        shortDescriptionEn: 'Advanced multi-branch cloud ERP accounting with chart of accounts and cost centers.',
+        image: IMAGE_DATA.accounting,
+        price: 700,
+        deliveryDays: 10,
+        deliveryTextAr: '10 أيام',
+        deliveryTextEn: '10 days',
+        badgeAr: 'باقة متقدمة ⭐',
+        badgeEn: 'Advanced Corporate ⭐',
+        featuresAr: [
+          'شجرة حسابات احترافية مرنة مع مراكز تكلفة متعددة',
+          'إدارة الفروع المتعددة والمستودعات والتحويل بينها',
+          'فواتير إلكترونية معتمدة وتقارير إقرارات ضريبية',
+          'صلاحيات دقيقة للموظفين والمحاسبين والمديرين'
+        ],
+        featuresEn: [
+          'Multi-level chart of accounts with dynamic cost centers',
+          'Multi-branch and multi-warehouse stock transfers',
+          'Compliant electronic invoices and VAT return filing',
+          'Deep role permissions matrix for staff and accountants'
+        ],
+        deliverablesAr: [
+          'نظام محاسبي شامل للشركات مهيأ لبيئة عملك.',
+          'شجرة الحسابات الأولية مدخلة ومضبوطة.',
+          'جلسات تدريب شاملة ودعم فني مخصص.'
+        ]
+      },
+      {
+        id: 'srv-pos-basic',
+        titleAr: 'أنظمة الكاشير (POS) - الباقة الأساسية',
+        titleEn: 'POS & Cashier - Basic Package',
+        category: 'accounting_pos',
+        categoryLabelAr: 'المحاسبة ونقاط البيع',
+        categoryLabelEn: 'Accounting & POS',
+        shortDescriptionAr: 'برنامج إدارة المبيعات المباشرة ونقاط البيع والمخزون بمرونة عالية.',
+        shortDescriptionEn: 'Fast and reliable point of sale cashier software with direct receipt printing.',
+        image: IMAGE_DATA.pos,
+        price: 250,
+        deliveryDays: 4,
+        deliveryTextAr: '4 أيام',
+        deliveryTextEn: '4 days',
+        badgeAr: 'باقة أساسية',
+        badgeEn: 'Basic Package',
+        featuresAr: [
+          'شاشة كاشير سريعة تدعم قارئ الباركود وطباعة الفواتير الحرارية',
+          'إدارة الأصناف والأسعار والمخزون المباشر',
+          'إغلاق الصندوق اليومي وحساب مبيعات الوردية (Z-Report)',
+          'واجهة سهلة ومبسطة للموظفين دون تعقيد'
+        ],
+        featuresEn: [
+          'Fast touch cashier UI with barcode scanner & thermal printer support',
+          'Item catalog, pricing, and live stock tracking',
+          'Shift close reports (Z-Report) and drawer reconciliations',
+          'Intuitive interface requiring minimal training'
+        ],
+        deliverablesAr: [
+          'برنامج الكاشير مثبت ومهيأ على أجهزتك.',
+          'ربط الطابعة الحرارية وقارئ الباركود.',
+          'تدريب عملي لفريق الكاشير.'
+        ]
+      },
+      {
+        id: 'srv-pos-adv',
+        titleAr: 'أنظمة الكاشير (POS) - الباقة المتقدمة للمقاهي والمحلات',
+        titleEn: 'POS & Cashier - Advanced Cafes & Retail',
+        category: 'accounting_pos',
+        categoryLabelAr: 'المحاسبة ونقاط البيع',
+        categoryLabelEn: 'Accounting & POS',
+        shortDescriptionAr: 'كاشير متقدم يدعم شاشات المطبخ، الطاولات، التوصيل، وتقارير الفروع.',
+        shortDescriptionEn: 'Advanced restaurant & retail POS supporting table management, kitchen display system (KDS), and delivery.',
+        image: IMAGE_DATA.pos,
+        price: 550,
+        deliveryDays: 7,
+        deliveryTextAr: '7 أيام',
+        deliveryTextEn: '7 days',
+        badgeAr: 'باقة متقدمة ⭐',
+        badgeEn: 'Advanced ⭐',
+        featuresAr: [
+          'إدارة الطاولات للمطاعم وشاشة المطبخ (Kitchen Display System)',
+          'نظام الطلبات الخارجية وشركات التوصيل وتتبع السائقين',
+          'ربط الفروع سحابياً مع لوحة تحكم مركزية للإدارة',
+          'برامج ولاء العملاء والخصومات التلقائية وبطاقات الهدايا'
+        ],
+        featuresEn: [
+          'Table floor plan management and Kitchen Display System (KDS)',
+          'Takeaway, dine-in, and delivery aggregator dispatch tracking',
+          'Multi-branch cloud sync with centralized manager dashboard',
+          'Customer loyalty points, promotional discounts, and gift cards'
+        ],
+        deliverablesAr: [
+          'نظام كاشير متقدم شامل الطاولات وشاشات المطبخ.',
+          'ربط سحابي كامل بين الفروع والإدارة.',
+          'تدريب كامل ودعم فني مخصص.'
+        ]
+      },
+      {
+        id: 'srv-excel-adv',
+        titleAr: 'البيانات وExcel - الباقة المتقدمة',
+        titleEn: 'Data & Analytics (Power BI & VBA)',
+        category: 'data_excel',
+        categoryLabelAr: 'البيانات وExcel',
+        categoryLabelEn: 'Data & Analytics',
+        shortDescriptionAr: 'تنظيم وتحليل البيانات وبناء لوحات تفاعلية Power BI وداشبورد احترافي.',
+        shortDescriptionEn: 'Automated data pipelines, executive interactive Power BI dashboards, and custom VBA Excel spreadsheets.',
+        image: IMAGE_DATA.data,
+        price: 250,
+        deliveryDays: 4,
+        deliveryTextAr: '4 أيام',
+        deliveryTextEn: '4 days',
+        badgeAr: 'تحليل بيانات احترافي',
+        badgeEn: 'Advanced BI ⭐',
+        featuresAr: [
+          'بناء لوحات تحكم تفاعلية متقدمة عبر Power BI و Excel',
+          'أتمتة استخراج وتوحيد البيانات البرمجية وتقليل الأخطاء 100%',
+          'كتابة دوال ومستودعات VBA متطورة لتنفيذ المهام المعقدة بنقرة واحدة',
+          'رسوم بيانية ديناميكية توضح مؤشرات الأداء الرئيسية (KPIs)'
+        ],
+        featuresEn: [
+          'Interactive executive KPI dashboards via Power BI and Excel',
+          'Automated data cleaning and ingestion workflows with zero errors',
+          'Custom VBA macros for one-click complex calculations',
+          'Dynamic trend charts and business forecasting models'
+        ],
+        deliverablesAr: [
+          'ملف Power BI أو داشبورد Excel تفاعلي كامل.',
+          'أكواد الماكرو والأتمتة موثقة وسهلة الاستخدام.',
+          'شرح فيديو لكيفية تحديث البيانات دورياً.'
+        ]
+      },
+      {
+        id: 'srv-vid-adv',
+        titleAr: 'المونتاج والموشن جرافيك بدقة Full HD',
+        titleEn: 'Video Production & Motion Graphics (Full HD)',
+        category: 'creative_media',
+        categoryLabelAr: 'التصميم والميديا',
+        categoryLabelEn: 'Creative & Marketing',
+        shortDescriptionAr: 'إنتاج فيديوهات ترويجية وإعلانية مبهرة وموشن جرافيك بدقة Full HD.',
+        shortDescriptionEn: 'High-converting advertising videos, dynamic 2D motion graphics, and premium Full HD edits.',
+        image: IMAGE_DATA.video,
+        price: 300,
+        deliveryDays: 4,
+        deliveryTextAr: '4 أيام',
+        deliveryTextEn: '4 days',
+        badgeAr: 'إنتاج إعلاني مميز',
+        badgeEn: 'Full HD Motion',
+        featuresAr: [
+          'فيديو موشن جرافيك 2D احترافي عالي الدقة Full HD (1080p / 4K)',
+          'تسجيل صوتي رسمي (Voice Over) رخيم باللغة الفصحى أو اللهجات',
+          'مؤثرات صوتية وموسيقى مرخصة متزامنة بدقة مع المشاهد',
+          'تنسيقات مخصصة لمنصات التواصل (Reels, TikTok, YouTube)'
+        ],
+        featuresEn: [
+          'Full HD (1080p/4K) custom 2D animated motion graphics',
+          'Professional voice-over in Arabic or English accents',
+          'Licensed sound design and kinetic typography animations',
+          'Optimized aspect ratios for Instagram Reels, TikTok, and YouTube'
+        ],
+        deliverablesAr: [
+          'فيديو ترويجي كامل بدقة Full HD جاهز للنشر الفوري.',
+          'النسخ العمودية والأفقية المخصصة للإعلانات.',
+          'ملفات الصوت المعتمدة والمؤثرات.'
+        ]
+      },
+      {
+        id: 'srv-brand-adv',
+        titleAr: 'الهوية والتصميم - باقة الهوية الكاملة',
+        titleEn: 'Comprehensive Brand Identity & Logo Design',
+        category: 'creative_media',
+        categoryLabelAr: 'التصميم والميديا',
+        categoryLabelEn: 'Creative & Marketing',
+        shortDescriptionAr: 'بناء الهوية البصرية الكاملة والشعارات التي تصنع فارقاً حقيقياً وملموساً.',
+        shortDescriptionEn: 'Complete corporate visual branding, memorable logo design, color guidelines, and stationery kits.',
+        image: IMAGE_DATA.brand,
+        price: 400,
+        deliveryDays: 5,
+        deliveryTextAr: '5 أيام',
+        deliveryTextEn: '5 days',
+        badgeAr: 'هوية بصرية كاملة',
+        badgeEn: 'Full Branding ⭐',
+        featuresAr: [
+          'تصميم شعار فريد وأصيل مع 3 مفاهيم إبداعية مختلفة للاختيار',
+          'دليل الهوية البصرية (Brand Guidelines) متضمناً الألوان والخطوط',
+          'تصميم بطاقات الأعمال، الأوراق الرسمية، الفواتير، ومظاريف المراسلات',
+          'نماذج وقوالب جاهزة لمنشورات وسائل التواصل الاجتماعي'
+        ],
+        featuresEn: [
+          'Distinctive logo design with 3 unique conceptual directions',
+          'Comprehensive Brand Guidelines specifying fonts and palettes',
+          'Business cards, official letterhead, invoices, and stationery kit',
+          'Ready-to-use social media templates and avatar kits'
+        ],
+        deliverablesAr: [
+          'ملفات الشعار المصدري المفتوحة (AI, EPS, SVG, PNG عالية الدقة).',
+          'كتاب دليل الهوية البصرية الكامل بصيغة PDF.',
+          'قوالب المطبوعات والتواصل الاجتماعي جاهزة للاستخدام.'
+        ]
+      },
+      {
+        id: 'srv-mkt-adv',
+        titleAr: 'التسويق الرقمي - باقة الحملات الموجهة',
+        titleEn: 'Targeted Digital Marketing & Ad Campaigns',
+        category: 'creative_media',
+        categoryLabelAr: 'التصميم والميديا',
+        categoryLabelEn: 'Creative & Marketing',
+        shortDescriptionAr: 'إدارة منصات التواصل وإطلاق الحملات الإعلانية الموجهة لتحقيق أعلى عائد.',
+        shortDescriptionEn: 'Multi-platform social media ad management, targeted customer acquisition, and conversion tracking.',
+        image: IMAGE_DATA.mkt,
+        price: 500,
+        deliveryDays: 7,
+        deliveryTextAr: '7 أيام',
+        deliveryTextEn: '7 days',
+        badgeAr: 'حملات موجهة لزيادة المبيعات',
+        badgeEn: 'High ROI Marketing',
+        featuresAr: [
+          'إعداد وإدارة حملات إعلانية ممولة موجهة على Meta و Google و TikTok',
+          'كتابة نصوص إعلانية جذابة (Copywriting) تركز على المبيعات المباشرة',
+          'تثبيت أدوات التتبع والبيكسل (Pixel & Conversion API) لقياس النتائج',
+          'تقرير تحليلي دوري يوضح تكلفة الاكتساب والعائد على الإنفاق (ROAS)'
+        ],
+        featuresEn: [
+          'Targeted ad campaign setup on Meta, Google Ads, and TikTok',
+          'High-converting Arabic and English marketing copy',
+          'Pixel and Server-side Conversion API tracking installation',
+          'Weekly performance dashboard with detailed CPA and ROAS tracking'
+        ],
+        deliverablesAr: [
+          'حملات إعلانية نشطة ومضبوطة لاستهداف عملائك المثاليين.',
+          'تصاميم ونصوص إعلانية محترفة.',
+          'لوحة تحكم مباشرة لمتابعة الصرف والنتائج.',
+          'تقرير إرشادي لتحسين المبيعات باستمرار.'
         ]
       }
     ];
 
     const CATEGORIES = [
-      { id: 'all', labelAr: 'كافة الخدمات', labelEn: 'All Services' },
-      { id: 'web_stores', labelAr: 'المتاجر الإلكترونية', labelEn: 'Online Stores' },
-      { id: 'websites_design', labelAr: 'تصميم المواقع', labelEn: 'Websites Design' },
-      { id: 'accounting_systems', labelAr: 'الأنظمة المحاسبية', labelEn: 'Accounting Systems' },
-      { id: 'pos_cashier', labelAr: 'أنظمة الكاشير (POS)', labelEn: 'POS & Cashier' },
-      { id: 'mobile_apps', labelAr: 'تطبيقات الموبايل', labelEn: 'Mobile Apps' },
-      { id: 'systems_dashboards', labelAr: 'الأنظمة ولوحات التحكم', labelEn: 'Systems & Dashboards' },
-      { id: 'data_excel', labelAr: 'البيانات وExcel', labelEn: 'Data & Excel' },
-      { id: 'cybersecurity', labelAr: 'الأمن السيبراني', labelEn: 'Cybersecurity' },
-      { id: 'artificial_intelligence', labelAr: 'الذكاء الاصطناعي', labelEn: 'AI Solutions' },
-      { id: 'video', labelAr: 'المونتاج والموشن', labelEn: 'Video & Motion' },
-      { id: 'design', labelAr: 'الهوية والتصميم', labelEn: 'Branding & Design' },
-      { id: 'marketing', labelAr: 'التسويق الرقمي', labelEn: 'Digital Marketing' }
+      { id: 'all', labelAr: 'كافة الخدمات والحلول', labelEn: 'All Solutions', icon: '🌟' },
+      { id: 'systems_dev', labelAr: 'البرمجيات والأنظمة', labelEn: 'Software & Systems', icon: '💻' },
+      { id: 'cybersecurity', labelAr: 'الأمن السيبراني', labelEn: 'Cybersecurity', icon: '🛡️' },
+      { id: 'translation_i18n', labelAr: 'الترجمة والتوطين', labelEn: 'Translation & i18n', icon: '🌐' },
+      { id: 'ai_seo', labelAr: 'الذكاء الاصطناعي وSEO', labelEn: 'AI & SEO', icon: '🤖' },
+      { id: 'web_stores', labelAr: 'المتاجر الإلكترونية', labelEn: 'Online Stores', icon: '🛒' },
+      { id: 'websites_design', labelAr: 'تصميم المواقع', labelEn: 'Websites Design', icon: '🖥️' },
+      { id: 'accounting_pos', labelAr: 'المحاسبة ونقاط البيع', labelEn: 'Accounting & POS', icon: '📊' },
+      { id: 'data_excel', labelAr: 'البيانات وExcel', labelEn: 'Data & Analytics', icon: '📈' },
+      { id: 'creative_media', labelAr: 'التصميم والميديا والتسويق', labelEn: 'Creative & Marketing', icon: '🎨' }
     ];
 
     const SORT_OPTIONS = [
-      { id: 'default', labelAr: 'الترتيب الافتراضي', labelEn: 'Default Sorting' },
-      { id: 'popular', labelAr: 'الأكثر طلباً', labelEn: 'Most Popular' },
-      { id: 'price-asc', labelAr: 'الأقل سعراً', labelEn: 'Price: Low to High' },
-      { id: 'price-desc', labelAr: 'الأعلى سعراً', labelEn: 'Price: High to Low' }
+      { id: 'default', labelAr: 'المميز والموصى به ⭐', labelEn: 'Recommended ⭐' },
+      { id: 'price-asc', labelAr: 'السعر: من الأقل للأعلى ($ ↗)', labelEn: 'Price: Low to High ($ ↗)' },
+      { id: 'price-desc', labelAr: 'السعر: من الأعلى للأقل ($ ↘)', labelEn: 'Price: High to Low ($ ↘)' },
+      { id: 'delivery-fast', labelAr: 'الأسرع في مدة الإنجاز (⏱️)', labelEn: 'Fastest Delivery (⏱️)' }
     ];
 
     const I18N = {
@@ -1059,6 +2007,16 @@
         brandName: 'باسكود',
         brandSub: 'للحلول الرقمية المعتمدة',
         navServices: 'باقة الخدمات',
+        navAbout: 'من نحن',
+        aboutBadge: 'من نحن — BASCODE',
+        aboutTitle: 'باسكود فريق عربي متخصص في البرمجة والخدمات الرقمية',
+        aboutDesc: 'نحوّل أفكارك إلى مواقع وتطبيقات وأنظمة تعمل فعلاً — بتسليم سريع، أسعار واضحة، ودعم مستمر بعد الإطلاق.',
+        aboutMottoTag: 'رؤيتنا ورسالتنا',
+        aboutMotto: '"نبني لك نظاماً يعمل عنك" 🚀',
+        aboutFollowTitle: 'تابعنا على منصات التواصل الاجتماعي:',
+        aboutCtaTitle: 'للطلب والاستفسار تواصل معنا:',
+        aboutCtaSub: 'نرد خلال دقائق عبر الواتساب المعتمد',
+        aboutWhatsappBtn: 'تواصل عبر الواتساب فوراً',
         navHow: 'كيف نعمل',
         navFeatures: 'الضمانات',
         navReviews: 'آراء العملاء',
@@ -1164,6 +2122,16 @@
         brandName: 'BasCode',
         brandSub: 'Certified Digital Solutions',
         navServices: 'Services',
+        navAbout: 'About Us',
+        aboutBadge: 'About Us — BASCODE',
+        aboutTitle: 'BasCode — Arab Tech Team Specializing in Development & Digital Solutions',
+        aboutDesc: 'We turn your ideas into functional websites, mobile apps, and robust systems — with fast delivery, transparent pricing, and continuous post-launch support.',
+        aboutMottoTag: 'Our Vision & Mission',
+        aboutMotto: '"We build a system that works for you" 🚀',
+        aboutFollowTitle: 'Follow us on social media:',
+        aboutCtaTitle: 'For orders & inquiries contact us:',
+        aboutCtaSub: 'We respond within minutes via official WhatsApp',
+        aboutWhatsappBtn: 'Instant WhatsApp Chat',
         navHow: 'How It Works',
         navFeatures: 'Guarantees',
         navReviews: 'Reviews',
@@ -1266,10 +2234,12 @@
       }
     };
 
-    let currentLang = 'ar';
+        let currentLang = 'ar';
     let currentCategory = 'all';
-    let searchQuery = '';
+    let currentPriceFilter = 'all';
+    let currentDeliveryFilter = 'all';
     let currentSort = 'default';
+    let searchQuery = '';
     let cart = [];
 
     function init() {
@@ -1299,6 +2269,26 @@
       if (brandSub) brandSub.innerText = t.brandSub;
       const navServices = document.getElementById('navServices');
       if (navServices) navServices.innerText = t.navServices;
+      const navAbout = document.getElementById('navAbout');
+      if (navAbout) navAbout.innerText = t.navAbout;
+      const aboutBadge = document.getElementById('aboutBadge');
+      if (aboutBadge) aboutBadge.innerText = t.aboutBadge;
+      const aboutTitle = document.getElementById('aboutTitle');
+      if (aboutTitle) aboutTitle.innerText = t.aboutTitle;
+      const aboutDesc = document.getElementById('aboutDesc');
+      if (aboutDesc) aboutDesc.innerText = t.aboutDesc;
+      const aboutMottoTag = document.getElementById('aboutMottoTag');
+      if (aboutMottoTag) aboutMottoTag.innerText = t.aboutMottoTag;
+      const aboutMotto = document.getElementById('aboutMotto');
+      if (aboutMotto) aboutMotto.innerText = t.aboutMotto;
+      const aboutFollowTitle = document.getElementById('aboutFollowTitle');
+      if (aboutFollowTitle) aboutFollowTitle.innerText = t.aboutFollowTitle;
+      const aboutCtaTitle = document.getElementById('aboutCtaTitle');
+      if (aboutCtaTitle) aboutCtaTitle.innerText = t.aboutCtaTitle;
+      const aboutCtaSub = document.getElementById('aboutCtaSub');
+      if (aboutCtaSub) aboutCtaSub.innerText = t.aboutCtaSub;
+      const aboutWhatsappBtn = document.getElementById('aboutWhatsappBtn');
+      if (aboutWhatsappBtn) aboutWhatsappBtn.innerText = t.aboutWhatsappBtn;
       const navHow = document.getElementById('navHow');
       if (navHow) navHow.innerText = t.navHow;
       const navFeatures = document.getElementById('navFeatures');
@@ -1307,30 +2297,34 @@
       if (navReviews) navReviews.innerText = t.navReviews;
       const navFaq = document.getElementById('navFaq');
       if (navFaq) navFaq.innerText = t.navFaq;
-      const langLabel = document.getElementById('langLabel');
-      if (langLabel) langLabel.innerText = t.langBtn;
+      const langBtnText = document.getElementById('langBtnText');
+      if (langBtnText) langBtnText.innerText = t.langBtn;
       const cartBtnText = document.getElementById('cartBtnText');
       if (cartBtnText) cartBtnText.innerText = t.cartBtnText;
 
       // Hero
-      const b1 = document.getElementById('heroBadge1');
-      if (b1) b1.innerText = t.heroBadge1;
-      const b2 = document.getElementById('heroBadge2');
-      if (b2) b2.innerText = t.heroBadge2;
-      const b3 = document.getElementById('heroBadge3');
-      if (b3) b3.innerText = t.heroBadge3;
+      const hb1 = document.getElementById('heroBadge1');
+      if (hb1) hb1.innerText = t.heroBadge1;
+      const hb2 = document.getElementById('heroBadge2');
+      if (hb2) hb2.innerText = t.heroBadge2;
+      const hb3 = document.getElementById('heroBadge3');
+      if (hb3) hb3.innerText = t.heroBadge3;
       const ht1 = document.getElementById('heroTitle1');
       if (ht1) ht1.innerText = t.heroTitle1;
       const ht2 = document.getElementById('heroTitle2');
       if (ht2) ht2.innerText = t.heroTitle2;
       const hd = document.getElementById('heroDesc');
       if (hd) hd.innerText = t.heroDesc;
+
       const si = document.getElementById('searchInput');
-      if (si) si.placeholder = t.searchPlaceholder;
+      if (si) si.placeholder = isEn ? 'Search by service or technology (React, Flutter, OWASP, SEO)...' : 'ابحث باسم الخدمة أو التقنية (React, Flutter, OWASP, SEO)...';
+
       const hbe = document.getElementById('heroBtnExplore');
       if (hbe) hbe.innerText = t.heroBtnExplore;
       const hbw = document.getElementById('heroBtnWhatsApp');
       if (hbw) hbw.innerText = t.heroBtnWhatsApp;
+
+      // Metrics
       const m1 = document.getElementById('metric1Label');
       if (m1) m1.innerText = t.metric1Label;
       const m2 = document.getElementById('metric2Label');
@@ -1339,28 +2333,42 @@
       if (m3) m3.innerText = t.metric3Label;
       const m4 = document.getElementById('metric4Label');
       if (m4) m4.innerText = t.metric4Label;
+
       const hist = document.getElementById('heroImageStatusText');
       if (hist) hist.innerText = t.heroImageStatusText;
 
-      // Catalog header
+      // Catalog
       const ctag = document.getElementById('catalogTag');
       if (ctag) ctag.innerText = t.catalogTag;
       const csub = document.getElementById('catalogSub');
       if (csub) csub.innerText = t.catalogSub;
-      const ctitle = document.getElementById('catalogTitle');
-      if (ctitle) ctitle.innerText = t.catalogTitle;
+      const ctit = document.getElementById('catalogTitle');
+      if (ctit) ctit.innerText = isEn ? 'Available Digital Solutions & Services' : 'الخدمات الرقمية والحلول البرمجية المتاحة للطلب';
+      const fst = document.getElementById('filterSectionTitle');
+      if (fst) fst.innerText = isEn ? 'Filter & Refine Solutions' : 'تصفية وفلترة الخدمات المتاحة';
+      const fss = document.getElementById('filterSectionSub');
+      if (fss) fss.innerText = isEn ? 'Select category, price in USD ($), or delivery duration' : 'اختر القسم، نطاق السعر، أو مدة الإنجاز لتخصيص نتائجك بدقة';
+      const cnot = document.getElementById('currencyNotice');
+      if (cnot) cnot.innerText = isEn ? 'Prices in USD ($) only' : 'الأسعار بالدولار ($ USD) فقط';
+
       const sl = document.getElementById('sortLabel');
       if (sl) sl.innerText = t.sortLabel;
       const csl = document.getElementById('catSelectLabel');
       if (csl) csl.innerText = t.catSelectLabel;
+      const psl = document.getElementById('priceSelectLabel');
+      if (psl) psl.innerText = isEn ? 'Price ($ USD):' : 'السعر ($ USD):';
+      const dsl = document.getElementById('deliverySelectLabel');
+      if (dsl) dsl.innerText = isEn ? 'Delivery Time:' : 'مدة الإنجاز:';
+      const rfl = document.getElementById('resetFiltersLabel');
+      if (rfl) rfl.innerText = isEn ? 'Reset Filters' : 'إعادة ضبط الفلاتر';
 
-      // How It Works
-      const hwTag = document.getElementById('howTag');
-      if (hwTag) hwTag.innerText = t.howTag;
-      const hwSub = document.getElementById('howSub');
-      if (hwSub) hwSub.innerText = t.howSub;
-      const hwTitle = document.getElementById('howTitle');
-      if (hwTitle) hwTitle.innerText = t.howTitle;
+      // How it works
+      const hwt = document.getElementById('howTag');
+      if (hwt) hwt.innerText = t.howTag;
+      const hws = document.getElementById('howSub');
+      if (hws) hws.innerText = t.howSub;
+      const hti = document.getElementById('howTitle');
+      if (hti) hti.innerText = t.howTitle;
       const s1t = document.getElementById('step1Title');
       if (s1t) s1t.innerText = t.step1Title;
       const s1d = document.getElementById('step1Desc');
@@ -1375,12 +2383,12 @@
       if (s3d) s3d.innerText = t.step3Desc;
 
       // Features
-      const fTag = document.getElementById('featTag');
-      if (fTag) fTag.innerText = t.featTag;
-      const fSub = document.getElementById('featSub');
-      if (fSub) fSub.innerText = t.featSub;
-      const fTitle = document.getElementById('featTitle');
-      if (fTitle) fTitle.innerText = t.featTitle;
+      const ftg = document.getElementById('featTag');
+      if (ftg) ftg.innerText = t.featTag;
+      const fsb = document.getElementById('featSub');
+      if (fsb) fsb.innerText = t.featSub;
+      const ftt = document.getElementById('featTitle');
+      if (ftt) ftt.innerText = t.featTitle;
       const f1t = document.getElementById('feat1Title');
       if (f1t) f1t.innerText = t.feat1Title;
       const f1d = document.getElementById('feat1Desc');
@@ -1399,48 +2407,18 @@
       if (f4d) f4d.innerText = t.feat4Desc;
 
       // Reviews
-      const rTag = document.getElementById('revTag');
-      if (rTag) rTag.innerText = t.revTag;
-      const rSub = document.getElementById('revSub');
-      if (rSub) rSub.innerText = t.revSub;
-      const rTitle = document.getElementById('revTitle');
-      if (rTitle) rTitle.innerText = t.revTitle;
-      const r1q = document.getElementById('rev1Quote');
-      if (r1q) r1q.innerText = t.rev1Quote;
-      const r1a = document.getElementById('rev1Author');
-      if (r1a) r1a.innerText = t.rev1Author;
-      const r1r = document.getElementById('rev1Role');
-      if (r1r) r1r.innerText = t.rev1Role;
-      const r2q = document.getElementById('rev2Quote');
-      if (r2q) r2q.innerText = t.rev2Quote;
-      const r2a = document.getElementById('rev2Author');
-      if (r2a) r2a.innerText = t.rev2Author;
-      const r2r = document.getElementById('rev2Role');
-      if (r2r) r2r.innerText = t.rev2Role;
-      const r3q = document.getElementById('rev3Quote');
-      if (r3q) r3q.innerText = t.rev3Quote;
-      const r3a = document.getElementById('rev3Author');
-      if (r3a) r3a.innerText = t.rev3Author;
-      const r3r = document.getElementById('rev3Role');
-      if (r3r) r3r.innerText = t.rev3Role;
+      const rtg = document.getElementById('revTag');
+      if (rtg) rtg.innerText = t.revTag;
+      const rsb = document.getElementById('revSub');
+      if (rsb) rsb.innerText = t.revSub;
+      const rtt = document.getElementById('revTitle');
+      if (rtt) rtt.innerText = t.revTitle;
 
       // FAQ
-      const fqTitle = document.getElementById('faqTitle');
-      if (fqTitle) fqTitle.innerText = t.faqTitle;
-      const fqSub = document.getElementById('faqSub');
-      if (fqSub) fqSub.innerText = t.faqSub;
-      const fq1 = document.getElementById('faqQ1');
-      if (fq1) fq1.innerText = t.faqQ1;
-      const fa1 = document.getElementById('faqA1');
-      if (fa1) fa1.innerText = t.faqA1;
-      const fq2 = document.getElementById('faqQ2');
-      if (fq2) fq2.innerText = t.faqQ2;
-      const fa2 = document.getElementById('faqA2');
-      if (fa2) fa2.innerText = t.faqA2;
-      const fq3 = document.getElementById('faqQ3');
-      if (fq3) fq3.innerText = t.faqQ3;
-      const fa3 = document.getElementById('faqA3');
-      if (fa3) fa3.innerText = t.faqA3;
+      const fqt = document.getElementById('faqTitle');
+      if (fqt) fqt.innerText = t.faqTitle;
+      const fqs = document.getElementById('faqSub');
+      if (fqs) fqs.innerText = t.faqSub;
 
       // Footer
       const fb = document.getElementById('footerBrand');
@@ -1450,7 +2428,7 @@
       const fc = document.getElementById('footerCopy');
       if (fc) fc.innerText = t.footerCopy;
 
-      // Cart Modal
+      // Cart modal
       const cmt = document.getElementById('cartModalTitle');
       if (cmt) cmt.innerText = t.cartModalTitle;
       const cit = document.getElementById('custInfoTitle');
@@ -1484,13 +2462,157 @@
 
     function renderCategoryDropdown() {
       const select = document.getElementById('categorySelector');
-      if (!select) return;
+      const container = document.getElementById('categoriesContainer');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+      const clearSearchBtn = document.getElementById('clearSearchBtn');
+      const activeFilterPills = document.getElementById('activeFilterPills');
       const isEn = currentLang === 'en';
-      select.innerHTML = CATEGORIES.map(cat => `
-        <option value="${cat.id}" ${currentCategory === cat.id ? 'selected' : ''}>
-          ${isEn ? cat.labelEn : cat.labelAr}
-        </option>
-      `).join('');
+
+      if (clearSearchBtn) {
+        clearSearchBtn.classList.toggle('hidden', !searchQuery);
+      }
+
+      const hasActiveFilters = currentCategory !== 'all' || currentPriceFilter !== 'all' || currentDeliveryFilter !== 'all' || currentSort !== 'default' || !!searchQuery;
+      if (resetBtn) {
+        resetBtn.classList.toggle('hidden', !hasActiveFilters);
+      }
+
+      // Populate Category select dropdown
+      if (select) {
+        select.innerHTML = CATEGORIES.map(cat => {
+          const count = cat.id === 'all'
+            ? SERVICES.length
+            : SERVICES.filter(s => s.category === cat.id).length;
+          const label = isEn ? cat.labelEn : cat.labelAr;
+          return `<option value="${cat.id}" ${currentCategory === cat.id ? 'selected' : ''}>${cat.icon || '📂'} ${label} (${count})</option>`;
+        }).join('');
+      }
+
+      // Render Interactive Category Filter Buttons in container
+      if (container) {
+        container.innerHTML = CATEGORIES.map(cat => {
+          const isActive = currentCategory === cat.id;
+          const count = cat.id === 'all'
+            ? SERVICES.length
+            : SERVICES.filter(s => s.category === cat.id).length;
+          const label = isEn ? cat.labelEn : cat.labelAr;
+          const icon = cat.icon || '📂';
+          return `
+            <button
+              type="button"
+              onclick="filterCategory('${cat.id}')"
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                isActive
+                  ? 'bg-emerald-600 text-white shadow-xs font-bold ring-2 ring-emerald-500/40'
+                  : 'bg-neutral-50 hover:bg-neutral-100 text-neutral-700 border border-neutral-200/90'
+              }"
+            >
+              <span>${icon}</span>
+              <span>${label}</span>
+              <span class="text-[10px] px-1.5 py-0.2 rounded-full ${
+                isActive ? 'bg-emerald-700 text-emerald-100 font-bold' : 'bg-neutral-200 text-neutral-700 font-mono'
+              }">${count}</span>
+            </button>
+          `;
+        }).join('');
+      }
+
+      // Render Active Filter Badges with remove '✕'
+      if (activeFilterPills) {
+        if (hasActiveFilters) {
+          activeFilterPills.classList.remove('hidden');
+          let badgesHtml = `
+            <div class="flex items-center gap-1 text-[11px] font-bold text-neutral-500 mr-1">
+              <span>🎯</span>
+              <span>${isEn ? 'Active Filters:' : 'الفلاتر النشطة:'}</span>
+            </div>
+          `;
+
+          if (currentCategory !== 'all') {
+            const catObj = CATEGORIES.find(c => c.id === currentCategory);
+            const catLabel = catObj ? (isEn ? catObj.labelEn : catObj.labelAr) : currentCategory;
+            badgesHtml += `
+              <button
+                type="button"
+                onclick="filterCategory('all')"
+                title="${isEn ? 'Remove category filter' : 'إزالة تصفية القسم'}"
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-300 font-bold hover:bg-emerald-100 transition-colors cursor-pointer group"
+              >
+                <span>📂 ${catLabel}</span>
+                <span class="text-emerald-700 font-bold group-hover:scale-120">✕</span>
+              </button>
+            `;
+          }
+
+          if (currentPriceFilter !== 'all') {
+            let priceText = '';
+            if (currentPriceFilter === 'under300') priceText = isEn ? 'Price < $300' : 'السعر: أقل من $300';
+            else if (currentPriceFilter === '300to800') priceText = isEn ? 'Price $300 - $800' : 'السعر: $300 - $800';
+            else if (currentPriceFilter === 'over800') priceText = isEn ? 'Price > $800' : 'السعر: أكثر من $800';
+
+            badgesHtml += `
+              <button
+                type="button"
+                onclick="handlePriceFilter('all')"
+                title="${isEn ? 'Remove price filter' : 'إزالة تصفية السعر'}"
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 border border-amber-300 font-bold hover:bg-amber-100 transition-colors cursor-pointer group"
+              >
+                <span>💰 ${priceText}</span>
+                <span class="text-amber-700 font-bold group-hover:scale-120">✕</span>
+              </button>
+            `;
+          }
+
+          if (currentDeliveryFilter !== 'all') {
+            let delivText = '';
+            if (currentDeliveryFilter === 'quick') delivText = isEn ? 'Fast 1–3 Days' : 'تسليم سريع 1–3 أيام';
+            else if (currentDeliveryFilter === 'medium') delivText = isEn ? 'Medium 4–12 Days' : 'مدة متوسطة 4–12 يوم';
+            else if (currentDeliveryFilter === 'major') delivText = isEn ? 'Major 14–30 Days' : 'مشاريع كبرى 14–30 يوم';
+
+            badgesHtml += `
+              <button
+                type="button"
+                onclick="handleDeliveryFilter('all')"
+                title="${isEn ? 'Remove delivery filter' : 'إزالة تصفية مدة الإنجاز'}"
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-blue-50 text-blue-900 border border-blue-300 font-bold hover:bg-blue-100 transition-colors cursor-pointer group"
+              >
+                <span>⏱️ ${delivText}</span>
+                <span class="text-blue-700 font-bold group-hover:scale-120">✕</span>
+              </button>
+            `;
+          }
+
+          if (searchQuery) {
+            badgesHtml += `
+              <button
+                type="button"
+                onclick="clearSearch()"
+                title="${isEn ? 'Clear search' : 'مسح كلمة البحث'}"
+                class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 border border-neutral-300 font-bold hover:bg-neutral-200 transition-colors cursor-pointer group"
+              >
+                <span>🔍 "${searchQuery}"</span>
+                <span class="text-neutral-600 font-bold group-hover:scale-120">✕</span>
+              </button>
+            `;
+          }
+
+          badgesHtml += `
+            <button
+              type="button"
+              onclick="resetAllFilters()"
+              class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-colors cursor-pointer text-[11px]"
+            >
+              <span>↺</span>
+              <span>${isEn ? 'Clear All' : 'تصفير الكل'}</span>
+            </button>
+          `;
+
+          activeFilterPills.innerHTML = badgesHtml;
+        } else {
+          activeFilterPills.classList.add('hidden');
+          activeFilterPills.innerHTML = '';
+        }
+      }
     }
 
     function renderSortDropdown() {
@@ -1506,16 +2628,69 @@
 
     function filterCategory(catId) {
       currentCategory = catId;
+      const select = document.getElementById('categorySelector');
+      if (select) select.value = catId;
+      renderCategoryDropdown();
       renderServices();
     }
 
-    function handleSearch(q) {
-      searchQuery = q.trim().toLowerCase();
+    function handlePriceFilter(price) {
+      currentPriceFilter = price;
+      const select = document.getElementById('priceSelector');
+      if (select) select.value = price;
+      renderCategoryDropdown();
       renderServices();
     }
 
-    function handleSort(sort) {
-      currentSort = sort;
+    function handleDeliveryFilter(delivery) {
+      currentDeliveryFilter = delivery;
+      const select = document.getElementById('deliverySelector');
+      if (select) select.value = delivery;
+      renderCategoryDropdown();
+      renderServices();
+    }
+
+    function handleSort(sortId) {
+      currentSort = sortId;
+      const select = document.getElementById('sortSelector');
+      if (select) select.value = sortId;
+      renderServices();
+    }
+
+    function handleSearch(query) {
+      searchQuery = (query || '').trim().toLowerCase();
+      renderCategoryDropdown();
+      renderServices();
+    }
+
+    function clearSearch() {
+      searchQuery = '';
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      renderCategoryDropdown();
+      renderServices();
+    }
+
+    function resetAllFilters() {
+      currentCategory = 'all';
+      currentPriceFilter = 'all';
+      currentDeliveryFilter = 'all';
+      currentSort = 'default';
+      searchQuery = '';
+
+      const catSelect = document.getElementById('categorySelector');
+      if (catSelect) catSelect.value = 'all';
+      const priceSelect = document.getElementById('priceSelector');
+      if (priceSelect) priceSelect.value = 'all';
+      const delivSelect = document.getElementById('deliverySelector');
+      if (delivSelect) delivSelect.value = 'all';
+      const sortSelect = document.getElementById('sortSelector');
+      if (sortSelect) sortSelect.value = 'default';
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.value = '';
+
+      renderCategoryDropdown();
+      renderSortDropdown();
       renderServices();
     }
 
@@ -1523,36 +2698,68 @@
       const grid = document.getElementById('servicesGrid');
       const isEn = currentLang === 'en';
       const t = I18N[currentLang];
-      
+
       let filtered = SERVICES.filter(s => {
+        // Category
         const matchesCategory = currentCategory === 'all' || s.category === currentCategory;
+
+        // Search
         const title = isEn ? s.titleEn : s.titleAr;
         const desc = isEn ? s.shortDescriptionEn : s.shortDescriptionAr;
-        const matchesSearch = !searchQuery || title.toLowerCase().includes(searchQuery) || desc.toLowerCase().includes(searchQuery);
-        return matchesCategory && matchesSearch;
+        const featuresText = ((isEn && s.featuresEn) ? s.featuresEn : (s.featuresAr || [])).join(' ');
+        const fullSearchBlob = `${title} ${desc} ${featuresText}`.toLowerCase();
+        const matchesSearch = !searchQuery || fullSearchBlob.includes(searchQuery);
+
+        // Price Filter (USD)
+        let matchesPrice = true;
+        if (currentPriceFilter === 'under300') {
+          matchesPrice = s.price < 300;
+        } else if (currentPriceFilter === '300to800') {
+          matchesPrice = s.price >= 300 && s.price <= 800;
+        } else if (currentPriceFilter === 'over800') {
+          matchesPrice = s.price > 800;
+        }
+
+        // Delivery Filter
+        let matchesDelivery = true;
+        if (currentDeliveryFilter === 'quick') {
+          matchesDelivery = s.deliveryDays <= 3;
+        } else if (currentDeliveryFilter === 'medium') {
+          matchesDelivery = s.deliveryDays >= 4 && s.deliveryDays <= 12;
+        } else if (currentDeliveryFilter === 'major') {
+          matchesDelivery = s.deliveryDays >= 14;
+        }
+
+        return matchesCategory && matchesSearch && matchesPrice && matchesDelivery;
       });
 
+      // Sorting
       if (currentSort === 'price-asc') {
         filtered.sort((a, b) => a.price - b.price);
       } else if (currentSort === 'price-desc') {
         filtered.sort((a, b) => b.price - a.price);
-      } else if (currentSort === 'popular') {
-        filtered.sort((a, b) => b.deliveryDays - a.deliveryDays);
+      } else if (currentSort === 'delivery-fast') {
+        filtered.sort((a, b) => a.deliveryDays - b.deliveryDays);
       }
 
+      // Counter
       const servicesCount = document.getElementById('servicesCount');
       if (servicesCount) {
         servicesCount.innerHTML = `
           <span>${t.resultsLabel}</span>
-          <span class="text-neutral-900 font-bold font-mono bg-white px-2 py-0.5 rounded-md border border-neutral-200">${filtered.length}</span>
-          <span>${t.resultsSuffix}</span>
+          <span class="text-neutral-900 font-bold font-mono bg-white px-2.5 py-0.5 rounded-lg border border-neutral-200">${filtered.length}</span>
+          <span>${isEn ? 'solutions ($ USD)' : 'خدمة بالدولار ($)'}</span>
         `;
       }
 
       if (filtered.length === 0) {
         grid.innerHTML = `
-          <div class="col-span-full py-16 text-center text-neutral-400 bg-white rounded-2xl border border-neutral-200 p-8">
-            <p class="text-xs sm:text-sm">${t.noServicesFound}</p>
+          <div class="col-span-full py-16 text-center text-neutral-500 bg-white rounded-2xl border border-neutral-200 p-8">
+            <p class="text-sm font-bold text-neutral-800 mb-2">${t.noServicesFound}</p>
+            <p class="text-xs text-neutral-500 mb-4">${isEn ? 'Try adjusting your filters or search keywords.' : 'جرّب تعديل الفلاتر أو إعادة ضبطها لإظهار كافة الخدمات.'}</p>
+            <button onclick="resetAllFilters()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-xs transition-all cursor-pointer">
+              ${isEn ? 'Reset All Filters' : 'إعادة ضبط الفلاتر'}
+            </button>
           </div>
         `;
         return;
@@ -1564,7 +2771,7 @@
         const badge = isEn ? s.badgeEn : s.badgeAr;
         const catLabel = isEn ? s.categoryLabelEn : s.categoryLabelAr;
         const features = (isEn && s.featuresEn) ? s.featuresEn : (s.featuresAr || []);
-        const deliveryText = `${s.deliveryDays} ${t.daysSuffix}`;
+        const deliveryText = isEn ? (s.deliveryTextEn || `${s.deliveryDays} days`) : (s.deliveryTextAr || `${s.deliveryDays} ${t.daysSuffix}`);
 
         return `
           <div class="bg-white rounded-2xl border border-neutral-200/90 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between overflow-hidden group">
@@ -1588,10 +2795,10 @@
 
               <!-- Floating Delivery & Review Badge -->
               <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-[11px] text-white">
-                <span class="font-mono text-[10px] font-medium bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded text-neutral-200">
+                <span class="font-mono text-[10px] font-medium bg-black/60 backdrop-blur-sm px-2.5 py-0.5 rounded-md text-neutral-200 border border-white/10">
                   ⏱️ ${deliveryText}
                 </span>
-                <span class="text-amber-300 text-xs font-bold flex items-center gap-1 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded">
+                <span class="text-amber-300 text-xs font-bold flex items-center gap-1 bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded-md border border-white/10">
                   ★ 5.0
                 </span>
               </div>
@@ -1603,6 +2810,9 @@
                 <div class="flex items-center justify-between gap-2 mb-2.5">
                   <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200/80">
                     ${badge}
+                  </span>
+                  <span class="text-[10px] font-mono text-neutral-400 font-semibold">
+                    USD ($)
                   </span>
                 </div>
 
@@ -1639,7 +2849,6 @@
                   >
                     ${t.detailsBtn}
                   </button>
-
                   <button
                     onclick="addToCart('${s.id}')"
                     class="px-3 sm:px-3.5 py-1.5 sm:py-2 bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white text-[11px] sm:text-xs font-bold rounded-xl transition-all shadow-xs flex items-center gap-1 cursor-pointer min-h-[36px]"
@@ -1649,6 +2858,7 @@
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
         `;
@@ -1658,7 +2868,6 @@
     function openServiceDetail(serviceId) {
       const s = SERVICES.find(item => item.id === serviceId);
       if (!s) return;
-
       const isEn = currentLang === 'en';
       const t = I18N[currentLang];
       const title = isEn ? s.titleEn : s.titleAr;
@@ -1666,6 +2875,7 @@
       const catLabel = isEn ? s.categoryLabelEn : s.categoryLabelAr;
       const features = (isEn && s.featuresEn) ? s.featuresEn : (s.featuresAr || []);
       const deliverables = (isEn && s.deliverablesEn) ? s.deliverablesEn : (s.deliverablesAr || []);
+      const deliveryText = isEn ? (s.deliveryTextEn || `${s.deliveryDays} days`) : (s.deliveryTextAr || `${s.deliveryDays} ${t.daysSuffix}`);
 
       document.getElementById('modalServiceTitle').innerText = title;
       
@@ -1675,6 +2885,18 @@
           <div class="absolute bottom-2 right-2 bg-neutral-950/80 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded">
             ${catLabel}
           </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold">
+            ${isEn ? s.badgeEn : s.badgeAr}
+          </span>
+          <span class="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 border border-neutral-200 text-xs font-bold font-mono">
+            ⏱️ ${isEn ? 'Delivery:' : 'مدة الإنجاز:'} ${deliveryText}
+          </span>
+          <span class="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-800 border border-neutral-200 text-xs font-bold font-mono">
+            💵 ${isEn ? 'Currency: USD ($)' : 'العملة: دولار أمريكي ($)'}
+          </span>
         </div>
 
         <div>
@@ -1701,7 +2923,7 @@
 
       document.getElementById('modalServiceFooter').innerHTML = `
         <div>
-          <span class="text-[10px] text-neutral-400 block">${t.modalTotalPrice}</span>
+          <span class="text-[10px] text-neutral-400 block">${t.modalTotalPrice} ($ USD)</span>
           <span class="text-base font-bold text-neutral-950 font-mono">${formatPrice(s.price)}</span>
         </div>
         <button
@@ -1798,7 +3020,10 @@
           <div class="p-3 bg-neutral-50 rounded-xl border border-neutral-200 flex items-center justify-between gap-3 text-xs">
             <div class="flex-1 min-w-0">
               <h5 class="font-bold text-neutral-900 truncate">${title}</h5>
-              <span class="text-emerald-700 font-semibold font-mono text-[11px]">${formatPrice(item.price)}</span>
+              <div class="flex items-center gap-2 mt-0.5">
+                <span class="text-emerald-700 font-bold font-mono text-[11px]">${formatPrice(item.price)}</span>
+                <span class="text-[10px] text-neutral-500 font-medium bg-neutral-200/60 px-1.5 py-0.2 rounded font-mono">⏱️ ${isEn ? (item.deliveryTextEn || item.deliveryDays + ' days') : (item.deliveryTextAr || item.deliveryDays + ' يوم')}</span>
+              </div>
             </div>
 
             <div class="flex items-center gap-1.5 shrink-0">
@@ -1922,7 +3147,8 @@
         msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
         msg += `🛒 *الخدمات المطلوبة:*\n`;
         cart.forEach((item, idx) => {
-          msg += `${idx + 1}. ${item.titleAr}\n   الكمية: ${item.quantity} | السعر: ${formatPrice(item.price * item.quantity)}\n`;
+          const deliv = item.deliveryTextAr || (item.deliveryDays + ' يوم');
+          msg += `${idx + 1}. ${item.titleAr}\n   الكمية: ${item.quantity} | السعر: ${formatPrice(item.price * item.quantity)} | مدة الإنجاز: ${deliv}\n`;
         });
         msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
         msg += `💰 *المجموع الإجمالي:* ${totalAmountFormatted}\n\n`;
