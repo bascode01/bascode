@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>BASCODE — الاستوديو الرقمي للأعمال والحلول البرمجية</title>
-  <meta name="description" content="«باسكود» تصمّم وتبني المواقع والمتاجر والتطبيقات والأنظمة السحابية — مع الهوية والبيانات والمستندات. عشر خدمات رقمية متخصصة مع 12 نموذجاً حياً ومعاينات تفاعلية." />
+  <meta name="description" content="«باسكود» تصمّم وتبني المواقع والمتاجر والتطبيقات والأنظمة السحابية — مع الهوية والبيانات والمستندات. عشر خدمات رقمية متخصصة مع 4 نماذج حية ومعاينات تفاعلية." />
   <meta property="og:title" content="BASCODE — الاستوديو الرقمي للأعمال والحلول البرمجية" />
-  <meta property="og:description" content="«باسكود» تصمّم وتبني المواقع والمتاجر والتطبيقات والأنظمة الداخلية مع 12 نموذجاً حياً ومعاينات تفاعلية." />
+  <meta property="og:description" content="«باسكود» تصمّم وتبني المواقع والمتاجر والتطبيقات والأنظمة الداخلية مع 4 نماذج حية ومعاينات تفاعلية." />
   <meta property="og:image" content="/bascode_mark.png" />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#08090A" id="themeMetaColor" />
@@ -154,7 +154,7 @@
 
   <!-- ================= TOP HEADER ================= -->
   <header class="sticky top-0 z-40 glass border-b hairline transition-colors">
-    <div class="max-w-[1320px] mx-auto w-full px-4 sm:px-6 md:px-8 h-[68px] md:h-[76px] flex items-center justify-between gap-4">
+    <div class="max-w-[1320px] mx-auto w-full px-4 sm:px-5 md:px-6 lg:px-8 h-[68px] md:h-[76px] flex items-center justify-between gap-2 sm:gap-3 md:gap-4 lg:gap-6">
       
       <!-- Brand Logo with Crisp Gold BA Vector SVG Monogram -->
       <a href="javascript:void(0)" onclick="navigateTo('home')" class="inline-flex items-center gap-3 shrink-0 text-left rtl:text-right group cursor-pointer" aria-label="BASCODE Home">
@@ -299,25 +299,25 @@
             BASCODE
           </span>
           <span class="mono text-[8.5px] text-[#C9A75E] tracking-wider mt-1" id="brandTagline">
-            استوديو رقمي
+            منصة باسكودي
           </span>
         </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 text-[13.5px]" id="desktopNav">
+      <!-- Desktop Navigation Links - Optimized for Tablets/iPads and Desktops -->
+      <nav class="hidden md:flex items-center md:gap-2.5 lg:gap-5 xl:gap-7 md:text-[12px] lg:text-[13px] xl:text-[13.5px] whitespace-nowrap shrink-0" id="desktopNav">
         <!-- Rendered by JS -->
       </nav>
 
       <!-- Right Controls: Theme Switcher (Light/Dark) + Language Switcher + CTA Button -->
-      <div class="flex items-center gap-2 sm:gap-2.5">
+      <div class="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 shrink-0">
         
         <!-- Theme Toggle Button (Light ☀️ / Dark 🌙) - Placed directly beside Language Switcher -->
         <button
           type="button"
           id="themeToggleBtn"
           onclick="toggleTheme()"
-          class="w-9 h-9 rounded-full border hairline bg-white/5 hover:bg-white/10 dark:bg-white/5 dark:hover:bg-white/10 text-current flex items-center justify-center text-sm transition-all cursor-pointer shadow-xs"
+          class="w-8 h-8 md:w-9 md:h-9 rounded-full border hairline bg-white/5 hover:bg-white/10 dark:bg-white/5 dark:hover:bg-white/10 text-current flex items-center justify-center text-xs md:text-sm transition-all cursor-pointer shadow-xs"
           title="تبديل المظهر (فاتح / داكن)"
           aria-label="Toggle theme"
         >
@@ -330,7 +330,7 @@
             type="button"
             id="langBtnAr"
             onclick="setLanguage('ar')"
-            class="px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer"
+            class="px-2 md:px-2.5 py-1 rounded-full text-xs font-bold transition-all cursor-pointer"
           >
             ع
           </button>
@@ -338,24 +338,24 @@
             type="button"
             id="langBtnEn"
             onclick="setLanguage('en')"
-            class="px-2.5 py-1 rounded-full text-xs font-mono font-medium transition-all cursor-pointer"
+            class="px-2 md:px-2.5 py-1 rounded-full text-xs font-mono font-medium transition-all cursor-pointer"
           >
             EN
           </button>
         </div>
 
-        <!-- Start Project CTA Button -->
+        <!-- Start Project CTA Button (Shown on Desktop/Large Screens, Hidden on iPad portrait to keep navigation spacious) -->
         <button
           type="button"
           onclick="openOrderDrawer()"
-          class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A75E]/60 bg-[#C9A75E]/15 hover:bg-[#C9A75E]/25 text-current text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer"
+          class="hidden lg:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2 rounded-full border border-[#C9A75E]/60 bg-[#C9A75E]/15 hover:bg-[#C9A75E]/25 text-current text-xs font-semibold tracking-wide transition-all shadow-xs cursor-pointer whitespace-nowrap"
           id="headerCtaBtn"
         >
           <span>ابدأ مشروعك</span>
           <span class="text-xs">↗</span>
         </button>
 
-        <!-- Mobile Burger Menu Button -->
+        <!-- Mobile Burger Menu Button (Visible on mobile screens) -->
         <button
           type="button"
           onclick="toggleMobileMenu(true)"
@@ -720,7 +720,7 @@
           <div>
             <h4 class="mono text-[10px] uppercase tracking-wider text-[#C9A75E] mb-4 font-semibold" id="footerCol2Title">النماذج والحزم</h4>
             <ul class="space-y-2.5 opacity-70">
-              <li><a href="javascript:void(0)" onclick="navigateTo('demos')" class="hover:text-[#C9A75E] transition-colors">12 نموذج موقع ومتجر</a></li>
+              <li><a href="javascript:void(0)" onclick="navigateTo('demos')" class="hover:text-[#C9A75E] transition-colors">4 نماذج مواقع ومتاجر حية</a></li>
               <li><a href="javascript:void(0)" onclick="navigateTo('home'); setTimeout(() => document.getElementById('homeDemosSection')?.scrollIntoView({behavior:'smooth'}), 100);" class="hover:text-[#C9A75E] transition-colors">معاينة تفاعلية حية</a></li>
               <li><a href="javascript:void(0)" onclick="openOrderDrawer('website-dev')" class="hover:text-[#C9A75E] transition-colors">مواقع الشركات</a></li>
               <li><a href="javascript:void(0)" onclick="openOrderDrawer('ecommerce-stores')" class="hover:text-[#C9A75E] transition-colors">المتاجر الإلكترونية</a></li>
@@ -745,7 +745,7 @@
         <div class="mono text-[11px] flex items-center gap-3">
           <span>10 SERVICES</span>
           <span>•</span>
-          <span>12 LIVE DEMOS</span>
+          <span>4 LIVE DEMOS</span>
           <span>•</span>
           <span>ONE PARTNER</span>
         </div>
@@ -837,1942 +837,498 @@
     // --- 1. DATA INJECTION ---
     const WHACKA_SERVICES = [
   {
+    "num": "01",
     "slug": "website-development",
     "icon": "Globe",
-    "en": {
-      "name": "Website Development",
-      "tagline": "Fast, responsive websites that make the business look as good as it is.",
-      "description": "A website is the first room a customer walks into. We design and build sites that load quickly, read beautifully on a phone and are simple for your team to update — from a single landing page to a full corporate site with dozens of pages.",
-      "includes": [
-        "Design in your brand language, approved before build",
-        "Responsive layouts for phone, tablet and desktop",
-        "Arabic / English with correct right-to-left support",
-        "Contact forms, WhatsApp buttons and analytics",
-        "Search-engine basics, speed and accessibility tuning",
-        "Deployment, handover documentation and a short training session"
-      ],
-      "idealFor": [
-        "Companies without a site",
-        "Outdated sites",
-        "Landing pages"
-      ]
-    },
-    "ar": {
-      "name": "تطوير المواقع",
-      "tagline": "مواقع سريعة ومتجاوبة تُظهر عملك بأفضل صورة.",
-      "description": "الموقع هو أول غرفة يدخلها العميل. نصمّم ونبني مواقع سريعة التحميل، مريحة للقراءة على الجوال، وسهلة التحديث لفريقك — من صفحة تعريفية واحدة إلى موقع مؤسسي كامل بعشرات الصفحات.",
-      "includes": [
-        "تصميم بروح هويتك، يُعتمد قبل التنفيذ",
-        "تصميم متجاوب للجوال والتابلت والحاسب",
-        "دعم العربية والإنجليزية باتجاه صحيح",
-        "نماذج تواصل وأزرار واتساب وتحليلات زيارات",
-        "أساسيات محركات البحث والسرعة وإمكانية الوصول",
-        "النشر وتوثيق التسليم وجلسة تدريب قصيرة"
-      ],
-      "idealFor": [
-        "شركات بلا موقع",
-        "مواقع قديمة",
-        "صفحات تعريفية"
-      ]
-    }
+    "titleAr": "تطوير المواقع والويب",
+    "titleEn": "Website Development",
+    "taglineAr": "مواقع سريعة، متجاوبة وتُبرز قوة عملك على الهواتف والكمبيوتر.",
+    "taglineEn": "Fast, responsive websites that reflect your brand on phone and desktop.",
+    "descAr": "الموقع هو واجهتك الأولى أمام العميل. نصمّم ونبني مواقع سريعة التحميل، مريحة للقراءة على الجوال، وسهلة التحديث لفريقك — من صفحات الهبوط إلى مواقع الشركات المتكاملة.",
+    "descEn": "A website is your front door. We craft responsive, fast-loading sites tailored for mobile and desktop, easily maintained by your team.",
+    "pricingAr": "يبدأ من $450",
+    "pricingEn": "Starts from $450",
+    "priceUSD": 450,
+    "turnaroundAr": "3–5 أيام",
+    "turnaroundEn": "3–5 days",
+    "deliverablesAr": [
+      "تصميم مخصص يعكس هوية علامتك التجارية بدقة",
+      "واجهات فائقة السرعة ومتجاوبة 100% مع الجوال والتابلت",
+      "دعم كامل ومتقن للغتين العربية والإنجليزية (RTL/LTR)",
+      "نماذج تواصل تفاعلية وربط أزرار واتساب المباشرة",
+      "تهيئة أساسية لمحركات البحث (SEO) والحماية وضغط الصور",
+      "نشر الموقع وتسليمه مع تدريب ودعم فني"
+    ],
+    "deliverablesEn": [
+      "Bespoke design aligned with your brand identity",
+      "Fully responsive UI across mobile, tablet, and desktop",
+      "Flawless Arabic and English (RTL & LTR) support",
+      "Interactive contact forms and direct WhatsApp CTA integration",
+      "Core SEO readiness, security, and performance tuning",
+      "Deployment, handover guide, and initial support"
+    ]
   },
   {
+    "num": "02",
     "slug": "ecommerce-stores",
     "icon": "ShoppingBag",
-    "en": {
-      "name": "E-commerce Stores",
-      "tagline": "Online stores that are effortless to buy from and easy to run.",
-      "description": "A store lives or dies on two things: how quickly a customer finds the product and how few steps stand between them and checkout. We build catalogue, product pages, cart and payments around that single idea — then make the back office simple enough to run daily.",
-      "includes": [
-        "Product catalogue with categories, search and filters",
-        "Product pages designed for conversion",
-        "Cart, checkout and local or international payment setup",
-        "Shipping rules, coupons and order notifications",
-        "Order management and simple inventory tracking",
-        "WhatsApp order hand-off for customers who prefer to chat"
-      ],
-      "idealFor": [
-        "Retail brands",
-        "Home businesses",
-        "Wholesale catalogues"
-      ]
-    },
-    "ar": {
-      "name": "المتاجر الإلكترونية",
-      "tagline": "متاجر إلكترونية سهلة الشراء وسهلة الإدارة.",
-      "description": "المتجر ينجح أو يفشل بأمرين: سرعة وصول العميل إلى المنتج، وقلة الخطوات بينه وبين إتمام الطلب. نبني الكتالوج وصفحات المنتجات والسلة والدفع حول هذه الفكرة، ثم نجعل لوحة الإدارة بسيطة للاستخدام اليومي.",
-      "includes": [
-        "كتالوج منتجات بتصنيفات وبحث وفلاتر",
-        "صفحات منتجات مصممة لزيادة المبيعات",
-        "السلة والدفع مع ربط وسائل دفع محلية أو دولية",
-        "قواعد الشحن والكوبونات وإشعارات الطلبات",
-        "إدارة الطلبات وتتبع مبسط للمخزون",
-        "إرسال الطلب عبر واتساب لمن يفضل المحادثة"
-      ],
-      "idealFor": [
-        "علامات التجزئة",
-        "المشاريع المنزلية",
-        "كتالوجات الجملة"
-      ]
-    }
+    "titleAr": "المتاجر الإلكترونية",
+    "titleEn": "E-commerce Stores",
+    "taglineAr": "متاجر رقمية متكاملة مصممة لرفع المبيعات وتسهيل عمليات الشراء.",
+    "taglineEn": "High-converting online stores built for seamless checkout and sales.",
+    "descAr": "متجر إلكتروني متكامل يتيح لعملائك تصفح المنتجات والشراء بسلاسة، مع إدارة المخزون، الطلبات، وبوابات الدفع الإلكتروني وحسابات الشحن.",
+    "descEn": "Full-featured online store enabling effortless shopping, inventory tracking, order management, and multi-gateway payments.",
+    "pricingAr": "يبدأ من $750",
+    "pricingEn": "Starts from $750",
+    "priceUSD": 750,
+    "turnaroundAr": "5–7 أيام",
+    "turnaroundEn": "5–7 days",
+    "deliverablesAr": [
+      "كتالوج منتجات تفاعلي مع تصنيفات وفلاتر بحث سريعة",
+      "سلة مشتريات ذكية وصفحة دفع سريعة الخطوات",
+      "ربط بوابات الدفع الإلكتروني (فيزا، ماستركارد، مدى، وغيرها)",
+      "لوحة تحكم سهلة لإدارة المنتجات والمخزون والفواتير",
+      "ربط آلي مع شركات الشحن والتوصيل",
+      "تأكيد الطلبات عبر إشعارات واتساب الفورية"
+    ],
+    "deliverablesEn": [
+      "Interactive product catalog with filters and instant search",
+      "Frictionless cart drawer and streamlined checkout",
+      "Integration with global & regional payment gateways",
+      "Intuitive admin dashboard for inventory and orders",
+      "Shipping carrier integration and invoice generation",
+      "Instant WhatsApp order notification triggers"
+    ]
   },
   {
+    "num": "03",
     "slug": "software-app-development",
     "icon": "Smartphone",
-    "en": {
-      "name": "Software & App Development",
-      "tagline": "Custom applications built around one real workflow.",
-      "description": "When spreadsheets and messaging apps stop being enough, you need software that matches how your business actually runs. We take one workflow at a time, model it properly and ship an application your team can use on the first day.",
-      "includes": [
-        "Workflow mapping and a written specification",
-        "Interface design for phone and desktop",
-        "Accounts, roles and permissions",
-        "Database design and a documented API layer",
-        "Notifications, reports and export to Excel or PDF",
-        "Installable app delivery with ongoing support"
-      ],
-      "idealFor": [
-        "Operations teams",
-        "Field staff",
-        "Client portals"
-      ]
-    },
-    "ar": {
-      "name": "تطوير البرمجيات والتطبيقات",
-      "tagline": "تطبيقات مخصصة مبنية حول سير عمل حقيقي.",
-      "description": "حين لا تكفي جداول إكسل وتطبيقات المحادثة، تحتاج برنامجاً يشبه طريقة عمل شركتك فعلاً. نأخذ سير عمل واحداً في كل مرة، ننمذجه بدقة، ونسلّم تطبيقاً يستخدمه فريقك من اليوم الأول.",
-      "includes": [
-        "تحليل سير العمل ومواصفات مكتوبة",
-        "تصميم واجهات للجوال والحاسب",
-        "حسابات المستخدمين والأدوار والصلاحيات",
-        "تصميم قاعدة البيانات وطبقة ربط موثقة",
-        "إشعارات وتقارير وتصدير إلى إكسل أو PDF",
-        "تسليم كتطبيق قابل للتثبيت مع دعم مستمر"
-      ],
-      "idealFor": [
-        "فرق التشغيل",
-        "العاملون الميدانيون",
-        "بوابات العملاء"
-      ]
-    }
+    "titleAr": "تطوير البرمجيات والتطبيقات",
+    "titleEn": "Software & App Development",
+    "taglineAr": "تطبيقات جوال وحلول برمجية مخصصة لنظامي iOS و Android.",
+    "taglineEn": "Custom mobile apps and software tailored for iOS and Android platforms.",
+    "descAr": "نحوّل فكرتك إلى تطبيق جوال أو منصة برمجية احترافية ذات واجهات عصرية وأداء عالي، مع بنية تحتية سحابية آمنة ومستقرة.",
+    "descEn": "We transform your concept into production-ready iOS and Android apps with modern UX and resilient cloud backends.",
+    "pricingAr": "يبدأ من $1,200",
+    "pricingEn": "Starts from $1,200",
+    "priceUSD": 1200,
+    "turnaroundAr": "10–15 يوم",
+    "turnaroundEn": "10–15 days",
+    "deliverablesAr": [
+      "تطبيق متوافق لنظامي Android و iOS",
+      "واجهات مستخدم مدروسة وسلسة (UI/UX)",
+      "لوحة تحكم إدارية سحابية للتحكم بالمحتوى والمستخدمين",
+      "إشعارات فورية (Push Notifications)",
+      "قواعد بيانات سحابية مشفرة وسريعة الاستجابة",
+      "المساعدة في النشر على المتاجر (Google Play / App Store)"
+    ],
+    "deliverablesEn": [
+      "Cross-platform app for Android and iOS",
+      "Premium human-centered UI/UX design",
+      "Secure administrative cloud control panel",
+      "Push notification system integration",
+      "Encrypted, high-performance cloud database",
+      "App store publishing guidance and compliance"
+    ]
   },
   {
+    "num": "04",
     "slug": "business-management-systems",
-    "icon": "LayoutDashboard",
-    "en": {
-      "name": "Business Management Systems",
-      "tagline": "One system for sales, stock, staff and reports.",
-      "description": "Most growing businesses run on five disconnected tools. We consolidate them into a single internal system: one place where an order, an invoice, a stock movement and a report all refer to the same record — with permissions that match who is allowed to see what.",
-      "includes": [
-        "Invoicing, quotations and customer records",
-        "Inventory, purchasing and supplier tracking",
-        "Staff accounts with role-based permissions",
-        "Dashboards and printable or downloadable reports",
-        "Excel import of your existing data",
-        "Training for the team and a written operations guide"
-      ],
-      "idealFor": [
-        "Retail and wholesale",
-        "Clinics and centres",
-        "Service companies"
-      ]
-    },
-    "ar": {
-      "name": "أنظمة إدارة الأعمال",
-      "tagline": "نظام واحد للمبيعات والمخزون والموظفين والتقارير.",
-      "description": "معظم الأعمال النامية تعمل بخمس أدوات منفصلة. نجمعها في نظام داخلي واحد: مكان واحد تُحال فيه الفاتورة والطلب وحركة المخزون والتقرير إلى السجل نفسه — بصلاحيات تحدد من يرى ماذا.",
-      "includes": [
-        "الفواتير وعروض السعر وسجلات العملاء",
-        "المخزون والمشتريات والموردون",
-        "حسابات موظفين بصلاحيات حسب الدور",
-        "لوحات متابعة وتقارير قابلة للطباعة أو التنزيل",
-        "استيراد بياناتك الحالية من إكسل",
-        "تدريب الفريق ودليل تشغيل مكتوب"
-      ],
-      "idealFor": [
-        "التجزئة والجملة",
-        "العيادات والمراكز",
-        "شركات الخدمات"
-      ]
-    }
+    "icon": "Layers",
+    "titleAr": "أنظمة إدارة الأعمال (ERP & CRM)",
+    "titleEn": "Business Management Systems",
+    "taglineAr": "أنظمة سحابية لإدارة العمليات، المبيعات، المحاسبة، والمخزون.",
+    "taglineEn": "Cloud platforms to streamline operations, sales, accounts, and inventory.",
+    "descAr": "برمجيات مخصصة لإدارة شؤون شركتك، بدءاً من تتبع العملاء والمبيعات (CRM) وحتى أنظمة الفوترة والمحاسبة وإدارة المخازن والكاشير.",
+    "descEn": "Custom software to run your enterprise: customer pipelines, financial invoicing, warehouse stock, and multi-branch POS.",
+    "pricingAr": "يبدأ من $1,400",
+    "pricingEn": "Starts from $1,400",
+    "priceUSD": 1400,
+    "turnaroundAr": "12–18 يوم",
+    "turnaroundEn": "12–18 days",
+    "deliverablesAr": [
+      "نظام إدارة علاقات العملاء وتتبع مسار المبيعات (CRM)",
+      "نظام فوترة إلكترونية متوافق مع متطلبات الضرائب",
+      "إدارة المخزون وتنبيهات النواقص وحركات الأصناف",
+      "صلاحيات متعددة للموظفين والمدراء (RBAC)",
+      "تقارير أداء مالية وتشغيلية لحظية برسوم بيانية",
+      "تدريب كامل للفريق ودعم فني متخصص"
+    ],
+    "deliverablesEn": [
+      "CRM module for customer tracking and sales pipeline",
+      "Compliant electronic invoicing & billing engine",
+      "Inventory control with automated restock alerts",
+      "Role-based access control for employees and admins",
+      "Real-time financial and operational performance charts",
+      "Complete team onboarding and technical support"
+    ]
   },
   {
+    "num": "05",
     "slug": "logo-brand-identity",
-    "icon": "PenTool",
-    "en": {
-      "name": "Logo & Brand Identity Design",
-      "tagline": "A visual identity that holds together everywhere.",
-      "description": "A logo alone is a picture. An identity is a system: the mark, the type, the colours, the spacing and the rules that keep them consistent across a sign, an invoice and a phone screen. We deliver the system, not just the file.",
-      "includes": [
-        "Discovery session and a written brand direction",
-        "Two or three distinct logo directions",
-        "Final logo in vector and all common formats",
-        "Colour palette, typography and layout rules",
-        "Arabic and English lock-ups where needed",
-        "A brand guideline document you can hand to any printer"
-      ],
-      "idealFor": [
-        "New businesses",
-        "Rebrands",
-        "Product launches"
-      ]
-    },
-    "ar": {
-      "name": "تصميم الشعار والهوية البصرية",
-      "tagline": "هوية بصرية متماسكة في كل مكان تظهر فيه.",
-      "description": "الشعار وحده صورة. أما الهوية فهي نظام: الرمز والخطوط والألوان والمسافات والقواعد التي تحفظ تماسكها على اللوحة والفاتورة وشاشة الجوال. نسلّم النظام، لا الملف فقط.",
-      "includes": [
-        "جلسة تعرّف واتجاه بصري مكتوب",
-        "اتجاهان أو ثلاثة اتجاهات مختلفة للشعار",
-        "الشعار النهائي بصيغة متجهية وكل الصيغ الشائعة",
-        "لوحة ألوان وخطوط وقواعد تنسيق",
-        "نسخ عربية وإنجليزية عند الحاجة",
-        "دليل هوية يمكن تسليمه لأي مطبعة"
-      ],
-      "idealFor": [
-        "الأعمال الجديدة",
-        "إعادة الهوية",
-        "إطلاق المنتجات"
-      ]
-    }
+    "icon": "Palette",
+    "titleAr": "تصميم الشعار والهوية البصرية",
+    "titleEn": "Logo & Brand Identity Design",
+    "taglineAr": "هوية بصرية استثنائية تميز شركتك وتترك انطباعاً راسخاً لدى العملاء.",
+    "taglineEn": "Distinctive brand identity that sets your company apart.",
+    "descAr": "تصميم شعار احترافي أصيل وهوية بصرية شاملة تشمل الألوان والخطوط وقوالب المطبوعات والتواصل الرقمي، لتبدو علامتك كشركة عالمية رائدة.",
+    "descEn": "Original logo design and complete corporate brand guidelines covering colors, typography, stationery, and digital presence.",
+    "pricingAr": "يبدأ من $250",
+    "pricingEn": "Starts from $250",
+    "priceUSD": 250,
+    "turnaroundAr": "3–4 أيام",
+    "turnaroundEn": "3–4 days",
+    "deliverablesAr": [
+      "شعار أصلي بأفكار متعددة ونماذج للتعديل حتى الاعتماد",
+      "دليل إرشادي شامل للهوية (Brand Guidelines)",
+      "اختيار لوحة الألوان والخطوط الرسمية المعتمدة",
+      "تصاميم كروت العمل والورق الرسمي والمطبوعات",
+      "قوالب سوشيال ميديا وأغلفة الملفات الرسمية",
+      "تسليم كافة الملفات المصدرية المتجهية (AI, SVG, PNG, PDF)"
+    ],
+    "deliverablesEn": [
+      "Original logo concepts with revision rounds until approval",
+      "Comprehensive brand guidelines manual",
+      "Typography hierarchy and defined color palette",
+      "Business card and corporate stationery designs",
+      "Social media assets and official document headers",
+      "Full vector source deliverables (AI, SVG, PNG, PDF)"
+    ]
   },
   {
+    "num": "06",
     "slug": "website-testing-security",
     "icon": "ShieldCheck",
-    "en": {
-      "name": "Website Testing & Security Analysis",
-      "tagline": "Find what breaks before your customers do.",
-      "description": "Every site has weak points: slow pages, broken forms, expired certificates, exposed admin panels, outdated libraries. We go through the site methodically, test it like an impatient user and a careless attacker, then hand you a prioritised report in plain language.",
-      "includes": [
-        "Cross-device and cross-browser functional testing",
-        "Performance and page-speed profiling",
-        "Security review of logins, forms and exposed endpoints",
-        "Checked configuration, certificates and backups",
-        "Prioritised findings with severity and clear fixes",
-        "A re-test after your team applies the fixes"
-      ],
-      "idealFor": [
-        "Existing websites",
-        "Online stores",
-        "Pre-launch sign-offs"
-      ]
-    },
-    "ar": {
-      "name": "فحص المواقع والأمان",
-      "tagline": "اكتشف ما يتعطل قبل أن يكتشفه عملاؤك.",
-      "description": "لكل موقع نقاط ضعف: صفحات بطيئة، نماذج لا ترسل، شهادات منتهية، لوحات تحكم مكشوفة، ومكتبات قديمة. نفحص الموقع فحصاً منهجياً كمستخدم عجول وكمهاجم يبحث عن ثغرة، ثم نضع بين يديك تقريراً مرتباً بلغة واضحة.",
-      "includes": [
-        "فحص تشغيلي عبر مختلف الأجهزة والمتصفحات",
-        "قياس دقيق للأداء وسرعة تحميل الصفحات",
-        "مراجعة أمنية لنماذج الدخول والروابط المكشوفة",
-        "التأكد من الشهادات وإعدادات الخادم والنسخ الاحتياطي",
-        "تقرير مرتب بحسب الخطورة مع خطوات علاج صريحة",
-        "إعادة فحص مجانية بعد تطبيق التعديلات من فريقك"
-      ],
-      "idealFor": [
-        "المواقع القائمة",
-        "المتاجر الإلكترونية",
-        "قبل الإطلاق الرسمي"
-      ]
-    }
+    "titleAr": "فحص المواقع والتحليل الأمني",
+    "titleEn": "Website Testing & Security Analysis",
+    "taglineAr": "اختبار دقيق للثغرات، قياس سرعة التحميل، وفحص أمان المنصات.",
+    "taglineEn": "Thorough vulnerability audits, speed tests, and penetration analysis.",
+    "descAr": "تقرير تدقيق أمني وفني شامل يكشف الثغرات الأمنية في موقعك أو نظامك، مع اختبار سرعة الاستجابة وتقديم حلول لمعالجة نقاط الضعف فوراً.",
+    "descEn": "Comprehensive security and technical audit identifying vulnerabilities, latency bottlenecks, and prioritized remediation actions.",
+    "pricingAr": "يبدأ من $300",
+    "pricingEn": "Starts from $300",
+    "priceUSD": 300,
+    "turnaroundAr": "2–3 أيام",
+    "turnaroundEn": "2–3 days",
+    "deliverablesAr": [
+      "فحص ثغرات الحماية واختبار اختراق أولي للنظام",
+      "فحص شهادات الأمان (SSL/TLS) وبروتوكولات التشفير",
+      "تدقيق سرعة التحميل ومؤشرات أداء الويب الأساسية (Core Web Vitals)",
+      "فحص توافق الروابط وقواعد البيانات وحماية النماذج من السبام",
+      "تقرير تنفيذي مفصل يتضمن التوصيات والحلول البرمجية",
+      "مكالمة استشارية لمناقشة النتائج وخطة التحصين"
+    ],
+    "deliverablesEn": [
+      "Security vulnerability scan and penetration testing",
+      "SSL/TLS encryption and HTTP headers audit",
+      "Core Web Vitals and performance speed diagnostic",
+      "Database injection & spam prevention review",
+      "Detailed actionable remediation audit report",
+      "Consultation debrief to prioritize hardening steps"
+    ]
   },
   {
+    "num": "07",
     "slug": "translation-services",
     "icon": "Languages",
-    "en": {
-      "name": "Translation Services",
-      "tagline": "Arabic and English that read as if they were written that way.",
-      "description": "Machine translation understands words and breaks on sentences. We translate with a human ear for tone — websites, contracts, product catalogues, medical and technical documents — and keep terminology consistent across every page.",
-      "includes": [
-        "Arabic ↔ English translation by a human editor",
-        "Tone-matched marketing, technical and legal text",
-        "A shared glossary so terms stay consistent",
-        "Layout review after translation, not before",
-        "Website, brochure, contract and catalogue work",
-        "Editable or print-ready delivery formats"
-      ],
-      "idealFor": [
-        "Marketing material",
-        "Contracts",
-        "Product catalogues"
-      ]
-    },
-    "ar": {
-      "name": "خدمات الترجمة",
-      "tagline": "عربية وإنجليزية تُقرأ كأنها كُتبت بتلك اللغة.",
-      "description": "الترجمة الآلية تُفهم كلمة بكلمة وتنهار جملة بجملة. نترجم بعين بشرية تراعي النبرة — مواقع، عقود، كتالوجات منتجات، ومستندات طبية وتقنية — مع توحيد المصطلحات في كل صفحة.",
-      "includes": [
-        "ترجمة عربية ↔ إنجليزية بمراجعة بشرية",
-        "نبرة مناسبة للنصوص التسويقية والتقنية والقانونية",
-        "قاموس مصطلحات موحّد للاتساق",
-        "مراجعة التنسيق بعد الترجمة لا قبلها",
-        "ترجمة المواقع والكتيبات والعقود والكتالوجات",
-        "تسليم بصيغ قابلة للتعديل أو جاهزة للطباعة"
-      ],
-      "idealFor": [
-        "المواد التسويقية",
-        "العقود",
-        "كتالوجات المنتجات"
-      ]
-    }
+    "titleAr": "خدمات الترجمة المعتمدة",
+    "titleEn": "Translation Services",
+    "taglineAr": "ترجمة بشرية دقيقة واحترافية للمواقع، العقود، والمستندات التقنية.",
+    "taglineEn": "Accurate human translation for websites, contracts, and tech docs.",
+    "descAr": "ترجمة احترافية دقيقة بالمعنى والسياق (عربي / إنجليزي) للمواقع الإلكترونية، التطبيقات، الملفات القانونية والتجارية، بعيداً عن الترجمة الآلية الركيكة.",
+    "descEn": "Nuanced human translation between Arabic and English for websites, applications, and legal/business agreements.",
+    "pricingAr": "يبدأ من $80",
+    "pricingEn": "Starts from $80",
+    "priceUSD": 80,
+    "turnaroundAr": "1–2 يوم",
+    "turnaroundEn": "1–2 days",
+    "deliverablesAr": [
+      "ترجمة بشرية متخصصة ومراجعة لغوياً ونحوياً بدقة",
+      "ترجمة وتوطين واجهات المواقع والتطبيقات (Localization)",
+      "ترجمة العقود والاتفاقيات والمراسلات الرسمية",
+      "الحفاظ على التنسيق الأصلي للمستندات والجداول",
+      "صياغة احترافية ملائمة لطبيعة عملك والجمهور المستهدف",
+      "تسليم بالصيغ المطلوبة (Word, PDF, JSON)"
+    ],
+    "deliverablesEn": [
+      "Specialized human translation with editorial proofreading",
+      "Website and mobile app UI localization",
+      "Commercial agreements and official correspondence",
+      "Original layout and table formatting preserved",
+      "Tone adjusted for industry and regional audience",
+      "Delivery in preferred formats (Word, PDF, JSON)"
+    ]
   },
   {
+    "num": "08",
     "slug": "data-analysis-excel",
-    "icon": "BarChart3",
-    "en": {
-      "name": "Data Analysis & Excel Reports",
-      "tagline": "Turn messy spreadsheets into decisions.",
-      "description": "Most companies already have the data — it is just spread across files nobody trusts. We clean it, structure it and build the reports that answer the questions actually being asked in meetings: what sold, what cost, what changed and why.",
-      "includes": [
-        "Cleaning and de-duplicating raw data",
-        "Structured workbooks with working formulas",
-        "Pivot tables, dashboards and trend charts",
-        "Consolidation of several files into one model",
-        "Automatic monthly and comparison reports",
-        "A short walkthrough so your team can maintain it"
-      ],
-      "idealFor": [
-        "Sales reports",
-        "Financial summaries",
-        "Operations tracking"
-      ]
-    },
-    "ar": {
-      "name": "تحليل البيانات وتقارير إكسل",
-      "tagline": "حوّل جداول مبعثرة إلى قرارات.",
-      "description": "معظم الشركات لديها البيانات أصلاً — لكنها موزعة في ملفات لا يثق بها أحد. ننظفها وننظمها ونبني التقارير التي تجيب عن الأسئلة المطروحة فعلاً في الاجتماعات: ما بيع؟ ما كلّف؟ ما الذي تغيّر ولماذا؟",
-      "includes": [
-        "تنظيف البيانات وإزالة التكرار",
-        "ملفات منظمة بمعادلات تعمل فعلياً",
-        "جداول محورية ولوحات متابعة ورسوم اتجاهات",
-        "دمج عدة ملفات في نموذج واحد",
-        "تقارير شهرية ومقارنات تلقائية",
-        "شرح موجز ليقدر فريقك على الصيانة"
-      ],
-      "idealFor": [
-        "تقارير المبيعات",
-        "الملخصات المالية",
-        "متابعة التشغيل"
-      ]
-    }
+    "icon": "BarChart2",
+    "titleAr": "تحليل البيانات وتقارير إكسل",
+    "titleEn": "Data Analysis & Excel Reports",
+    "taglineAr": "تحويل الأرقام والبيانات المعقدة إلى لوحات بيانية وتقارير ذكية لاتخاذ القرارات.",
+    "taglineEn": "Transforming raw spreadsheets into visual decision dashboards.",
+    "descAr": "تنظيف وتحليل بيانات شركتك وبناء لوحات تحكم تفاعلية في Excel و Power BI لعرض مؤشرات المبيعات، التكاليف، والأرباح بشكل بصري مفهوم.",
+    "descEn": "Data cleansing, modeling, and interactive Excel/Power BI dashboards revealing sales trends, margins, and operating KPIs.",
+    "pricingAr": "يبدأ من $200",
+    "pricingEn": "Starts from $200",
+    "priceUSD": 200,
+    "turnaroundAr": "2–4 أيام",
+    "turnaroundEn": "2–4 days",
+    "deliverablesAr": [
+      "تنظيم وتنظيف البيانات وجداول الحسابات الكبيرة",
+      "بناء معادلات متقدمة ودوال وحسابات آلية",
+      "تصميم لوحة مؤشرات أداء تفاعلية (Interactive Dashboard)",
+      "رسوم بيانية جذابة وسهلة القراءة للمدراء والمستثمرين",
+      "أتمتة التقارير الدورية لتوفير الوقت والجهد",
+      "شرح فيديو لاستخدام الملف وتحديث البيانات"
+    ],
+    "deliverablesEn": [
+      "Large dataset cleanup, structuring, and validation",
+      "Advanced dynamic formulas and automated calculations",
+      "Interactive visual KPI management dashboards",
+      "Executive-ready charts for stakeholders and leadership",
+      "Automated recurring report generation templates",
+      "Walkthrough video showing how to refresh and use"
+    ]
   },
   {
+    "num": "09",
     "slug": "database-development",
     "icon": "Database",
-    "en": {
-      "name": "Database Development",
-      "tagline": "A clean data model is the cheapest performance upgrade.",
-      "description": "A database designed in a hurry charges interest forever: duplicate records, contradictory numbers, slow reports and migrations that nobody dares to run. We design the model properly, migrate what you already have and document the result.",
-      "includes": [
-        "Data modelling and a documented schema",
-        "Migration of existing spreadsheets or systems",
-        "Query optimisation and index tuning",
-        "Backup, restore and access policies",
-        "Views and reporting queries your team can reuse",
-        "Handover documentation with an entity diagram"
-      ],
-      "idealFor": [
-        "Growing systems",
-        "Legacy migrations",
-        "Reporting backends"
-      ]
-    },
-    "ar": {
-      "name": "تطوير قواعد البيانات",
-      "tagline": "نموذج بيانات نظيف أرخص ترقية للأداء.",
-      "description": "قاعدة البيانات المصممة على عجل تفرض فائدتها للأبد: سجلات مكررة، أرقام متناقضة، تقارير بطيئة، وترحيلات لا يجرؤ أحد على تنفيذها. نصمم النموذج بشكل صحيح، ونرحّل ما لديك، ونوثّق النتيجة.",
-      "includes": [
-        "نمذجة البيانات ومخطط موثّق",
-        "ترحيل بياناتك من ملفات أو أنظمة قائمة",
-        "تحسين الاستعلامات وضبط الفهارس",
-        "النسخ الاحتياطي والاستعادة وسياسات الوصول",
-        "واجهات وتقارير جاهزة يمكن لفريقك إعادة استخدامها",
-        "توثيق تسليم مع مخطط الكيانات"
-      ],
-      "idealFor": [
-        "الأنظمة النامية",
-        "ترحيل الأنظمة القديمة",
-        "خلفيات التقارير"
-      ]
-    }
+    "titleAr": "تطوير وتصميم قواعد البيانات",
+    "titleEn": "Database Development",
+    "taglineAr": "هندسة قواعد بيانات سريعة، آمنة وقابلة للتوسع لأعمالك ومنصاتك.",
+    "taglineEn": "Scalable, secure, and performant database architectures.",
+    "descAr": "تصميم وتنفيذ قواعد بيانات متطورة (SQL & NoSQL) مع هيكلة الجداول، تحسين سرعة الاستعلامات، وعمل نسخ احتياطية مؤتمتة لحماية بيانات شركتك.",
+    "descEn": "Design and deployment of robust SQL and NoSQL databases with optimized indexing, high availability, and automated backup routines.",
+    "pricingAr": "يبدأ من $400",
+    "pricingEn": "Starts from $400",
+    "priceUSD": 400,
+    "turnaroundAr": "3–5 أيام",
+    "turnaroundEn": "3–5 days",
+    "deliverablesAr": [
+      "تصميم مخطط الكيانات والعلاقات (ERD) المحكم",
+      "بناء وتكوين قواعد بيانات PostgreSQL, MySQL, أو Firebase/Firestore",
+      "تحسين سرعة الاستعلامات وفهارس البحث (Indexing)",
+      "إعداد أنظمة النسخ الاحتياطي التلقائي (Automated Backups)",
+      "سياسات وإجراءات الأمان وتشفير البيانات الحساسة",
+      "توثيق هيكل الجداول وواجهات الربط البرمجي (APIs)"
+    ],
+    "deliverablesEn": [
+      "Entity-Relationship Diagram (ERD) architecture",
+      "Setup of PostgreSQL, MySQL, or Firebase/Firestore engines",
+      "Query optimization, indexing, and latency minimization",
+      "Automated regular backup and disaster recovery setup",
+      "Encryption and strict security access rules",
+      "Full schema and API connectivity documentation"
+    ]
   },
   {
+    "num": "10",
     "slug": "document-conversion",
-    "icon": "FileSpreadsheet",
-    "en": {
-      "name": "PDF, Word & Excel Conversion",
-      "tagline": "Accurate, editable conversions — layout intact.",
-      "description": "Scanned PDFs, locked forms, tables that break in half and images pretending to be text. We convert documents so the result is genuinely usable: editable Word, clean Excel tables, searchable PDFs — with the original layout preserved.",
-      "includes": [
-        "PDF to Word with layout preserved",
-        "PDF or Word tables converted to clean Excel",
-        "Scanned documents made searchable (OCR)",
-        "Excel to PDF, formatted for printing",
-        "Form creation and fillable fields",
-        "Bulk batches of files handled consistently"
-      ],
-      "idealFor": [
-        "Scanned archives",
-        "Forms and contracts",
-        "Data extraction"
-      ]
-    },
-    "ar": {
-      "name": "تحويل PDF وورد وإكسل",
-      "tagline": "تحويل دقيق وقابل للتعديل — بتنسيق سليم.",
-      "description": "ملفات ممسوحة، نماذج مقفلة، جداول تنقسم نصفين، وصور تتنكر في هيئة نص. نحوّل المستندات لتكون قابلة للاستخدام فعلاً: وورد قابل للتعديل، جداول إكسل نظيفة، وPDF قابل للبحث — مع الحفاظ على التنسيق الأصلي.",
-      "includes": [
-        "تحويل PDF إلى وورد مع الحفاظ على التنسيق",
-        "تحويل جداول PDF أو وورد إلى إكسل نظيف",
-        "جعل المستندات الممسوحة قابلة للبحث (OCR)",
-        "تحويل إكسل إلى PDF منسق للطباعة",
-        "إنشاء نماذج وحقول قابلة للتعبئة",
-        "معالجة دفعات كبيرة من الملفات بجودة ثابتة"
-      ],
-      "idealFor": [
-        "الأرشيف الممسوح",
-        "النماذج والعقود",
-        "استخراج البيانات"
-      ]
-    }
+    "icon": "FileText",
+    "titleAr": "تحويل وتنسيق المستندات (PDF / Word / Excel)",
+    "titleEn": "PDF, Word & Excel Conversion",
+    "taglineAr": "تحويل وتنسيق احترافي للملفات والمستندات دون أي أخطاء في النصوص والجداول.",
+    "taglineEn": "Flawless document conversion and typography formatting.",
+    "descAr": "تحويل ملفات PDF المصورة والمسحوبة ضوئياً إلى ملفات Word و Excel قابلة للتعديل بدقة 100% مع الحفاظ الكامل على الجداول والأعمدة واللغة العربية.",
+    "descEn": "Flawless conversion of scanned and locked PDFs into fully editable Word and Excel files, maintaining tables, fonts, and Arabic text direction.",
+    "pricingAr": "يبدأ من $50",
+    "pricingEn": "Starts from $50",
+    "priceUSD": 50,
+    "turnaroundAr": "24 ساعة",
+    "turnaroundEn": "24 hours",
+    "deliverablesAr": [
+      "تحويل دقيق من PDF إلى Word أو Excel قابل للتعديل بالكامل",
+      "تصحيح النصوص العربية المبعثرة ومحاذاة الاتجاهات (RTL)",
+      "إعادة بناء الجداول والأرقام الحسابية بدقة متناهية",
+      "تنسيق المستندات وتوحيد الخطوط والعناوين بتصميم رسمي",
+      "إزالة العلامات المائية غير المرغوبة أو إضافتها",
+      "تسليم فوري سريع خلال ساعات"
+    ],
+    "deliverablesEn": [
+      "Precise conversion from PDF to editable Word or Excel",
+      "Arabic text alignment and font repair (clean RTL)",
+      "Exact tabular layout and numerical reconstruction",
+      "Professional document re-styling and typography hierarchy",
+      "Watermark removal or branded watermark insertion",
+      "Fast turnaround delivery within 24 hours"
+    ]
   }
 ];
     const DEMO_ITEMS = [
   {
-    "id": "demo-laptops",
-    "slug": "laptops-tech-store",
-    "titleAr": "متجر لابتوبات وإكسسوارات الألعاب والأعمال",
-    "titleEn": "ApexTech — High-Performance Laptops & Gear",
-    "brandNameAr": "أبيكس تيك (ApexTech)",
-    "brandNameEn": "ApexTech Computing",
-    "industry": "ecommerce",
-    "industryLabelAr": "متجر إلكتروني / تقنية",
-    "industryLabelEn": "E-Commerce / Tech",
-    "taglineAr": "حواسيب فائقة للألعاب، صُنّاع المحتوى، ومهندسي البرمجيات",
-    "taglineEn": "Elite Gaming Rigs, Ultrabooks & Pro Workstations",
-    "shortDescAr": "متجر تقني متكامل بفلترة مواصفات حية (كرت الشاشة، الرام، المعالج)، ومقارنة مواصفات، وسلة شراء تفاعلية.",
-    "shortDescEn": "Feature-rich tech storefront with live specs filtering (GPU, RAM, CPU), device specs modal, and instant checkout drawer.",
-    "themeColor": "#0a0f1d",
-    "accentColor": "#06b6d4",
-    "badgeAr": "متجر تقني متخصص",
-    "badgeEn": "Pro Tech Store",
-    "highlightsAr": [
-      "فلترة حية حسب كرت الشاشة RTX والرام والمعالج",
-      "سلة مشتريات تفاعلية مع حاسبة فورية للضريبة والخصم",
-      "لوحة مواصفات عتادية مفصلة لكل جهاز",
-      "متوافق مع بوابات الدفع الإلكتروني والدفع عند الاستلام"
-    ],
-    "highlightsEn": [
-      "Live specs filter (RTX GPU, RAM, Core i9/M3)",
-      "Interactive cart drawer with live discount calculator",
-      "Deep hardware specification sheets per item",
-      "Online card payment & COD payment support"
-    ],
-    "techStack": [
-      "Next.js / React",
-      "Tailwind CSS",
-      "Stripe & Mada",
-      "Hardware Specs API",
-      "Live Search"
-    ],
-    "turnaroundDays": "10–14 يوم",
-    "startingPriceUSD": 1200,
-    "previewImage": "/images/demo_laptop_store_1793730688840.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد تطوير متجر إلكتروني للابتوبات والإلكترونيات مشابه لنموذج (ApexTech) مع نظام فلترة المواصفات وسلة المشتريات.",
-    "categoriesAr": [
-      "الكل",
-      "حواسيب الألعاب (Gaming)",
-      "ألترابوك والأعمال (Business)",
-      "شاشات وملحقات (Monitors)",
-      "وحدات تخزين وصوتيات (Accessories)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Gaming Rigs",
-      "Ultrabooks",
-      "Monitors",
-      "Accessories"
-    ],
-    "demoType": "ecommerce_tech",
-    "productsOrItems": [
-      {
-        "id": "lap-1",
-        "titleAr": "Asus ROG Strix SCAR 18",
-        "titleEn": "Asus ROG Strix SCAR 18 (2026)",
-        "categoryAr": "حواسيب الألعاب (Gaming)",
-        "categoryEn": "Gaming Rigs",
-        "price": 2450,
-        "originalPrice": 2699,
-        "rating": 4.9,
-        "reviewsCount": 38,
-        "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "معالج Intel Core i9-14900HX | كرت RTX 4080 12GB | رام 32GB DDR5 | قرص 2TB NVMe Gen4 | شاشة 240Hz Nebula",
-        "badgeAr": "الأكثر طلباً للألعاب 🔥",
-        "inStock": true
-      },
-      {
-        "id": "lap-2",
-        "titleAr": "Apple MacBook Pro 16\" (M3 Max)",
-        "titleEn": "MacBook Pro 16\" M3 Max Space Black",
-        "categoryAr": "ألترابوك والأعمال (Business)",
-        "categoryEn": "Ultrabooks",
-        "price": 3199,
-        "originalPrice": 3499,
-        "rating": 5,
-        "reviewsCount": 64,
-        "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "شريحة Apple M3 Max (16-core CPU, 40-core GPU) | ذاكرة موحدة 48GB | سعة 1TB SSD | شاشة Liquid Retina XDR",
-        "badgeAr": "قمة الإنتاجية ⚡",
-        "inStock": true
-      },
-      {
-        "id": "lap-3",
-        "titleAr": "Lenovo ThinkPad X1 Carbon Gen 12",
-        "titleEn": "ThinkPad X1 Carbon Gen 12 Ultra",
-        "categoryAr": "ألترابوك والأعمال (Business)",
-        "categoryEn": "Ultrabooks",
-        "price": 1850,
-        "originalPrice": 2050,
-        "rating": 4.8,
-        "reviewsCount": 22,
-        "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "Intel Core Ultra 7 155H مع معالجة ذكاء اصطناعي NPU | رام 32GB LPDDR5X | سعة 1TB SSD | وزن فائق الخفة 1.09 كجم",
-        "badgeAr": "خفيف وقوي",
-        "inStock": true
-      },
-      {
-        "id": "lap-4",
-        "titleAr": "شاشة Samsung Odyssey Neo G9 49\" Curved",
-        "titleEn": "Samsung Odyssey Neo G9 49\" OLED",
-        "categoryAr": "شاشات وملحقات (Monitors)",
-        "categoryEn": "Monitors",
-        "price": 1390,
-        "originalPrice": 1599,
-        "rating": 4.9,
-        "reviewsCount": 19,
-        "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "شاشة فائقة العرض 49 بوصة منحنية 1000R | دقة Dual QHD | تردد 240Hz مع زمن استجابة 0.03ms | منفذ HDMI 2.1",
-        "badgeAr": "تجربة سينمائية",
-        "inStock": true
-      },
-      {
-        "id": "lap-5",
-        "titleAr": "Dell XPS 15 OLED InfinityEdge",
-        "titleEn": "Dell XPS 15 9530 Creator Edition",
-        "categoryAr": "ألترابوك والأعمال (Business)",
-        "categoryEn": "Ultrabooks",
-        "price": 1980,
-        "originalPrice": 2199,
-        "rating": 4.7,
-        "reviewsCount": 31,
-        "image": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "Intel Core i7-13700H | كرت RTX 4060 8GB | رام 32GB | سعة 1TB SSD | شاشة لمس 3.5K OLED بألوان 100% DCI-P3",
-        "badgeAr": "لصناع المحتوى",
-        "inStock": true
-      },
-      {
-        "id": "lap-6",
-        "titleAr": "سماعة رأس SteelSeries Arctis Nova Pro Wireless",
-        "titleEn": "SteelSeries Arctis Nova Pro Wireless",
-        "categoryAr": "وحدات تخزين وصوتيات (Accessories)",
-        "categoryEn": "Accessories",
-        "price": 340,
-        "originalPrice": 380,
-        "rating": 4.9,
-        "reviewsCount": 45,
-        "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "صوت محيطي مكاني 360° | عزل ضوضاء هجين نشط ANC | بطاريتان قابلتان للتبديل السريع لا نهائي | اتصال مزدوج 2.4G و BT",
-        "badgeAr": "صوتيات نقية",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "demo-mens-fashion",
-    "slug": "mens-luxury-fashion",
-    "titleAr": "متجر ملابس وأزياء رجالية فاخرة",
-    "titleEn": "Sartorial & Co. — Men’s Luxury Apparel",
-    "brandNameAr": "سارتوريال آند كو (Sartorial & Co.)",
-    "brandNameEn": "Sartorial Luxury Tailors",
-    "industry": "ecommerce",
-    "industryLabelAr": "متجر إلكتروني / أزياء",
-    "industryLabelEn": "E-Commerce / Fashion",
-    "taglineAr": "الأناقة الإيطالية والبدل المفصلة بعناية لأصحاب الذوق الرفيع",
-    "taglineEn": "Mastercrafted Italian Tailoring & Modern Gentlemen Wear",
-    "shortDescAr": "متجر أزياء فاخر يتيح اختيار المقاسات (S/M/L/XL)، عينات الألوان التفاعلية، دليل المقاسات، وحقيبة تسوق سريعة.",
-    "shortDescEn": "High-end men’s fashion boutique featuring interactive size selectors, fabric & color swatches, lookbook, and cart.",
-    "themeColor": "#121214",
-    "accentColor": "#d4af37",
-    "badgeAr": "أزياء راقية فخمة",
-    "badgeEn": "Luxury Wardrobe",
-    "highlightsAr": [
-      "اختيار تفاعلي للمقاسات والألوان وتفاصيل الأقمشة",
-      "دليل مقاسات ذكي وسهل الاستخدام للعميل",
-      "حقيبة تسوق جانبية منزلقة مع حساب فوري للإجمالي",
-      "عرض لوك بوك متجدد مع صور عالية الدقة"
-    ],
-    "highlightsEn": [
-      "Interactive size and fabric color swatches",
-      "Smart interactive size chart guide",
-      "Sliding luxury shopping bag drawer",
-      "Curated editorial lookbook collection"
-    ],
-    "techStack": [
-      "Next.js React",
-      "Tailwind CSS",
-      "Apple Pay Ready",
-      "Multi-currency",
-      "Instagram Shop Sync"
-    ],
-    "turnaroundDays": "10–12 يوم",
-    "startingPriceUSD": 1100,
-    "previewImage": "/images/demo_menswear_store_1793730690614.jpg",
-    "whatsappMessage": "مرحباً باسكود، أرغب في بناء متجر ملابس وموضة راقية مشابه لنموذج (Sartorial & Co.) مع خيارات المقاسات والألوان وحقيبة الشراء.",
-    "categoriesAr": [
-      "الكل",
-      "بدل رسمية وسهرة (Suits)",
-      "قمصان إيطالية فاخرة (Shirts)",
-      "سترات كاجوال ومعاطف (Jackets)",
-      "أحذية وإكسسوارات جلدية (Leather)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Suits & Tuxedos",
-      "Italian Shirts",
-      "Blazers & Coats",
-      "Leather & Shoes"
-    ],
-    "demoType": "ecommerce_fashion",
-    "productsOrItems": [
-      {
-        "id": "fas-1",
-        "titleAr": "بدلة توسكانية مفصلة من الصوف الإيطالي الكحلي",
-        "titleEn": "Tuscan Wool Midnight Navy Suit",
-        "categoryAr": "بدل رسمية وسهرة (Suits)",
-        "categoryEn": "Suits & Tuxedos",
-        "price": 680,
-        "originalPrice": 790,
-        "rating": 5,
-        "reviewsCount": 29,
-        "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
-        "sizes": [
-          "48R",
-          "50R",
-          "52R",
-          "54R"
-        ],
-        "colors": [
-          "كحلي داكن",
-          "فحمي ملكي"
-        ],
-        "badgeAr": "قماش صوف سوبر 150s",
-        "inStock": true
-      },
-      {
-        "id": "fas-2",
-        "titleAr": "قميص قطن مصري ملكي أبيض بقصة سليم فت",
-        "titleEn": "Giza Egyptian Cotton White Shirt",
-        "categoryAr": "قمصان إيطالية فاخرة (Shirts)",
-        "categoryEn": "Italian Shirts",
-        "price": 135,
-        "originalPrice": 160,
-        "rating": 4.8,
-        "reviewsCount": 54,
-        "image": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
-        "sizes": [
-          "39 (15.5)",
-          "40 (16)",
-          "41 (16.5)",
-          "42 (17)"
-        ],
-        "colors": [
-          "أبيض ناصع",
-          "أزرق سماوي"
-        ],
-        "badgeAr": "مقاوم للتجاعيد",
-        "inStock": true
-      },
-      {
-        "id": "fas-3",
-        "titleAr": "سترة بليزر صوف مع كشمير بلون بيج رملي",
-        "titleEn": "Sand Beige Wool-Cashmere Blazer",
-        "categoryAr": "سترات كاجوال ومعاطف (Jackets)",
-        "categoryEn": "Blazers & Coats",
-        "price": 420,
-        "originalPrice": 480,
-        "rating": 4.9,
-        "reviewsCount": 18,
-        "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
-        "sizes": [
-          "48",
-          "50",
-          "52",
-          "54"
-        ],
-        "colors": [
-          "بيج رملي",
-          "رمادي دخاني"
-        ],
-        "badgeAr": "كاجوال فخم",
-        "inStock": true
-      },
-      {
-        "id": "fas-4",
-        "titleAr": "حذاء كلاسيكي أوكسفورد جلد عجل طبيعي بني داكن",
-        "titleEn": "Handmade Oxford Calfskin Shoes",
-        "categoryAr": "أحذية وإكسسوارات جلدية (Leather)",
-        "categoryEn": "Leather & Shoes",
-        "price": 260,
-        "originalPrice": 310,
-        "rating": 4.9,
-        "reviewsCount": 37,
-        "image": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=800&q=80",
-        "sizes": [
-          "41",
-          "42",
-          "43",
-          "44",
-          "45"
-        ],
-        "colors": [
-          "بني هافان",
-          "أسود كلاسيك"
-        ],
-        "badgeAr": "صناعة يدوية",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "demo-aviation",
-    "slug": "airline-and-travel",
-    "titleAr": "موقع شركة طيران وسياحة وحجوزات سفر",
-    "titleEn": "SkyHorizon Airlines & Global Travel Booking",
-    "brandNameAr": "سكاي هورايزون للطيران (SkyHorizon)",
-    "brandNameEn": "SkyHorizon Airways & Tours",
-    "industry": "booking",
+    "id": "aurelia-air",
+    "slug": "aurelia-air",
+    "titleAr": "بوابة حجز طيران وسياحة فاخرة (Aurelia Air)",
+    "titleEn": "Aurelia Air — Luxury Flight Booking & Fleet Portal",
+    "brandNameAr": "أوريليا إير (Aurelia Air)",
+    "brandNameEn": "Aurelia Air",
+    "industry": "aviation",
     "industryLabelAr": "طيران وسياحة / حجوزات",
     "industryLabelEn": "Aviation & Travel",
-    "taglineAr": "حلّق حول العالم برفاهية تفوق التوقعات وبأفضل عروض الرحلات",
-    "taglineEn": "Experience Extraordinary Flights and Tailored Global Journeys",
-    "shortDescAr": "محرك بحث متكامل عن رحلات الطيران (ذهاب وعودة/ذهاب فقط)، اختيار الدرجة وعدد المسافرين، وتأكيد حجز التذكرة فوراً.",
-    "shortDescEn": "Aviation platform featuring flight search widget (from/to/dates/class), live flight schedules, and instant booking summary.",
-    "themeColor": "#0c2340",
-    "accentColor": "#38bdf8",
-    "badgeAr": "محرك حجوزات طيران",
-    "badgeEn": "Flight Engine",
+    "taglineAr": "أجنحة درجة أولى، مقصورة رجال الأعمال، وإدارة أسطول ذكية",
+    "taglineEn": "Fly Beyond Ordinary — Lie-flat Suites & Michelin Dining",
+    "shortDescAr": "منصة طيران متكاملة تشمل محرك بحث رحلات حقيقي، حجز تذاكر بمستويات متعددة، إدارة الحجوزات، ولوحة تحكم تشغيلية للأسطول.",
+    "shortDescEn": "Full-scale aviation portal featuring live flight search, multi-class booking, reservation management, and admin ops console.",
+    "themeColor": "#0b1f3a",
+    "accentColor": "#c9a24b",
+    "badgeAr": "بوابة طيران متقدمة",
+    "badgeEn": "Aviation Portal",
     "highlightsAr": [
-      "محرك بحث عن الرحلات ذهاب وعودة مع اختيار عدد المسافرين والدرجة",
-      "استعراض مواعيد المغادرة والوصول والترانزيت والوزن المسموح",
-      "باقات عطلات سياحية متكاملة (طيران + فندق 5 نجوم)",
-      "نافذة تأكيد حجز إلكتروني فوري مع إرسال التفاصيل لواتساب"
+      "محرك بحث رحلات تفاعلي مع فلترة الوجهات ومواعيد المغادرة",
+      "نظام حجز تذاكر متعدد الفئات (Economy, Business, First)",
+      "لوحة تحكم إدارية للأسطول وتتبع الإيرادات وحركات الحجز",
+      "إمكانية إدارة وإلغاء الحجوزات مع حفظ البيانات محلياً"
     ],
     "highlightsEn": [
-      "Interactive flight route search with multi-passenger & cabin class",
-      "Live flight schedule display with transit times and baggage rules",
-      "Integrated holiday packages (Flight + 5-Star Resort)",
-      "Instant e-ticket reservation summary and WhatsApp notification"
+      "Interactive flight route search with live class pricing",
+      "Multi-cabin booking flow (Economy, Business, First)",
+      "Full operations dashboard with revenue analytics",
+      "Self-service booking management and instant confirmation"
     ],
     "techStack": [
-      "React Framework",
-      "Flight Search Engine",
-      "Amadeus/Sabre Integration Ready",
-      "Interactive Calendar",
-      "PDF E-Tickets"
+      "HTML5 / Vanilla JS",
+      "Tailwind & Flex Architecture",
+      "Live Search Engine",
+      "Admin Console",
+      "Local Persistence"
     ],
-    "turnaroundDays": "14–18 يوم",
+    "turnaroundDays": "10–14 يوم",
     "startingPriceUSD": 1600,
-    "previewImage": "/images/website_design_1790626826256.jpg",
-    "whatsappMessage": "مرحباً باسكود، أود تطوير منصة حجز طيران وسياحة مشابهة لنموذج (SkyHorizon) مع محرك البحث عن الرحلات وباقات السفر.",
-    "categoriesAr": [
-      "الكل",
-      "رحلات طيران مجدولة",
-      "باقات سياحية متكاملة",
-      "تأجير طائرات خاصة VIP",
-      "عروض اللحظة الأخيرة"
-    ],
-    "categoriesEn": [
-      "All",
-      "Scheduled Flights",
-      "Holiday Packages",
-      "VIP Private Jets",
-      "Last-Minute Deals"
-    ],
-    "demoType": "travel_airline",
-    "productsOrItems": [
-      {
-        "id": "flt-1",
-        "fromCityAr": "الرياض (RUH)",
-        "toCityAr": "لندن هيثرو (LHR)",
-        "departureTime": "02:40 ص",
-        "arrivalTime": "07:15 ص",
-        "flightNumber": "SH-204",
-        "duration": "6 ساعات و35 دقيقة",
-        "aircraft": "Boeing 787-9 Dreamliner",
-        "priceUSD": 640,
-        "baggage": "2 حقيبة × 23 كجم",
-        "type": "flight",
-        "classType": "درجة الضيافة الممتازة"
-      },
-      {
-        "id": "flt-2",
-        "fromCityAr": "دبي (DXB)",
-        "toCityAr": "طوكيو هانيدا (HND)",
-        "departureTime": "08:20 ص",
-        "arrivalTime": "22:40 م",
-        "flightNumber": "SH-881",
-        "duration": "9 ساعات و20 دقيقة",
-        "aircraft": "Airbus A350-1000",
-        "priceUSD": 980,
-        "baggage": "2 حقيبة × 32 كجم",
-        "type": "flight",
-        "classType": "درجة رجال الأعمال (Business)"
-      },
-      {
-        "id": "pkg-1",
-        "titleAr": "عطلة المالديف الملكية — 6 أيام في فيلا فوق الماء",
-        "titleEn": "Royal Maldives 6-Day Overwater Villa Escape",
-        "categoryAr": "باقات سياحية متكاملة",
-        "priceUSD": 1850,
-        "includes": "طيران ذهاب وعودة + منتجع 5 نجوم شامل الوجبات + طائرة مائية",
-        "image": "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80",
-        "type": "package",
-        "rating": 5
-      },
-      {
-        "id": "pkg-2",
-        "titleAr": "سحر سويسرا وإنترلاكن — 8 أيام في جبال الألب",
-        "titleEn": "Swiss Alps & Interlaken 8-Day Tour",
-        "categoryAr": "باقات سياحية متكاملة",
-        "priceUSD": 2200,
-        "includes": "طيران دولي + فنادق بانورامية + قطارات الألب وبطاقة Swiss Pass",
-        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-        "type": "package",
-        "rating": 4.9
-      }
-    ]
+    "previewImage": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80",
+    "templateUrl": "/templates/aurelia-air.html",
+    "whatsappMessage": "مرحباً باسكود، أريد طلب وتخصيص قالب بوابة حجز الطيران والسياحة (Aurelia Air) لشركتنا بسعر يبدأ من $1,600."
   },
   {
-    "id": "demo-restaurant",
-    "slug": "restaurant-and-cafe",
-    "titleAr": "موقع مطعم وكافيه مع منيو إلكتروني وحجز طاولات",
-    "titleEn": "Gourmet Bistro & Artisan Coffee Lounge",
-    "brandNameAr": "بيسترو لاونج (Gourmet Bistro)",
-    "brandNameEn": "Gourmet Bistro & Cafe",
-    "industry": "hospitality",
-    "industryLabelAr": "مطاعم وكافيهات / ضيافة",
-    "industryLabelEn": "Restaurant & Hospitality",
-    "taglineAr": "تذوق أشهى الأطباق المحضرة بأيدي أمهر الطهاة في أجواء فاخرة",
-    "taglineEn": "Artisanal Culinary Excellence and Specialty Coffee Culture",
-    "shortDescAr": "موقع مطعم حي يحتوي على قائمة طعام تفاعلية مصنفة (أطباق رئيسية، حلويات، قهوة)، وحجز طاولات مباشر، وسلة طلب مسبق.",
-    "shortDescEn": "Hospitality website featuring categorized digital menu, online table reservation system, and pickup ordering drawer.",
-    "themeColor": "#1c130e",
-    "accentColor": "#e07a5f",
-    "badgeAr": "منيو وحجوزات طاولات",
-    "badgeEn": "Bistro & Menu",
-    "highlightsAr": [
-      "منيو رقمي سريع ومتجاوب ومقسم حسب نوع الوجبات والمشروبات",
-      "نظام حجز طاولات إلكتروني يحدد عدد الضيوف، الموعد، والجلسة المفضلة",
-      "معلومات تفصيلية عن المكونات والسعرات الحرارية والعلامات الصحية",
-      "سلة طلب مسبق للاستلام الفوري من الفرع دون انتظار"
-    ],
-    "highlightsEn": [
-      "Fast responsive digital QR & online food menu",
-      "Online table booking specifying guest count, date, and seating area",
-      "Detailed calorie, allergy tags, and chef’s specials",
-      "Express takeaway pickup basket ordering"
-    ],
-    "techStack": [
-      "Interactive Menu Engine",
-      "Table Booking Calendar",
-      "QR Code Generator",
-      "WhatsApp Order Dispatch",
-      "Mobile-First UI"
-    ],
-    "turnaroundDays": "7–10 أيام",
-    "startingPriceUSD": 850,
-    "previewImage": "/images/hero_tech_setup_1790350296932.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد موقعاً وتطبيق ويب لمطعم أو كافيه مثل نموذج (Gourmet Bistro) مع منيو إلكتروني ونظام حجز طاولات.",
-    "categoriesAr": [
-      "الكل",
-      "الأطباق الرئيسية (Mains)",
-      "المقبلات والشوربات (Appetizers)",
-      "البيتزا والباستا الإيطالية (Italian)",
-      "الحلويات الفاخرة (Desserts)",
-      "القهوة المختصة والمشروبات (Coffee)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Mains",
-      "Appetizers",
-      "Italian",
-      "Desserts",
-      "Specialty Coffee"
-    ],
-    "demoType": "restaurant_bistro",
-    "productsOrItems": [
-      {
-        "id": "res-1",
-        "titleAr": "ستيك ريب آي أنجوس بلاك تندرلوين 300 غرام",
-        "titleEn": "Black Angus Prime Ribeye Steak",
-        "categoryAr": "الأطباق الرئيسية (Mains)",
-        "categoryEn": "Mains",
-        "price": 48,
-        "calories": "680 ك.سعر",
-        "rating": 5,
-        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
-        "descAr": "لحم أنجوس مشوي على الفحم مع زبدة الأعشاب البرية، خضار سوتيه، وصلصة الفلفل الأسود والكمأة.",
-        "badgeAr": "اختيار الشيف 🌟"
-      },
-      {
-        "id": "res-2",
-        "titleAr": "ريزوتو الفطر البري وزيت الكمأة البيضاء",
-        "titleEn": "Wild Mushroom & Truffle Risotto",
-        "categoryAr": "البيتزا والباستا الإيطالية (Italian)",
-        "categoryEn": "Italian",
-        "price": 32,
-        "calories": "520 ك.سعر",
-        "rating": 4.8,
-        "image": "https://images.unsplash.com/photo-1633964913295-ceb43826e7c9?auto=format&fit=crop&w=800&q=80",
-        "descAr": "أرز أربوريو إيطالي مع مزيج فطر البورسيني الطازج، جبن بارميجيانو ريجانو معتق 24 شهراً.",
-        "badgeAr": "نباتي فاخر"
-      },
-      {
-        "id": "res-3",
-        "titleAr": "تيراميسو ماسكاربوني كلاسيكي بالنكهة الأصلية",
-        "titleEn": "Authentic Mascarpone Tiramisu",
-        "categoryAr": "الحلويات الفاخرة (Desserts)",
-        "categoryEn": "Desserts",
-        "price": 18,
-        "calories": "390 ك.سعر",
-        "rating": 4.9,
-        "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80",
-        "descAr": "بسكويت سافوياردي منقوع في إسبريسو مختص مع كريمة الماسكاربوني المخملية ورشة كاكاو بلجيكي.",
-        "badgeAr": "حلوى مميزة"
-      },
-      {
-        "id": "res-4",
-        "titleAr": "فلات وايت بحبوب بن إثيوبية ييرغاتشيف",
-        "titleEn": "Single-Origin Ethiopian Flat White",
-        "categoryAr": "القهوة المختصة والمشروبات (Coffee)",
-        "categoryEn": "Specialty Coffee",
-        "price": 7.5,
-        "calories": "110 ك.سعر",
-        "rating": 5,
-        "image": "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=800&q=80",
-        "descAr": "دبل شوت إسبريسو غني بإيحاءات التوت والياسمين مع حليب مبخر برغوة مخملية فائقة النعومة.",
-        "badgeAr": "قهوة مختصة ☕"
-      }
-    ]
-  },
-  {
-    "id": "demo-perfumes",
-    "slug": "perfumes-and-cosmetics",
-    "titleAr": "متجر عطور ملكية ومستحضرات تجميل فاخرة",
-    "titleEn": "Oud & Silk — Haute Parfumerie & Luxury Cosmetics",
-    "brandNameAr": "عود آند سيلك (Oud & Silk)",
-    "brandNameEn": "Oud & Silk Parfums",
+    "id": "novatech-electronics",
+    "slug": "novatech-electronics",
+    "titleAr": "متجر إلكترونيات وأجهزة ذكية احترافي (NOVATECH)",
+    "titleEn": "NOVATECH — Premium Electronics & Hardware Store",
+    "brandNameAr": "نوفاتيك (NOVATECH)",
+    "brandNameEn": "NOVATECH",
     "industry": "ecommerce",
-    "industryLabelAr": "متجر إلكتروني / عطور وتجميل",
-    "industryLabelEn": "E-Commerce / Perfumes",
-    "taglineAr": "نفحات ملكية ساحرة تمزج أصالة العود الشرقي برقي العطور الباريسية",
-    "taglineEn": "Royal Oriental Ouds and Exquisite Parisian Niche Fragrances",
-    "shortDescAr": "متجر عطور فاخر يستعرض هرم النوتات العطرية (قمة، قلب، قاعدة)، خيارات الحجم (50ml/100ml)، وتغليف الهدايا الملكي.",
-    "shortDescEn": "Luxury fragrance storefront featuring fragrance pyramid notes, bottle size options, complimentary gift packaging, and checkout.",
-    "themeColor": "#0e1713",
-    "accentColor": "#10b981",
-    "badgeAr": "عطور نيش ملكية",
-    "badgeEn": "Royal Perfumery",
-    "highlightsAr": [
-      "عرض هرم النوتات العطرية التفاعلي (مقدمة، قلب، وقاعدة العطر)",
-      "اختيار الحجم (50 مل، 100 مل، 200 مل) مع تحديث السعر الفوري",
-      "خيار إضافة تغليف هدايا ملكي مجاني مع بطاقة إهداء مخصصة",
-      "تصميم فاخر بألوان الذهب الوردي والأخضر الزمردي الراقي"
-    ],
-    "highlightsEn": [
-      "Interactive fragrance olfactory pyramid (Top, Heart, Base)",
-      "Multi-size volume selector with dynamic price recalculation",
-      "Complimentary royal gift packaging & custom dedication card",
-      "Sophisticated emerald green and gold luxury aesthetics"
-    ],
-    "techStack": [
-      "React Storefront",
-      "Fragrance Note Pyramid UI",
-      "Gift Customizer",
-      "Secure Checkout",
-      "Tamara / Tabby Ready"
-    ],
-    "turnaroundDays": "10–12 يوم",
-    "startingPriceUSD": 1150,
-    "previewImage": "/images/demo_perfume_store_1793730690778.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد تصميم وتطوير متجر عطور ومستحضرات تجميل راقي مشابه لنموذج (Oud & Silk) مع هرم النوتات وخيارات التغليف.",
-    "categoriesAr": [
-      "الكل",
-      "دهن العود والخلطات الملكية (Oud)",
-      "عطور النيش الفرنسية (French Niche)",
-      "عطور الشعر والجسم (Body & Hair)",
-      "مجموعات وبوكسات الهدايا (Gift Sets)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Royal Ouds",
-      "French Niche",
-      "Hair & Body Mists",
-      "Luxury Gift Sets"
-    ],
-    "demoType": "perfumes_cosmetics",
-    "productsOrItems": [
-      {
-        "id": "prf-1",
-        "titleAr": "عطر العود الملكي المعتّق (Royal Oud Extrait de Parfum)",
-        "titleEn": "Royal Aged Oud Extrait 100ml",
-        "categoryAr": "دهن العود والخلطات الملكية (Oud)",
-        "categoryEn": "Royal Ouds",
-        "price": 240,
-        "originalPrice": 290,
-        "rating": 5,
-        "reviewsCount": 82,
-        "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80",
-        "topNotes": "البرغموت الإيطالي، الزعفران الكشميري",
-        "heartNotes": "الورد الدمشقي، خشب الصندل الميسوري",
-        "baseNotes": "خشب العود الكمبودي المعتق 25 سنة، العنبر الملكي والمسك الأبيض",
-        "badgeAr": "الأكثر مبيعاً 👑",
-        "inStock": true
-      },
-      {
-        "id": "prf-2",
-        "titleAr": "عطر مسك الحرير والزهور البيضاء (Silk Musk Niche)",
-        "titleEn": "Silk & White Floral Musk 100ml",
-        "categoryAr": "عطور النيش الفرنسية (French Niche)",
-        "categoryEn": "French Niche",
-        "price": 180,
-        "originalPrice": 210,
-        "rating": 4.9,
-        "reviewsCount": 46,
-        "image": "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80",
-        "topNotes": "زهر البرتقال، الكمثرى الفرنسية",
-        "heartNotes": "الياسمين الغرناطي، الفاوانيا البيضاء",
-        "baseNotes": "المسك الحريري الصافي، الفانيليا المدغشقرية",
-        "badgeAr": "نفحات صيفية منعشة",
-        "inStock": true
-      },
-      {
-        "id": "prf-3",
-        "titleAr": "سيروم الذهب والكولاجين للنضارة الفائقة",
-        "titleEn": "24K Pure Gold & Collagen Radiance Serum",
-        "categoryAr": "عطور الشعر والجسم (Body & Hair)",
-        "categoryEn": "Hair & Body Mists",
-        "price": 95,
-        "originalPrice": 120,
-        "rating": 4.8,
-        "reviewsCount": 39,
-        "image": "https://images.unsplash.com/photo-1608248597359-5633b4974a62?auto=format&fit=crop&w=800&q=80",
-        "topNotes": "رقائق ذهب نقي عيار 24",
-        "heartNotes": "حمض الهيالورونيك الثلاثي",
-        "baseNotes": "فيتامين C وببتيدات التجديد الخلوي",
-        "badgeAr": "عناية فائقة بالبشرة",
-        "inStock": true
-      },
-      {
-        "id": "prf-4",
-        "titleAr": "صندوق الهدايا الإمبراطوري الفاخر (3 عطور مع دهن عود)",
-        "titleEn": "Imperial Luxury Velvet Gift Box",
-        "categoryAr": "مجموعات وبوكسات الهدايا (Gift Sets)",
-        "categoryEn": "Luxury Gift Sets",
-        "price": 390,
-        "originalPrice": 460,
-        "rating": 5,
-        "reviewsCount": 61,
-        "image": "https://images.unsplash.com/photo-1583445013765-46c20c4a6772?auto=format&fit=crop&w=800&q=80",
-        "topNotes": "صندوق مخملي أنيق محفور بالذهب",
-        "heartNotes": "يحتوي على عطرين نيش + تولة دهن عود تراد معتق",
-        "baseNotes": "مرفق بمبخرة كريستال فاخرة وبطاقة تهنئة مذهبة",
-        "badgeAr": "هدية كبار الشخصيات VIP",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "demo-realestate",
-    "slug": "real-estate-platform",
-    "titleAr": "منصة عقارات واستثمار سكني وتجاري",
-    "titleEn": "PrimeEstate — Luxury Real Estate & Investment Portal",
-    "brandNameAr": "برايم العقارية (PrimeEstate)",
-    "brandNameEn": "PrimeEstate Properties",
-    "industry": "realestate",
-    "industryLabelAr": "عقارات واستثمار / وساطة",
-    "industryLabelEn": "Real Estate / Property",
-    "taglineAr": "امتلك واستثمر في أرقى الفلل والأبراج السكنية والتجارية بعوائد مجزية",
-    "taglineEn": "Connecting Discerning Buyers to Exceptional Architectural Properties",
-    "shortDescAr": "بوابة عقارية متطورة بفلترة دقيقة (شراء/إيجار، نوع العقار، عدد الغرف، السعر)، ومعاينة ثلاثية الأبعاد، وحجز موعد معاينة ميدانية.",
-    "shortDescEn": "Comprehensive property portal with purpose switcher (Buy/Rent), city & room filters, virtual tour preview, and tour booking.",
-    "themeColor": "#0b192c",
-    "accentColor": "#1e3a8a",
-    "badgeAr": "بوابة عقارية متكاملة",
-    "badgeEn": "Property Portal",
-    "highlightsAr": [
-      "فلترة متقدمة حسب الغرض (شراء أو استئجار)، نوع العقار، والمدينة",
-      "عرض تفاصيل الغرف والمساحة بالمتر المربع ومخطط العقار Floor Plan",
-      "نموذج حجز موعد معاينة ميدانية أو استشارة عقارية مجانية",
-      "حاسبة التمويل والقسط الشهري التقديري للعميل"
-    ],
-    "highlightsEn": [
-      "Advanced filters by Purpose (Buy/Rent), Property Type, and City",
-      "Detailed floor plans, square meterage, and luxury amenities breakdown",
-      "Direct schedule private viewing tour inquiry form",
-      "Interactive mortgage and monthly installment estimation calculator"
-    ],
-    "techStack": [
-      "Mapbox / Google Maps API Ready",
-      "Interactive Floorplan Viewer",
-      "CRM Lead Generation",
-      "WhatsApp Broker Routing",
-      "Virtual Tour Ready"
-    ],
-    "turnaroundDays": "14–18 يوم",
-    "startingPriceUSD": 1750,
-    "previewImage": "/images/demo_realestate_platform_1793730690924.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد إنشاء منصة عقارية مشابهة لنموذج (PrimeEstate) لعرض الفلل والمشاريع السكنية وحجز المعاينات.",
-    "categoriesAr": [
-      "الكل",
-      "فلل وقصور مستقلة (Villas)",
-      "شقق بنتهاوس فاخرة (Penthouses)",
-      "أبراج ومكاتب تجارية (Commercial)",
-      "عقارات على المخطط (Off-Plan)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Luxury Villas",
-      "Penthouses",
-      "Commercial Offices",
-      "Off-Plan Projects"
-    ],
-    "demoType": "real_estate",
-    "productsOrItems": [
-      {
-        "id": "est-1",
-        "titleAr": "فيلا القصر الأندلسي المطلة على البحيرة",
-        "titleEn": "Palatial Lakeside Andalusian Villa",
-        "categoryAr": "فلل وقصور مستقلة (Villas)",
-        "categoryEn": "Luxury Villas",
-        "priceUSD": 1650000,
-        "purpose": "شراء (For Sale)",
-        "cityAr": "دبي — تلال الإمارات",
-        "bedrooms": 6,
-        "bathrooms": 7,
-        "areaSqM": 850,
-        "image": "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": "مسبح إنفينيتي خاص | مصعد داخلي | حديقة استوائية | سينما خاصة | كراج لـ 4 سيارات",
-        "badgeAr": "جاهز للسكن الفوري"
-      },
-      {
-        "id": "est-2",
-        "titleAr": "بنتهاوس السماء البانورامي برج النخبة",
-        "titleEn": "Skyline Panoramic Penthouse 54th Floor",
-        "categoryAr": "شقق بنتهاوس فاخرة (Penthouses)",
-        "categoryEn": "Penthouses",
-        "priceUSD": 890000,
-        "purpose": "شراء (For Sale)",
-        "cityAr": "الرياض — حي الصحافة",
-        "bedrooms": 4,
-        "bathrooms": 5,
-        "areaSqM": 420,
-        "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": "إطلالة بانورامية 360° | تراس مع جاكوزي معلق | نظام منزل ذكي بالكامل | حراسة 24/7",
-        "badgeAr": "إطلالة خيالية 🌇"
-      },
-      {
-        "id": "est-3",
-        "titleAr": "مقر مكتبي تنفيذي للأعمال في برج الأبراج",
-        "titleEn": "Grade-A Executive Commercial Headquarters",
-        "categoryAr": "أبراج ومكاتب تجارية (Commercial)",
-        "categoryEn": "Commercial Offices",
-        "priceUSD": 75000,
-        "purpose": "إيجار سنوي (For Rent)",
-        "cityAr": "مسقط — الحي الدبلوماسي",
-        "bedrooms": 10,
-        "bathrooms": 4,
-        "areaSqM": 600,
-        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": "غرف اجتماعات ذكية | قاعات مؤتمرات مجهزة | مواقف خاصة محجوزة | خدمات أمن وصيانة",
-        "badgeAr": "موقع استراتيجي"
-      }
-    ]
-  },
-  {
-    "id": "demo-corporate",
-    "slug": "corporate-consulting",
-    "titleAr": "موقع شركة خدمات وأعمال واستشارات إدارية",
-    "titleEn": "Nexus Global Advisory — Corporate Services",
-    "brandNameAr": "نكسوس للاستشارات (Nexus Advisory)",
-    "brandNameEn": "Nexus Global Advisory",
-    "industry": "corporate",
-    "industryLabelAr": "شركات وخدمات / استشارات",
-    "industryLabelEn": "Corporate / Consulting",
-    "taglineAr": "نُمكّن المؤسسات والشركات الرائدة من التوسع وتحقيق التحول الرقمي المستدام",
-    "taglineEn": "Empowering Enterprise Leadership Through Strategic Innovation & Digital Agility",
-    "shortDescAr": "موقع مؤسسي رسمي يعرض باقات الخدمات، دراسات الحالة الموثقة مع مؤشرات العائد، وحاسبة تقدير ميزانية المشاريع.",
-    "shortDescEn": "Enterprise corporate portal featuring consultancy services, case studies with ROI metrics, and interactive project scope estimator.",
-    "themeColor": "#0f172a",
-    "accentColor": "#2563eb",
-    "badgeAr": "موقع مؤسسي رسمي",
-    "badgeEn": "Corporate Portal",
-    "highlightsAr": [
-      "عرض احترافي لمجالات الاستشارات الإدارية والمالية والتقنية",
-      "حاسبة تفاعلية لتقدير ميزانية ونطاق المشروع والمدة الزمنية",
-      "سجل دراسات الحالة وأرقام العائد الاستثماري المحقق للعملاء",
-      "نموذج طلب اجتماع استشاري أولي مع خبراء الشركة"
-    ],
-    "highlightsEn": [
-      "Comprehensive showcase of strategic, financial, and digital services",
-      "Interactive project scope, budget, and timeline estimator widget",
-      "Proven client case studies with verified efficiency metrics",
-      "Direct executive consultation request booking form"
-    ],
-    "techStack": [
-      "Next.js Corporate Stack",
-      "Interactive Scope Estimator",
-      "B2B Lead Funnels",
-      "Multi-Language Ready",
-      "High-Trust Typography"
-    ],
-    "turnaroundDays": "8–12 يوم",
-    "startingPriceUSD": 950,
-    "previewImage": "/images/admin_dashboard_system_1790353158282.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد موقعاً تعريفياً واحترافياً لشركة أعمال واستشارات مثل نموذج (Nexus Advisory) مع حاسبة المشاريع والخدمات.",
-    "categoriesAr": [
-      "الكل",
-      "الاستشارات الاستراتيجية (Strategy)",
-      "التحول الرقمي والتقنية (Digital)",
-      "الحوكمة والمخاطر (Governance)",
-      "دراسات الجدوى والاستثمار (Investment)"
-    ],
-    "categoriesEn": [
-      "All",
-      "Strategic Advisory",
-      "Digital Transformation",
-      "Risk & Governance",
-      "Feasibility & Investment"
-    ],
-    "demoType": "corporate_consulting",
-    "productsOrItems": [
-      {
-        "id": "srv-1",
-        "titleAr": "استراتيجيات إعادة الهيكلة والتوسع الإقليمي",
-        "titleEn": "Corporate Restructuring & Market Expansion",
-        "categoryAr": "الاستشارات الاستراتيجية (Strategy)",
-        "categoryEn": "Strategic Advisory",
-        "durationWeeks": "6–8 أسابيع",
-        "estimatedBudget": "$4,500 – $8,000",
-        "impactMetric": "+45% نمو في الإيرادات",
-        "descAr": "تحليل هيكل الأعمال وسلاسل الإمداد وبناء خطط توسع تنافسية في أسواق الخليج والشرق الأوسط مع تدريب الإدارة التنفيذية."
-      },
-      {
-        "id": "srv-2",
-        "titleAr": "خارطة طريق التحول الرقمي وأتمتة العمليات (Digital Roadmap)",
-        "titleEn": "Enterprise Digital Transformation Roadmap",
-        "categoryAr": "التحول الرقمي والتقنية (Digital)",
-        "categoryEn": "Digital Transformation",
-        "durationWeeks": "8–12 أسبوع",
-        "estimatedBudget": "$6,000 – $12,000",
-        "impactMetric": "تخفيض تكاليف التشغيل 32%",
-        "descAr": "ربط أنظمة الـ ERP والحوسبة السحابية مع دمج حلول الذكاء الاصطناعي للأعمال لرفع كفاءة وسرعة إنجاز المعاملات بنسبة 100%."
-      },
-      {
-        "id": "srv-3",
-        "titleAr": "تدقيق الحوكمة والامتثال وإدارة المخاطر المؤسسية",
-        "titleEn": "Corporate Governance & Risk Audit",
-        "categoryAr": "الحوكمة والمخاطر (Governance)",
-        "categoryEn": "Risk & Governance",
-        "durationWeeks": "4–6 أسابيع",
-        "estimatedBudget": "$3,800 – $6,500",
-        "impactMetric": "مطابقة 100% مع الأنظمة الحكومية",
-        "descAr": "مراجعة السياسات واللوائح الداخلية وتطبيق معايير مكافحة المخاطر وتأمين أصول الشركة وحقوق المساهمين."
-      }
-    ]
-  },
-  {
-    "id": "demo-smartphones",
-    "slug": "smartphones-gadgets-store",
-    "titleAr": "متجر هواتف ذكية وأجهزة وإلكترونيات استهلاكية",
-    "titleEn": "ElectroHub — Flagship Smartphones & Smart Gear",
-    "brandNameAr": "إلكتروهب (ElectroHub)",
-    "brandNameEn": "ElectroHub Smart Devices",
-    "industry": "ecommerce",
-    "industryLabelAr": "متجر إلكتروني / هواتف وأجهزة",
-    "industryLabelEn": "E-Commerce / Gadgets",
-    "taglineAr": "أحدث الهواتف الذكية العالمية والساعات والإكسسوارات مع ضمان معتمد",
-    "taglineEn": "The Next Generation of Smartphones, Wearables & Smart Gadgets",
-    "shortDescAr": "متجر هواتف متطور بخيارات سعة التخزين (128GB/256GB/512GB)، ومحدد الألوان، وباقات العروض وحساب الخصم الفوري.",
-    "shortDescEn": "Dynamic mobile store featuring storage size selectors, finish colors, trade-in calculator, and instant checkout drawer.",
-    "themeColor": "#0b0f19",
-    "accentColor": "#6366f1",
-    "badgeAr": "متجر أجهزة ذكية",
-    "badgeEn": "Smartphones Store",
-    "highlightsAr": [
-      "محدد سعة التخزين (128GB, 256GB, 512GB, 1TB) مع تحديث السعر آنياً",
-      "اختيار ألوان الهيكل والأجهزة مع معاينة مرئية متطابقة",
-      "حاسبة استبدال الأجهزة القديمة التقديرية (Trade-in Estimator)",
-      "سلة تسوق سريعة مع عروض حزم الملحقات والإكسسوارات بخصم إضافي"
-    ],
-    "highlightsEn": [
-      "Interactive storage selector (128GB, 256GB, 512GB, 1TB) with live pricing",
-      "Device finish and color swatch visual switcher",
-      "Instant device Trade-in value estimator",
-      "Quick checkout drawer with discounted bundle accessories cross-sell"
-    ],
-    "techStack": [
-      "Next.js React Store",
-      "Dynamic Device Configurator",
-      "Tabby & Tamara Split Pay",
-      "Fast Delivery Tracker",
-      "Stock Notifications"
-    ],
-    "turnaroundDays": "10–14 يوم",
-    "startingPriceUSD": 1250,
-    "previewImage": "/images/mobile_app_mockup_1790353144799.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد تطوير متجر هواتف ذكية وأجهزة إلكترونية مشابه لنموذج (ElectroHub) مع ميزات اختيار السعات والألوان وحزم الملحقات.",
-    "categoriesAr": [
-      "الكل",
-      "هواتف آيفون الرائدة (iPhone)",
-      "هواتف سامسونج فلاجشيب (Samsung Galaxy)",
-      "ساعات ذكية وسوارات (Smartwatches)",
-      "شواحن واكسسوارات أصلية (Accessories)"
-    ],
-    "categoriesEn": [
-      "All",
-      "iPhones",
-      "Galaxy Flagships",
-      "Smartwatches",
-      "Audio & Chargers"
-    ],
-    "demoType": "ecommerce_smartphones",
-    "productsOrItems": [
-      {
-        "id": "phn-1",
-        "titleAr": "iPhone 16 Pro Max — تيتانيوم صحراوي",
-        "titleEn": "iPhone 16 Pro Max Desert Titanium",
-        "categoryAr": "هواتف آيفون الرائدة (iPhone)",
-        "categoryEn": "iPhones",
-        "basePrice": 1199,
-        "storageOptions": [
-          {
-            "size": "256GB",
-            "price": 1199
-          },
-          {
-            "size": "512GB",
-            "price": 1399
-          },
-          {
-            "size": "1TB",
-            "price": 1599
-          }
-        ],
-        "colors": [
-          "تيتانيوم صحراوي",
-          "تيتانيوم طبيعي",
-          "تيتانيوم أسود"
-        ],
-        "rating": 5,
-        "reviewsCount": 112,
-        "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "شريحة A18 Pro مع ذكاء Apple Intelligence | كاميرا فيوجن 48MP مع تقريب 5x | زر التحكم بالكاميرا الجديد",
-        "badgeAr": "الأحدث والأقوى 🔥",
-        "inStock": true
-      },
-      {
-        "id": "phn-2",
-        "titleAr": "Samsung Galaxy S24 Ultra — تيتانيوم رمادي",
-        "titleEn": "Samsung Galaxy S24 Ultra AI Edition",
-        "categoryAr": "هواتف سامسونج فلاجشيب (Samsung Galaxy)",
-        "categoryEn": "Galaxy Flagships",
-        "basePrice": 1150,
-        "storageOptions": [
-          {
-            "size": "256GB",
-            "price": 1150
-          },
-          {
-            "size": "512GB",
-            "price": 1290
-          },
-          {
-            "size": "1TB",
-            "price": 1480
-          }
-        ],
-        "colors": [
-          "تيتانيوم رمادي",
-          "تيتانيوم بنفسجي",
-          "تيتانيوم أسود"
-        ],
-        "rating": 4.9,
-        "reviewsCount": 89,
-        "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "معالج Snapdragon 8 Gen 3 مع Galaxy AI | قلم S Pen مدمج | كاميرا 200MP مع تقريب 100x | شاشة مسطحة مقاومة للانعكاس",
-        "badgeAr": "ذكاء اصطناعي ثوري 🤖",
-        "inStock": true
-      },
-      {
-        "id": "phn-3",
-        "titleAr": "Apple Watch Ultra 2 — تيتانيوم أسود مع حزام المحيط",
-        "titleEn": "Apple Watch Ultra 2 Black Titanium",
-        "categoryAr": "ساعات ذكية وسوارات (Smartwatches)",
-        "categoryEn": "Smartwatches",
-        "basePrice": 799,
-        "storageOptions": [
-          {
-            "size": "49mm GPS + Cellular",
-            "price": 799
-          }
-        ],
-        "colors": [
-          "تيتانيوم أسود",
-          "تيتانيوم أصلي"
-        ],
-        "rating": 4.9,
-        "reviewsCount": 42,
-        "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "هيكل تيتانيوم عالي الصلابة 49 مم | شاشة 3000 شمعة ساطعة تحت الشمس | بطارية تدوم حتى 72 ساعة | مقاومة ماء حتى عمق 100م",
-        "badgeAr": "للمغامرات الصعبة",
-        "inStock": true
-      },
-      {
-        "id": "phn-4",
-        "titleAr": "سماعات AirPods Pro 2 مع علبة MagSafe USB-C",
-        "titleEn": "AirPods Pro 2 Active Noise Cancellation",
-        "categoryAr": "شواحن واكسسوارات أصلية (Accessories)",
-        "categoryEn": "Audio & Chargers",
-        "basePrice": 249,
-        "storageOptions": [
-          {
-            "size": "قياسي USB-C",
-            "price": 249
-          }
-        ],
-        "colors": [
-          "أبيض ناصع"
-        ],
-        "rating": 4.8,
-        "reviewsCount": 130,
-        "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "عزل ضوضاء نشط مضاعف مع ميزة الصوت التكيفي | ميزة فحص السمع السريرية | بطارية تدوم 30 ساعة مع العلبة",
-        "badgeAr": "عزل فائق 🎧",
-        "inStock": true
-      }
-    ]
-  },
-  {
-    "id": "demo-medical",
-    "slug": "medcare-clinics-portal",
-    "titleAr": "مجمع عيادات واستشارات طبية وحجز مواعيد تخصصية",
-    "titleEn": "MedCare — Specialist Health & Clinic Portal",
-    "brandNameAr": "مركز الرعاية التخصصي (MedCare)",
-    "brandNameEn": "MedCare Medical Center",
-    "industry": "medical",
-    "industryLabelAr": "بوابة طبية / عيادات وحجوزات",
-    "industryLabelEn": "Medical / Healthcare Portal",
-    "taglineAr": "رعاية سريرية معتمدة مع حجز فوري للمواعيد واستشارات طبية متقدمة",
-    "taglineEn": "Certified Clinical Care, Live Slot Booking & Telehealth",
-    "shortDescAr": "منصة طبية تفاعلية تتيح تصفح الأطباء والاستشاريين بحسب التخصص، وحجز مواعيد الكشف، وتأكيد الحجز فوراً عبر واتساب.",
-    "shortDescEn": "Complete medical hub with doctor directory, department filtering, live calendar appointment booking, and WhatsApp confirmations.",
-    "themeColor": "#0369a1",
-    "accentColor": "#0284c7",
-    "badgeAr": "منصة طبية معتمدة 🩺",
-    "badgeEn": "Certified Healthcare",
-    "highlightsAr": [
-      "دليل أطباء تفاعلي مصنف حسب التخصصات (قلب، جلدية، أسنان، أطفال)",
-      "نظام حجز مواعيد دقيق مع اختيار اليوم والتوقيت المتاح",
-      "ملف تفصيلي لكل طبيب يشمل الخبرات والمؤهلات والتقييم",
-      "إشعار حجز فوري عبر واتساب للعيادة والمريض"
-    ],
-    "highlightsEn": [
-      "Interactive doctor directory by medical specialty",
-      "Precision appointment booking with date & slot selection",
-      "Detailed physician credentials, background, and ratings",
-      "Instant WhatsApp booking confirmation for patient & clinic"
-    ],
-    "techStack": [
-      "Next.js / React",
-      "Tailwind CSS",
-      "Calendar Slots Engine",
-      "HIPAA Ready UI",
-      "Direct WhatsApp Dispatch"
-    ],
-    "turnaroundDays": "7–10 أيام",
-    "startingPriceUSD": 850,
-    "previewImage": "/images/admin_dashboard_system_1790353158282.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد موقعاً مشابهاً لنموذج مجمع العيادات الطبية (MedCare) مع نظام حجز المواعيد وتصنيف الأطباء.",
-    "categoriesAr": [
-      "الكل",
-      "طب وجراحة القلب",
-      "الجلدية والليزر",
-      "طب وجراحة الأسنان",
-      "طب الأطفال وحديثي الولادة",
-      "الاستشارات الباطنية"
-    ],
-    "categoriesEn": [
-      "All",
-      "Cardiology",
-      "Dermatology",
-      "Dentistry",
-      "Pediatrics",
-      "Internal Medicine"
-    ],
-    "demoType": "medical_clinic",
-    "productsOrItems": [
-      {
-        "id": "doc-1",
-        "titleAr": "د. طارق الرشيد — استشاري جراحة القلب والأوعية الدموية",
-        "titleEn": "Dr. Tariq Al-Rasheed — Consultant Cardiologist",
-        "departmentAr": "طب وجراحة القلب",
-        "experience": "18 سنة خبرة سريرية",
-        "rating": 4.9,
-        "reviewsCount": 142,
-        "consultationFee": 75,
-        "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
-        "availableDays": [
-          "الأحد",
-          "الثلاثاء",
-          "الخميس"
-        ],
-        "availableSlots": [
-          "10:00 ص",
-          "11:30 ص",
-          "04:00 م",
-          "05:30 م"
-        ],
-        "badgeAr": "استشاري أول 🏆",
-        "bioAr": "زميل الكلية الملكية للأطباء، متخصص في القسطرة القلبية التداخلية والعناية القلبية الفائقة."
-      },
-      {
-        "id": "doc-2",
-        "titleAr": "د. سارة الكاظمي — استشارية الجلدية والعلاج بالليزر",
-        "titleEn": "Dr. Sarah Al-Kadhimi — Consultant Dermatologist",
-        "departmentAr": "الجلدية والليزر",
-        "experience": "12 سنة خبرة",
-        "rating": 4.95,
-        "reviewsCount": 210,
-        "consultationFee": 60,
-        "image": "https://images.unsplash.com/photo-1594824813689-d4d12c8b01a7?auto=format&fit=crop&w=800&q=80",
-        "availableDays": [
-          "السبت",
-          "الاثنين",
-          "الأربعاء"
-        ],
-        "availableSlots": [
-          "01:00 م",
-          "02:30 م",
-          "06:00 م",
-          "07:30 م"
-        ],
-        "badgeAr": "الأعلى تقييماً ⭐",
-        "bioAr": "البورد الأمريكي في طب الجلدية التجميلي وتطبيقات الليزر المتقدمة وعلاج التصبغات."
-      },
-      {
-        "id": "doc-3",
-        "titleAr": "د. زياد المهندس — استشاري زراعة وتجميل الأسنان",
-        "titleEn": "Dr. Ziad Al-Muhandis — Cosmetic Dental Surgeon",
-        "departmentAr": "طب وجراحة الأسنان",
-        "experience": "15 سنة خبرة",
-        "rating": 4.88,
-        "reviewsCount": 185,
-        "consultationFee": 50,
-        "image": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80",
-        "availableDays": [
-          "يومياً ما عدا الجمعة"
-        ],
-        "availableSlots": [
-          "11:00 ص",
-          "03:00 م",
-          "05:00 م",
-          "07:00 م"
-        ],
-        "badgeAr": "ابتسامة المشاهير 💎",
-        "bioAr": "عضو الجمعية الدولية لزراعة الأسنان، تقنيات فينير رقمية دقيقة بدون ألم."
-      },
-      {
-        "id": "doc-4",
-        "titleAr": "د. ميساء العبيدي — استشارية طب الأطفال والتغذية العلاجية",
-        "titleEn": "Dr. Maysaa Al-Obeidi — Senior Pediatric Consultant",
-        "departmentAr": "طب الأطفال وحديثي الولادة",
-        "experience": "14 سنة خبرة",
-        "rating": 4.92,
-        "reviewsCount": 164,
-        "consultationFee": 55,
-        "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-        "availableDays": [
-          "الأحد",
-          "الاثنين",
-          "الأربعاء",
-          "الخميس"
-        ],
-        "availableSlots": [
-          "09:30 ص",
-          "11:00 ص",
-          "04:30 م"
-        ],
-        "badgeAr": "عناية فائقة بالطفل 🧸",
-        "bioAr": "متابعة النمو واللقاحات والحساسية لدى الرضع والأطفال بأحدث بروتوكولات الرعاية."
-      }
-    ]
-  },
-  {
-    "id": "demo-academy",
-    "slug": "edumaster-learning-academy",
-    "titleAr": "أكاديمية تعليم إلكتروني ودورات تدريبية متقدمة",
-    "titleEn": "EduMaster — Digital Academy & Learning Hub",
-    "brandNameAr": "أكاديمية إديوماستر (EduMaster)",
-    "brandNameEn": "EduMaster Academy",
-    "industry": "education",
-    "industryLabelAr": "تعليم إلكتروني / أكاديمية دورات",
-    "industryLabelEn": "EdTech / E-Learning Portal",
-    "taglineAr": "منهاج تطبيقي عملي يقودك من الصفر إلى الاحتراف وسوق العمل العالمي",
-    "taglineEn": "Master High-Demand Tech Skills with Industry Mentors",
-    "shortDescAr": "منصة تعليمية متكاملة تتيح استعراض المسارات التدريبية، ومنهاج الدروس، ومشاهدة المعاينة المجانية، والاشتراك الفوري.",
-    "shortDescEn": "State-of-the-art learning portal featuring course tracks, syllabi, interactive lesson previews, and instant student enrollment.",
-    "themeColor": "#312e81",
+    "industryLabelAr": "متجر إلكتروني / إلكترونيات",
+    "industryLabelEn": "E-Commerce / Hardware",
+    "taglineAr": "هواتف ذكية، حواسيب محمولة، وإكسسوارات عتادية فائقة الأداء",
+    "taglineEn": "Volt X9 Pro, Ultrabooks & Pro Audio Gear",
+    "shortDescAr": "متجر تقني متكامل بفلترة أسعار متقدمة، كتالوج منتجات متفاعل، سلة شراء منزلقة، صفحة دفع بـ 3 خطوات، ولوحة إدارة مخزون كاملة.",
+    "shortDescEn": "E-commerce storefront with live specs filtering, sliding cart drawer, multi-step checkout, and full inventory management console.",
+    "themeColor": "#0d1220",
     "accentColor": "#4f46e5",
-    "badgeAr": "أكاديمية تعليم معتمدة 🎓",
-    "badgeEn": "Certified Academy",
+    "badgeAr": "متجر أجهزة متكامل",
+    "badgeEn": "Electronics Store",
     "highlightsAr": [
-      "عرض تفصيلي للمسارات والوحدات التدريبية والمخرجات العملية",
-      "معاينة حية للمحاضرات التمهيدية والشهادات الممنوحة",
-      "ملف المدرب وساعات التعلم والمشاريع التطبيقية",
-      "تسجيل مباشر للطلاب مع إمكانية التقسيط أو الدفع بالبطاقة"
+      "كتالوج تصنيفات للهواتف والحواسيب وملحقات الألعاب",
+      "سلة تسوق جانبية منزلقة مع حساب فوري للشحن والخصم",
+      "صفحة منتج تفصيلية (PDP) مع محدد الكميات والمواصفات",
+      "لوحة تحكم كاملة لإدارة الأسعار والمخزون والمبيعات"
     ],
     "highlightsEn": [
-      "Full curriculum syllabus with hands-on capstone projects",
-      "Live sample lecture previews and certificate previews",
-      "Instructor profiles, course duration, and difficulty level",
-      "Instant enrollment with multi-currency checkout support"
+      "Categorized catalog for smartphones, laptops, and audio gear",
+      "Slide-out interactive cart drawer with live subtotal",
+      "Product detail page (PDP) with specs table and quantity selector",
+      "Complete admin dashboard with live inventory stock editor"
     ],
     "techStack": [
-      "React / Next.js",
-      "Video Streaming Player",
-      "LMS Modules",
-      "Quiz Engine",
-      "Certificate Generator"
-    ],
-    "turnaroundDays": "8–12 يوم",
-    "startingPriceUSD": 950,
-    "previewImage": "/images/web_code_screen_1790350284670.jpg",
-    "whatsappMessage": "مرحباً باسكود، أود إنشاء منصة تعليمية ودورات مشابهة لنموذج (EduMaster) مع نظام الدروس والشهادات والتسجيل.",
-    "categoriesAr": [
-      "الكل",
-      "هندسة البرمجيات والويب",
-      "الذكاء الاصطناعي وعلوم البيانات",
-      "تصميم تجربة المستخدم UI/UX",
-      "الأمن السيبراني والشبكات"
-    ],
-    "categoriesEn": [
-      "All",
-      "Software Engineering",
-      "AI & Data Science",
-      "UI/UX Product Design",
-      "Cybersecurity"
-    ],
-    "demoType": "education_academy",
-    "productsOrItems": [
-      {
-        "id": "crs-1",
-        "titleAr": "دبلوم تطوير الويب المتكامل Full-Stack Next.js & Node.js",
-        "titleEn": "Full-Stack Web Development Bootcamp",
-        "categoryAr": "هندسة البرمجيات والويب",
-        "hours": "72 ساعة تدريبية",
-        "level": "مبتدئ إلى متقدم",
-        "instructor": "م. عمر السامرائي (Senior Architect)",
-        "price": 280,
-        "originalPrice": 450,
-        "rating": 4.95,
-        "studentsCount": 1420,
-        "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
-        "badgeAr": "الأكثر تسجيلاً 🚀",
-        "modulesCount": 14,
-        "featuresAr": [
-          "12 مشروع حقيقي قابل للعرض بالمعرض",
-          "جلسات أسبوعية مباشرة مع المدرب",
-          "شهادة معتمدة قابلة للتحقق"
-        ]
-      },
-      {
-        "id": "crs-2",
-        "titleAr": "ماستر كلاس الذكاء الاصطناعي وهندسة النماذج LLMs & GenAI",
-        "titleEn": "AI Engineering & LLM Systems Masterclass",
-        "categoryAr": "الذكاء الاصطناعي وعلوم البيانات",
-        "hours": "48 ساعة تدريبية",
-        "level": "متوسط إلى خبير",
-        "instructor": "د. ليلى الشمري (AI Research Lead)",
-        "price": 320,
-        "originalPrice": 500,
-        "rating": 4.98,
-        "studentsCount": 890,
-        "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
-        "badgeAr": "تقنية المستقبل 🤖",
-        "modulesCount": 10,
-        "featuresAr": [
-          "بناء RAG Enterprise كامل",
-          "دمج Gemini وOpenAI APIs في منتجات تجارية",
-          "كود تدريبي مفتوح مدى الحياة"
-        ]
-      },
-      {
-        "id": "crs-3",
-        "titleAr": "تصميم المنتجات الرقمية وواجهات المستخدم الاحترافية UI/UX Pro",
-        "titleEn": "Modern UI/UX Product Design with Figma",
-        "categoryAr": "تصميم تجربة المستخدم UI/UX",
-        "hours": "40 ساعة تدريبية",
-        "level": "كافة المستويات",
-        "instructor": "أ. رامي حيدر (Product Designer)",
-        "price": 190,
-        "originalPrice": 300,
-        "rating": 4.89,
-        "studentsCount": 1150,
-        "image": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=800&q=80",
-        "badgeAr": "تصميم إبداعي 🎨",
-        "modulesCount": 8,
-        "featuresAr": [
-          "بناء Design System متكامل للشركات",
-          "اختبار النماذج الأولية المتقدمة",
-          "مراجعة البورتفوليو الشخصي للمتدرب"
-        ]
-      }
-    ]
-  },
-  {
-    "id": "demo-fitness",
-    "slug": "apex-fitness-club",
-    "titleAr": "نادي لياقة بدنية واشتراكات رياضية وتدريب خاص",
-    "titleEn": "Apex Fitness — Athletic Performance Club",
-    "brandNameAr": "أبيكس فيتنس (Apex Athletic Club)",
-    "brandNameEn": "Apex Fitness & Health",
-    "industry": "fitness",
-    "industryLabelAr": "لياقة بدنية / نادي رياضي واشتراكات",
-    "industryLabelEn": "Fitness & Athletic Club",
-    "taglineAr": "بيئة تدريبية احترافية بأحدث التجهيزات الأولمبية وكوادر تدريب معتمدة دولياً",
-    "taglineEn": "Elevate Strength, Endurance & Lifestyle",
-    "shortDescAr": "موقع نادي رياضي يقدم خطط العضوية الشهرية والسنوية، وجداول الحصص التدريبية، وحجز مدرب شخصي واشتراك فوري.",
-    "shortDescEn": "Athletic gym platform with tiered membership subscriptions, trainer booking, interactive class schedules, and WhatsApp registration.",
-    "themeColor": "#18181b",
-    "accentColor": "#84cc16",
-    "badgeAr": "نادي رياضي معتمد 🏋️",
-    "badgeEn": "Pro Athletic Club",
-    "highlightsAr": [
-      "مقارنة واضحة لباقات الاشتراك (فضي، ذهبي، VIP البلاتيني)",
-      "جدول تدريب أسبوعي تفاعلي (CrossFit، ملاكمة، يوغا، كمال أجسام)",
-      "حجز حصص تجريبية مجانية ومدربين معتمدين",
-      "حاسبة مؤشر كتلة الجسم BMI تفاعلية لتحديد أهدافك"
-    ],
-    "highlightsEn": [
-      "Transparent membership tier comparison (Silver, Gold, VIP Black)",
-      "Interactive weekly class timetable (CrossFit, Boxing, Mobility, Strength)",
-      "Free trial pass booking & certified trainer reservations",
-      "Built-in BMI & body target calculator for prospective members"
-    ],
-    "techStack": [
-      "React",
-      "Tailwind CSS",
-      "Subscription Billing Ready",
-      "Interactive Timetable",
-      "Trainer Booking API"
+      "HTML5 / ES6+",
+      "Modern CSS Grid & Flex",
+      "Interactive Cart Engine",
+      "Multi-step Checkout",
+      "Inventory Console"
     ],
     "turnaroundDays": "7–10 أيام",
-    "startingPriceUSD": 800,
-    "previewImage": "/images/branding_stationery_1790350273573.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد موقعاً مشابهاً لنادي اللياقة (Apex Fitness) مع نظام باقات الاشتراكات وحجز الحصص والمدربين.",
-    "categoriesAr": [
-      "الكل",
-      "باقات العضوية والاشتراكات",
-      "المدربون المعتمدون",
-      "جدول الحصص الأسبوعي",
-      "برامج التغذية واللياقة"
-    ],
-    "categoriesEn": [
-      "All",
-      "Membership Plans",
-      "Pro Trainers",
-      "Class Schedule",
-      "Nutrition Programs"
-    ],
-    "demoType": "fitness_gym",
-    "productsOrItems": [
-      {
-        "id": "tier-1",
-        "titleAr": "باقة الرياضي المحترف (Apex Pro Gold) — اشتراك سنوي",
-        "titleEn": "Apex Pro Gold Annual Membership",
-        "categoryAr": "باقات العضوية والاشتراكات",
-        "price": 480,
-        "billingCycle": "سنوي (خصم 35%)",
-        "originalPrice": 720,
-        "rating": 4.95,
-        "badgeAr": "الخيار الأكثر شعبية ⭐",
-        "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": [
-          "دخول غير محدود لجميع فروع النادي 24/7",
-          "حضور جميع الحصص الجماعية (CrossFit، يوغا، سبيننج)",
-          "4 جلسات شهرياً مع مدرب شخصي معتمد",
-          "فحص InBody شهري مجاني ومتابعة حمية غذائية",
-          "استخدام الساونا والمسبح واللاونج الرياضي"
-        ]
-      },
-      {
-        "id": "tier-2",
-        "titleAr": "باقة كبار الشخصيات (VIP Black Executive) — اشتراك سنوي",
-        "titleEn": "VIP Black Executive Club Access",
-        "categoryAr": "باقات العضوية والاشتراكات",
-        "price": 850,
-        "billingCycle": "سنوي حصري",
-        "originalPrice": 1100,
-        "rating": 5,
-        "badgeAr": "خدمة كبار الشخصيات 👑",
-        "image": "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": [
-          "منطقة تدريب خاصة VIP مجهزة بأحدث المعدات الإيطالية",
-          "مدرب خاص مخصص لك في كل حصة تدريبية",
-          "خزانة شخصية دائمة مع خدمة غسيل الملابس الرياضية",
-          "موقف سيارات محجوز مع خدمة المساعدة الشخصية",
-          "وجبات خفيفة ومشروبات بروتينية مجانية يومياً"
-        ]
-      },
-      {
-        "id": "tier-3",
-        "titleAr": "باقة البداية المرنة (Apex Silver Starter) — اشتراك 3 أشهر",
-        "titleEn": "Apex Silver Starter 3-Month Pass",
-        "categoryAr": "باقات العضوية والاشتراكات",
-        "price": 160,
-        "billingCycle": "لكل 3 أشهر",
-        "originalPrice": 200,
-        "rating": 4.82,
-        "badgeAr": "مرونة عالية ⚡",
-        "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80",
-        "featuresAr": [
-          "دخول كامل لصالة الحديد والأجهزة الهوائية Cardio",
-          "فحص InBody بدائي لتحديد أهداف الكتلة والدهون",
-          "تطبيق ذكي لتتبع التمارين والبرامج اليومية",
-          "إمكانية تجميد الاشتراك لمدة 14 يوماً مجاناً"
-        ]
-      }
-    ]
+    "startingPriceUSD": 1200,
+    "previewImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1200&q=80",
+    "templateUrl": "/templates/novatech-electronics.html",
+    "whatsappMessage": "مرحباً باسكود، أريد طلب وتخصيص متجر الإلكترونيات والأجهزة (NOVATECH) لمتجرنا بسعر يبدأ من $1,200."
   },
   {
-    "id": "demo-furniture",
-    "slug": "moda-living-atelier",
-    "titleAr": "متجر ومصنع أثاث ومفروشات وديكور منزلي راقٍ",
-    "titleEn": "Moda Living — Luxury Furniture & Atelier",
-    "brandNameAr": "مودا ليفينج (Moda Living Atelier)",
-    "brandNameEn": "Moda Living Furniture",
-    "industry": "ecommerce",
-    "industryLabelAr": "متجر إلكتروني / أثاث وديكور",
-    "industryLabelEn": "E-Commerce / Interior Furniture",
-    "taglineAr": "قطع فنية مصنعة يدوياً من أخشاب البلوط والجلود الإيطالية لتأثيث مساحتك بفرادة",
-    "taglineEn": "Artisanal Furniture, Italian Leathers & Timeless Interiors",
-    "shortDescAr": "متجر مفروشات راقٍ يتيح تصفح الغرف والموديلات، واختيار نوع الجلد والقماش ولون الخشب، مع طلب المقايسة وسلة التسوق.",
-    "shortDescEn": "High-end furniture gallery featuring room-based browsing, bespoke material customizer (fabric/wood/leather), and instant quotes.",
-    "themeColor": "#451a03",
-    "accentColor": "#b45309",
-    "badgeAr": "معرض مفروشات فاخر 🛋️",
-    "badgeEn": "Bespoke Furniture",
+    "id": "maison-lumiere",
+    "slug": "maison-lumiere",
+    "titleAr": "موقع مطعم فاخر مع حجز طاولات ومنيو رقمي (Maison Lumière)",
+    "titleEn": "Maison Lumière — Fine Dining Experience & Table Booking",
+    "brandNameAr": "ميزون لوميير (Maison Lumière)",
+    "brandNameEn": "Maison Lumière",
+    "industry": "hospitality",
+    "industryLabelAr": "مطاعم وضيافة / حجز طاولات",
+    "industryLabelEn": "Fine Dining & Hospitality",
+    "taglineAr": "قوائم طعام موسمية فاخرة، حجز طاولات فوري، وطلب طعام سحابي",
+    "taglineEn": "Michelin-starred seasonal dining, reservations & room service",
+    "shortDescAr": "موقع راقٍ لمطعم فاخر يجمع بين منيو تفاعلي للأطباق والمشروبات، نظام حجز طاولات ذكي مع اختيار الصالة، سلة طلبات، ولوحة إدارة حجوزات المطبخ.",
+    "shortDescEn": "Atmospheric restaurant website featuring interactive seasonal menu, instant table reservations with seating options, and kitchen queue dashboard.",
+    "themeColor": "#1d1a17",
+    "accentColor": "#b08d4f",
+    "badgeAr": "مطعم وضيافة راقية",
+    "badgeEn": "Fine Dining & Booking",
     "highlightsAr": [
-      "تصفح مصنف بحسب غرف المنزل (غرفة المعيشة، السفرة، الماستر، المكاتب)",
-      "محدد خامات فوري لتغيير الأقمشة والجلود والأخشاب",
-      "لوحة أبعاد وقياسات ثلاثية الأبعاد لكل قطعة",
-      "طلب تصنيع بمقاسات خاصة وشحن منزلي مريح"
+      "منيو طعام تفاعلي مصنف (مقبلات، أطباق رئيسية، حلويات، مشروبات)",
+      "نظام حجز طاولات فوري مع اختيار التاريخ، التوقيت، وعدد الضيوف والصالة",
+      "سلة طلبات وتوصيل عبر الإنترنت مع إشعار تأكيد فوري",
+      "لوحة تحكم للمطعم لمتابعة حجوزات الليلة وتحديث قائمة الأطباق"
     ],
     "highlightsEn": [
-      "Curated room-by-room collections (Living, Dining, Bedroom, Executive Office)",
-      "Real-time material & upholstery finish switcher",
-      "Comprehensive 3D dimensional blueprint per item",
-      "Bespoke custom-sizing orders with white-glove home delivery"
+      "Interactive categorized menu (starters, mains, desserts, cellar)",
+      "Table booking engine with date, time, party size & seating area",
+      "Online pickup/delivery cart drawer with instant queueing",
+      "Kitchen admin portal for tonight covers and dish availability"
     ],
     "techStack": [
-      "Next.js",
-      "Tailwind CSS",
-      "Material Swatch Customizer",
-      "3D Dimensions View",
-      "Room Stager"
+      "HTML5 / Modular Architecture",
+      "Cormorant Garamond Typography",
+      "Live Reservation Engine",
+      "Order Cart",
+      "Staff Portal"
     ],
-    "turnaroundDays": "10–14 يوم",
-    "startingPriceUSD": 1100,
-    "previewImage": "/images/ecommerce_store_1790626815147.jpg",
-    "whatsappMessage": "مرحباً باسكود، أريد متجراً إلكترونياً مشابهاً لمعرض الأثاث (Moda Living) مع محدد الخامات والغرف وسلة الشراء.",
-    "categoriesAr": [
-      "الكل",
-      "أطقم غرف المعيشة (Living Room)",
-      "طاولات طعام وسفرة (Dining)",
-      "غرف نوم ماستر (Bedrooms)",
-      "مكاتب تنفيذية ومكتبات (Executive Office)"
+    "turnaroundDays": "5–7 أيام",
+    "startingPriceUSD": 850,
+    "previewImage": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+    "templateUrl": "/templates/maison-lumiere.html",
+    "whatsappMessage": "مرحباً باسكود، أود طلب وتخصيص قالب موقع وحجوزات المطاعم (Maison Lumière) بسعر يبدأ من $850."
+  },
+  {
+    "id": "attory-perfumes",
+    "slug": "attory-perfumes",
+    "titleAr": "متجر عطور ملكية وبخور فاخر (عطوري)",
+    "titleEn": "Attory — Luxury Fragrances & Royal Oud Boutique",
+    "brandNameAr": "عطوري (Attory)",
+    "brandNameEn": "Attory Parfums",
+    "industry": "perfumes",
+    "industryLabelAr": "متجر إلكتروني / عطور وبخور",
+    "industryLabelEn": "Fragrances & Oud",
+    "taglineAr": "عطرك يحكي قصتك — تشكيلة فاخرة من أرقى العطور الشرقية والفرنسية",
+    "taglineEn": "Royal Blends, Cambodian Oud & Niche Scents",
+    "shortDescAr": "متجر عطور عربي متكامل بتصميم فخم، زجاجات عطور بألوان متدرجة، فلاتر للمناسبة والحجم والسعر، عروض يومية، وسلة مشتريات مع لوحة إدارة كاملة.",
+    "shortDescEn": "Arabic perfume boutique featuring gradient flacon displays, occasion/size/price filters, daily promotions, shopping bag, and full admin console.",
+    "themeColor": "#2b2118",
+    "accentColor": "#c9a227",
+    "badgeAr": "متجر عطور عربي فخم",
+    "badgeEn": "Arabic Perfumes Store",
+    "highlightsAr": [
+      "تصميم عربي خالص متوافق 100% مع الجوال (RTL)",
+      "فلاتر بحث حسب المناسبة (رجالي، نسائي، للجنسين) والحجم والسعر والتقييم",
+      "شريط عروض اليوم الحصرية مع احتساب نسب الخصم تلقائياً",
+      "لوحة تحكم عربية آمنة بكلمة سر لإضافة وتعديل العطور والعروض"
     ],
-    "categoriesEn": [
-      "All",
-      "Living Rooms",
-      "Dining Sets",
-      "Master Bedrooms",
-      "Executive Offices"
+    "highlightsEn": [
+      "Native RTL Arabic e-commerce experience optimized for mobile",
+      "Multi-axis filtering (gender, flacon size, price range, rating)",
+      "Daily flash promotions carousel with automated discount badges",
+      "Password-protected admin console to manage fragrances and deals"
     ],
-    "demoType": "furniture_decor",
-    "productsOrItems": [
-      {
-        "id": "fur-1",
-        "titleAr": "طقم كنب ميلانو الإيطالي L-Shape من الجلد الطبيعي الفاخر",
-        "titleEn": "Milano Bespoke Italian Leather Sectional",
-        "categoryAr": "أطقم غرف المعيشة (Living Room)",
-        "price": 2150,
-        "originalPrice": 2600,
-        "rating": 4.96,
-        "reviewsCount": 48,
-        "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "هيكل صلب من خشب الزان الطبيعي | جلد عجل إيطالي معالج للخدوش | إسفنج عالي الكثافة مع طبقة ريش داون",
-        "dimensionsAr": "320سم عرض × 180سم عمق × 82سم ارتفاع",
-        "badgeAr": "تصميم إيطالي حصري 🇮🇹",
-        "materialOptions": [
-          "جلد توباكو إيطالي",
-          "جلد كونياك عتيق",
-          "قماش بوكليه سويسري"
-        ],
-        "inStock": true
-      },
-      {
-        "id": "fur-2",
-        "titleAr": "طاولة طعام راقية من خشب الجوز الأمريكي مع 8 كراسي مخملية",
-        "titleEn": "American Walnut 8-Seater Dining Suite",
-        "categoryAr": "طاولات طعام وسفرة (Dining)",
-        "price": 1850,
-        "originalPrice": 2200,
-        "rating": 4.9,
-        "reviewsCount": 34,
-        "image": "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "سطح مصمت من خشب الجوز الأمريكي الطبيعي بسماكة 5سم | أرجل فولاذية مطلية بأسود مات | كراسي مبطنة ومقاومة للبقع",
-        "dimensionsAr": "240سم طول × 110سم عرض × 76سم ارتفاع",
-        "badgeAr": "خشب طبيعي مصمت 🌳",
-        "materialOptions": [
-          "خشب الجوز الطبيعي",
-          "خشب البلوط المدخن",
-          "رخام كارارا مع خشب"
-        ],
-        "inStock": true
-      },
-      {
-        "id": "fur-3",
-        "titleAr": "سرير ماستر فخم مع ظهر كابوتنيه جلدي وإضاءة خلفية دافئة",
-        "titleEn": "Aura Velvet Master Bed with Headboard",
-        "categoryAr": "غرف نوم ماستر (Bedrooms)",
-        "price": 1450,
-        "originalPrice": 1750,
-        "rating": 4.88,
-        "reviewsCount": 52,
-        "image": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80",
-        "specsAr": "هيكل هيدروليكي مع مساحة تخزين سفلية واسعة | قماش مخملي ناعم مضاد للغبار | مسند رأس هندسي مريح للقراءة",
-        "dimensionsAr": "200سم عرض × 210سم طول × 130سم ارتفاع المسند",
-        "badgeAr": "راحة واسترخاء فائق 🛏️",
-        "materialOptions": [
-          "رمادي داكن كلاسيكي",
-          "بيج كريمي دافئ",
-          "أزرق كحلي ملكي"
-        ],
-        "inStock": true
-      }
-    ]
+    "techStack": [
+      "HTML5 / Pure CSS RTL",
+      "Flacon Visualizer",
+      "Dynamic Filter Engine",
+      "Bag Drawer",
+      "Admin Protected Console"
+    ],
+    "turnaroundDays": "5–8 أيام",
+    "startingPriceUSD": 950,
+    "previewImage": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=1200&q=80",
+    "templateUrl": "/templates/attory-perfumes.html",
+    "whatsappMessage": "مرحباً باسكود، أود طلب وتخصيص قالب متجر العطور والبخور (عطوري) بسعر يبدأ من $950."
   }
 ];
 
@@ -2848,7 +1404,7 @@
       const brandTagline = document.getElementById('brandTagline');
       const headerCtaBtn = document.getElementById('headerCtaBtn');
 
-      if (brandTagline) brandTagline.innerText = isAr ? 'استوديو رقمي' : 'DIGITAL STUDIO';
+      if (brandTagline) brandTagline.innerText = isAr ? 'منصة باسكودي' : 'BASCODE PLATFORM';
       if (headerCtaBtn) {
         headerCtaBtn.innerHTML = `<span>${isAr ? 'ابدأ مشروعك' : 'Start Project'}</span><span class="text-xs">${isAr ? '↗' : '→'}</span>`;
       }
@@ -2870,8 +1426,8 @@
 
       const links = [
         { id: 'home', label: isEn ? 'Home' : 'الرئيسية' },
-        { id: 'services', label: isEn ? '10 Services' : 'الخدمات الرقمية', badge: '10' },
-        { id: 'demos', label: isEn ? 'Live Demos' : 'النماذج الحية', badge: '12' },
+        { id: 'services', label: isEn ? 'Services' : 'الخدمات', badge: '10' },
+        { id: 'demos', label: isEn ? 'Demos' : 'النماذج', badge: '4' },
         { id: 'studio', label: isEn ? 'Studio' : 'عن باسكود' },
         { id: 'contact', label: isEn ? 'Contact' : 'تواصل معنا' }
       ];
@@ -2882,14 +1438,14 @@
           <a
             href="javascript:void(0)"
             onclick="navigateTo('${link.id}')"
-            class="transition-colors flex items-center gap-1.5 cursor-pointer ${
+            class="transition-colors flex items-center gap-1 md:gap-1.5 cursor-pointer whitespace-nowrap py-1 px-1 sm:px-1.5 rounded-lg ${
               isActive 
-                ? 'text-[#C9A75E] font-semibold' 
+                ? 'text-[#C9A75E] font-bold' 
                 : 'opacity-70 hover:opacity-100 hover:text-current'
             }"
           >
             <span>${link.label}</span>
-            ${link.badge ? `<span class="mono text-[9px] px-1.5 py-0.2 rounded-full border hairline ${isActive ? 'border-[#C9A75E] text-[#C9A75E]' : 'opacity-60'}">${link.badge}</span>` : ''}
+            ${link.badge ? `<span class="mono text-[8.5px] lg:text-[9px] px-1 lg:px-1.5 py-0.2 rounded-full border hairline ${isActive ? 'border-[#C9A75E] text-[#C9A75E]' : 'opacity-60'}">${link.badge}</span>` : ''}
           </a>
         `;
       }).join('');
@@ -2903,7 +1459,7 @@
       const links = [
         { id: 'home', label: isEn ? 'Home' : 'الرئيسية' },
         { id: 'services', label: isEn ? 'All 10 Services' : 'كافة الخدمات الرقمية (10)' },
-        { id: 'demos', label: isEn ? 'Live Demos & Templates' : 'النماذج وقوالب الأعمال (12)' },
+        { id: 'demos', label: isEn ? 'Live Demos & Templates' : 'النماذج وقوالب الأعمال (4)' },
         { id: 'studio', label: isEn ? 'Studio Philosophy' : 'فلسفة الاستوديو' },
         { id: 'contact', label: isEn ? 'Contact Studio' : 'تواصل معنا' }
       ];
@@ -2953,7 +1509,7 @@
       }
     }
 
-    // --- 7. HOME VIEW (INCLUDING 10 SERVICES & FEATURED 12 LIVE DEMOS) ---
+    // --- 7. HOME VIEW (INCLUDING 10 SERVICES & FEATURED 4 LIVE DEMOS) ---
     function getHomeViewHtml(isEn) {
       return `
         <!-- HERO SECTION -->
@@ -2965,7 +1521,7 @@
                 <!-- Eyebrow Badge -->
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border hairline bg-white/5 text-[11px] font-mono tracking-wider">
                   <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#C9A75E]"></span>
-                  <span class="opacity-80">${isEn ? 'DIGITAL SOLUTIONS STUDIO — 10 SERVICES' : 'استوديو حلول رقمية متكامل — 10 خدمات'}</span>
+                  <span class="opacity-80">${isEn ? 'BASCODE DIGITAL SOLUTIONS PLATFORM' : 'منصة باسكودي للحلول الرقمية'}</span>
                 </div>
 
                 <!-- Main Headline -->
@@ -2978,7 +1534,7 @@
                 <p class="text-sm sm:text-base opacity-75 font-light leading-relaxed max-w-xl">
                   ${isEn 
                     ? 'BASCODE crafts websites, stores, applications, and custom systems — along with the identity, analytics, and documents that support them. 10 specialized services, 12 live interactive demo templates, and direct WhatsApp communication.'
-                    : '«باسكود» تصمّم وتطوّر المواقع، المتاجر الإلكترونية، التطبيقات والأنظمة السحابية — مع الهوية والبيانات والمستندات المحيطة بها. عشر خدمات متخصصة، 12 نموذجاً حياً جاهزاً للمعاينة، ونقطة تواصل مباشرة عبر واتساب.'
+                    : '«باسكود» تصمّم وتطوّر المواقع، المتاجر الإلكترونية، التطبيقات والأنظمة السحابية — مع الهوية والبيانات والمستندات المحيطة بها. عشر خدمات متخصصة، 4 نماذج حية جاهزاً للمعاينة، ونقطة تواصل مباشرة عبر واتساب.'
                   }
                 </p>
 
@@ -2999,7 +1555,7 @@
                     class="px-5 py-3.5 rounded-full border hairline bg-white/5 hover:bg-white/10 text-xs font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer"
                   >
                     <span>👁️</span>
-                    <span>${isEn ? 'Explore 12 Live Demos' : 'استعرض 12 نموذجاً حياً'}</span>
+                    <span>${isEn ? 'Explore 4 Live Demos' : 'استعرض 4 نماذج حية'}</span>
                   </a>
 
                   <a
@@ -3074,34 +1630,37 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               ${WHACKA_SERVICES.map(srv => {
                 const title = isEn ? srv.titleEn : srv.titleAr;
-                const desc = isEn ? srv.descEn : srv.descAr;
+                const desc = isEn ? srv.taglineEn || srv.descEn : srv.taglineAr || srv.descAr;
                 const turn = isEn ? srv.turnaroundEn : srv.turnaroundAr;
                 const price = isEn ? srv.pricingEn : srv.pricingAr;
                 return `
-                  <div class="rounded-2xl border hairline surface p-6 sm:p-7 flex flex-col justify-between hover:border-[#C9A75E]/40 transition-all duration-300 group">
+                  <div class="rounded-2xl border hairline surface p-6 sm:p-7 flex flex-col justify-between hover:border-[#C9A75E]/50 transition-all duration-300 group shadow-sm">
                     <div class="space-y-4">
                       <div class="flex items-center justify-between gap-3">
                         <span class="mono text-xs opacity-50 group-hover:text-[#C9A75E] transition-colors">${srv.num}</span>
                         <span class="mono text-[10px] px-2 py-0.5 rounded-full border hairline bg-white/5 opacity-80">${turn}</span>
                       </div>
                       <h3 class="text-base sm:text-lg font-bold group-hover:text-[#C9A75E] transition-colors leading-snug">${title}</h3>
-                      <p class="text-xs opacity-70 leading-relaxed font-light line-clamp-3">${desc}</p>
+                      <p class="text-xs opacity-75 leading-relaxed font-light line-clamp-3">${desc}</p>
                     </div>
 
                     <div class="pt-6 mt-6 border-t hairline flex items-center justify-between gap-3 text-xs">
-                      <span class="font-mono font-semibold text-[#C9A75E]">${price}</span>
+                      <div class="flex flex-col">
+                        <span class="mono text-[10px] opacity-60 uppercase">${isEn ? 'Price' : 'السعر'}</span>
+                        <span class="font-mono font-bold text-sm text-[#C9A75E]">${price}</span>
+                      </div>
                       <div class="flex items-center gap-2">
                         <button
                           type="button"
                           onclick="openServiceDetail('${srv.slug}')"
-                          class="px-2.5 py-1.5 rounded-lg border hairline bg-white/5 hover:bg-white/10 text-[11px] cursor-pointer"
+                          class="px-3 py-1.5 rounded-lg border hairline bg-white/5 hover:bg-white/10 text-xs font-medium cursor-pointer transition-colors"
                         >
-                          ${isEn ? 'Specs' : 'المواصفات'}
+                          ${isEn ? 'Details' : 'تفاصيل'}
                         </button>
                         <button
                           type="button"
                           onclick="openOrderDrawer('${srv.slug}')"
-                          class="px-3 py-1.5 rounded-lg bg-[#C9A75E] hover:bg-[#dcbb78] text-[#08090A] font-bold text-[11px] cursor-pointer"
+                          class="px-3.5 py-1.5 rounded-lg bg-[#C9A75E] hover:bg-[#dcbb78] text-[#08090A] font-bold text-xs cursor-pointer transition-all shadow-xs"
                         >
                           ${isEn ? 'Order' : 'طلب'}
                         </button>
@@ -3115,14 +1674,14 @@
           </div>
         </section>
 
-        <!-- ================= FEATURED 12 LIVE DEMOS & TEMPLATES SECTION ================= -->
+        <!-- ================= FEATURED 4 LIVE DEMOS & TEMPLATES SECTION ================= -->
         <section class="py-16 md:py-24 border-b hairline bg-white/[0.01]" id="homeDemosSection">
           <div class="max-w-[1320px] mx-auto w-full px-5 md:px-8 space-y-10">
             
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border hairline bg-white/5 text-[10px] font-mono text-[#C9A75E] tracking-wider mb-2">
-                  <span>⚡ 12 LIVE TEMPLATES</span>
+                  <span>⚡ 4 LIVE TEMPLATES</span>
                   <span>•</span>
                   <span>معاينات تفاعلية حية</span>
                 </div>
@@ -3136,7 +1695,7 @@
                   onclick="navigateTo('demos')"
                   class="px-4 py-2.5 rounded-full border hairline bg-white/5 hover:bg-white/10 text-xs font-semibold flex items-center gap-1.5 cursor-pointer"
                 >
-                  <span>${isEn ? 'View All 12 Templates' : 'عرض كافة القوالب (12)'}</span>
+                  <span>${isEn ? 'View All 4 Templates' : 'عرض كافة النماذج (4)'}</span>
                   <span>${isEn ? '→' : '←'}</span>
                 </button>
               </div>
@@ -3145,11 +1704,10 @@
             <!-- Demo Categories Tabs -->
             <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
               ${[
-                { id: 'all', labelAr: 'الكل (12)', labelEn: 'All (12)' },
-                { id: 'ecommerce', labelAr: 'متاجر إلكترونية', labelEn: 'E-Commerce' },
-                { id: 'corporate', labelAr: 'شركات واستشارات', labelEn: 'Corporate & Consulting' },
-                { id: 'booking', labelAr: 'حجوزات وخدمات', labelEn: 'Booking & Services' },
-                { id: 'tech', labelAr: 'تقنية وسحابية', labelEn: 'Tech & SaaS' }
+                { id: 'all', labelAr: 'كافة النماذج (4)', labelEn: 'All Demos (4)' },
+                { id: 'ecommerce', labelAr: 'متاجر إلكترونية (نوفاتيك & عطوري)', labelEn: 'E-Commerce Stores' },
+                { id: 'aviation', labelAr: 'طيران وسياحة (أوريليا إير)', labelEn: 'Aviation & Booking' },
+                { id: 'hospitality', labelAr: 'مطاعم وضيافة (ميزون لوميير)', labelEn: 'Fine Dining & Hospitality' }
               ].map(cat => `
                 <button
                   type="button"
@@ -3206,8 +1764,7 @@
       selectedDemoCategory = catId;
       const isEn = currentLang === 'en';
       
-      // Update Tab Styles
-      ['all', 'ecommerce', 'corporate', 'booking', 'tech'].forEach(id => {
+      ['all', 'ecommerce', 'aviation', 'hospitality'].forEach(id => {
         const tab = document.getElementById('homeDemoTab-' + id);
         if (tab) {
           const isActive = id === catId;
@@ -3227,10 +1784,9 @@
     function renderDemosListHtml(isEn, catFilter = 'all') {
       const filtered = DEMO_ITEMS.filter(demo => {
         if (catFilter === 'all') return true;
-        if (catFilter === 'ecommerce') return demo.industry === 'ecommerce';
-        if (catFilter === 'corporate') return demo.demoType === 'corporate_consulting' || demo.id.includes('corporate');
-        if (catFilter === 'booking') return demo.demoType === 'travel_airline' || demo.demoType === 'restaurant_bistro' || demo.demoType === 'real_estate' || demo.demoType === 'medical_clinic';
-        if (catFilter === 'tech') return demo.demoType === 'ecommerce_tech' || demo.demoType === 'ecommerce_smartphones';
+        if (catFilter === 'ecommerce') return demo.industry === 'ecommerce' || demo.industry === 'perfumes';
+        if (catFilter === 'aviation') return demo.industry === 'aviation';
+        if (catFilter === 'hospitality') return demo.industry === 'hospitality';
         return true;
       });
 
@@ -3366,7 +1922,7 @@
                       <p class="text-xs sm:text-sm opacity-75 font-light leading-relaxed">${desc}</p>
                       
                       <div class="pt-2">
-                        <h4 class="mono text-[10px] text-[#C9A75E] uppercase tracking-wider mb-2 font-semibold">${isEn ? 'Deliverables & Capabilities:' : 'المخرجات والمواصفات المشمولة:'}</h4>
+                        <h4 class="mono text-[10px] text-[#C9A75E] uppercase tracking-wider mb-2 font-semibold">${isEn ? 'Service Details & Deliverables:' : 'تفاصيل الخدمة والمخرجات المشمولة:'}</h4>
                         <div class="grid sm:grid-cols-2 gap-2 text-xs opacity-75">
                           ${deliverables.slice(0, 4).map(d => `
                             <div class="flex items-start gap-2">
@@ -3400,7 +1956,7 @@
                           onclick="openServiceDetail('${srv.slug}')"
                           class="w-full py-2.5 rounded-xl border hairline bg-white/5 hover:bg-white/10 text-xs font-medium cursor-pointer"
                         >
-                          ${isEn ? 'View Detailed Specs' : 'عرض المواصفات الفنية'}
+                          ${isEn ? 'View Details' : 'عرض التفاصيل'}
                         </button>
                       </div>
                     </div>
@@ -3420,7 +1976,7 @@
           <div class="max-w-[1320px] mx-auto w-full px-5 md:px-8 space-y-10">
             <div>
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border hairline bg-white/5 text-[10px] font-mono text-[#C9A75E] tracking-wider mb-2">
-                <span>12 BESPOKE TEMPLATES</span>
+                <span>4 BESPOKE TEMPLATES</span>
                 <span>•</span>
                 <span>محاكي شاشات تفاعلي</span>
               </div>
@@ -3430,7 +1986,7 @@
               <p class="text-xs sm:text-sm opacity-60 max-w-2xl font-light mt-2 leading-relaxed">
                 ${isEn 
                   ? 'Explore 12 interactive templates for stores, corporate sites, booking platforms, and SaaS apps. Every demo features a live simulator for desktop and mobile, with instant WhatsApp ordering.'
-                  : 'استعرض 12 نموذجاً حياً لمتاجر إلكترونية، مواقع شركات، منصات حجز، وأنظمة سحابية. كل قالب مزود بمحاكي شاشات تفاعلي للجوال والحاسوب، مع إمكانية الطلب المباشر عبر واتساب.'
+                  : 'استعرض 4 نماذج حية لمتاجر إلكترونية، مواقع شركات، منصات حجز، وأنظمة سحابية. كل قالب مزود بمحاكي شاشات تفاعلي للجوال والحاسوب، مع إمكانية الطلب المباشر عبر واتساب.'
                 }
               </p>
             </div>
@@ -3438,11 +1994,10 @@
             <!-- Categories Tabs -->
             <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
               ${[
-                { id: 'all', labelAr: 'كافة القوالب (12)', labelEn: 'All Templates (12)' },
-                { id: 'ecommerce', labelAr: 'متاجر إلكترونية', labelEn: 'E-Commerce' },
-                { id: 'corporate', labelAr: 'شركات واستشارات', labelEn: 'Corporate & Consulting' },
-                { id: 'booking', labelAr: 'حجوزات وخدمات', labelEn: 'Booking & Services' },
-                { id: 'tech', labelAr: 'تقنية وسحابية', labelEn: 'Tech & SaaS' }
+                { id: 'all', labelAr: 'كافة النماذج (4)', labelEn: 'All Demos (4)' },
+                { id: 'ecommerce', labelAr: 'متاجر إلكترونية (نوفاتيك & عطوري)', labelEn: 'E-Commerce Stores' },
+                { id: 'aviation', labelAr: 'طيران وسياحة (أوريليا إير)', labelEn: 'Aviation & Booking' },
+                { id: 'hospitality', labelAr: 'مطاعم وضيافة (ميزون لوميير)', labelEn: 'Fine Dining & Hospitality' }
               ].map(cat => `
                 <button
                   type="button"
@@ -3472,7 +2027,7 @@
     function filterFullDemos(catId) {
       selectedDemoCategory = catId;
       const isEn = currentLang === 'en';
-      ['all', 'ecommerce', 'corporate', 'booking', 'tech'].forEach(id => {
+      ['all', 'ecommerce', 'aviation', 'hospitality'].forEach(id => {
         const tab = document.getElementById('fullDemoTab-' + id);
         if (tab) {
           const isActive = id === catId;
@@ -3602,20 +2157,18 @@
       const modal = document.getElementById('demoSimulatorModal');
       if (!modal) return;
 
-      simulatorCartCount = 0;
       simulatorDevice = 'desktop';
 
       const title = isEn ? demo.titleEn : demo.titleAr;
       const brand = isEn ? demo.brandNameEn : demo.brandNameAr;
-      const tagline = isEn ? demo.taglineEn : demo.taglineAr;
-      const products = demo.productsOrItems || [];
+      const highlights = isEn ? demo.highlightsEn : demo.highlightsAr;
 
       modal.innerHTML = `
         <!-- Simulator Top Navbar -->
         <div class="h-14 px-4 border-b hairline flex items-center justify-between shrink-0 bg-[#0C0E11] text-white">
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-3 min-w-0">
             <span class="font-bold text-sm truncate max-w-xs">${title}</span>
-            <span class="mono text-xs text-[#C9A75E] hidden sm:inline">$${demo.startingPriceUSD} USD</span>
+            <span class="mono text-xs text-[#C9A75E] hidden sm:inline">${demo.startingPriceUSD} USD</span>
           </div>
 
           <!-- Center Device Switcher -->
@@ -3638,28 +2191,42 @@
             </button>
           </div>
 
+          <!-- Actions -->
           <div class="flex items-center gap-2">
+            <a
+              href="${demo.templateUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border hairline bg-white/10 hover:bg-white/20 text-white text-xs font-medium cursor-pointer"
+              title="فتح القالب في نافذة مستقلة جديدة"
+            >
+              <span>↗</span>
+              <span>${isEn ? 'Fullscreen Tab' : 'نافذة كاملة'}</span>
+            </a>
+
             <button
               type="button"
               onclick="orderDemoWhatsApp('${demo.id}')"
-              class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold cursor-pointer"
+              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold cursor-pointer shadow-sm"
             >
               <span>💬</span>
-              <span>${isEn ? 'Order This Template' : 'طلب هذا القالب عبر واتساب'}</span>
+              <span>${isEn ? 'Order via WhatsApp' : 'طلب القالب عبر واتساب'}</span>
             </button>
+
             <button
               type="button"
               onclick="closeDemoSimulator()"
               class="w-8 h-8 rounded-full border hairline flex items-center justify-center opacity-70 hover:opacity-100 cursor-pointer text-sm"
+              aria-label="Close"
             >
               ✕
             </button>
           </div>
         </div>
 
-        <!-- Simulator Browser Workspace -->
+        <!-- Simulator Body with Live Embedded Interactive iFrame -->
         <div class="flex-1 overflow-auto p-2 sm:p-4 flex items-center justify-center bg-neutral-950">
-          <div id="simulatorContainer" class="w-full max-w-5xl h-[84vh] bg-slate-950 text-white rounded-2xl overflow-hidden shadow-2xl border border-neutral-700 flex flex-col simulator-screen">
+          <div id="simulatorContainer" class="w-full max-w-5xl h-[84vh] bg-slate-950 text-white rounded-2xl overflow-hidden shadow-2xl border border-neutral-700 flex flex-col simulator-screen transition-all">
             
             <!-- Simulated Browser Address Bar -->
             <div class="h-9 bg-neutral-900 border-b border-neutral-800 px-3 flex items-center justify-between text-[11px] text-neutral-400 font-mono shrink-0 select-none">
@@ -3669,124 +2236,21 @@
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
               </div>
               <span class="truncate max-w-[280px]">https://bascode.studio/templates/${demo.slug}</span>
-              <span class="text-[10px] text-emerald-400">🔒 HTTPS Secured</span>
+              <span class="text-[10px] text-emerald-400">🔒 HTTPS Verified</span>
             </div>
 
-            <!-- In-Simulator Interactive Store / Website Screen -->
-            <div class="flex-1 overflow-y-auto" id="simulatorScreenBody">
-              
-              <!-- Storefront Header -->
-              <div class="sticky top-0 z-10 backdrop-blur-md bg-slate-950/95 border-b border-slate-800 px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-                <div class="flex items-center gap-2">
-                  <span class="text-xl">⚡</span>
-                  <div>
-                    <h4 class="text-sm font-bold text-white">${brand}</h4>
-                    <p class="text-[10px] text-slate-400">${tagline}</p>
-                  </div>
-                </div>
-
-                <!-- Live Cart Count in Simulator -->
-                <div class="flex items-center gap-2">
-                  <div class="px-3 py-1.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold flex items-center gap-1.5">
-                    <span>🛒</span>
-                    <span id="simCartCountBadge">0</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Storefront Hero Banner -->
-              <div class="p-6 sm:p-10 text-center bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800 space-y-3">
-                <span class="text-[10px] mono text-[#C9A75E] bg-[#C9A75E]/10 border border-[#C9A75E]/30 px-3 py-0.5 rounded-full font-bold">
-                  2026 EDITION
-                </span>
-                <h2 class="text-xl sm:text-3xl font-black text-white">${title}</h2>
-                <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
-                  ${isEn ? demo.shortDescEn : demo.shortDescAr}
-                </p>
-              </div>
-
-              <!-- Interactive Products / Features Grid -->
-              <div class="p-6 space-y-6">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-sm font-bold text-white flex items-center gap-2">
-                    <span>📦</span>
-                    <span>${isEn ? 'Live Interactive Catalog' : 'العناصر والمنتجات المتاحة في القالب'}</span>
-                  </h3>
-                  <span class="text-[11px] text-slate-400 font-mono">${products.length} ${isEn ? 'Items' : 'عناصر'}</span>
-                </div>
-
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  ${products.map((p, idx) => {
-                    const pTitle = isEn ? p.titleEn || p.titleAr : p.titleAr;
-                    const pSpecs = isEn ? p.specsEn || p.specsAr : p.specsAr;
-                    return `
-                      <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-4 flex flex-col justify-between gap-3 hover:border-slate-700 transition-colors">
-                        <div class="aspect-[16/10] rounded-lg overflow-hidden bg-slate-950 relative">
-                          <img src="${p.image || demo.previewImage}" alt="${pTitle}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80';" />
-                          <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/70 text-[10px] font-mono text-[#C9A75E] font-bold">
-                            $${p.price || 199}
-                          </div>
-                        </div>
-
-                        <div>
-                          <h4 class="text-xs font-bold text-white line-clamp-1">${pTitle}</h4>
-                          <p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${pSpecs || ''}</p>
-                        </div>
-
-                        <button
-                          type="button"
-                          onclick="addSimulatorCartItem('${pTitle}')"
-                          class="w-full py-2 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                        >
-                          <span>+</span>
-                          <span>${isEn ? 'Add to Cart' : 'إضافة إلى السلة'}</span>
-                        </button>
-                      </div>
-                    `;
-                  }).join('')}
-                </div>
-
-                <!-- Template Technical Details Sheet -->
-                <div class="mt-8 p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
-                  <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                    <span class="text-xs font-bold text-[#C9A75E] uppercase tracking-wider">${isEn ? 'Template Architecture & Delivery' : 'المواصفات الفنية وخطة التسليم'}</span>
-                    <span class="mono text-xs text-slate-400">⏱️ ${demo.turnaroundDays}</span>
-                  </div>
-                  
-                  <div class="grid sm:grid-cols-2 gap-3 text-xs text-slate-300">
-                    ${(isEn ? demo.highlightsEn : demo.highlightsAr).map(h => `
-                      <div class="flex items-start gap-2">
-                        <span class="text-[#C9A75E]">✓</span>
-                        <span>${h}</span>
-                      </div>
-                    `).join('')}
-                  </div>
-
-                  <div class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-800">
-                    <div class="text-xs text-slate-400">
-                      ${isEn ? 'Want this exact custom template deployed for your business?' : 'هل ترغب في تخصيص ونشر هذا القالب بالكامل لعلامتك التجارية؟'}
-                    </div>
-                    <button
-                      type="button"
-                      onclick="orderDemoWhatsApp('${demo.id}')"
-                      class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-2 cursor-pointer shadow-md"
-                    >
-                      <span>💬</span>
-                      <span>${isEn ? 'Order via WhatsApp Now' : 'طلب تخصيص القالب عبر واتساب'}</span>
-                    </button>
-                  </div>
-                </div>
-
-              </div>
-
+            <!-- Live Interactive iFrame containing the complete working web application -->
+            <div class="flex-1 w-full h-full bg-white relative">
+              <iframe
+                id="simulatorIframe"
+                src="${demo.templateUrl}"
+                class="w-full h-full border-0"
+                title="${title}"
+                loading="lazy"
+              ></iframe>
             </div>
 
           </div>
-        </div>
-
-        <!-- In-Simulator Toast Notification Container -->
-        <div id="simToast" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-4 py-2.5 rounded-xl bg-emerald-950 text-emerald-200 border border-emerald-500/50 shadow-2xl text-xs font-bold transition-all">
-          ✓ تمت الإضافة بنجاح إلى سلة المعاينة التجريبية
         </div>
       `;
 
@@ -3879,7 +2343,7 @@
           <p class="text-xs sm:text-sm opacity-75 leading-relaxed font-light">${desc}</p>
 
           <div class="pt-4 border-t hairline space-y-3">
-            <h4 class="mono text-xs text-[#C9A75E] uppercase tracking-wider font-semibold">${isEn ? 'Full Deliverables List:' : 'قائمة المخرجات والحلول المشمولة:'}</h4>
+            <h4 class="mono text-xs text-[#C9A75E] uppercase tracking-wider font-semibold">${isEn ? 'Full Service Details & Deliverables:' : 'تفاصيل الخدمة الكاملة والمخرجات:'}</h4>
             <div class="grid sm:grid-cols-2 gap-2 text-xs opacity-80">
               ${deliverables.map(d => `
                 <div class="flex items-start gap-2">
@@ -3931,7 +2395,7 @@
             <option value="${s.slug}" ${selectedOrderService === s.slug ? 'selected' : ''}>${s.num} - ${isEn ? s.titleEn : s.titleAr}</option>
           `).join('')}
         </optgroup>
-        <optgroup label="${isEn ? 'Live Templates & Demos (12)' : 'النماذج والقوالب الحية (12)'}">
+        <optgroup label="${isEn ? 'Live Templates & Demos (12)' : 'النماذج والقوالب الحية (4)'}">
           ${DEMO_ITEMS.map(d => `
             <option value="demo-${d.id}" ${selectedOrderService === 'demo-' + d.id ? 'selected' : ''}>قالب: ${isEn ? d.titleEn : d.titleAr} ($${d.startingPriceUSD})</option>
           `).join('')}
