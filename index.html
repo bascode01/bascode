@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark-theme">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLJWJZN8RN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MLJWJZN8RN');
+</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>BASCODE — الاستوديو الرقمي للأعمال والحلول البرمجية</title>
@@ -2479,7 +2488,7 @@
             <option value="${s.slug}" ${selectedOrderService === s.slug ? 'selected' : ''}>${s.num} - ${isEn ? s.titleEn : s.titleAr}</option>
           `).join('')}
         </optgroup>
-        <optgroup label="${isEn ? 'Live Templates & Demos (12)' : 'النماذج والقوالب الحية (4)'}">
+        <optgroup label="${isEn ? 'Live Templates & Demos (4)' : 'النماذج والقوالب الحية (4)'}">
           ${DEMO_ITEMS.map(d => `
             <option value="demo-${d.id}" ${selectedOrderService === 'demo-' + d.id ? 'selected' : ''}>قالب: ${isEn ? d.titleEn : d.titleAr} ($${d.startingPriceUSD})</option>
           `).join('')}
