@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="dark-theme">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MLJWJZN8RN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MLJWJZN8RN');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
   <title>BASCODE — الاستوديو الرقمي للأعمال والحلول البرمجية</title>
@@ -709,7 +700,7 @@
           </div>
 
           <p class="text-[13.5px] opacity-60 leading-relaxed max-w-sm font-light" id="footerTagline">
-            استوديو رقمي متكامل — مواقع، متاجر، تطبيقات، هوية، بيانات، وقوالب حية تفاعلية.
+            منصة باسكود الرقمية — مواقع، متاجر، تطبيقات، هوية، بيانات، وقوالب حية تفاعلية.
           </p>
 
           <div class="pt-2 flex items-center gap-3 text-xs">
@@ -742,7 +733,7 @@
               <li><a href="https://wa.me/9647853961359" target="_blank" rel="noopener noreferrer" class="hover:text-[#C9A75E] transition-colors flex items-center gap-1.5"><span>💬</span><span>واتساب المباشر</span></a></li>
               <li><a href="mailto:bascode84@gmail.com" class="hover:text-[#C9A75E] transition-colors">bascode84@gmail.com</a></li>
               <li><span class="mono text-xs opacity-50">+964 785 396 1359</span></li>
-              <li><span class="opacity-50">العراق / استوديو رقمي عالمي</span></li>
+              <li><span class="opacity-50">العراق / منصة باسكود الرقمية</span></li>
             </ul>
           </div>
         </div>
@@ -2057,7 +2048,7 @@
                 <span>محاكي شاشات تفاعلي</span>
               </div>
               <h1 class="font-display text-4xl sm:text-5xl font-normal">
-                ${isEn ? 'Live Templates & Interactive Demos' : 'معرض النماذج وقوالب الأعمال الحية (12 قالب)'}
+                ${isEn ? 'Live Templates & Interactive Demos' : 'معرض النماذج وقوالب الأعمال الحية (4 قوالب)'}
               </h1>
               <p class="text-xs sm:text-sm opacity-60 max-w-2xl font-light mt-2 leading-relaxed">
                 ${isEn 
@@ -2488,7 +2479,7 @@
             <option value="${s.slug}" ${selectedOrderService === s.slug ? 'selected' : ''}>${s.num} - ${isEn ? s.titleEn : s.titleAr}</option>
           `).join('')}
         </optgroup>
-        <optgroup label="${isEn ? 'Live Templates & Demos (4)' : 'النماذج والقوالب الحية (4)'}">
+        <optgroup label="${isEn ? 'Live Templates & Demos (12)' : 'النماذج والقوالب الحية (4)'}">
           ${DEMO_ITEMS.map(d => `
             <option value="demo-${d.id}" ${selectedOrderService === 'demo-' + d.id ? 'selected' : ''}>قالب: ${isEn ? d.titleEn : d.titleAr} ($${d.startingPriceUSD})</option>
           `).join('')}
