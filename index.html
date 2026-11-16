@@ -749,7 +749,7 @@
       </div>
 
       <div class="mt-14 pt-8 border-t hairline flex flex-col sm:flex-row items-center justify-between gap-4 text-xs opacity-50">
-        <div>© 2026 BASCODE Studio. جميع الحقوق محفوظة.</div>
+        <div>© 2026 BASCODE BASCODE. جميع الحقوق محفوظة.</div>
         <div class="mono text-[11px] flex items-center gap-3">
           <span>10 SERVICES</span>
           <span>•</span>
@@ -1503,7 +1503,7 @@
         { id: 'home', label: isEn ? 'Home' : 'الرئيسية' },
         { id: 'services', label: isEn ? 'Services' : 'الخدمات', badge: '10' },
         { id: 'demos', label: isEn ? 'Demos' : 'النماذج', badge: '4' },
-        { id: 'studio', label: isEn ? 'Studio' : 'عن باسكود' },
+        { id: 'BASCODE', label: isEn ? 'BASCODE' : 'عن باسكود' },
         { id: 'contact', label: isEn ? 'Contact' : 'تواصل معنا' }
       ];
 
@@ -1535,8 +1535,8 @@
         { id: 'home', label: isEn ? 'Home' : 'الرئيسية' },
         { id: 'services', label: isEn ? 'All 10 Services' : 'كافة الخدمات الرقمية (10)' },
         { id: 'demos', label: isEn ? 'Live Demos & Templates' : 'النماذج وقوالب الأعمال (4)' },
-        { id: 'studio', label: isEn ? 'Studio Philosophy' : 'فلسفة الاستوديو' },
-        { id: 'contact', label: isEn ? 'Contact Studio' : 'تواصل معنا' }
+        { id: 'BASCODE', label: isEn ? 'BASCODE Philosophy' : 'فلسفة الاستوديو' },
+        { id: 'contact', label: isEn ? 'Contact BASCODE' : 'تواصل معنا' }
       ];
 
       container.innerHTML = links.map(link => {
@@ -1577,8 +1577,8 @@
         container.innerHTML = getServicesViewHtml(isEn);
       } else if (currentView === 'demos') {
         container.innerHTML = getLiveDemosViewHtml(isEn);
-      } else if (currentView === 'studio') {
-        container.innerHTML = getStudioViewHtml(isEn);
+      } else if (currentView === 'BASCODE') {
+        container.innerHTML = getBASCODEViewHtml(isEn);
       } else if (currentView === 'contact') {
         container.innerHTML = getContactViewHtml(isEn);
       }
@@ -1651,7 +1651,7 @@
                     <p class="mono text-[10px] opacity-60 mt-0.5">${isEn ? 'DIGITAL SERVICES' : 'خدمات متخصصة'}</p>
                   </div>
                   <div>
-                    <span class="font-display text-2xl font-normal gold-foil">12</span>
+                    <span class="font-display text-2xl font-normal gold-foil">4</span>
                     <p class="mono text-[10px] opacity-60 mt-0.5">${isEn ? 'LIVE DEMOS' : 'نماذج حية تفاعلية'}</p>
                   </div>
                   <div>
@@ -1662,18 +1662,18 @@
 
               </div>
 
-              <!-- Hero Visual Art / Studio Showcase -->
+              <!-- Hero Visual Art / BASCODE Showcase -->
               <div class="lg:col-span-5 relative">
                 <div class="relative rounded-2xl overflow-hidden border hairline surface shadow-2xl p-2">
                   <div class="aspect-[4/3] rounded-xl overflow-hidden relative bg-[#0C0E11]">
                     <img
                       src="/images/hero_tech_setup_1790350296932.jpg"
-                      alt="BASCODE Studio"
+                      alt="BASCODE BASCODE"
                       class="w-full h-full object-cover"
                       onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80';"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-6">
-                      <span class="mono text-[10px] text-[#C9A75E] uppercase tracking-wider">${isEn ? 'STUDIO ARCHITECTURE' : 'هندسة وبرمجة متقدمة'}</span>
+                      <span class="mono text-[10px] text-[#C9A75E] uppercase tracking-wider">${isEn ? 'BASCODE ARCHITECTURE' : 'هندسة وبرمجة متقدمة'}</span>
                       <h3 class="text-lg font-bold text-white mt-1">${isEn ? 'Bespoke Software & Digital Craft' : 'برمجيات مصممة خصيصاً لنمو أعمالك'}</h3>
                     </div>
                   </div>
@@ -1807,7 +1807,7 @@
           </div>
         </section>
 
-        <!-- STUDIO PHILOSOPHY / HOW WE WORK -->
+        <!-- BASCODE PHILOSOPHY / HOW WE WORK -->
         <section class="py-16 md:py-24 border-b hairline">
           <div class="max-w-[1320px] mx-auto w-full px-5 md:px-8 space-y-12">
             <div>
@@ -2117,15 +2117,15 @@
       }
     }
 
-    // --- 10. STUDIO VIEW ---
-    function getStudioViewHtml(isEn) {
+    // --- 10. BASCODE VIEW ---
+    function getBASCODEViewHtml(isEn) {
       return `
         <section class="py-16 md:py-24 border-b hairline">
           <div class="max-w-[1320px] mx-auto w-full px-5 md:px-8 space-y-16">
             
             <div class="grid lg:grid-cols-12 gap-12 items-center">
               <div class="lg:col-span-7 space-y-6">
-                <span class="mono text-[11px] text-[#C9A75E] uppercase tracking-wider">${isEn ? 'STUDIO PHILOSOPHY' : 'عن استوديو باسكود'}</span>
+                <span class="mono text-[11px] text-[#C9A75E] uppercase tracking-wider">${isEn ? 'BASCODE PHILOSOPHY' : 'عن استوديو باسكود'}</span>
                 <h1 class="font-display text-4xl sm:text-5xl font-normal leading-tight">
                   ${isEn ? 'Engineered for Clarity and Performance' : 'هندسة برمجية مصممة للوضوح والأداء'}
                 </h1>
@@ -2318,7 +2318,7 @@
                 <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></span>
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></span>
               </div>
-              <span class="truncate max-w-[280px]">https://bascode.studio/templates/${demo.slug}</span>
+              <span class="truncate max-w-[280px]">https://bascode.BASCODE/templates/${demo.slug}</span>
               <span class="text-[10px] text-emerald-400">🔒 100% Offline Ready</span>
             </div>
 
